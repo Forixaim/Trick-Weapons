@@ -13,14 +13,22 @@ import yesman.epicfight.world.damagesource.StunType;
 
 public class TrickWeaponsAnimations
 {
+	/**
+	 * A stationary chakram throw with swinging motions from left to right.
+	 */
 	public static StaticAnimation CHAKRAM_AUTO1;
+	/**
+	 * A stationary chakram throw with swinging motions from bottom right to top left.
+	 */
 	public static StaticAnimation CHAKRAM_AUTO2;
-	public static StaticAnimation CHAKRAM_AUTO3;
+	/**
+	 * Dash forward and throw the chakram in a considerable distance ahead of you. Will miss on opponents too close to you.
+	 */
 	public static StaticAnimation CHAKRAM_DASH;
 
 
 	/**
-	 * @brief Registers the initialized animations.
+	 * Registers the initialized animations.
 	 * @param Event The Forge Event currently used by Epic Fight's API
 	 */
 	public static void RegisterAnimations(AnimationRegistryEvent Event)
@@ -29,6 +37,10 @@ public class TrickWeaponsAnimations
 		LOGGER.info("Team Forixaim: Loading Animations!");
 		Event.getRegistryMap().put(TrickWeapons.MOD_ID, TrickWeaponsAnimations::Initialize);
 	}
+
+	/**
+	 * Initializes the EpicFight Animations, binding proper EpicFight JSON animation files to the StaticAnimation classes.
+	 */
 	private static void Initialize()
 	{
 		HumanoidArmature Biped = Armatures.BIPED;

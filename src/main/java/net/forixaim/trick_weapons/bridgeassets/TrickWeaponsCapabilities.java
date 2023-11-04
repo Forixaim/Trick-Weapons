@@ -15,11 +15,12 @@ import yesman.epicfight.world.capabilities.item.WeaponCategory;
 import java.util.function.Function;
 
 /**
- * @brief This class is used to register capabilities
+ * @brief This class is used to register the core weapon capabilities
  */
 public class TrickWeaponsCapabilities {
 	/**
-	 * @brief Placeholder animations
+	 * Placeholder animations
+	 * Rapiers are light and thin swords that are used for consecutive light quick thrust attacks with some minor slashes.
 	 */
 	public static final Function<Item, CapabilityItem.Builder> RAPIER = (item) -> {
 		return WeaponCapability.builder()
@@ -37,7 +38,8 @@ public class TrickWeaponsCapabilities {
 	};
 
 	/**
-	 * @brief Chakram Animations with inspirations from Better Combat and Simply Swords
+	 * Chakram Animations with inspirations from Better Combat and Simply Swords
+	 * Chakrams are small and lightweight throwing weapons that excel in ranged combat but can miss on close range encounters.
 	 */
 	public static final Function<Item, CapabilityItem.Builder> CHAKRAM = (item) -> {
 		return WeaponCapability.builder()
@@ -55,8 +57,17 @@ public class TrickWeaponsCapabilities {
 				.swingSound(EpicFightSounds.WHOOSH_SMALL);
 	};
 
+	/**
+	 * This Enum Class has the weapon categories
+	 */
 	public enum ProjectOmneriaWeaponCategories implements WeaponCategory {
+		/**
+		 * Rapiers are light and thin swords that are used for consecutive light quick thrust attacks with some minor slashes.
+		 */
 		RAPIER,
+		/**
+		 * Chakrams are small and lightweight throwing weapons that excel in ranged combat but can miss on close range encounters.
+		 */
 		CHAKRAM;
 		final int id;
 
