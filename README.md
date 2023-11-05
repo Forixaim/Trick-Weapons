@@ -1,4 +1,4 @@
-# Trick-Weapons
+![Tricky Weapons](https://media.forgecdn.net/attachments/754/265/tricky-weapons-11-4-2023-2.png)
 Getting tricky with generics!
 
 ## Mod Focus
