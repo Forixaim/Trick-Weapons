@@ -25,7 +25,14 @@ public class TrickWeaponsAnimations
 	 * Dash forward and throw the chakram in a considerable distance ahead of you. Will miss on opponents too close to you.
 	 */
 	public static StaticAnimation CHAKRAM_DASH;
-
+	/**
+	 * Same as second auto but in the air. Currently couldn't think of a new original one.
+	 */
+	public static StaticAnimation CHAKRAM_AIRSLASH;
+	/**
+	 * Throws the chakram a long distance in a stright line ahead of you then returning it back.
+	 */
+	public static StaticAnimation PRECISION_VERTICAL;
 
 	/**
 	 * Registers the initialized animations.
@@ -49,5 +56,7 @@ public class TrickWeaponsAnimations
 		CHAKRAM_AUTO1 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.4f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto1", Biped);
 		CHAKRAM_AUTO2 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.4f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto2", Biped);
 		CHAKRAM_DASH = new DashAttackAnimation(0.1F, 0.1F, 0.1F, 0.2F, 0.65F, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_dash", Biped);
+		CHAKRAM_AIRSLASH = new AirSlashAnimation(0.1f, 0.0f, 0.3f, 0.4f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto2", Biped);
+		PRECISION_VERTICAL = new AttackAnimation(0.1F, 0.0F, 0.15F, 0.3F, 0.8F, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_precision_vertical", Biped);
 	}
 }

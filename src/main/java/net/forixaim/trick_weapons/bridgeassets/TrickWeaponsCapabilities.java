@@ -48,11 +48,11 @@ public class TrickWeaponsCapabilities {
 					return TrickWeaponsStyles.CHAKRAM;
 				})
 				.category(ProjectOmneriaWeaponCategories.CHAKRAM)
-				.innateSkill(TrickWeaponsStyles.CHAKRAM, itemStack -> EpicFightSkills.SWEEPING_EDGE)
+				.innateSkill(TrickWeaponsStyles.CHAKRAM, itemStack -> TrickWeaponsInnateSkills.PRECISION_VERTICAL)
 				.newStyleCombo(TrickWeaponsStyles.CHAKRAM,
 						TrickWeaponsAnimations.CHAKRAM_AUTO1,
 						TrickWeaponsAnimations.CHAKRAM_AUTO2,
-						TrickWeaponsAnimations.CHAKRAM_DASH, Animations.DAGGER_AIR_SLASH)
+						TrickWeaponsAnimations.CHAKRAM_DASH, TrickWeaponsAnimations.CHAKRAM_AIRSLASH)
 				.livingMotionModifier(TrickWeaponsStyles.CHAKRAM, LivingMotions.IDLE, Animations.BIPED_IDLE)
 				.swingSound(EpicFightSounds.WHOOSH_SMALL);
 	};

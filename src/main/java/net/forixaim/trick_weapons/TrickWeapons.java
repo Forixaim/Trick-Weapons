@@ -3,6 +3,7 @@ package net.forixaim.trick_weapons;
 import com.mojang.logging.LogUtils;
 import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsAnimations;
 import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsCapabilities;
+import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsInnateSkills;
 import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsStyles;
 import net.forixaim.trick_weapons.world.item.TrickWeaponsPlaceholderItems;
 import net.minecraft.world.level.block.Block;
@@ -44,6 +45,7 @@ public class TrickWeapons {
         TrickWeaponsCapabilities.ProjectOmneriaWeaponCategories.ENUM_MANAGER.loadPreemptive(TrickWeaponsCapabilities.ProjectOmneriaWeaponCategories.class);
         eventBus.addListener(TrickWeaponsAnimations::RegisterAnimations);
         eventBus.addListener(TrickWeaponsCapabilities::register);
+        TrickWeaponsInnateSkills.RegisterSkills();
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
