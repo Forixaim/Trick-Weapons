@@ -18,6 +18,9 @@ import yesman.epicfight.world.damagesource.StunType;
 import java.util.Set;
 @Mod.EventBusSubscriber(modid=TrickWeapons.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class TrickWeaponsInnateSkills {
+	/**
+	 * Precision Vertical is a powerful forward chakram throw that hits twice.
+	 */
 	public static Skill PRECISION_VERTICAL;
 
 	public static void RegisterSkills()
@@ -30,11 +33,11 @@ public class TrickWeaponsInnateSkills {
 	{
 		WeaponInnateSkill PrecisionVertical = OnBuild.build(TrickWeapons.MOD_ID, "precision_vertical");
 		PrecisionVertical.newProperty()
-				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.adder(1))
+				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.adder(2))
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(2.0F))
-				.addProperty(AnimationProperty.AttackPhaseProperty.ARMOR_NEGATION_MODIFIER, ValueModifier.adder(20.0F))
+				.addProperty(AnimationProperty.AttackPhaseProperty.ARMOR_NEGATION_MODIFIER, ValueModifier.adder(40.0F))
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(1.6F))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG )
 				.addProperty(AnimationProperty.AttackPhaseProperty.EXTRA_DAMAGE, Set.of(ExtraDamageInstance.SWEEPING_EDGE_ENCHANTMENT.create()))
 				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.WEAPON_INNATE))
 				.registerPropertiesToAnimation();

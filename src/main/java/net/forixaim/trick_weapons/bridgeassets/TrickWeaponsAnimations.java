@@ -11,6 +11,11 @@ import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.model.armature.HumanoidArmature;
 import yesman.epicfight.world.damagesource.StunType;
 
+//convertTime: Startup
+//antic: Idk
+//contact: Active Frames
+//recovery: Endlag
+
 public class TrickWeaponsAnimations
 {
 	/**
@@ -54,9 +59,9 @@ public class TrickWeaponsAnimations
 		Logger LOGGER = LogUtils.getLogger();
 		LOGGER.info("Team Forixaim: Initialization in Progress!");
 		CHAKRAM_AUTO1 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.4f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto1", Biped);
-		CHAKRAM_AUTO2 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.4f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto2", Biped);
-		CHAKRAM_DASH = new DashAttackAnimation(0.1F, 0.1F, 0.1F, 0.2F, 0.65F, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_dash", Biped);
+		CHAKRAM_AUTO2 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 1.2f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto2", Biped);
+		CHAKRAM_DASH = new DashAttackAnimation(0.05F, 0.1F, 0.05F, 0.7F, 0.65F, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_dash", Biped);
 		CHAKRAM_AIRSLASH = new AirSlashAnimation(0.1f, 0.0f, 0.3f, 0.4f, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_auto2", Biped);
-		PRECISION_VERTICAL = new AttackAnimation(0.1F, 0.0F, 0.15F, 0.3F, 0.8F, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_precision_vertical", Biped);
+		PRECISION_VERTICAL = new AttackAnimation(0.1F, 0.0F, 0.15F, 1.2F, 1.8F, ColliderPreset.DAGGER, Biped.toolR, "chakram/chakram_precision_vertical", Biped);
 	}
 }
