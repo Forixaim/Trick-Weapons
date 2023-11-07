@@ -42,7 +42,7 @@ public class TrickWeapons {
 
         TrickWeaponsPlaceholderItems.register(eventBus);
         TrickWeaponsStyles.ENUM_MANAGER.loadPreemptive(TrickWeaponsStyles.class);
-        TrickWeaponsCapabilities.ProjectOmneriaWeaponCategories.ENUM_MANAGER.loadPreemptive(TrickWeaponsCapabilities.ProjectOmneriaWeaponCategories.class);
+        TrickWeaponsCapabilities.TrickWeaponCategories.ENUM_MANAGER.loadPreemptive(TrickWeaponsCapabilities.TrickWeaponCategories.class);
         eventBus.addListener(TrickWeaponsAnimations::RegisterAnimations);
         eventBus.addListener(TrickWeaponsCapabilities::register);
         TrickWeaponsInnateSkills.RegisterSkills();
