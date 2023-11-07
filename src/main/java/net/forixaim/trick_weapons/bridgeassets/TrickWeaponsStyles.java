@@ -11,7 +11,12 @@ public enum TrickWeaponsStyles implements Style
 	/**
 	 * Chakrams are small and lightweight throwing weapons that excel in ranged combat but can miss on close range encounters.
 	 */
-	CHAKRAM(true);
+	CHAKRAM(true),
+	/**
+	 * Imagine the stupid range of chakrams, but double it.
+	 */
+	DUAL_CHAKRAMS(false);
+
 
 	final boolean canUseOffHand;
 	final int id;
