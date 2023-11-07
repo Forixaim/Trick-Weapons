@@ -1,6 +1,11 @@
 package net.forixaim.trick_weapons;
 
 import com.mojang.logging.LogUtils;
+import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsAnimations;
+import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsCapabilities;
+import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsInnateSkills;
+import net.forixaim.trick_weapons.bridgeassets.TrickWeaponsStyles;
+import net.forixaim.trick_weapons.world.item.TrickWeaponsPlaceholderItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -30,36 +35,21 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(TrickWeapons.MODID)
+@Mod(TrickWeapons.MOD_ID)
 public class TrickWeapons {
 
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "trick_weapons";
+    public static final String MOD_ID = "trick_weapons";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "trick_weapons" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "trick_weapons" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
     // Creates a new Block with the id "trick_weapons:example_block", combining the namespace and path
-    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    // Creates a new BlockItem with the id "trick_weapons:example_block", combining the namespace and path
-    public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-            output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
 
     public TrickWeapons() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -67,10 +57,13 @@ public class TrickWeapons {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
+        TrickWeaponsPlaceholderItems.register(modEventBus);
+        TrickWeaponsStyles.ENUM_MANAGER.loadPreemptive(TrickWeaponsStyles.class);
+        TrickWeaponsCapabilities.TrickWeaponCategories.ENUM_MANAGER.loadPreemptive(TrickWeaponsCapabilities.TrickWeaponCategories.class);
+        modEventBus.addListener(TrickWeaponsAnimations::RegisterAnimations);
+        modEventBus.addListener(TrickWeaponsCapabilities::register);
+        TrickWeaponsInnateSkills.RegisterSkills();
+
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
@@ -100,8 +93,8 @@ public class TrickWeapons {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.COMBAT)
+            event.accept(TrickWeaponsPlaceholderItems.wIron_Chakram);
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
@@ -111,7 +104,7 @@ public class TrickWeapons {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
         @SubscribeEvent
