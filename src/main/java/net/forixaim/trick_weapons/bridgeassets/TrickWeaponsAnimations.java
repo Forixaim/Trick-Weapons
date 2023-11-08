@@ -7,19 +7,25 @@ import net.forixaim.trick_weapons.TrickWeapons;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
 import org.slf4j.Logger;
+import yesman.epicfight.api.animation.property.AnimationEvent;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.*;
+import yesman.epicfight.api.collider.Collider;
 import yesman.epicfight.api.forgeevent.AnimationRegistryEvent;
 import yesman.epicfight.api.utils.TimePairList;
 import yesman.epicfight.api.utils.math.ValueModifier;
+import yesman.epicfight.api.utils.math.Vec3f;
+import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.Armatures;
 import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.model.armature.HumanoidArmature;
 import yesman.epicfight.api.animation.types.AttackAnimation.Phase;
+import yesman.epicfight.world.damagesource.SourceTags;
 import yesman.epicfight.world.damagesource.StunType;
 
 import java.util.List;
+import java.util.Set;
 
 //convertTime: Startup
 //antic: Idk
@@ -72,11 +78,15 @@ public class TrickWeaponsAnimations
 	 * After a quick startup, spin around orbiting your chakrams twice before returning to your hands.
 	 */
 	public static StaticAnimation SPINNING_WHIRLWIND;
+	public static StaticAnimation HOLD_RAPIER;
+	public static StaticAnimation RAPIER_AUTO1;
+	public static StaticAnimation GREATSWORD_VARIANT_DASH;
+	public static StaticAnimation GREATSWORD_VARIANT_BASIC_RUN;
+	public static StaticAnimation HOLD_GREATSWORD_VARIANT;
 	/**
 	 * Registers the initialized animations.
 	 * @param Event The Forge Event currently used by Epic Fight's API
 	 */
-
 
 	public static void RegisterAnimations(AnimationRegistryEvent Event)
 	{
@@ -114,6 +124,12 @@ public class TrickWeaponsAnimations
 				.addProperty(AnimationProperty.ActionAnimationProperty.AFFECT_SPEED, false)
 				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true);
-
+		GREATSWORD_VARIANT_DASH = (new DashAttackAnimation(0.2F, 0.2F, 1.1F, 2.1F, 1.7F, (Collider)null, Biped.toolR, "greatsword_variant/greatsword_dash", Biped, false))
+				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.FINISHER))
+				.addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F)
+				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false)
+				.addEvents(new AnimationEvent.TimeStampedEvent[]{AnimationEvent.TimeStampedEvent.create(0.8F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Object[]{new Vec3f(0.0F, -0.24F, -2.0F), Armatures.BIPED.toolR, 1.1, 0.55F})});
+		GREATSWORD_VARIANT_BASIC_RUN = new MovementAnimation(true, "greatsword_variant/run_greatsword", Biped);
+		HOLD_GREATSWORD_VARIANT = new StaticAnimation(true, "greatsword_variant/hold_greatsword", Biped);
 	}
 }

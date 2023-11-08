@@ -57,12 +57,13 @@ public class TrickWeapons {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+
         TrickWeaponsPlaceholderItems.register(modEventBus);
         TrickWeaponsStyles.ENUM_MANAGER.loadPreemptive(TrickWeaponsStyles.class);
         TrickWeaponsCapabilities.TrickWeaponCategories.ENUM_MANAGER.loadPreemptive(TrickWeaponsCapabilities.TrickWeaponCategories.class);
         modEventBus.addListener(TrickWeaponsAnimations::RegisterAnimations);
-        modEventBus.addListener(TrickWeaponsCapabilities::register);
         TrickWeaponsInnateSkills.RegisterSkills();
+        modEventBus.addListener(TrickWeaponsCapabilities::register);
 
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
@@ -79,22 +80,12 @@ public class TrickWeapons {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.COMBAT)
-            event.accept(TrickWeaponsPlaceholderItems.wIron_Chakram);
+
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

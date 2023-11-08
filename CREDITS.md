@@ -1,0 +1,4 @@
+Credits
+---------------
+
+## PierceTH - Greatsword Variant
