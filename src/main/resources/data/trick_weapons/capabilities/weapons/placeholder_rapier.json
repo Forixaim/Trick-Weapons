@@ -5,15 +5,13 @@
 		{
 			"armor_negation":12.0,
 			"impact":2.3,
-			"max_strikes":2,
-			"speed_bonus": -1.1
+			"max_strikes":2
 		},
 		"two_hand":
 		{
 			"armor_negation":0.0,
 			"impact":1.6,
-			"max_strikes":3,
-			"speed_bonus": -1.1
+			"max_strikes":3
 		},
 		"collider":
 		{
@@ -22,5 +20,5 @@
 			"size": [5.0, 5.0, 5.0]
 		}
 	},
-	"type": "chakram"
+	"type": "rapier"
 }

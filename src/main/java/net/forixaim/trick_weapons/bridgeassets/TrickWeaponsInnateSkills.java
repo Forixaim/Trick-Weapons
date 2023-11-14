@@ -23,11 +23,12 @@ public class TrickWeaponsInnateSkills {
 	 */
 	public static Skill PRECISION_VERTICAL;
 	public static Skill SPINNING_WHIRLWIND;
+	public static Skill QUICK_RIPOSTE;
 
-	public static void RegisterSkills()
-	{
+	public static void RegisterSkills() {
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(new ResourceLocation(TrickWeapons.MOD_ID, "chakram/chakram_precision_vertical")), TrickWeapons.MOD_ID, "precision_vertical");
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(new ResourceLocation(TrickWeapons.MOD_ID, "chakram/chakram_spinning_whirlwind")), TrickWeapons.MOD_ID, "spinning_whirlwind");
+		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(new ResourceLocation(TrickWeapons.MOD_ID, "rapier/quick_riposte")), TrickWeapons.MOD_ID, "quick_riposte");
 	}
 
 	@SubscribeEvent
@@ -55,5 +56,15 @@ public class TrickWeaponsInnateSkills {
 				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.WEAPON_INNATE))
 				.registerPropertiesToAnimation();
 		SPINNING_WHIRLWIND = SpinningWhirlwind;
+		WeaponInnateSkill QuickRiposte = OnBuild.build(TrickWeapons.MOD_ID, "quick_riposte");
+		QuickRiposte.newProperty()
+				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.adder(2))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(2.0F))
+				.addProperty(AnimationProperty.AttackPhaseProperty.ARMOR_NEGATION_MODIFIER, ValueModifier.adder(40.0F))
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(1.6F))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG )
+				.addProperty(AnimationProperty.AttackPhaseProperty.EXTRA_DAMAGE, Set.of(ExtraDamageInstance.SWEEPING_EDGE_ENCHANTMENT.create()))
+				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.WEAPON_INNATE));
+		QUICK_RIPOSTE = QuickRiposte;
 	}
 }

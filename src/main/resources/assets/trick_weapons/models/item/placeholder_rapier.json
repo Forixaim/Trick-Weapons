@@ -1,7 +1,4 @@
 {
-	"loader": "forge:separate-perspective",
-	"base":
-	{
 		"loader": "forge:obj",
 		"model": "trick_weapons:models/item/3d-models/placeholder_rapier.obj",
 		"flip-v": true,
@@ -20,33 +17,4 @@
 				"scale": [0.7, 0.7, 0.7]
 			}
 		}
-	},
-	"perspectives":
-	{
-		"ground":
-		{
-			"parent": "item/generated",
-			"textures":
-			{
-				"layer0": "omneria:item/joyeuse"
-			}
-		},
-		"gui":
-		{
-			"parent": "item/generated",
-			"textures":
-			{
-				"layer0": "omneria:item/joyeuse"
-			},
-			"gui_light": "front"
-		},
-		"fixed":
-		{
-			"parent": "item/generated",
-			"textures":
-			{
-				"layer0": "omneria:item/joyeuse"
-			}
-		}
-	}
 }

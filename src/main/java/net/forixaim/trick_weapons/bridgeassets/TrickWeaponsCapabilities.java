@@ -1,6 +1,7 @@
 package net.forixaim.trick_weapons.bridgeassets;
 
 import com.google.common.collect.Maps;
+import com.mojang.datafixers.types.Func;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
@@ -13,6 +14,7 @@ import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.skill.SkillSlots;
+import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
@@ -39,6 +41,7 @@ public class TrickWeaponsCapabilities {
 				.styleProvider((playerpatch) ->
 						playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == TrickWeaponCategories.CHAKRAM ? CapabilityItem.Styles.TWO_HAND : CapabilityItem.Styles.ONE_HAND)
 				.category(TrickWeaponCategories.CHAKRAM)
+				.hitSound(EpicFightSounds.BLADE_HIT.get())
 				.swingSound(EpicFightSounds.WHOOSH_SMALL.get())
 				.innateSkill(CapabilityItem.Styles.ONE_HAND, itemStack -> TrickWeaponsInnateSkills.PRECISION_VERTICAL)
 				.innateSkill(CapabilityItem.Styles.TWO_HAND, itemStack -> TrickWeaponsInnateSkills.SPINNING_WHIRLWIND)
@@ -55,16 +58,29 @@ public class TrickWeaponsCapabilities {
 				.weaponCombinationPredicator((entitypatch) -> EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == TrickWeaponCategories.CHAKRAM);
 
 	};
-
+	public static final Function<Item, CapabilityItem.Builder> RAPIER = (item) ->
+			WeaponCapability.builder()
+					.category(CapabilityItem.WeaponCategories.SWORD)
+					.styleProvider((playerpatch) -> CapabilityItem.Styles.TWO_HAND)
+					.collider(ColliderPreset.LONGSWORD)
+					.swingSound(EpicFightSounds.WHOOSH.get())
+					.hitSound(EpicFightSounds.BLADE_HIT.get())
+					.canBePlacedOffhand(false)
+					.innateSkill(CapabilityItem.Styles.TWO_HAND, (itemStack -> TrickWeaponsInnateSkills.QUICK_RIPOSTE))
+					.newStyleCombo(CapabilityItem.Styles.TWO_HAND, TrickWeaponsAnimations.RAPIER_AUTO1, TrickWeaponsAnimations.RAPIER_AUTO2, TrickWeaponsAnimations.RAPIER_AUTO3, Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, TrickWeaponsAnimations.HOLD_RAPIER)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, TrickWeaponsAnimations.RAPIER_WALK)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, Animations.BIPED_RUN_UCHIGATANA)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.UCHIGATANA_GUARD);
 	public static final Function<Item, CapabilityItem.Builder> GREATSWORD_VARIANT = (item) ->
 			WeaponCapability.builder()
-					.category(TrickWeaponCategories.GREATSWORD_VARIANT)
+					.category(CapabilityItem.WeaponCategories.GREATSWORD)
 					.styleProvider((playerpatch) -> CapabilityItem.Styles.TWO_HAND)
 					.collider(ColliderPreset.GREATSWORD)
 					.swingSound(EpicFightSounds.WHOOSH_BIG.get())
 					.hitSound(EpicFightSounds.BLADE_HIT.get())
 					.canBePlacedOffhand(false)
-					.newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2, TrickWeaponsAnimations.GREATSWORD_VARIANT_DASH, Animations.GREATSWORD_AIR_SLASH)
+					.newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2, TrickWeaponsAnimations.GREATSWORD_VARIANT_DASH, TrickWeaponsAnimations.GREATSWORD_VARIANT_AIRSLASH)
 					.innateSkill(CapabilityItem.Styles.TWO_HAND, (itemstack) -> EpicFightSkills.STEEL_WHIRLWIND)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, TrickWeaponsAnimations.HOLD_GREATSWORD_VARIANT)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_WALK_GREATSWORD)
@@ -78,6 +94,12 @@ public class TrickWeaponsCapabilities {
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CREATIVE_FLY, Animations.BIPED_HOLD_GREATSWORD)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CREATIVE_IDLE, Animations.BIPED_HOLD_GREATSWORD)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
+	public static final Function<Item, CapabilityItem.Builder> SPELLBOOK = (item) ->
+			WeaponCapability.builder()
+					.category(TrickWeaponCategories.SPELLBOOK)
+					.styleProvider((playerpatch) -> CapabilityItem.Styles.ONE_HAND)
+					.canBePlacedOffhand(false)
+					.livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.IDLE, TrickWeaponsAnimations.HOLD_SPELLBOOK);
 
 	/**
 	 * This Enum Class has the weapon categories
@@ -94,7 +116,7 @@ public class TrickWeaponsCapabilities {
 		/**
 		 * PierceTH's Resource Pack on a Variant of Greatsword.
 		 */
-		GREATSWORD_VARIANT;
+		SPELLBOOK;
 		final int id;
 
 		private TrickWeaponCategories()
@@ -113,6 +135,8 @@ public class TrickWeaponsCapabilities {
 		LOGGER.info("Loading Weapon Capabilities");
 		event.getTypeEntry().put("chakram", CHAKRAM);
 		event.getTypeEntry().put("greatsword_variant",GREATSWORD_VARIANT);
+		event.getTypeEntry().put("spellbook", SPELLBOOK);
+		event.getTypeEntry().put("rapier", RAPIER);
 		LOGGER.info("Weapon Capabilities Loaded");
 	}
 

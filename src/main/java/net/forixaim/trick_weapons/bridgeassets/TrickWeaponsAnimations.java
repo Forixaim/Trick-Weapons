@@ -80,9 +80,16 @@ public class TrickWeaponsAnimations
 	public static StaticAnimation SPINNING_WHIRLWIND;
 	public static StaticAnimation HOLD_RAPIER;
 	public static StaticAnimation RAPIER_AUTO1;
+	public static StaticAnimation RAPIER_AUTO2;
+	public static StaticAnimation RAPIER_AUTO3;
+	public static StaticAnimation RAPIER_AUTO4;
 	public static StaticAnimation GREATSWORD_VARIANT_DASH;
 	public static StaticAnimation GREATSWORD_VARIANT_BASIC_RUN;
 	public static StaticAnimation HOLD_GREATSWORD_VARIANT;
+	public static StaticAnimation GREATSWORD_VARIANT_AIRSLASH;
+	public static StaticAnimation HOLD_SPELLBOOK;
+	public static StaticAnimation RAPIER_WALK;
+	public static StaticAnimation QUICK_RIPOSTE;
 	/**
 	 * Registers the initialized animations.
 	 * @param Event The Forge Event currently used by Epic Fight's API
@@ -131,5 +138,18 @@ public class TrickWeaponsAnimations
 				.addEvents(new AnimationEvent.TimeStampedEvent[]{AnimationEvent.TimeStampedEvent.create(0.8F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Object[]{new Vec3f(0.0F, -0.24F, -2.0F), Armatures.BIPED.toolR, 1.1, 0.55F})});
 		GREATSWORD_VARIANT_BASIC_RUN = new MovementAnimation(true, "greatsword_variant/run_greatsword", Biped);
 		HOLD_GREATSWORD_VARIANT = new StaticAnimation(true, "greatsword_variant/hold_greatsword", Biped);
+		GREATSWORD_VARIANT_AIRSLASH = new AirSlashAnimation(0.1F, 0.5F, 0.75F, 1.21F, 0.75F, false, null, Biped.toolR, "greatsword_variant/greatsword_airslash", Biped)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.FINISHER))
+				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.6f))
+				.addEvents(new AnimationEvent.TimeStampedEvent[]{AnimationEvent.TimeStampedEvent.create(2.5F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Object[]{new Vec3f(0.0F, -0.24F, -2.0F), Armatures.BIPED.toolR, 1.1, 0.55F})});;
+		HOLD_RAPIER = new StaticAnimation(true, "rapier/hold_rapier", Biped);
+		RAPIER_WALK = new MovementAnimation(true, "rapier/rapier_walk", Biped);
+		RAPIER_AUTO1 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.7f, 0.4f, ColliderPreset.LONGSWORD, Biped.toolR, "rapier/rapier_auto1", Biped);
+		HOLD_SPELLBOOK = new StaticAnimation(true, "spellbook/hold_spellbook", Biped);
+		RAPIER_AUTO2 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.7f, 0.4f, ColliderPreset.LONGSWORD, Biped.toolR, "rapier/rapier_auto2", Biped);
+		RAPIER_AUTO3 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.7f, 0.4f, ColliderPreset.LONGSWORD, Biped.toolR, "rapier/rapier_auto3", Biped);
+		RAPIER_AUTO4 = new BasicAttackAnimation(0.1f, 0.0f, 0.3f, 0.7f, 0.4f, ColliderPreset.LONGSWORD, Biped.toolR, "rapier/rapier_auto4", Biped);
+		QUICK_RIPOSTE = new AttackAnimation(0.1F, 0.0F, 0.6F, 1.2F, 1.8F, ColliderPreset.LONGSWORD, Biped.toolR, "rapier/quick_riposte", Biped);
+
 	}
 }
