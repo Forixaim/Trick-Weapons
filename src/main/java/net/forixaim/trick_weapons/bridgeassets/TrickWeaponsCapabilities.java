@@ -3,6 +3,7 @@ package net.forixaim.trick_weapons.bridgeassets;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.types.Func;
 import com.mojang.logging.LogUtils;
+import net.forixaim.trick_weapons.TrickWeapons;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fml.ModLoader;
@@ -16,6 +17,7 @@ import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
@@ -66,34 +68,45 @@ public class TrickWeaponsCapabilities {
 					.swingSound(EpicFightSounds.WHOOSH.get())
 					.hitSound(EpicFightSounds.BLADE_HIT.get())
 					.canBePlacedOffhand(false)
-					.innateSkill(CapabilityItem.Styles.TWO_HAND, (itemStack -> TrickWeaponsInnateSkills.QUICK_RIPOSTE))
+					.innateSkill(CapabilityItem.Styles.TWO_HAND, (itemStack -> EpicFightSkills.TSUNAMI))
 					.newStyleCombo(CapabilityItem.Styles.TWO_HAND, TrickWeaponsAnimations.RAPIER_AUTO1, TrickWeaponsAnimations.RAPIER_AUTO2, TrickWeaponsAnimations.RAPIER_AUTO3, Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, TrickWeaponsAnimations.HOLD_RAPIER)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, TrickWeaponsAnimations.RAPIER_WALK)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, Animations.BIPED_RUN_UCHIGATANA)
 					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.UCHIGATANA_GUARD);
-	public static final Function<Item, CapabilityItem.Builder> GREATSWORD_VARIANT = (item) ->
+	public static final Function<Item, CapabilityItem.Builder> JOYEUSE = (item) ->
 			WeaponCapability.builder()
-					.category(CapabilityItem.WeaponCategories.GREATSWORD)
-					.styleProvider((playerpatch) -> CapabilityItem.Styles.TWO_HAND)
-					.collider(ColliderPreset.GREATSWORD)
-					.swingSound(EpicFightSounds.WHOOSH_BIG.get())
-					.hitSound(EpicFightSounds.BLADE_HIT.get())
+					.styleProvider((playerpatch) -> {
+						if (((PlayerPatch)playerpatch).getSkill(EpicFightSkills.SWORD_MASTER) != null)
+						{
+							return TrickWeaponsStyles.JOYEUSE;
+						}
+						return CapabilityItem.Styles.TWO_HAND;
+					})
 					.canBePlacedOffhand(false)
-					.newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2, TrickWeaponsAnimations.GREATSWORD_VARIANT_DASH, TrickWeaponsAnimations.GREATSWORD_VARIANT_AIRSLASH)
-					.innateSkill(CapabilityItem.Styles.TWO_HAND, (itemstack) -> EpicFightSkills.STEEL_WHIRLWIND)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, TrickWeaponsAnimations.HOLD_GREATSWORD_VARIANT)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_WALK_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, Animations.BIPED_WALK_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, TrickWeaponsAnimations.GREATSWORD_VARIANT_BASIC_RUN)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.JUMP, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.FLY, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CREATIVE_FLY, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CREATIVE_IDLE, Animations.BIPED_HOLD_GREATSWORD)
-					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
+					.category(CapabilityItem.WeaponCategories.SWORD)
+					.collider(ColliderPreset.LONGSWORD)
+					.hitSound(EpicFightSounds.BLADE_HIT.get())
+					.innateSkill(TrickWeaponsStyles.JOYEUSE, itemStack -> TrickWeaponsInnateSkills.FLARE_BLADE)
+					.innateSkill(CapabilityItem.Styles.TWO_HAND, itemStack -> EpicFightSkills.SHARP_STAB)
+					.newStyleCombo(TrickWeaponsStyles.JOYEUSE,
+							TrickWeaponsAnimations.JOYEUSE_AUTO1,
+							TrickWeaponsAnimations.JOYEUSE_AUTO2,
+							TrickWeaponsAnimations.JOYEUSE_AUTO3,
+							TrickWeaponsAnimations.JOYEUSE_DASH, Animations.LONGSWORD_AIR_SLASH)
+					.newStyleCombo(CapabilityItem.Styles.TWO_HAND,
+							Animations.LONGSWORD_AUTO1,
+							Animations.LONGSWORD_AUTO2,
+							Animations.LONGSWORD_AUTO3,
+							Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
+					.livingMotionModifier(TrickWeaponsStyles.JOYEUSE, LivingMotions.IDLE, TrickWeaponsAnimations.HOLD_JOYEUSE)
+					.livingMotionModifier(TrickWeaponsStyles.JOYEUSE, LivingMotions.WALK, TrickWeaponsAnimations.JOYEUSE_WALK)
+					.livingMotionModifier(TrickWeaponsStyles.JOYEUSE, LivingMotions.RUN, TrickWeaponsAnimations.JOYEUSE_RUN)
+					.livingMotionModifier(TrickWeaponsStyles.JOYEUSE, LivingMotions.BLOCK, Animations.LONGSWORD_GUARD)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, Animations.BIPED_HOLD_LONGSWORD)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_WALK_LONGSWORD)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, Animations.BIPED_RUN_LONGSWORD)
+					.livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.LONGSWORD_GUARD);
 	public static final Function<Item, CapabilityItem.Builder> SPELLBOOK = (item) ->
 			WeaponCapability.builder()
 					.category(TrickWeaponCategories.SPELLBOOK)
@@ -134,7 +147,7 @@ public class TrickWeaponsCapabilities {
 		Logger LOGGER = LogUtils.getLogger();
 		LOGGER.info("Loading Weapon Capabilities");
 		event.getTypeEntry().put("chakram", CHAKRAM);
-		event.getTypeEntry().put("greatsword_variant",GREATSWORD_VARIANT);
+		event.getTypeEntry().put("joyeuse", JOYEUSE);
 		event.getTypeEntry().put("spellbook", SPELLBOOK);
 		event.getTypeEntry().put("rapier", RAPIER);
 		LOGGER.info("Weapon Capabilities Loaded");

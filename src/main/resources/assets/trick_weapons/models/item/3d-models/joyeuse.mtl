@@ -1,0 +1,13 @@
+# Blender 3.6.1 MTL File: 'Joyeuse.blend'
+# www.blender.org
+
+newmtl Material
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.450000
+illum 3
+map_Kd trick_weapons:item/joyeuse/joyeuse_base_color
+map_Ns trick_weapons:item/joyeuse/joyeuse_roughness
+map_refl trick_weapons:item/joyeuse/joyeuse_metallic
+map_Ke trick_weapons:item/joyeuse/joyeuse_emission
+map_d trick_weapons:item/joyeuse/joyeuse_alpha

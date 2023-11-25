@@ -4,7 +4,7 @@ import yesman.epicfight.world.capabilities.item.Style;
 
 public enum TrickWeaponsStyles implements Style
 {
-	;
+	JOYEUSE(false);
 	final boolean canUseOffHand;
 	final int id;
 

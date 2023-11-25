@@ -4,5 +4,11 @@
 	"skill.trick_weapons.precision_vertical": "Precision Vertical",
 	"skill.trick_weapons.precision_vertical.tooltip": "Throw your chakram forward with devastating range in a precise area in front of you.",
 	"skill.trick_weapons.quick_riposte": "Quick Riposte",
-	"skill.trick_weapons.quick_riposte.tooltip": "Using a burst of speed to go behind an opponent before lunging at them with the blade."
+	"skill.trick_weapons.quick_riposte.tooltip": "Using a burst of speed to go behind an opponent before lunging at them with the blade.",
+	"skill.trick_weapons.spinning_whirlwind": "Spinning Whirlwind",
+	"skill.trick_weapons.spinning_whirlwind.tooltip": "Throw your chakrams in an orbit around you, knocking down targets",
+	"item.trick_weapons.joyeuse": "Joyeuse",
+	"item.trick_weapons.joyeuse.tooltip": "A relic of the primordial flame. Wielded by Charlemagne of House Flaron.",
+	"skill.trick_weapons.flare_blade": "Flare Blitz",
+	"skill.trick_weapons.flare_blade.tooltip": "Perform 5 blinding dashes that sets the opponent on fire."
 }
