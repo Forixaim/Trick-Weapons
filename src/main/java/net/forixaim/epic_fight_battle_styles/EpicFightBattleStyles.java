@@ -1,6 +1,8 @@
 package net.forixaim.epic_fight_battle_styles;
 
 import com.mojang.logging.LogUtils;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleCategories;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.AnimationRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.client.Minecraft;
@@ -52,6 +54,7 @@ public class EpicFightBattleStyles {
 
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
+        EpicFightBattleStyleSkillSlots.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);

@@ -1,6 +1,9 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.Colossus;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.Hero;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLuminelle;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,28 +21,46 @@ public class SkillRegistry
 {
 	//Weapon Innate Skills
 	public static Skill PRECISION_VERTICAL;
+	public static Skill SLAMMING_HERO;
+	//Battle Styles
+	public static Skill HERO;
+	public static Skill IMPERATRICE_LUMINELLE;
+	public static Skill COLOSSUS;
 
 	public static void RegisterSkills()
 	{
+		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
+		SkillManager.register(ImperatriceLuminelle::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
+		SkillManager.register(SimpleWeaponInnateSkill::new,  SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
+				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero")), EpicFightBattleStyles.MOD_ID, "slamming_hero");
 	}
 
 	@SubscribeEvent
 	public static void BuildSkillEvent(SkillBuildEvent OnBuild)
 	{
-		WeaponInnateSkill Precision_Vertical = OnBuild.build(EpicFightBattleStyles.MOD_ID, "precision_vertical");
-		Precision_Vertical
+		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
+		IMPERATRICE_LUMINELLE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+		WeaponInnateSkill PrecisionVertical = OnBuild.build(EpicFightBattleStyles.MOD_ID, "precision_vertical");
+		PrecisionVertical
 				.newProperty()
 				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.75f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.newProperty()
 				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.75f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.25f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.KNOCKDOWN)
 				.registerPropertiesToAnimation();
-		PRECISION_VERTICAL = Precision_Vertical;
+		PRECISION_VERTICAL = PrecisionVertical;
+		WeaponInnateSkill SlammingHero = OnBuild.build(EpicFightBattleStyles.MOD_ID, "slamming_hero");
+		SlammingHero
+				.newProperty()
+				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.KNOCKDOWN);
+		SLAMMING_HERO = SlammingHero;
 	}
 }

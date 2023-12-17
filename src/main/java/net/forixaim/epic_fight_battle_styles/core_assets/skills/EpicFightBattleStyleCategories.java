@@ -4,7 +4,7 @@ import yesman.epicfight.skill.SkillCategory;
 
 public enum EpicFightBattleStyleCategories implements SkillCategory
 {
-	BATTLE_STYLE(true, true, false);
+	BATTLE_STYLE(true, true, true);
 
 	boolean Save;
 	boolean Sync;

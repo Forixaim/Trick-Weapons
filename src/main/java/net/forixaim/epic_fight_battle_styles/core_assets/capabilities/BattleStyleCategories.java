@@ -4,7 +4,9 @@ import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 public enum BattleStyleCategories implements WeaponCategory
 {
-	CHAKRAM;
+	CHAKRAM,
+	HAND_AXE,
+	BATTLE_AXE;
 	final int id;
 	BattleStyleCategories() {
 		this.id = WeaponCategory.ENUM_MANAGER.assign(this);

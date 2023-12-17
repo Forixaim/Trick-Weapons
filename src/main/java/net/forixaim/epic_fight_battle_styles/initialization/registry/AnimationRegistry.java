@@ -1,7 +1,7 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
+import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleStylesAnimation;
-import net.forixaim.epic_fight_battle_styles.core_assets.animations.ChakramAnimations;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -11,8 +11,10 @@ public class AnimationRegistry
 	public static void RegisterAnimations()
 	{
 		//Create instances of classes to build.
-		BattleStylesAnimation chakramAnimations = new ChakramAnimations();
-		//Place all animation class registers here.
+		BattleStylesAnimation chakramAnimations = new BattleAnimations();
 		EventBus.addListener(chakramAnimations::Register);
+		//Place all animation class registers here.
+
+
 	}
 }
