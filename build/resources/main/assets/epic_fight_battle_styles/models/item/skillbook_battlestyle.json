@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0" : "epic_fight_batle_styles:item/skillbook_battlestyle"
+	}
+}

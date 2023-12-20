@@ -1,0 +1,1013 @@
+[19Dec2023 18:48:43.870] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, C:\Users\Matthew Chai School\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 43.3.5, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853]
+[19Dec2023 18:48:43.875] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.2 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[19Dec2023 18:48:44.166] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Matthew%20Chai%20School/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23126!/ Service=ModLauncher Env=CLIENT
+[19Dec2023 18:48:44.736] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Matthew Chai School\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.19.2-43.3.5\55755cd045eae96aa3db8022691862f4a61d5212\javafmllanguage-1.19.2-43.3.5.jar is missing mods.toml file
+[19Dec2023 18:48:44.740] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Matthew Chai School\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.19.2-43.3.5\b4af46fd18e45dd794c753c4f4c931bd2ca9b32d\lowcodelanguage-1.19.2-43.3.5.jar is missing mods.toml file
+[19Dec2023 18:48:44.743] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Matthew Chai School\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.19.2-43.3.5\e86ce0c5b6a44bd5d0025928b5c220f5abe20a37\mclanguage-1.19.2-43.3.5.jar is missing mods.toml file
+[19Dec2023 18:48:44.747] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Matthew Chai School\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.19.2-43.3.5\9ff627ecdc4d91b2e935e8f3358c97ba91ab7851\fmlcore-1.19.2-43.3.5.jar is missing mods.toml file
+[19Dec2023 18:48:44.907] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[19Dec2023 18:48:46.691] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[19Dec2023 18:48:46.692] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Matthew Chai School\.gradle\caches\forge_gradle\assets, --assetIndex, 1.19]
+[19Dec2023 18:48:50.376] [pool-3-thread-1/WARN] [mixin/]: @Final field nextHeadUpdate:[I in epicfight.mixins.json:MixinWitherBoss should be final
+[19Dec2023 18:48:50.376] [pool-3-thread-1/WARN] [mixin/]: @Final field idleHeadUpdates:[I in epicfight.mixins.json:MixinWitherBoss should be final
+[19Dec2023 18:48:51.916] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
+[19Dec2023 18:48:54.009] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/C:/Users/Matthew%20Chai%20School/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.3.5_mapped_official_1.19.2/forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/assets/.mcassetsroot' uses unexpected schema
+[19Dec2023 18:48:54.010] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/C:/Users/Matthew%20Chai%20School/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.3.5_mapped_official_1.19.2/forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/data/.mcassetsroot' uses unexpected schema
+[19Dec2023 18:48:54.046] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[19Dec2023 18:48:54.058] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[19Dec2023 18:48:54.170] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[19Dec2023 18:48:54.911] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.3.5, for MC 1.19.2 with MCP 20220805.130853
+[19Dec2023 18:48:54.917] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.3.5 Initialized
+[19Dec2023 18:48:54.956] [modloading-worker-0/INFO] [epicfight/]: register skill epic_fight_battle_styles:hero
+[19Dec2023 18:48:54.958] [modloading-worker-0/INFO] [epicfight/]: register skill epic_fight_battle_styles:duelist
+[19Dec2023 18:48:54.960] [modloading-worker-0/INFO] [epicfight/]: register skill epic_fight_battle_styles:imperatrice_luminelle
+[19Dec2023 18:48:54.962] [modloading-worker-0/INFO] [epicfight/]: register skill epic_fight_battle_styles:precision_vertical
+[19Dec2023 18:48:54.962] [modloading-worker-0/INFO] [epicfight/]: register skill epic_fight_battle_styles:slamming_hero
+[19Dec2023 18:48:55.014] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:basic_attack
+[19Dec2023 18:48:55.015] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:air_attack
+[19Dec2023 18:48:55.018] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:roll
+[19Dec2023 18:48:55.022] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:step
+[19Dec2023 18:48:55.022] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:knockdown_wakeup
+[19Dec2023 18:48:55.027] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:guard
+[19Dec2023 18:48:55.029] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:parrying
+[19Dec2023 18:48:55.031] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:impact_guard
+[19Dec2023 18:48:55.033] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:berserker
+[19Dec2023 18:48:55.035] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:death_harvest
+[19Dec2023 18:48:55.036] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:emergency_escape
+[19Dec2023 18:48:55.037] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:endurance
+[19Dec2023 18:48:55.037] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:forbidden_strength
+[19Dec2023 18:48:55.038] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:hypervitality
+[19Dec2023 18:48:55.039] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:stamina_pillager
+[19Dec2023 18:48:55.039] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:swordmaster
+[19Dec2023 18:48:55.041] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:technician
+[19Dec2023 18:48:55.041] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:sweeping_edge
+[19Dec2023 18:48:55.042] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:dancing_edge
+[19Dec2023 18:48:55.045] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:the_guillotine
+[19Dec2023 18:48:55.048] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:grasping_spire
+[19Dec2023 18:48:55.049] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:heartpiercer
+[19Dec2023 18:48:55.053] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:steel_whirlwind
+[19Dec2023 18:48:55.055] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:battojutsu
+[19Dec2023 18:48:55.057] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:battojutsu_passive
+[19Dec2023 18:48:55.058] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:rushing_tempo
+[19Dec2023 18:48:55.058] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:relentless_combo
+[19Dec2023 18:48:55.059] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:liechtenauer
+[19Dec2023 18:48:55.059] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:sharp_stab
+[19Dec2023 18:48:55.060] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:eviscerate
+[19Dec2023 18:48:55.080] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:blade_rush
+[19Dec2023 18:48:55.081] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:wrathful_lighting
+[19Dec2023 18:48:55.081] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:tsunami
+[19Dec2023 18:48:55.082] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:everlasting_allegiance
+[19Dec2023 18:48:55.083] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:meteor_slam
+[19Dec2023 18:48:55.087] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:revelation
+[19Dec2023 18:48:55.088] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:demolition_leap
+[19Dec2023 18:48:55.089] [modloading-worker-0/INFO] [epicfight/]: register skill epicfight:phantom_ascent
+[19Dec2023 18:48:56.095] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [epic_fight_battle_styles]
+[19Dec2023 18:48:56.544] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[19Dec2023 18:48:56.638] [Worker-Main-4/INFO] [net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles/]: HELLO FROM COMMON SETUP
+[19Dec2023 18:48:56.638] [Worker-Main-4/INFO] [net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles/]: DIRT BLOCK >> minecraft:dirt
+[19Dec2023 18:48:57.137] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 0 to biped/living/idle
+[19Dec2023 18:48:57.138] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 1 to biped/living/walk
+[19Dec2023 18:48:57.138] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 2 to biped/living/fly
+[19Dec2023 18:48:57.138] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 3 to biped/living/creative_idle
+[19Dec2023 18:48:57.138] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 4 to biped/living/creative_fly
+[19Dec2023 18:48:57.166] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 5 to biped/living/creative_fly_backward
+[19Dec2023 18:48:57.170] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 6 to 
+[19Dec2023 18:48:57.170] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 7 to biped/living/hold_crossbow
+[19Dec2023 18:48:57.170] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 8 to biped/living/hold_map_twohand
+[19Dec2023 18:48:57.170] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 9 to biped/living/hold_map_offhand
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 10 to biped/living/hold_map_mainhand
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 11 to biped/living/hold_map_twohand_move
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 12 to biped/living/hold_map_offhand_move
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 13 to biped/living/hold_map_mainhand_move
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 14 to biped/living/run
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 15 to biped/living/sneak
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 16 to biped/living/swim
+[19Dec2023 18:48:57.171] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 17 to biped/living/float
+[19Dec2023 18:48:57.172] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 18 to biped/living/kneel
+[19Dec2023 18:48:57.172] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 19 to biped/living/fall
+[19Dec2023 18:48:57.172] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 20 to biped/living/mount
+[19Dec2023 18:48:57.172] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 21 to biped/living/sit
+[19Dec2023 18:48:57.172] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 22 to biped/living/dig
+[19Dec2023 18:48:57.172] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 23 to biped/living/dig_offhand
+[19Dec2023 18:48:57.173] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 24 to 
+[19Dec2023 18:48:57.173] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 25 to biped/combat/bow_aim_mid
+[19Dec2023 18:48:57.175] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 26 to biped/combat/bow_shot_mid
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 27 to biped/living/drink
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 28 to biped/living/drink
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 29 to biped/living/drink_offhand
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 30 to biped/living/eat
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 31 to biped/living/eat
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 32 to biped/living/eat_offhand
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 33 to biped/living/spyglass
+[19Dec2023 18:48:57.190] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 34 to biped/living/spyglass
+[19Dec2023 18:48:57.191] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 35 to biped/living/spyglass_offhand
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 36 to biped/combat/crossbow_aim_mid
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 37 to biped/combat/crossbow_shot_mid
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 38 to biped/combat/crossbow_reload
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 39 to biped/living/jump
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 40 to biped/living/run_spear
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 41 to biped/living/shield
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 42 to biped/living/shield
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 43 to biped/living/shield_mirror
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 44 to biped/living/hold_greatsword
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 45 to biped/living/hold_uchigatana_sheath
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 46 to biped/living/hold_uchigatana
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 47 to biped/living/hold_tachi
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 48 to biped/living/hold_longsword
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 49 to biped/living/hold_spear
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 50 to biped/living/hold_dual
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 51 to biped/living/hold_liechtenauer
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 52 to biped/living/walk_greatsword
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 53 to biped/living/walk_spear
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 54 to biped/living/walk_uchigatana_sheath
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 55 to biped/living/walk_uchigatana
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 56 to biped/living/walk_twohand
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 57 to biped/living/walk_longsword
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 58 to biped/living/walk_liechtenauer
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 59 to biped/living/run_greatsword
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 60 to biped/living/run_uchigatana
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 61 to biped/living/run_uchigatana_sheath
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 62 to biped/living/run_dual
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 63 to biped/living/run_longsword
+[19Dec2023 18:48:57.193] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 64 to biped/living/uchigatana_scrap
+[19Dec2023 18:48:57.203] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 65 to biped/living/liechtenauer_ready
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 66 to biped/combat/hit_shield
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 67 to biped/combat/hit_shield
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 68 to biped/combat/hit_shield_mirror
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 69 to biped/living/climb
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 70 to biped/living/sleep
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 71 to biped/combat/javelin_aim_mid
+[19Dec2023 18:48:57.204] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 72 to biped/combat/javelin_throw_mid
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 73 to off_highest
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 74 to off_middle
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 75 to zombie/idle
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 76 to zombie/walk
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 77 to zombie/chase
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 78 to creeper/idle
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 79 to creeper/walk
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 80 to enderman/idle
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 81 to enderman/walk
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 82 to enderman/rage_idle
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 83 to enderman/rage_walk
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 84 to wither_skeleton/walk
+[19Dec2023 18:48:57.205] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 85 to wither_skeleton/chase
+[19Dec2023 18:48:57.206] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 86 to wither_skeleton/idle
+[19Dec2023 18:48:57.208] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 87 to wither_skeleton/special_spawn
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 88 to spider/idle
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 89 to spider/crawl
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 90 to iron_golem/idle
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 91 to iron_golem/walk
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 92 to hoglin/idle
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 93 to hoglin/walk
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 94 to illager/idle
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 95 to illager/walk
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 96 to illager/idle_aggressive
+[19Dec2023 18:48:57.209] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 97 to illager/chase
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 98 to illager/spellcast
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 99 to ravager/idle
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 100 to ravager/walk
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 101 to vex/idle
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 102 to vex/flip
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 103 to piglin/idle
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 104 to piglin/walk
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 105 to piglin/zombified_idle
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 106 to piglin/zombified_walk
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 107 to piglin/zombified_chase
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 108 to piglin/celebrate1
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 109 to piglin/celebrate2
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 110 to piglin/celebrate3
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 111 to piglin/admire
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 112 to wither/idle
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 113 to biped/skill/guard_spear
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 114 to biped/skill/guard_sword
+[19Dec2023 18:48:57.210] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 115 to biped/skill/guard_dualsword
+[19Dec2023 18:48:57.211] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 116 to biped/skill/guard_greatsword
+[19Dec2023 18:48:57.211] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 117 to biped/skill/guard_uchigatana
+[19Dec2023 18:48:57.211] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 118 to biped/skill/guard_longsword
+[19Dec2023 18:48:57.211] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 119 to biped/skill/steel_whirlwind_charging
+[19Dec2023 18:48:57.212] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 120 to biped/skill/roll_forward
+[19Dec2023 18:48:57.212] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 121 to biped/skill/roll_backward
+[19Dec2023 18:48:57.212] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 122 to biped/skill/step_forward
+[19Dec2023 18:48:57.212] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 123 to biped/skill/step_backward
+[19Dec2023 18:48:57.213] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 124 to biped/skill/step_left
+[19Dec2023 18:48:57.213] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 125 to biped/skill/step_right
+[19Dec2023 18:48:57.213] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 126 to biped/skill/knockdown_wakeup_left
+[19Dec2023 18:48:57.213] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 127 to biped/skill/knockdown_wakeup_right
+[19Dec2023 18:48:57.213] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 128 to biped/skill/demolition_leap_charge
+[19Dec2023 18:48:57.214] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 129 to biped/skill/demolition_leap
+[19Dec2023 18:48:57.214] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 130 to biped/skill/phantom_ascent_forward
+[19Dec2023 18:48:57.215] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 131 to biped/skill/phantom_ascent_backward
+[19Dec2023 18:48:57.231] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 132 to biped/combat/fist_auto1
+[19Dec2023 18:48:57.249] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 133 to biped/combat/fist_auto2
+[19Dec2023 18:48:57.249] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 134 to biped/combat/fist_auto3
+[19Dec2023 18:48:57.249] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 135 to biped/combat/fist_dash
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 136 to biped/combat/sword_auto1
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 137 to biped/combat/sword_auto2
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 138 to biped/combat/sword_auto3
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 139 to biped/combat/sword_dash
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 140 to biped/combat/greatsword_auto1
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 141 to biped/combat/greatsword_auto2
+[19Dec2023 18:48:57.255] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 142 to biped/combat/greatsword_dash
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 143 to biped/combat/spear_onehand_auto
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 144 to biped/combat/spear_twohand_auto1
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 145 to biped/combat/spear_twohand_auto2
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 146 to biped/combat/spear_dash
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 147 to 136
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 148 to biped/combat/sword_auto4
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 149 to biped/combat/tool_dash
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 150 to biped/combat/axe_dash
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 151 to biped/combat/sword_dual_auto1
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 152 to biped/combat/sword_dual_auto2
+[19Dec2023 18:48:57.257] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 153 to biped/combat/sword_dual_auto3
+[19Dec2023 18:48:57.258] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 154 to biped/combat/sword_dual_dash
+[19Dec2023 18:48:57.258] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 155 to biped/combat/uchigatana_auto1
+[19Dec2023 18:48:57.258] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 156 to biped/combat/uchigatana_auto2
+[19Dec2023 18:48:57.258] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 157 to biped/combat/uchigatana_auto3
+[19Dec2023 18:48:57.258] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 158 to biped/combat/uchigatana_dash
+[19Dec2023 18:48:57.265] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 159 to biped/combat/uchigatana_sheath_auto
+[19Dec2023 18:48:57.265] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 160 to biped/combat/uchigatana_sheath_dash
+[19Dec2023 18:48:57.265] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 161 to biped/combat/axe_auto1
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 162 to biped/combat/axe_auto2
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 163 to biped/combat/longsword_auto1
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 164 to biped/combat/longsword_auto2
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 165 to biped/combat/longsword_auto3
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 166 to biped/combat/longsword_dash
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 167 to biped/combat/longsword_liechtenauer_auto1
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 168 to biped/combat/longsword_liechtenauer_auto2
+[19Dec2023 18:48:57.266] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 169 to biped/combat/longsword_liechtenauer_auto3
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 170 to biped/combat/tachi_auto1
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 171 to biped/combat/tachi_auto2
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 172 to biped/combat/tachi_auto3
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 173 to biped/combat/tachi_dash
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 174 to biped/combat/dagger_auto1
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 175 to biped/combat/dagger_auto2
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 176 to biped/combat/dagger_auto3
+[19Dec2023 18:48:57.267] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 177 to biped/combat/dagger_dash
+[19Dec2023 18:48:57.268] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 178 to biped/combat/dagger_dual_auto1
+[19Dec2023 18:48:57.268] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 179 to biped/combat/dagger_dual_auto2
+[19Dec2023 18:48:57.269] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 180 to biped/combat/dagger_dual_auto3
+[19Dec2023 18:48:57.269] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 181 to biped/combat/dagger_dual_auto4
+[19Dec2023 18:48:57.269] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 182 to biped/combat/dagger_dual_dash
+[19Dec2023 18:48:57.269] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 183 to biped/combat/trident_auto1
+[19Dec2023 18:48:57.269] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 184 to biped/combat/trident_auto2
+[19Dec2023 18:48:57.269] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 185 to biped/combat/trident_auto3
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 186 to biped/combat/sword_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 187 to biped/combat/sword_dual_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 188 to biped/combat/uchigatana_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 189 to biped/combat/uchigatana_sheath_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 190 to biped/combat/spear_onehand_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 191 to biped/combat/spear_twohand_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 192 to biped/combat/longsword_airslash
+[19Dec2023 18:48:57.270] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 193 to biped/combat/greatsword_airslash
+[19Dec2023 18:48:57.271] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 194 to biped/combat/fist_airslash
+[19Dec2023 18:48:57.271] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 195 to biped/combat/dagger_airslash
+[19Dec2023 18:48:57.271] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 196 to 187
+[19Dec2023 18:48:57.271] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 197 to biped/combat/axe_airslash
+[19Dec2023 18:48:57.271] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 198 to biped/combat/sword_mount_attack
+[19Dec2023 18:48:57.271] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 199 to biped/combat/spear_mount_attack
+[19Dec2023 18:48:57.272] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 200 to biped/combat/mob_onehand1
+[19Dec2023 18:48:57.272] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 201 to biped/combat/mob_onehand2
+[19Dec2023 18:48:57.272] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 202 to biped/combat/mob_greatsword1
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 203 to biped/combat/mob_tachi_special
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 204 to biped/combat/mob_spear_onehand
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 205 to biped/combat/mob_spear_twohand1
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 206 to biped/combat/mob_spear_twohand2
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 207 to biped/combat/mob_spear_twohand3
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 208 to biped/combat/mob_sword_dual1
+[19Dec2023 18:48:57.274] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 209 to biped/combat/mob_sword_dual2
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 210 to biped/combat/mob_sword_dual3
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 211 to biped/combat/mob_longsword1
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 212 to biped/combat/mob_longsword2
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 213 to biped/combat/mob_uchigatana1
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 214 to biped/combat/mob_uchigatana2
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 215 to biped/combat/mob_uchigatana3
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 216 to biped/combat/mob_dagger_onehand1
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 217 to biped/combat/mob_dagger_onehand2
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 218 to biped/combat/mob_dagger_onehand3
+[19Dec2023 18:48:57.275] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 219 to biped/combat/mob_dagger_twohand1
+[19Dec2023 18:48:57.276] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 220 to biped/combat/mob_dagger_twohand2
+[19Dec2023 18:48:57.276] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 221 to biped/combat/mob_throw
+[19Dec2023 18:48:57.276] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 222 to biped/skill/guard_sword_hit
+[19Dec2023 18:48:57.276] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 223 to biped/skill/guard_sword_hit_active1
+[19Dec2023 18:48:57.276] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 224 to biped/skill/guard_sword_hit_active2
+[19Dec2023 18:48:57.276] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 225 to biped/skill/guard_sword_hit_active3
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 226 to biped/skill/guard_longsword_hit_active1
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 227 to biped/skill/guard_longsword_hit_active2
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 228 to biped/skill/guard_dualsword_hit
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 229 to biped/skill/guard_break1
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 230 to biped/skill/guard_break2
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 231 to biped/skill/guard_longsword_hit
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 232 to biped/skill/guard_spear_hit
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 233 to biped/skill/guard_greatsword_hit
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 234 to biped/skill/guard_uchigatana_hit
+[19Dec2023 18:48:57.277] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 235 to biped/skill/greatsword_slam
+[19Dec2023 18:48:57.280] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 236 to biped/skill/revelation_normal
+[19Dec2023 18:48:57.280] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 237 to biped/skill/revelation_twohand
+[19Dec2023 18:48:57.280] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 238 to biped/combat/hit_short
+[19Dec2023 18:48:57.281] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 239 to biped/combat/hit_long
+[19Dec2023 18:48:57.281] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 240 to biped/combat/hit_on_mount
+[19Dec2023 18:48:57.281] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 241 to biped/living/landing
+[19Dec2023 18:48:57.282] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 242 to biped/combat/knockdown
+[19Dec2023 18:48:57.283] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 243 to biped/living/death
+[19Dec2023 18:48:57.283] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 244 to creeper/hit_short
+[19Dec2023 18:48:57.283] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 245 to creeper/hit_long
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 246 to creeper/death
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 247 to enderman/hit_short
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 248 to enderman/hit_long
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 249 to enderman/neutralized
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 250 to enderman/convert_rage
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 251 to enderman/tp_kick1
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 252 to enderman/tp_kick2
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 253 to enderman/rush_kick
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 254 to enderman/jump_kick
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 255 to enderman/knee
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 256 to enderman/kick_twice
+[19Dec2023 18:48:57.284] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 257 to enderman/grasp
+[19Dec2023 18:48:57.285] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 258 to enderman/death
+[19Dec2023 18:48:57.285] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 259 to enderman/teleport
+[19Dec2023 18:48:57.285] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 260 to dragon/idle
+[19Dec2023 18:48:57.288] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 261 to dragon/walk
+[19Dec2023 18:48:57.288] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 262 to dragon/fly
+[19Dec2023 18:48:57.288] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 263 to dragon/death
+[19Dec2023 18:48:57.289] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 264 to dragon/ground_to_fly
+[19Dec2023 18:48:57.293] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 265 to dragon/fly_to_ground
+[19Dec2023 18:48:57.298] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 266 to dragon/attack1
+[19Dec2023 18:48:57.300] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 267 to dragon/attack2
+[19Dec2023 18:48:57.300] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 268 to dragon/attack3
+[19Dec2023 18:48:57.300] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 269 to dragon/attack4
+[19Dec2023 18:48:57.302] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 270 to dragon/attack4_recovery
+[19Dec2023 18:48:57.302] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 271 to dragon/fireball
+[19Dec2023 18:48:57.303] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 272 to dragon/airstrike
+[19Dec2023 18:48:57.303] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 273 to dragon/backjump_prepare
+[19Dec2023 18:48:57.304] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 274 to dragon/backjump_move
+[19Dec2023 18:48:57.304] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 275 to dragon/backjump_recovery
+[19Dec2023 18:48:57.305] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 276 to dragon/crystal_link
+[19Dec2023 18:48:57.308] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 277 to dragon/neutralized
+[19Dec2023 18:48:57.309] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 278 to dragon/neutralized_recovery
+[19Dec2023 18:48:57.310] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 279 to spider/attack
+[19Dec2023 18:48:57.310] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 280 to spider/jump_attack
+[19Dec2023 18:48:57.310] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 281 to spider/hit
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 282 to spider/neutralized
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 283 to spider/death
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 284 to iron_golem/attack1
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 285 to iron_golem/attack2
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 286 to iron_golem/attack3
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 287 to iron_golem/attack4
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 288 to iron_golem/death
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 289 to illager/swing_axe1
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 290 to illager/swing_axe2
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 291 to illager/swing_axe3
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 292 to piglin/death
+[19Dec2023 18:48:57.311] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 293 to hoglin/death
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 294 to hoglin/attack
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 295 to ravager/death
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 296 to ravager/groggy
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 297 to ravager/attack1
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 298 to ravager/attack2
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 299 to ravager/attack3
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 300 to vex/hit
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 301 to vex/death
+[19Dec2023 18:48:57.312] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 302 to vex/charge
+[19Dec2023 18:48:57.316] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 303 to vex/neutralized
+[19Dec2023 18:48:57.316] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 304 to witch/drink
+[19Dec2023 18:48:57.316] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 305 to wither_skeleton/sword_attack1
+[19Dec2023 18:48:57.316] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 306 to wither_skeleton/sword_attack2
+[19Dec2023 18:48:57.316] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 307 to wither_skeleton/sword_attack3
+[19Dec2023 18:48:57.316] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 308 to wither/rush
+[19Dec2023 18:48:57.324] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 309 to wither/death
+[19Dec2023 18:48:57.325] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 310 to wither/neutralized
+[19Dec2023 18:48:57.326] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 311 to wither/spell_wither_armor
+[19Dec2023 18:48:57.329] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 312 to wither/charging_blocked
+[19Dec2023 18:48:57.331] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 313 to wither/ghost_stand
+[19Dec2023 18:48:57.332] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 314 to wither/swirl
+[19Dec2023 18:48:57.332] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 315 to wither/laser
+[19Dec2023 18:48:57.336] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 316 to wither/backflip
+[19Dec2023 18:48:57.336] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 317 to zombie/attack1
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 318 to zombie/attack2
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 319 to zombie/attack3
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 320 to biped/skill/sweeping_edge
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 321 to biped/skill/dancing_edge
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 322 to biped/skill/the_guillotine
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 323 to biped/skill/heartpiercer
+[19Dec2023 18:48:57.337] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 324 to 146
+[19Dec2023 18:48:57.339] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 325 to biped/skill/grasping_spire_second
+[19Dec2023 18:48:57.339] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 326 to biped/skill/steel_whirlwind
+[19Dec2023 18:48:57.341] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 327 to biped/skill/battojutsu
+[19Dec2023 18:48:57.341] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 328 to biped/skill/battojutsu_dash
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 329 to biped/skill/rushing_tempo1
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 330 to biped/skill/rushing_tempo2
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 331 to biped/skill/rushing_tempo3
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 332 to biped/skill/relentless_combo
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 333 to biped/skill/eviscerate_first
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 334 to biped/skill/eviscerate_second
+[19Dec2023 18:48:57.342] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 335 to biped/skill/blade_rush_combo1
+[19Dec2023 18:48:57.350] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 336 to biped/skill/blade_rush_combo2
+[19Dec2023 18:48:57.350] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 337 to biped/skill/blade_rush_combo3
+[19Dec2023 18:48:57.350] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 338 to biped/interact/blade_rush_hit
+[19Dec2023 18:48:57.353] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 339 to biped/skill/blade_rush_execute
+[19Dec2023 18:48:57.355] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 340 to biped/skill/blade_rush_failed
+[19Dec2023 18:48:57.363] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 341 to biped/skill/blade_rush_try
+[19Dec2023 18:48:57.363] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 342 to biped/skill/wrathful_lighting
+[19Dec2023 18:48:57.363] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 343 to biped/skill/tsunami
+[19Dec2023 18:48:57.369] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 344 to biped/skill/tsunami_reinforced
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 345 to biped/skill/everlasting_allegiance_call
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 346 to biped/skill/everlasting_allegiance_catch
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 347 to biped/skill/sharp_stab
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 0 to rapier/idle
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 1 to sword/imperatrice_luminelle_idle
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 2 to sword/imperatrice_luminelle_walk
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 3 to sword/imperatrice_luminelle_run
+[19Dec2023 18:48:57.373] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 4 to sword/imperatrice_luminelle_auto1
+[19Dec2023 18:48:57.374] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 5 to sword/imperatrice_luminelle_auto2
+[19Dec2023 18:48:57.375] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 6 to sword/imperatrice_luminelle_auto3
+[19Dec2023 18:48:57.376] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 7 to sword/hero_hold_sword
+[19Dec2023 18:48:57.377] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 8 to sword/hero_sword_auto1
+[19Dec2023 18:48:57.377] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 9 to sword/hero_sword_auto2
+[19Dec2023 18:48:57.377] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 10 to sword/hero_sword_auto3
+[19Dec2023 18:48:57.379] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 11 to sword/hero_shield_auto1
+[19Dec2023 18:48:57.380] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 12 to sword/hero_shield_auto2
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 13 to sword/hero_sword_block
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 14 to sword/hero_sword_block_hit
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 15 to sword/slamming_hero
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 16 to sword/hero_shield_block
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 17 to sword/hero_shield_block_hit
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 18 to chakram/chakram_idle
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 19 to chakram/chakram_walk
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 20 to chakram/chakram_auto1
+[19Dec2023 18:48:57.381] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 21 to chakram/chakram_auto2
+[19Dec2023 18:48:57.383] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 22 to chakram/chakram_airslash
+[19Dec2023 18:48:57.383] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 23 to chakram/precision_vertical
+[19Dec2023 18:48:57.383] [Worker-Main-7/INFO] [epicfight/]: Assigned animation id 24 to chakram/chakram_dash
+[19Dec2023 18:48:57.406] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[19Dec2023 18:48:57.457] [Worker-Main-2/INFO] [net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles/]: HELLO FROM CLIENT SETUP
+[19Dec2023 18:48:57.457] [Worker-Main-2/INFO] [net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles/]: MINECRAFT NAME >> Dev
+[19Dec2023 18:48:58.357] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: AHEAD Current: 43.3.5 Target: null
+[19Dec2023 18:49:00.930] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[19Dec2023 18:49:00.930] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[19Dec2023 18:49:00.978] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Speakers (Realtek(R) Audio)
+[19Dec2023 18:49:00.979] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[19Dec2023 18:49:01.186] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 2048x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[19Dec2023 18:49:01.198] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[19Dec2023 18:49:01.198] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[19Dec2023 18:49:01.199] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[19Dec2023 18:49:01.200] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[19Dec2023 18:49:01.200] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[19Dec2023 18:49:01.201] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[19Dec2023 18:49:01.304] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epic_fight_battle_styles:placeholder_chakram#inventory" is using the deprecated "flip-v" field in its OBJ model instead of "flip_v". This field will be removed in 1.20.
+[19Dec2023 18:49:01.470] [Render thread/WARN] [net.minecraftforge.client.model.SeparateTransformsModel/]: Model "epicfight:diamond_spear#inventory" is using the deprecated loader "forge:separate-perspective" instead of "forge:separate_transforms". This loader will be removed in 1.20.
+[19Dec2023 18:49:01.473] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:diamond_spear#inventory" is using the deprecated "flip-v" field in its OBJ model instead of "flip_v". This field will be removed in 1.20.
+[19Dec2023 18:49:01.473] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:diamond_spear#inventory" is using the deprecated "materialLibraryOverride" field in its OBJ model instead of "mtl_override". This field will be removed in 1.20.
+[19Dec2023 18:49:01.531] [Render thread/WARN] [net.minecraftforge.client.model.SeparateTransformsModel/]: Model "epicfight:iron_spear#inventory" is using the deprecated loader "forge:separate-perspective" instead of "forge:separate_transforms". This loader will be removed in 1.20.
+[19Dec2023 18:49:01.531] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:iron_spear#inventory" is using the deprecated "flip-v" field in its OBJ model instead of "flip_v". This field will be removed in 1.20.
+[19Dec2023 18:49:01.531] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:iron_spear#inventory" is using the deprecated "materialLibraryOverride" field in its OBJ model instead of "mtl_override". This field will be removed in 1.20.
+[19Dec2023 18:49:01.553] [Render thread/WARN] [net.minecraftforge.client.model.SeparateTransformsModel/]: Model "epicfight:golden_spear#inventory" is using the deprecated loader "forge:separate-perspective" instead of "forge:separate_transforms". This loader will be removed in 1.20.
+[19Dec2023 18:49:01.553] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:golden_spear#inventory" is using the deprecated "flip-v" field in its OBJ model instead of "flip_v". This field will be removed in 1.20.
+[19Dec2023 18:49:01.553] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:golden_spear#inventory" is using the deprecated "materialLibraryOverride" field in its OBJ model instead of "mtl_override". This field will be removed in 1.20.
+[19Dec2023 18:49:01.605] [Render thread/WARN] [net.minecraftforge.client.model.SeparateTransformsModel/]: Model "epicfight:stone_spear#inventory" is using the deprecated loader "forge:separate-perspective" instead of "forge:separate_transforms". This loader will be removed in 1.20.
+[19Dec2023 18:49:01.605] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:stone_spear#inventory" is using the deprecated "flip-v" field in its OBJ model instead of "flip_v". This field will be removed in 1.20.
+[19Dec2023 18:49:01.606] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:stone_spear#inventory" is using the deprecated "materialLibraryOverride" field in its OBJ model instead of "mtl_override". This field will be removed in 1.20.
+[19Dec2023 18:49:01.622] [Render thread/WARN] [net.minecraftforge.client.model.SeparateTransformsModel/]: Model "epicfight:netherite_spear#inventory" is using the deprecated loader "forge:separate-perspective" instead of "forge:separate_transforms". This loader will be removed in 1.20.
+[19Dec2023 18:49:01.622] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:netherite_spear#inventory" is using the deprecated "flip-v" field in its OBJ model instead of "flip_v". This field will be removed in 1.20.
+[19Dec2023 18:49:01.622] [Render thread/WARN] [net.minecraftforge.client.model.obj.ObjModel/]: Model "epicfight:netherite_spear#inventory" is using the deprecated "materialLibraryOverride" field in its OBJ model instead of "mtl_override". This field will be removed in 1.20.
+[19Dec2023 18:49:02.074] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[19Dec2023 18:49:02.186] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x0 minecraft:textures/atlas/particles.png-atlas
+[19Dec2023 18:49:02.189] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[19Dec2023 18:49:02.190] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.398] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.399] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/rapier/idle
+[19Dec2023 18:49:02.403] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.403] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.403] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.403] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.403] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.403] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.404] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_idle
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.407] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.408] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_walk
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.410] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.411] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_run
+[19Dec2023 18:49:02.414] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.415] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.416] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto1
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.420] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.421] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.421] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.421] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.421] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.421] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.421] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto2
+[19Dec2023 18:49:02.423] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.425] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/imperatrice_luminelle_auto3
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.427] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_hold_sword
+[19Dec2023 18:49:02.429] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.430] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto1
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.433] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto2
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.436] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_auto3
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.438] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.439] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto1
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.441] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_auto2
+[19Dec2023 18:49:02.443] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.443] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.443] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.443] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.444] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block
+[19Dec2023 18:49:02.445] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.446] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_sword_block_hit
+[19Dec2023 18:49:02.448] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.448] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.448] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.449] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/sword/slamming_hero
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.451] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.452] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.454] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.455] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, GuardAnimation epic_fight_battle_styles:animmodels/animations/sword/hero_shield_block_hit
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.458] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, StaticAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_idle
+[19Dec2023 18:49:02.460] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.460] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.460] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.460] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.460] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.461] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.461] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.461] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, MovementAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_walk
+[19Dec2023 18:49:02.462] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.463] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto1
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.466] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_auto2
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.469] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.470] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_airslash
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.472] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, AttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/precision_vertical
+[19Dec2023 18:49:02.475] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.475] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.475] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.475] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.475] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.475] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.476] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.476] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation epic_fight_battle_styles:animmodels/animations/chakram/chakram_dash
+[19Dec2023 18:49:02.755] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[19Dec2023 18:49:12.892] [Render thread/ERROR] [net.minecraftforge.registries.GameData/REGISTRIES]: Unidentified mapping from registry minecraft:block
+	epic_fight_battle_styles:example_block: 934
+
+[19Dec2023 18:49:12.895] [Render thread/ERROR] [net.minecraftforge.registries.GameData/REGISTRIES]: Unidentified mapping from registry minecraft:item
+	epic_fight_battle_styles:example_block: 1181
+
+[19Dec2023 18:49:12.903] [Render thread/WARN] [net.minecraftforge.registries.GameData/REGISTRIES]: Forge Mod Loader detected missing registry entries.
+
+There are 2 missing entries in this save.
+If you continue the missing entries will get removed.
+A world backup will be automatically created in your saves directory.
+
+
+[19Dec2023 18:49:12.903] [Render thread/WARN] [net.minecraftforge.registries.GameData/REGISTRIES]: Missing minecraft:item:
+    epic_fight_battle_styles:example_block
+
+Missing minecraft:block:
+    epic_fight_battle_styles:example_block
+
+
+[19Dec2023 18:49:12.903] [Render thread/ERROR] [net.minecraftforge.registries.GameData/REGISTRIES]: There are unidentified mappings in this world - we are going to attempt to process anyway
+[19Dec2023 18:49:12.909] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: epic_fight_battle_styles:placeholder_chakram Expected: 1181 Got: 1182
+[19Dec2023 18:49:15.330] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[19Dec2023 18:49:15.790] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
+[19Dec2023 18:49:16.252] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
+[19Dec2023 18:49:16.252] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[19Dec2023 18:49:16.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[19Dec2023 18:49:18.822] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[19Dec2023 18:49:18.822] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[19Dec2023 18:49:18.823] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[19Dec2023 18:49:18.823] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[19Dec2023 18:49:18.824] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[19Dec2023 18:49:19.006] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[19Dec2023 18:49:19.515] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 42%
+[19Dec2023 18:49:19.789] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[19Dec2023 18:49:19.790] [Server thread/INFO] [net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles/]: HELLO from server starting
+[19Dec2023 18:49:19.812] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 3313 ms
+[19Dec2023 18:49:19.917] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[19Dec2023 18:49:19.920] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[19Dec2023 18:49:20.188] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[19Dec2023 18:49:20.747] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[19Dec2023 18:49:20.883] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@51857f7e
+[19Dec2023 18:49:20.947] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:8fb5b3bb] logged in with entity id 1 at (10.79096122636831, -60.0, 2.3238246665307454)
+[19Dec2023 18:49:21.108] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[19Dec2023 18:49:22.455] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 0 advancements
+[19Dec2023 18:49:24.091] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[19Dec2023 18:49:24.102] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:overworld
+[19Dec2023 18:49:24.110] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_nether
+[19Dec2023 18:49:24.111] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_end
+[19Dec2023 18:49:32.041] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[19Dec2023 18:49:32.046] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:overworld
+[19Dec2023 18:49:32.048] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_nether
+[19Dec2023 18:49:32.050] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_end
+[19Dec2023 18:49:35.808] [Render thread/WARN] [net.minecraft.client.renderer.texture.TextureManager/]: Failed to load texture: epic_fight_battle_styles:textures/gui/skills/slamming_hero.png
+java.io.FileNotFoundException: epic_fight_battle_styles:textures/gui/skills/slamming_hero.png
+	at net.minecraft.server.packs.resources.ResourceProvider.lambda$getResourceOrThrow$0(ResourceProvider.java:20) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
+	at net.minecraft.server.packs.resources.ResourceProvider.getResourceOrThrow(ResourceProvider.java:20) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture$TextureImage.load(SimpleTexture.java:83) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.getTextureImage(SimpleTexture.java:58) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.load(SimpleTexture.java:29) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:94) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.register(TextureManager.java:65) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.getTexture(TextureManager.java:117) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at com.mojang.blaze3d.systems.RenderSystem._setShaderTexture(RenderSystem.java:1216) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at com.mojang.blaze3d.systems.RenderSystem.setShaderTexture(RenderSystem.java:1209) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at yesman.epicfight.client.gui.BattleModeGui.drawWeaponInnateIcon(BattleModeGui.java:244) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at yesman.epicfight.client.gui.BattleModeGui.renderGui(BattleModeGui.java:148) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at yesman.epicfight.client.events.engine.RenderEngine$Events.renderGui(RenderEngine.java:535) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at yesman.epicfight.client.events.engine.__Events_renderGui_Pre.invoke(.dynamic) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.3.jar%23113!/:?]
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.3.jar%23113!/:?]
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.3.jar%23113!/:?]
+	at net.minecraftforge.client.gui.overlay.ForgeGui.render(ForgeGui.java:127) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23187%23194!/:?]
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:876) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1115) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:700) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.main.Main.run(Main.java:212) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.main.Main.main(Main.java:51) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:25) ~[fmlloader-1.19.2-43.3.5.jar%23101!/:?]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) [bootstraplauncher-1.1.2.jar:?]
+[19Dec2023 18:49:48.166] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Removed Hero from Dev]
+[19Dec2023 18:49:48.179] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Removed Hero from Dev
+[19Dec2023 18:49:53.290] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[19Dec2023 18:49:53.294] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:overworld
+[19Dec2023 18:49:53.300] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_nether
+[19Dec2023 18:49:53.302] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_end
+[19Dec2023 18:50:02.097] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gave 1 [Placeholder Chakram] to Dev]
+[19Dec2023 18:50:02.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gave 1 [Placeholder Chakram] to Dev
+[19Dec2023 18:50:02.802] [Render thread/WARN] [net.minecraft.client.renderer.texture.TextureManager/]: Failed to load texture: epic_fight_battle_styles:textures/gui/skills/precision_vertical.png
+java.io.FileNotFoundException: epic_fight_battle_styles:textures/gui/skills/precision_vertical.png
+	at net.minecraft.server.packs.resources.ResourceProvider.lambda$getResourceOrThrow$0(ResourceProvider.java:20) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
+	at net.minecraft.server.packs.resources.ResourceProvider.getResourceOrThrow(ResourceProvider.java:20) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture$TextureImage.load(SimpleTexture.java:83) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.getTextureImage(SimpleTexture.java:58) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.load(SimpleTexture.java:29) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:94) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.register(TextureManager.java:65) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.getTexture(TextureManager.java:117) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at com.mojang.blaze3d.systems.RenderSystem._setShaderTexture(RenderSystem.java:1216) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at com.mojang.blaze3d.systems.RenderSystem.setShaderTexture(RenderSystem.java:1209) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at yesman.epicfight.client.gui.BattleModeGui.drawWeaponInnateIcon(BattleModeGui.java:244) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at yesman.epicfight.client.gui.BattleModeGui.renderGui(BattleModeGui.java:148) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at yesman.epicfight.client.events.engine.RenderEngine$Events.renderGui(RenderEngine.java:535) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at yesman.epicfight.client.events.engine.__Events_renderGui_Pre.invoke(.dynamic) ~[epic-fight-mod-405076-4922089_mapped_official_1.19.2.jar%23195!/:19.5.19]
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.3.jar%23113!/:?]
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.3.jar%23113!/:?]
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.3.jar%23113!/:?]
+	at net.minecraftforge.client.gui.overlay.ForgeGui.render(ForgeGui.java:127) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23187%23194!/:?]
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:876) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1115) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:700) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.main.Main.run(Main.java:212) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at net.minecraft.client.main.Main.main(Main.java:51) ~[forge-1.19.2-43.3.5_mapped_official_1.19.2.jar%23188!/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:25) ~[fmlloader-1.19.2-43.3.5.jar%23101!/:?]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-10.0.9.jar%23114!/:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) [bootstraplauncher-1.1.2.jar:?]
+[19Dec2023 18:50:09.990] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[19Dec2023 18:50:09.993] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:overworld
+[19Dec2023 18:50:09.996] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_nether
+[19Dec2023 18:50:09.997] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_end
+[19Dec2023 18:50:10.791] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
+[19Dec2023 18:50:10.791] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[19Dec2023 18:50:10.797] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
+[19Dec2023 18:50:10.840] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[19Dec2023 18:50:10.840] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[19Dec2023 18:50:10.840] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[19Dec2023 18:50:11.262] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:overworld
+[19Dec2023 18:50:11.646] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_nether
+[19Dec2023 18:50:11.647] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Testing]'/minecraft:the_end
+[19Dec2023 18:50:11.662] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Testing): All chunks are saved
+[19Dec2023 18:50:11.662] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[19Dec2023 18:50:11.662] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[19Dec2023 18:50:11.662] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[19Dec2023 18:50:35.368] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
