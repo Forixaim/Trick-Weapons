@@ -45,7 +45,7 @@ public class EpicFightBattleStyles {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         ItemRegistry.ITEMS.register(modEventBus);
-        SkillSlot.ENUM_MANAGER.loadPreemptive(EpicFightBattleStyleSkillSlots.class);
+        EpicFightBattleStyleSkillSlots.ENUM_MANAGER.loadPreemptive(EpicFightBattleStyleSkillSlots.class);
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
         // Register ourselves for server and other game events we are interested in
