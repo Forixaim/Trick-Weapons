@@ -38,7 +38,7 @@ public class EpicFightBattleStyles {
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
-        SkillSlot.ENUM_MANAGER.loadPreemptive(EpicFightBattleStyleSkillSlots.class);
+        EpicFightBattleStyleSkillSlots.ENUM_MANAGER.loadPreemptive(EpicFightBattleStyleSkillSlots.class);
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
         ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
