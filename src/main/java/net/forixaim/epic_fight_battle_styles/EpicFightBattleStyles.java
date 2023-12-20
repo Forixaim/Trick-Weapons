@@ -55,7 +55,7 @@ public class EpicFightBattleStyles {
 
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
-        SkillSlot.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
+        EpicFightBattleStyleSkillSlots.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
