@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Specification-Title: epic_fight_battle_styles
-Specification-Vendor: 
-Specification-Version: 1
-Implementation-Title: Epic_Fight_Battle_Styles
-Implementation-Version: 0.7.1
-Implementation-Vendor: 
-Implementation-Timestamp: 2023-12-19T21:18:49-0800
-
