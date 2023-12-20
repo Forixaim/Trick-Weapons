@@ -46,11 +46,6 @@ public class EpicFightBattleStyles {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-
-    }
-
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
