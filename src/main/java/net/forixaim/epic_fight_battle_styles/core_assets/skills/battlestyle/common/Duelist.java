@@ -5,27 +5,19 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.Batt
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.item.WeaponCategory;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
 
 import java.util.UUID;
 
-public class Colossus extends BattleStyles
+public class Duelist extends BattleStyles
 {
 	private float speedBonus;
 	private float damageBonus;
 	private boolean applied = false;
-	private static final UUID EVENT_UUID = UUID.fromString("3421b224-d2a4-482b-ad36-8a19b4aa0d25");
+	private static final UUID EVENT_UUID = UUID.fromString("af0bfde5-2535-4ef6-b709-9277b17d2a1a");
 	private static final CapabilityItem.WeaponCategories[] AVAILABLE_WEAPON_TYPES = {
-			CapabilityItem.WeaponCategories.AXE,
 			CapabilityItem.WeaponCategories.LONGSWORD,
-			CapabilityItem.WeaponCategories.SWORD,
-			CapabilityItem.WeaponCategories.SHIELD
-	};
-
-	private static final BattleStyleCategories[] EXTRA_WEAPON_TYPES = {
-			BattleStyleCategories.BATTLE_AXE,
-			BattleStyleCategories.HAND_AXE
+			CapabilityItem.WeaponCategories.SWORD
 	};
 
 	@Override
@@ -40,7 +32,7 @@ public class Colossus extends BattleStyles
 
 	}
 
-	public Colossus(Skill.Builder<? extends Skill> builder) {
+	public Duelist(Skill.Builder<? extends Skill> builder) {
 		super(builder);
 	}
 }

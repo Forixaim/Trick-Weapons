@@ -37,7 +37,7 @@
 		},
 		{
 			"predicate": {
-				"epic_fight_battle_styles:skill": 1
+				"skill": 6
 			},
 			"model": "epicfight:item/skillbook_mover"
 		}

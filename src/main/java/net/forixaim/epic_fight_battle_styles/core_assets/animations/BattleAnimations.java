@@ -26,6 +26,8 @@ import yesman.epicfight.world.damagesource.StunType;
 @Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BattleAnimations extends BattleStylesAnimation
 {
+	//Base Rapier Animations
+	public static StaticAnimation RAPIER_IDLE;
 	//Imperatrice Luminelle
 	public static StaticAnimation IMPERATRICE_SWORD_EN_GARDE;
 	public static StaticAnimation IMPERATRICE_SWORD_WALK;
@@ -64,7 +66,8 @@ public class BattleAnimations extends BattleStylesAnimation
 	{
 
 		HumanoidArmature biped = Armatures.BIPED;
-
+		//Rapier Animations
+		RAPIER_IDLE = new StaticAnimation(true, "rapier/idle", biped);
 		//Imperatrice Luminelle Style (All animations aren't affected by attack speed)
 		IMPERATRICE_SWORD_EN_GARDE = new StaticAnimation(true, "sword/imperatrice_luminelle_idle", biped);
 		IMPERATRICE_SWORD_WALK = new MovementAnimation(true, "sword/imperatrice_luminelle_walk", biped);
@@ -79,9 +82,9 @@ public class BattleAnimations extends BattleStylesAnimation
 			new AttackAnimation.Phase(0.0f, 0.0f, 0.1f, 0.2f, 0.3f, 0.3f, biped.toolR, null),
 				new AttackAnimation.Phase(0.2f, 0.0f, 0.25f, 0.3f, 0.4f, 0.4f, biped.toolR, null),
 				new AttackAnimation.Phase(0.4f, 0.0f, 0.45f, 0.5f, 0.6f, 0.6f, biped.toolR, null),
-				new AttackAnimation.Phase(0.9f, 0.0f, 1.0f, 1.1f, 1.3f, 1.3f, biped.toolR, null),
-				new AttackAnimation.Phase(1.3f, 0.0f, 1.4f, 1.5f, 1.9f, 1.9f, biped.toolR, null))
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1f);
+				new AttackAnimation.Phase(0.6f, 0.0f, 0.65f, 0.7f, 0.8f, 0.8f, biped.toolR, null),
+				new AttackAnimation.Phase(0.8f, 0.0f, 1f, 1.1f, 1.5f, 2.1f, biped.toolR, null))
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
 		//Hero Sword Style
 		HERO_SWORD_IDLE = new StaticAnimation(true, "sword/hero_hold_sword", biped);
 		HERO_SWORD_AUTO_1 = new BasicAttackAnimation(0.1f, 0.1f, 0.6f, 0.9f, 0.9f, null, biped.toolR, "sword/hero_sword_auto1", biped)

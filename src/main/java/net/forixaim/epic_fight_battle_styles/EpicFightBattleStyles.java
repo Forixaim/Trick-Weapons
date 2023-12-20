@@ -32,6 +32,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import yesman.epicfight.skill.SkillSlot;
 
 import static net.forixaim.epic_fight_battle_styles.initialization.registry.BlockRegistry.BLOCKS;
 import static net.forixaim.epic_fight_battle_styles.initialization.registry.CreativeTabRegistry.CREATIVE_MODE_TABS;
@@ -54,7 +55,7 @@ public class EpicFightBattleStyles {
 
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
-        EpicFightBattleStyleSkillSlots.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
+        SkillSlot.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
