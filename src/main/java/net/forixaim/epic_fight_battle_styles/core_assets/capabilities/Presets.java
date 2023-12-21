@@ -24,13 +24,20 @@ import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.gameasset.EpicFightSounds;
+import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
+import yesman.epicfight.world.capabilities.entitypatch.EntityPatch;
+import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
+import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 import java.util.function.Function;
+
+import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.HelperFunctions.offHandItem;
+import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.HelperFunctions.skillCheck;
 
 //This is where all the weapon capability presets are implemented
 @Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -41,7 +48,7 @@ public class Presets
 					.styleProvider(
 							(playerpatch) ->
 							{
-								if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.DUELIST) != null)
+								if (skillCheck(playerpatch, SkillRegistry.DUELIST))
 								{
 									return DuelistStyles.DUELIST_RAPIER;
 								}
@@ -69,33 +76,22 @@ public class Presets
 							BattleAnimations.SINGLE_CHAKRAM_DASH_ATTACK, BattleAnimations.SINGLE_CHAKRAM_AIR_SLASH)
 				.livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.IDLE, BattleAnimations.SINGLE_CHAKRAM_IDLE)
 					.livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.WALK, BattleAnimations.SINGLE_CHAKRAM_WALK)
-				.weaponCombinationPredicator((entitypatch) -> EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == BattleStyleCategories.CHAKRAM);
+				.weaponCombinationPredicator((entityPatch) -> EpicFightCapabilities.getItemStackCapability(entityPatch.getOriginal().getOffhandItem()).getWeaponCategory() == BattleStyleCategories.CHAKRAM);
 	public static final Function<Item, CapabilityItem.Builder> SWORD = (item) ->
 			WeaponCapability.builder()
 				.category(CapabilityItem.WeaponCategories.SWORD)
-				.styleProvider((playerpatch) -> {
-					// A little check if the 'playerpatch' is a player since there are casting errors if the entity is not a player
-					if (playerpatch.getOriginal().getType() != EntityType.PLAYER)
+				.styleProvider((playerPatch) -> {
+					if (skillCheck(playerPatch, SkillRegistry.HERO))
 					{
-						if (playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD) {
-							return CapabilityItem.Styles.TWO_HAND;
-						}
-						else
-						{
-							return CapabilityItem.Styles.ONE_HAND;
-						}
-					}
-					if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.HERO) != null)
-					{
-						if (playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD)
+						if (playerPatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD)
 						{
 							return HeroStyles.HERO_SWORD_SHIELD;
 						}
 						return HeroStyles.HERO_SWORD;
 					}
-					if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.DUELIST) != null)
+					if (skillCheck(playerPatch, SkillRegistry.DUELIST))
 					{
-						if (playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD)
+						if (offHandItem(playerPatch, CapabilityItem.WeaponCategories.SWORD))
 						{
 							return DuelistStyles.DUELIST_DUAL_SWORD;
 						}
@@ -104,7 +100,7 @@ public class Presets
 							return DuelistStyles.DUELIST_SWORD;
 						}
 					}
-					else if (playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD) {
+					else if (offHandItem(playerPatch, CapabilityItem.WeaponCategories.SWORD)) {
 						return CapabilityItem.Styles.TWO_HAND;
 					}
 					else
@@ -139,59 +135,45 @@ public class Presets
 					.livingMotionModifier(HeroStyles.HERO_SWORD, LivingMotions.BLOCK, BattleAnimations.HERO_SWORD_GUARD)
 					.livingMotionModifier(HeroStyles.HERO_SWORD_SHIELD, LivingMotions.IDLE, BattleAnimations.HERO_SWORD_IDLE)
 					.livingMotionModifier(HeroStyles.HERO_SWORD_SHIELD, LivingMotions.BLOCK, BattleAnimations.HERO_SHIELD_BLOCK)
-					.weaponCombinationPredicator((entitypatch) ->
+					.weaponCombinationPredicator((entityPatch) ->
 					{
-						//Safety Check
-						if (entitypatch.getOriginal().getType() != EntityType.PLAYER)
-						{
-							if (entitypatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD)
-							{
-								return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD;
-							}
-							else
-							{
-								return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
-							}
-						}
-						//Skills Check
-
+						if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
+							return false;
 						//Default Check
-						if (entitypatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD)
+						if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
 						{
-							return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD;
+							return true;
 						}
 						else
 						{
-							return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
+							return EpicFightCapabilities.getItemStackCapability(entityPatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
 						}
 					});
+
+
 
 	public static final Function<Item, CapabilityItem.Builder> LONGSWORD = (item) ->
 			WeaponCapability.builder()
 					.category(CapabilityItem.WeaponCategories.LONGSWORD)
-					.styleProvider((playerpatch) ->
+					.styleProvider((entityPatch) ->
 					{
-						if (playerpatch.getOriginal().getType() != EntityType.PLAYER)
-						{
-							return CapabilityItem.Styles.TWO_HAND;
-						}
-						if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.IMPERATRICE_LUMINELLE) != null)
+						if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
 						{
 							return ImperatriceLuminelleStyles.SWORD;
 						}
-						if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.HERO) != null)
+						if (skillCheck(entityPatch, SkillRegistry.HERO))
 						{
-							if (playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD)
+							if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SHIELD))
 							{
 								return HeroStyles.HERO_SWORD_SHIELD;
 							}
 							return HeroStyles.HERO_SWORD;
 						}
-						else if (playerpatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD)
+						else if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SHIELD))
 						{
 							return CapabilityItem.Styles.ONE_HAND;
 						}
-						else if (playerpatch instanceof PlayerPatch<?> tplayerpatch)
+						else if (entityPatch instanceof PlayerPatch<?> tplayerpatch)
 						{
 							return tplayerpatch.getSkill(SkillSlots.WEAPON_INNATE).isActivated() ? CapabilityItem.Styles.OCHS : CapabilityItem.Styles.TWO_HAND;
 						}
@@ -242,33 +224,15 @@ public class Presets
 					.livingMotionModifier(ImperatriceLuminelleStyles.SWORD, LivingMotions.RUN, BattleAnimations.IMPERATRICE_SWORD_RUN)
 					.weaponCombinationPredicator((entitypatch) ->
 					{
-						//Safety Check
-						if (entitypatch.getOriginal().getType() != EntityType.PLAYER)
-						{
-							if (entitypatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD)
-							{
-								return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD;
-							}
-							else
-							{
-								return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
-							}
-						}
 						//Skills Check
-						if (((PlayerPatch<?>) entitypatch).getSkill(SkillRegistry.IMPERATRICE_LUMINELLE) != null)
+						if (skillCheck(entitypatch, SkillRegistry.IMPERATRICE_LUMINELLE))
 						{
 							return false;
 						}
 						//Default Check
-						if (entitypatch.getHoldingItemCapability(InteractionHand.OFF_HAND).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD)
-						{
-							return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD;
-						}
-						else
-						{
-							return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
-						}
+						return EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
 					});
+
 	@SubscribeEvent
 	public static void Register(WeaponCapabilityPresetRegistryEvent Event)
 	{

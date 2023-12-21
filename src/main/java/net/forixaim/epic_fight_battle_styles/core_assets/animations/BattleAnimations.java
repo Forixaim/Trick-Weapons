@@ -2,6 +2,7 @@ package net.forixaim.epic_fight_battle_styles.core_assets.animations;
 
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
+import net.forixaim.epic_fight_battle_styles.balancing.ChakramBalancing;
 import net.forixaim.epic_fight_battle_styles.core_assets.colliders.ChakramColliders;
 import net.forixaim.epic_fight_battle_styles.core_assets.colliders.HeroSwordColliders;
 import net.minecraft.world.phys.Vec3;
@@ -126,7 +127,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.1f, 0.0f, 2.5f, 2.5f, biped.toolR, ColliderPreset.DAGGER)
 		)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.1f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(ChakramBalancing.CHAKRAM_AERIAL_DAMAGE_BONUS))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.1f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
@@ -135,7 +136,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.1f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.1f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, ChakramBalancing.CHAKRAM_AERIAL_STUN_TYPE)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.1f))
 				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
 				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
