@@ -112,12 +112,10 @@ public class BattleAnimations extends BattleStylesAnimation
 		SINGLE_CHAKRAM_WALK = new MovementAnimation(true, "chakram/chakram_walk", biped);
 		SINGLE_CHAKRAM_AUTO_1 = new BasicAttackAnimation(0.1f, 0.0f, 0.15f, 0.8f, 1.2f, ColliderPreset.DAGGER, biped.toolR, "chakram/chakram_auto1", biped)
 			.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
-			.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
-			.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.9f));
+			.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false);
 		SINGLE_CHAKRAM_AUTO_2 = new BasicAttackAnimation(0.1f, 0.0f, 0.4f, 0.8f, 5.8f, ColliderPreset.DAGGER, biped.toolR, "chakram/chakram_auto2", biped)
 				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
-				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
-				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.8f));
+				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true);
 		SINGLE_CHAKRAM_AIR_SLASH = new AttackAnimation(0.1f, "chakram/chakram_airslash", biped,
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.3f, 0.3f, 0.3f, biped.armR, ChakramColliders.CHAKRAM_AIRSLASH),
 				new AttackAnimation.Phase(0.3f, 0.0f, 0.0f, 0.6f, 0.6f, 0.6f, biped.armR, ChakramColliders.CHAKRAM_AIRSLASH),
@@ -146,10 +144,9 @@ public class BattleAnimations extends BattleStylesAnimation
 			new AttackAnimation.Phase(0.0f, 0.1f, 2.7f, 3.4f, 3.5f, 3.5f, biped.rootJoint, ChakramColliders.PRECISION_VERTICAL),
 			new AttackAnimation.Phase(3.5f, 0.1f, 3.5f, 3.9f, 3.9f, 3.9f, biped.rootJoint, ChakramColliders.PRECISION_VERTICAL))
 				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f);
-		SINGLE_CHAKRAM_DASH_ATTACK = new BasicAttackAnimation(0.1f, 0.0f, 0.15f, 0.8f, 1.2f, ColliderPreset.DAGGER, biped.toolR, "chakram/chakram_dash", biped)
+		SINGLE_CHAKRAM_DASH_ATTACK = new DashAttackAnimation(0.1f, 0.0f, 0.15f, 0.8f, 2.2f, ColliderPreset.DAGGER, biped.toolR, "chakram/chakram_dash", biped)
 				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
-				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
-				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.9f));
+				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false);
 
 	}
 	public static class ReusableSources {
