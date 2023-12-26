@@ -1,7 +1,7 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills;
 
+import net.minecraftforge.fml.loading.moddiscovery.*;
 import yesman.epicfight.skill.SkillCategory;
-
 public enum EpicFightBattleStyleCategories implements SkillCategory
 {
 	BATTLE_STYLE(true, true, true);

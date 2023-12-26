@@ -1,6 +1,8 @@
 package net.forixaim.epic_fight_battle_styles;
 
 
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.AnimationRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
@@ -15,6 +17,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import yesman.epicfight.skill.SkillCategory;
+import yesman.epicfight.skill.SkillSlot;
+import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 
 import static net.forixaim.epic_fight_battle_styles.initialization.registry.BlockRegistry.BLOCKS;
@@ -33,10 +38,12 @@ public class EpicFightBattleStyles {
 
     public EpicFightBattleStyles() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        SkillCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleCategories.class);
+        SkillSlot.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
+        WeaponCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleStyleCategories.class);
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
-        EpicFightBattleStyleSkillSlots.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
+
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);

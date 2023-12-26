@@ -6,7 +6,6 @@ import yesman.epicfight.skill.SkillSlot;
 public enum EpicFightBattleStyleSkillSlots implements SkillSlot
 {
 	BATTLE_STYLE(EpicFightBattleStyleCategories.BATTLE_STYLE);
-
 	EpicFightBattleStyleCategories category;
 	int id;
 

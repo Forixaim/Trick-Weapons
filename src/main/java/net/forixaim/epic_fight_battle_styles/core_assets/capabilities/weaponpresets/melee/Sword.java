@@ -1,11 +1,13 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee;
 
 import com.mojang.datafixers.util.Pair;
+import com.mojang.logging.LogUtils;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLuminelleStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
+import org.slf4j.Logger;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.EpicFightSkills;
@@ -21,6 +23,7 @@ import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.wea
 
 public class Sword
 {
+	private static final Logger LOGGER = LogUtils.getLogger();
 	/**
 	 * A logic function that determines what style the weapon is.
 	 */
@@ -28,22 +31,27 @@ public class Sword
 	{
 		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
 		{
+			LOGGER.debug("Imperatrice Sword Style");
 			return ImperatriceLuminelleStyles.SWORD;
 		}
 		if (skillCheck(entityPatch, SkillRegistry.HERO))
 		{
 			if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SHIELD))
 			{
+				LOGGER.debug("Hero Sword Shield Style");
 				return HeroStyles.HERO_SWORD_SHIELD;
 			}
+			LOGGER.debug("Hero Sword Style");
 			return HeroStyles.HERO_SWORD;
 		}
 		else if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
 		{
+			LOGGER.debug("Default One Hand Style");
 			return CapabilityItem.Styles.TWO_HAND;
 		}
 		else
 		{
+			LOGGER.debug("Default Two Hand Style");
 			return CapabilityItem.Styles.ONE_HAND;
 		}
 	};

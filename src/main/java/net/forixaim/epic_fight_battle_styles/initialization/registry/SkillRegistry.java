@@ -1,8 +1,8 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.Duelist;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.Hero;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Duelist;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLuminelle;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,6 +32,7 @@ public class SkillRegistry
 		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
 		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
 		SkillManager.register(ImperatriceLuminelle::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");

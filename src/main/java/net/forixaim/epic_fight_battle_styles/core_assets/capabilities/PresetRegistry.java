@@ -71,6 +71,7 @@ public class PresetRegistry
 					.redirectedCategory(CapabilityItem.WeaponCategories.LONGSWORD)
 					.redirectedCollider(ColliderPreset.LONGSWORD)
 					.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+					.redirectedProvider(Longsword.styleProvider)
 					.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
 					.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Longsword.defaultOneHandAttackCycle)
 					.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Longsword.defaultTwoHandAttackCycle)

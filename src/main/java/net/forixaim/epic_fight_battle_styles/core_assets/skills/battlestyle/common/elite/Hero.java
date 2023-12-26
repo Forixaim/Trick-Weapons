@@ -1,4 +1,4 @@
-package net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common;
+package net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite;
 
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyles;
