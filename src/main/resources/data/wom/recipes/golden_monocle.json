@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "GGG",
+        "GTG"
+    ],
+    
+    "key":
+    {
+        "T": { "item" : "minecraft:ghast_tear" },
+        "G": { "item" : "minecraft:gold_ingot" }
+    },
+    
+    "result":
+    {
+        "item" : "wom:golden_monocle",
+        "count" : 1
+    }
+}

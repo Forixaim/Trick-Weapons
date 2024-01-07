@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "  S",
+        " B ",
+        "S  "
+    ],
+    
+    "key":
+    {
+        "B": { "item" : "minecraft:stick" },
+        "S": { "item" : "minecraft:cobblestone" }
+    },
+    
+    "result":
+    {
+        "item" : "wom:stone_staff",
+        "count" : 1
+    }
+}

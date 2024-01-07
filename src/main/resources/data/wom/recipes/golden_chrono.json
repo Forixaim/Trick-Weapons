@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "GGG",
+        "GTG",
+        "G G"
+    ],
+    
+    "key":
+    {
+        "T": { "item" : "minecraft:ghast_tear" },
+        "G": { "item" : "minecraft:gold_ingot" }
+    },
+    
+    "result":
+    {
+        "item" : "wom:golden_chrono",
+        "count" : 1
+    }
+}

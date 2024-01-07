@@ -177,20 +177,4 @@ public class Longsword
 		builder.innateSkill(style, (itemStack -> SkillRegistry.SLAMMING_HERO));
 		return builder;
 	};
-
-	public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> imperatriceLuminelle = (main) ->
-	{
-		EFBSWeaponCapability.Builder builder = main.getSecond();
-		Style style = main.getFirst();
-		builder.livingMotionModifier(style, LivingMotions.IDLE, BattleAnimations.IMPERATRICE_SWORD_EN_GARDE);
-		builder.livingMotionModifier(style, LivingMotions.WALK, BattleAnimations.IMPERATRICE_SWORD_WALK);
-		builder.livingMotionModifier(style, LivingMotions.RUN, BattleAnimations.IMPERATRICE_SWORD_RUN);
-		builder.newStyleCombo(style,
-				BattleAnimations.IMPERATRICE_SWORD_AUTO1,
-				BattleAnimations.IMPERATRICE_SWORD_AUTO2,
-				BattleAnimations.IMPERATRICE_SWORD_FLAME_DANCE,
-				Animations.LONGSWORD_DASH,
-				Animations.LONGSWORD_AIR_SLASH);
-		return builder;
-	};
 }

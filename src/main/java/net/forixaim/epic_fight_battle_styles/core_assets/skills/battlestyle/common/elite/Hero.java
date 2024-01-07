@@ -1,7 +1,9 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite;
 
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
+import net.minecraft.nbt.CompoundTag;
+import reascer.wom.world.capabilities.item.WOMWeaponCategories;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -13,23 +15,30 @@ import java.util.UUID;
 /**
  * A ckass that focuses on the classic sword and shield or even axe combat.
  */
-public class Hero extends BattleStyles
+public class Hero extends BattleStyle
 {
 	private float speedBonus;
-	private float damageBonus;
+	private float speedPenalty;
 	private boolean applied = false;
 	private static final UUID EVENT_UUID = UUID.fromString("3421b224-d2a4-482b-ad36-8a19b4aa0d25");
-	private static final CapabilityItem.WeaponCategories[] AVAILABLE_WEAPON_TYPES = {
-			CapabilityItem.WeaponCategories.AXE,
-			CapabilityItem.WeaponCategories.LONGSWORD,
+	private static final WeaponCategory[] AVAILABLE_WEAPON_TYPES = {
 			CapabilityItem.WeaponCategories.SWORD,
-			CapabilityItem.WeaponCategories.SHIELD
+			CapabilityItem.WeaponCategories.LONGSWORD,
+			CapabilityItem.WeaponCategories.SHIELD,
+			CapabilityItem.WeaponCategories.AXE,
+			BattleStyleCategories.BATTLE_AXE,
+			BattleStyleCategories.HAND_AXE,
+			BattleStyleCategories.HERRSCHER
 	};
 
-	private static final BattleStyleCategories[] EXTRA_WEAPON_TYPES = {
-			BattleStyleCategories.BATTLE_AXE,
-			BattleStyleCategories.HAND_AXE
-	};
+
+	@Override
+	public void setParams(CompoundTag parameters)
+	{
+		super.setParams(parameters);
+		this.speedPenalty = parameters.getFloat("speed_penalty");
+		this.speedBonus = parameters.getFloat("speed_bonus");
+	}
 
 	@Override
 	public void onInitiate(SkillContainer container)
@@ -47,30 +56,11 @@ public class Hero extends BattleStyles
 					break;
 				}
 			}
-			for (WeaponCategory weaponCategory : EXTRA_WEAPON_TYPES)
-			{
-				if (weaponCategory == heldWeaponCategory && !applied)
-				{
-					float attackSpeed = event.getAttackSpeed();
-					event.setAttackSpeed(attackSpeed * (1.0F + this.speedBonus * 0.01F));
-					applied = true;
-					break;
-				}
-			}
 			for (WeaponCategory weaponCategory : AVAILABLE_WEAPON_TYPES)
 			{
 				if (weaponCategory != heldWeaponCategory && !applied)
 				{
-					event.setAttackSpeed(0.1f);
-					applied = true;
-					break;
-				}
-			}
-			for (WeaponCategory weaponCategory : EXTRA_WEAPON_TYPES)
-			{
-				if (weaponCategory != heldWeaponCategory && !applied)
-				{
-					event.setAttackSpeed(0.1f);
+					event.setAttackSpeed(speedPenalty);
 					applied = true;
 					break;
 				}

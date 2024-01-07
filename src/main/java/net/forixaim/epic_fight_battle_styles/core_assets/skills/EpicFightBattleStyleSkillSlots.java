@@ -5,11 +5,11 @@ import yesman.epicfight.skill.SkillSlot;
 
 public enum EpicFightBattleStyleSkillSlots implements SkillSlot
 {
-	BATTLE_STYLE(EpicFightBattleStyleCategories.BATTLE_STYLE);
-	EpicFightBattleStyleCategories category;
+	BATTLE_STYLE(EpicFightBattleStyleSkillCategories.BATTLE_STYLE);
+	EpicFightBattleStyleSkillCategories category;
 	int id;
 
-	EpicFightBattleStyleSkillSlots(EpicFightBattleStyleCategories BattleStyle)
+	EpicFightBattleStyleSkillSlots(EpicFightBattleStyleSkillCategories BattleStyle)
 	{
 		this.category = BattleStyle;
 		this.id = SkillSlot.ENUM_MANAGER.assign(this);

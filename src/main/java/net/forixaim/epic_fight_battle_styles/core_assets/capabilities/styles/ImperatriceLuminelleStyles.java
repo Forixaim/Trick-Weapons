@@ -2,7 +2,9 @@ package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles;
 import yesman.epicfight.world.capabilities.item.Style;
 public enum ImperatriceLuminelleStyles implements Style
 {
-	SWORD(false);
+	SWORD(false),
+	FLARE_FALCON(false),
+	EMPRESS_COMBINATION(false);
 
 	final boolean OffHandUse;
 	final int id;

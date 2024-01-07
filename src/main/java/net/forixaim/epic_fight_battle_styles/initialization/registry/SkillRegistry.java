@@ -1,11 +1,14 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Duelist;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLuminelle;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Atlantean;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Demon;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.data.reloader.SkillManager;
@@ -26,13 +29,19 @@ public class SkillRegistry
 	public static Skill HERO;
 	public static Skill IMPERATRICE_LUMINELLE;
 	public static Skill DUELIST;
+	public static Skill DEMON;
+	public static Skill ATLANTEAN;
 
 	public static void RegisterSkills()
 	{
 		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
 		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
 		SkillManager.register(ImperatriceLuminelle::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
-
+		if (ModList.get().isLoaded("wom"))
+		{
+			SkillManager.register(Demon::new, Demon.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "demon");
+			SkillManager.register(Atlantean::new, Atlantean.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "atlantean");
+		}
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
@@ -46,6 +55,13 @@ public class SkillRegistry
 		DUELIST = OnBuild.build(EpicFightBattleStyles.MOD_ID, "duelist");
 		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
 		IMPERATRICE_LUMINELLE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+
+		if (ModList.get().isLoaded("wom"))
+		{
+			DEMON = OnBuild.build(EpicFightBattleStyles.MOD_ID, "demon");
+			ATLANTEAN = OnBuild.build(EpicFightBattleStyles.MOD_ID, "atlantean");
+		}
+
 		WeaponInnateSkill PrecisionVertical = OnBuild.build(EpicFightBattleStyles.MOD_ID, "precision_vertical");
 		PrecisionVertical
 				.newProperty()

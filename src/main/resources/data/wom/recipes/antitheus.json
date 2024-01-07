@@ -1,0 +1,15 @@
+{
+"type": "minecraft:smithing_transform",
+	"base": {
+        "item": "wom:demon_seal"
+    },
+    "addition": {
+        "item" : "minecraft:nether_star"
+    },
+    "result": {
+        "item": "wom:antitheus"
+    },
+	"template": {
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
+}

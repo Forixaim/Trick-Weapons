@@ -165,9 +165,8 @@ dependencies {
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:4945239")
-    implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:4961128")
-   // implementation fg.deobf("curse.maven:wom-918614:4903613")
-    //implementation fg.deobf("curse.maven:epic-fight-impactful-945308:4931237")
+    compileOnly fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:4961128")
+    runtimeOnly fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:4961128")
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

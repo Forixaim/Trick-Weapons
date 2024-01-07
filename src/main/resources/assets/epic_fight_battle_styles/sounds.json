@@ -1,0 +1,9 @@
+{
+  "entity.combat.critical_hit": {
+    "category": "entity",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.combat.critical_hit",
+    "sounds": [
+        "epic_fight_battle_styles:entity/combat/critical_hit"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "EBE",
+        "EEE",
+        "EEE"
+    ],
+    
+    "key":
+    {
+        "B": { "item" : "minecraft:ghast_tear" },
+        "E": { "item" : "minecraft:emerald" }
+    },
+    
+    "result":
+    {
+        "item" : "wom:emerald_chakra",
+        "count" : 1
+    }
+}

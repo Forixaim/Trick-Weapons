@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:smithing_transform",
+    "base": {
+        "item": "minecraft:diamond_chestplate"
+    },
+    "addition": {
+        "item" : "minecraft:ghast_tear"
+    },
+    "result":
+    {
+        "item" : "wom:diamond_armbracelet"
+    },
+	"template": {
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
+}

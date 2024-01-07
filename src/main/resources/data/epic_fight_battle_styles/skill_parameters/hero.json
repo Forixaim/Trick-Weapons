@@ -6,7 +6,7 @@
 			"name": "hero_class_modifiers",
 			"uuid": "3421b224-d2a4-482b-ad36-8a19b4aa0d25",
 			"operation": "addition",
-			"amount": 2
+			"amount": 5.0
 		},
 		{
 			"attribute": "minecraft:generic.movement_speed",

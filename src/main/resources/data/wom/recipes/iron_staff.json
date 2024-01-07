@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "  S",
+        " B ",
+        "S  "
+    ],
+    
+    "key":
+    {
+        "B": { "item" : "minecraft:stick" },
+        "S": { "item" : "minecraft:iron_ingot" }
+    },
+    
+    "result":
+    {
+        "item" : "wom:iron_staff",
+        "count" : 1
+    }
+}

@@ -7,5 +7,10 @@
 	"skill.epic_fight_battle_styles.imperatrice_luminelle.tooltip": "The legendary battle style of the Eternal Emberlight Empress. Uses primarily swords and sets opponents on fire.\n\n\"Hey, learning House Flaron's sword style is a massive responsibility! Good luck!\"",
 	"skill.epic_fight_battle_styles.precision_vertical": "Precision Vertical",
 	"skill.epic_fight_battle_styles.precision_vertical.tooltip": "Throw your chakram forward with devastating range in a precise area in front of you.",
-	"skill.epic_fight_battle_styles.duelist": "Duelist"
+	"skill.epic_fight_battle_styles.duelist": "Duelist",
+	"skill.epic_fight_battle_styles.duelist.tooltip": "Not Yet Implemented",
+	"skill.epic_fight_battle_styles.demon": "Demon",
+	"skill.epic_fight_battle_styles.demon.tooltip": "A wielder of the demonic blade Satsujin. Increases attack speed but reduces health and defense.",
+	"skill.epic_fight_battle_styles.atlantean": "Atlantean",
+	"skill.epic_fight_battle_styles.atlantean.tooltip": "The hero of the deep sea imparts knowledge of the attacks that is exclusive to the obsidian blade Herrscher and the nautilus shield Gesetz"
 }
