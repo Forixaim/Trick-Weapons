@@ -39,7 +39,10 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation IMPERATRICE_SWORD_RUN;
 	public static StaticAnimation IMPERATRICE_SWORD_AUTO1;
 	public static StaticAnimation IMPERATRICE_SWORD_AUTO2;
+	//Auto 3
 	public static StaticAnimation IMPERATRICE_SWORD_FLAME_DANCE;
+	//Dash Attack
+	public static StaticAnimation IMPERATRICE_SWORD_INFERNAL_WHEEL;
 	// Hero Sword and Shield
 	public static StaticAnimation HERO_SWORD_IDLE;
 	public static StaticAnimation HERO_SWORD_AUTO_1;
@@ -109,6 +112,13 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 4)
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(5f),4)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
+		IMPERATRICE_SWORD_INFERNAL_WHEEL = new DashAttackAnimation(0.1f, "sword/imperatrice_luminelle_dash_attack", biped,
+				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.torso, null),
+				new AttackAnimation.Phase(0.4f, 0.0f, 0.5f, 0.8f, 1.3f, 1.6f, biped.toolR, null)
+				)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(0.5f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.4f);
 		//Hero Sword Style
 		HERO_SWORD_IDLE = new StaticAnimation(true, "sword/hero_hold_sword", biped);
 		HERO_SWORD_AUTO_1 = new BasicAttackAnimation(0.1f, 0.1f, 0.6f, 0.9f, 0.9f, null, biped.toolR, "sword/hero_sword_auto1", biped)

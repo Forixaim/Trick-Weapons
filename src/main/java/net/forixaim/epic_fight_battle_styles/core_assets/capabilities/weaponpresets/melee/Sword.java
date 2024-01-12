@@ -163,7 +163,7 @@ public class Sword
 				BattleAnimations.IMPERATRICE_SWORD_AUTO1,
 				BattleAnimations.IMPERATRICE_SWORD_AUTO2,
 				BattleAnimations.IMPERATRICE_SWORD_FLAME_DANCE,
-				Animations.LONGSWORD_DASH,
+				BattleAnimations.IMPERATRICE_SWORD_INFERNAL_WHEEL,
 				Animations.LONGSWORD_AIR_SLASH);
 		return builder;
 	};
