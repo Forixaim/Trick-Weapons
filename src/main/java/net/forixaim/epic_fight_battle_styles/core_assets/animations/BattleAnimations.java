@@ -89,31 +89,33 @@ public class BattleAnimations extends BattleStylesAnimation
 		IMPERATRICE_SWORD_AUTO2 = new BasicAttackAnimation(0.1f, "sword/imperatrice_luminelle_auto2", biped,
 			new AttackAnimation.Phase(0.0f, 0.0f, 0.8f, 0.9f, 1.0f, 1.0f, biped.toolR, null),
 				new AttackAnimation.Phase(1.0f, 0.0f, 1.5f, 1.9f, 2.4f, 2.4f, biped.toolR, null))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.3f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6f), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(5f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.9f), 1)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(5f), 1)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
 		IMPERATRICE_SWORD_FLAME_DANCE = new BasicAttackAnimation(0.1f, "sword/imperatrice_luminelle_auto3", biped,
 			new AttackAnimation.Phase(0.0f, 0.0f, 0.1f, 0.2f, 0.3f, 0.3f, biped.toolR, null),
 				new AttackAnimation.Phase(0.2f, 0.0f, 0.25f, 0.3f, 0.4f, 0.4f, biped.toolR, null),
 				new AttackAnimation.Phase(0.4f, 0.0f, 0.45f, 0.5f, 0.6f, 0.6f, biped.toolR, null),
 				new AttackAnimation.Phase(0.6f, 0.0f, 0.65f, 0.7f, 0.8f, 0.8f, biped.toolR, null),
-				new AttackAnimation.Phase(0.8f, 0.0f, 1f, 1.1f, 1.5f, 2.1f, biped.toolR, null))
+				new AttackAnimation.Phase(0.8f, 0.0f, 1f, 1.2f, 1.5f, 2.1f, biped.toolR, null))
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.2f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.3f), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.2f), 1)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.2f), 2)
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.3f), 3)
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.2f), 4)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.2f), 3)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.4f), 4)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 1)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 2)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 3)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 4)
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(5f),4)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(100f),4)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
-		IMPERATRICE_SWORD_INFERNAL_WHEEL = new DashAttackAnimation(0.1f, "sword/imperatrice_luminelle_dash_attack", biped,
-				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.torso, null),
+		IMPERATRICE_SWORD_INFERNAL_WHEEL = new BasicAttackAnimation(0.1f, "sword/imperatrice_luminelle_dash_attack", biped,
+				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.rootJoint, null),
 				new AttackAnimation.Phase(0.4f, 0.0f, 0.5f, 0.8f, 1.3f, 1.6f, biped.toolR, null)
 				)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(0.5f))

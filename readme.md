@@ -21,8 +21,7 @@ Note: The above capabilities are also applied to 1.19.2 and 1.18.2 respectively,
 There are currently 2 battle styles, one common and one legendary.
 
 ### Questions
-If you have any questions, feel free to ask them in the [Epic Fight Discord](https://discord.gg/epic-fight-955784714264932362).
-Inquiries about this mod should be directed to Forixaim.
+If you have any questions, feel free to ask them in the issues page.
 
 ### Contributing
 You are free to contribute to this mod. Any assets you provide will be credited accordingly and you will have the ability to license your assets as you see fit. If you wish to contribute, please contact Forixaim on the [Epic Fight Discord](https://discord.gg/epic-fight-955784714264932362).

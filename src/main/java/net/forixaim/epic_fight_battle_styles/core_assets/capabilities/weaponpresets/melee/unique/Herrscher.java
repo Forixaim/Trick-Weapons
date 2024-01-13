@@ -6,6 +6,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.Imp
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.WoMUniqueStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.world.InteractionHand;
+import net.minecraftforge.fml.ModList;
 import reascer.wom.gameasset.WOMAnimations;
 import reascer.wom.gameasset.WOMSkills;
 import reascer.wom.world.item.WOMItems;
@@ -20,11 +21,11 @@ import java.util.function.Function;
 
 public class Herrscher
 {
-	public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
+	public Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
 	{
 		if (entityPatch instanceof PlayerPatch<?> playerPatch)
 		{
-			if (playerPatch.getSkill(SkillRegistry.ATLANTEAN) != null && playerPatch.getOriginal().getItemInHand(InteractionHand.OFF_HAND).is(WOMItems.GESETZ.get()))
+			if (playerPatch.getSkill(SkillRegistry.ATLANTEAN) != null && ModList.get().isLoaded("wom") && playerPatch.getOriginal().getItemInHand(InteractionHand.OFF_HAND).is(WOMItems.GESETZ.get()))
 			{
 				return WoMUniqueStyles.ATLANTEAN;
 			}
@@ -43,7 +44,7 @@ public class Herrscher
 		}
 	};
 
-	public static Function<LivingEntityPatch<?>, Boolean> comboPredicator = (main) ->
+	public Function<LivingEntityPatch<?>, Boolean> comboPredicator = (main) ->
 	{
 		if (main instanceof PlayerPatch<?> playerPatch)
 		{
@@ -52,25 +53,32 @@ public class Herrscher
 				return false;
 			}
 		}
-		return EpicFightCapabilities.getItemStackCapability(main.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD || main.getOriginal().getItemInHand(InteractionHand.OFF_HAND).is(WOMItems.GESETZ.get());
+		if (ModList.get().isLoaded("wom"))
+			return EpicFightCapabilities.getItemStackCapability(main.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD || main.getOriginal().getItemInHand(InteractionHand.OFF_HAND).is(WOMItems.GESETZ.get());
+		else
+			return EpicFightCapabilities.getItemStackCapability(main.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SWORD;
 	};
 
-	public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> atlanteanAttackCycle = (main) ->
+	public  Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> atlanteanAttackCycle = (main) ->
 	{
 		EFBSWeaponCapability.Builder builder = main.getSecond();
 		Style style = main.getFirst();
-		builder.livingMotionModifier(style, LivingMotions.IDLE, WOMAnimations.HERRSCHER_IDLE)
-				.livingMotionModifier(style, LivingMotions.WALK, WOMAnimations.HERRSCHER_WALK)
-				.livingMotionModifier(style, LivingMotions.RUN, WOMAnimations.HERRSCHER_RUN)
-				.livingMotionModifier(style, LivingMotions.BLOCK, WOMAnimations.HERRSCHER_GUARD);
-		builder.newStyleCombo(style,
-				WOMAnimations.HERRSCHER_AUTO_1,
-				WOMAnimations.HERRSCHER_AUTO_2,
-				WOMAnimations.HERRSCHER_AUTO_3,
-				WOMAnimations.HERRSCHER_BEFREIUNG,
-				WOMAnimations.HERRSCHER_AUSROTTUNG
-		);
-		builder.innateSkill(style, (itemstack) -> WOMSkills.REGIERUNG);
+		if (ModList.get().isLoaded("wom"))
+		{
+			builder.livingMotionModifier(style, LivingMotions.IDLE, WOMAnimations.HERRSCHER_IDLE)
+					.livingMotionModifier(style, LivingMotions.WALK, WOMAnimations.HERRSCHER_WALK)
+					.livingMotionModifier(style, LivingMotions.RUN, WOMAnimations.HERRSCHER_RUN)
+					.livingMotionModifier(style, LivingMotions.BLOCK, WOMAnimations.HERRSCHER_GUARD);
+			builder.newStyleCombo(style,
+					WOMAnimations.HERRSCHER_AUTO_1,
+					WOMAnimations.HERRSCHER_AUTO_2,
+					WOMAnimations.HERRSCHER_AUTO_3,
+					WOMAnimations.HERRSCHER_BEFREIUNG,
+					WOMAnimations.HERRSCHER_AUSROTTUNG
+			);
+			builder.innateSkill(style, (itemstack) -> WOMSkills.REGIERUNG);
+		}
+
 		return builder;
 	};
 }
