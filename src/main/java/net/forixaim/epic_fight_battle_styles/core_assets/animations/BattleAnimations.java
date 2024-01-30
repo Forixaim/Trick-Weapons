@@ -56,10 +56,13 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation HERO_SHIELD_BLOCK_HIT;
 	public static StaticAnimation SLAMMING_HERO;
 
-	//Dancer Chakram
+	//Default Chakram
 	public static StaticAnimation SINGLE_CHAKRAM_IDLE;
 	public static StaticAnimation SINGLE_CHAKRAM_WALK;
 	public static StaticAnimation SINGLE_CHAKRAM_RUN;
+	public static StaticAnimation DUAL_CHAKRAM_IDLE;
+	public static StaticAnimation DUAL_CHAKRAM_WALK;
+	public static StaticAnimation DUAL_CHAKRAM_RUN;
 	//Combat Motions
 	public static StaticAnimation SINGLE_CHAKRAM_AUTO_1;
 	public static StaticAnimation SINGLE_CHAKRAM_AUTO_2;
@@ -112,7 +115,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 2)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 3)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 4)
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(100f),4)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(20f),4)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
 		IMPERATRICE_SWORD_INFERNAL_WHEEL = new BasicAttackAnimation(0.1f, "sword/imperatrice_luminelle_dash_attack", biped,
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.rootJoint, null),
@@ -120,6 +123,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.4f);
 		//Hero Sword Style
 		HERO_SWORD_IDLE = new StaticAnimation(true, "sword/hero_hold_sword", biped);
