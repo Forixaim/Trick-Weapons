@@ -29,7 +29,7 @@ public class Sword
 	 */
 	public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
 	{
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
+		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
 			LOGGER.debug("Imperatrice Sword Style");
 			return ImperatriceLuminelleStyles.SWORD;
@@ -58,7 +58,7 @@ public class Sword
 
 	public static Function<LivingEntityPatch<?>, Boolean> comboPredicator = (entityPatch) ->
 	{
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
+		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 			return false;
 		//Default Check
 		if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
@@ -152,7 +152,7 @@ public class Sword
 		return builder;
 	};
 
-	public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> imperatriceLuminelle = (main) ->
+	public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> imperatriceLumiere = (main) ->
 	{
 		EFBSWeaponCapability.Builder builder = main.getSecond();
 		Style style = main.getFirst();

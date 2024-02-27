@@ -21,7 +21,7 @@ public class Rapier
 {
 	public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
 	{
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
+		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
 			return ImperatriceLuminelleStyles.SWORD;
 		}

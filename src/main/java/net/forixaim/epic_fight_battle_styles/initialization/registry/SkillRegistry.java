@@ -3,7 +3,7 @@ package net.forixaim.epic_fight_battle_styles.initialization.registry;
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLuminelle;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Atlantean;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Demon;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +27,7 @@ public class SkillRegistry
 	public static Skill SLAMMING_HERO;
 	//Battle Styles
 	public static Skill HERO;
-	public static Skill IMPERATRICE_LUMINELLE;
+	public static Skill IMPERATRICE_LUMIERE;
 	public static Skill DUELIST;
 	public static Skill DEMON;
 	public static Skill ATLANTEAN;
@@ -36,7 +36,7 @@ public class SkillRegistry
 	{
 		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
 		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
-		SkillManager.register(ImperatriceLuminelle::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+		SkillManager.register(ImperatriceLumiere::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
 		if (ModList.get().isLoaded("wom"))
 		{
 			SkillManager.register(Demon::new, Demon.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "demon");
@@ -54,7 +54,7 @@ public class SkillRegistry
 	{
 		DUELIST = OnBuild.build(EpicFightBattleStyles.MOD_ID, "duelist");
 		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
-		IMPERATRICE_LUMINELLE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
 
 		if (ModList.get().isLoaded("wom"))
 		{

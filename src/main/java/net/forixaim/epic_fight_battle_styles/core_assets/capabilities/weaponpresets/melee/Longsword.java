@@ -28,7 +28,7 @@ public class Longsword
 	private static final Logger LOGGER = LogUtils.getLogger();
 	public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
 	{
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
+		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
 			LOGGER.debug("Imperatrice Sword Style");
 			return ImperatriceLuminelleStyles.SWORD;
@@ -60,7 +60,7 @@ public class Longsword
 	public static Function<LivingEntityPatch<?>, Boolean> comboPredicator = (entityPatch) ->
 	{
 		//Skills Check
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMINELLE))
+		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
 			return false;
 		}

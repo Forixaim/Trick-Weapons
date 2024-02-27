@@ -38,7 +38,7 @@ public class PresetRegistry
 		EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
 			.redirectedProvider(Rapier.styleProvider)
-			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLuminelle)
+			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLumiere)
 			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Rapier.defaultOneHandAttack)
 			.redirectedCollider(ColliderPreset.LONGSWORD);
 
@@ -62,7 +62,7 @@ public class PresetRegistry
 			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Sword.defaultTwoHandAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD, Sword.heroSwordAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Sword.heroSwordShieldAttackCycle)
-			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLuminelle)
+			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLumiere)
 			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
 			.weaponCombinationPredicator(Sword.comboPredicator);
 
@@ -80,7 +80,7 @@ public class PresetRegistry
 			.createStyleCategory(CapabilityItem.Styles.OCHS, Longsword.LiechtenauerAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD, Longsword.heroSwordAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Longsword.heroSwordShieldAttackCycle)
-			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLuminelle)
+			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLumiere)
 			.canBePlacedOffhand(false)
 			.weaponCombinationPredicator(Longsword.comboPredicator);
 
