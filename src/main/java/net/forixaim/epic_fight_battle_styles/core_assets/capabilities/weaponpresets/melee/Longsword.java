@@ -5,7 +5,7 @@ import com.mojang.logging.LogUtils;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLuminelleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import org.slf4j.Logger;
 import yesman.epicfight.api.animation.LivingMotions;
@@ -31,7 +31,7 @@ public class Longsword
 		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
 			LOGGER.debug("Imperatrice Sword Style");
-			return ImperatriceLuminelleStyles.SWORD;
+			return ImperatriceLumiereStyles.SWORD;
 		}
 		if (skillCheck(entityPatch, SkillRegistry.HERO))
 		{

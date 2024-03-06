@@ -1,24 +1,5 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.unique;
 
-import com.mojang.datafixers.util.Pair;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLuminelleStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.WoMUniqueStyles;
-import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
-import net.minecraft.world.InteractionHand;
-import net.minecraftforge.fml.ModList;
-import reascer.wom.gameasset.WOMAnimations;
-import reascer.wom.gameasset.WOMSkills;
-import reascer.wom.world.item.WOMItems;
-import yesman.epicfight.api.animation.LivingMotions;
-import yesman.epicfight.world.capabilities.EpicFightCapabilities;
-import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
-import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
-import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.item.Style;
-
-import java.util.function.Function;
-
 //public class Herrscher
 //{
 //	public Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->

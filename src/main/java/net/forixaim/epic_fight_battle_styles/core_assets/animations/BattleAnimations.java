@@ -33,7 +33,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation RAPIER_WALK;
 	public static StaticAnimation RAPIER_AUTO1;
 	public static StaticAnimation RAPIER_AUTO2;
-	//Imperatrice Luminelle
+	//Imperatrice Luminere
 	public static StaticAnimation IMPERATRICE_SWORD_EN_GARDE;
 	public static StaticAnimation IMPERATRICE_SWORD_WALK;
 	public static StaticAnimation IMPERATRICE_SWORD_RUN;
@@ -71,6 +71,8 @@ public class BattleAnimations extends BattleStylesAnimation
 	//Innate Skills
 	public static StaticAnimation PRECISION_VERTICAL;
 
+	//House Lux Arms Master Greatsword/Excalibur
+	public static StaticAnimation HOUSE_LUX_GS_EXCALIBUR_IDLE;
 	@Override
 	protected void Build()
 	{
@@ -189,6 +191,8 @@ public class BattleAnimations extends BattleStylesAnimation
 		SINGLE_CHAKRAM_DASH_ATTACK = new DashAttackAnimation(0.1f, 0.0f, 0.15f, 0.8f, 2.2f, ColliderPreset.DAGGER, biped.toolR, "chakram/chakram_dash", biped)
 				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
 				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false);
+
+		HOUSE_LUX_GS_EXCALIBUR_IDLE = new StaticAnimation(0.1f, true, "battle_style/house_lux/house_lux_arms_master_greatsword_excalibur_idle", biped);
 
 	}
 	public static class ReusableSources {

@@ -1,32 +1,23 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.capabilities;
 
-import com.ibm.icu.impl.coll.CollationLoader;
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLuminelleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HouseLuxAMStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.hybrid.Chakram;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Greatsword;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Longsword;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Rapier;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Sword;
-import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.ColliderPreset;
-import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.gameasset.EpicFightSounds;
-import yesman.epicfight.skill.SkillSlots;
-import yesman.epicfight.world.capabilities.EpicFightCapabilities;
-import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.item.WeaponCapability;
 
 import java.util.function.Function;
 
@@ -38,10 +29,18 @@ public class PresetRegistry
 		EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
 			.redirectedProvider(Rapier.styleProvider)
-			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLumiere)
+			.createStyleCategory(ImperatriceLumiereStyles.SWORD, Sword.imperatriceLumiere)
 			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Rapier.defaultOneHandAttack)
 			.redirectedCollider(ColliderPreset.LONGSWORD);
 
+	public static final Function<Item, CapabilityItem.Builder> GREATSWORD = (item) ->
+			EFBSWeaponCapability.builder()
+					.redirectedCategory(CapabilityItem.WeaponCategories.GREATSWORD)
+					.redirectedCollider(ColliderPreset.GREATSWORD)
+					.redirectedSwingSound(EpicFightSounds.WHOOSH_BIG.get())
+					.redirectedProvider(Greatsword.styleProvider)
+					.createStyleCategory(HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR, Greatsword.houseLuxAM)
+					.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Greatsword.defaultGS);
 
 	public static final Function<Item, CapabilityItem.Builder> CHAKRAM = (item) ->
 		EFBSWeaponCapability.builder()
@@ -62,7 +61,7 @@ public class PresetRegistry
 			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Sword.defaultTwoHandAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD, Sword.heroSwordAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Sword.heroSwordShieldAttackCycle)
-			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLumiere)
+			.createStyleCategory(ImperatriceLumiereStyles.SWORD, Sword.imperatriceLumiere)
 			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
 			.weaponCombinationPredicator(Sword.comboPredicator);
 
@@ -80,7 +79,7 @@ public class PresetRegistry
 			.createStyleCategory(CapabilityItem.Styles.OCHS, Longsword.LiechtenauerAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD, Longsword.heroSwordAttackCycle)
 			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Longsword.heroSwordShieldAttackCycle)
-			.createStyleCategory(ImperatriceLuminelleStyles.SWORD, Sword.imperatriceLumiere)
+			.createStyleCategory(ImperatriceLumiereStyles.SWORD, Sword.imperatriceLumiere)
 			.canBePlacedOffhand(false)
 			.weaponCombinationPredicator(Longsword.comboPredicator);
 
@@ -92,5 +91,6 @@ public class PresetRegistry
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword"), SWORD);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "longsword"), LONGSWORD);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "rapier"), RAPIER);
+		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "greatsword"), GREATSWORD);
 	}
 }

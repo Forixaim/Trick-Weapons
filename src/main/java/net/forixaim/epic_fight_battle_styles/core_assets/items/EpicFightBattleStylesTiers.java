@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 @SuppressWarnings("deprecation")
 public enum EpicFightBattleStylesTiers implements Tier
 {
-	ORIGIN_EXCALIBUR(4, 16384, 9.0f, 10f, 0, () -> Ingredient.EMPTY);
+	ORIGIN_EXCALIBUR(4, 0, 9.0f, 10f, 0, () -> Ingredient.EMPTY);
 	private final int harvestLevel;
 	private final int maxUses;
 	private final float efficiency;

@@ -4,6 +4,7 @@ import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.LuxArmsMaster;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Atlantean;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Demon;
 import net.minecraft.resources.ResourceLocation;
@@ -31,12 +32,14 @@ public class SkillRegistry
 	public static Skill DUELIST;
 	public static Skill DEMON;
 	public static Skill ATLANTEAN;
+	public static Skill HOUSE_LUX_ARMS_MASTER;
 
 	public static void RegisterSkills()
 	{
 		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
 		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
 		SkillManager.register(ImperatriceLumiere::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
+		SkillManager.register(LuxArmsMaster::new, LuxArmsMaster.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "house_lux_arms_master");
 		if (ModList.get().isLoaded("wom"))
 		{
 			SkillManager.register(Demon::new, Demon.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "demon");
@@ -52,6 +55,7 @@ public class SkillRegistry
 	@SubscribeEvent
 	public static void BuildSkillEvent(SkillBuildEvent OnBuild)
 	{
+		HOUSE_LUX_ARMS_MASTER = OnBuild.build(EpicFightBattleStyles.MOD_ID, "house_lux_arms_master");
 		DUELIST = OnBuild.build(EpicFightBattleStyles.MOD_ID, "duelist");
 		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
 		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");

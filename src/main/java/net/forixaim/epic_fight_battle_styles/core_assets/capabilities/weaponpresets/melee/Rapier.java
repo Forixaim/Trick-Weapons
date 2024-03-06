@@ -3,8 +3,7 @@ package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpre
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLuminelleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
@@ -23,7 +22,7 @@ public class Rapier
 	{
 		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
-			return ImperatriceLuminelleStyles.SWORD;
+			return ImperatriceLumiereStyles.SWORD;
 		}
 		else if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
 		{

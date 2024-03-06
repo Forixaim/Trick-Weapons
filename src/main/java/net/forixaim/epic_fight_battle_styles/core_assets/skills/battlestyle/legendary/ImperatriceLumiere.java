@@ -29,7 +29,7 @@ public class ImperatriceLumiere extends BattleStyle
 	{
 		super.onInitiate(container);
 		Logger LOGGER = LogUtils.getLogger();
-		LOGGER.error("Not Implemented: Imperatrice Luminelle. You Fucking moron. you wasted your skillbook.");
+		LOGGER.error("Not Implemented: Imperatrice Lumiere. You Fucking moron. you wasted your skillbook.");
 	}
 	@Override
 	public void onRemoved(SkillContainer container) {
