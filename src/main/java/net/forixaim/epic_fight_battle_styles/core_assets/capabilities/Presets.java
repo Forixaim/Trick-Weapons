@@ -267,9 +267,9 @@ public class Presets
 	@SubscribeEvent
 	public static void Register(WeaponCapabilityPresetRegistryEvent Event)
 	{
-		Event.getTypeEntry().put("epic_fight_battle_styles:chakram", CHAKRAM);
-		Event.getTypeEntry().put("epic_fight_battle_styles:sword", SWORD);
-		Event.getTypeEntry().put("epic_fight_battle_styles:longsword", LONGSWORD);
-		Event.getTypeEntry().put("epic_fight_battle_styles:rapier", RAPIER);
+		Event.getTypeEntry().put("efbs-chakram", CHAKRAM);
+		Event.getTypeEntry().put("efbs-sword", SWORD);
+		Event.getTypeEntry().put("efbs-longsword", LONGSWORD);
+		Event.getTypeEntry().put("efbs-rapier", RAPIER);
 	}
 }
