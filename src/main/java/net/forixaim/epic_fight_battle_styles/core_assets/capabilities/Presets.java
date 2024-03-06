@@ -4,9 +4,8 @@ import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.DuelistStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLuminelleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -170,9 +169,9 @@ public class Presets
 						{
 							return CapabilityItem.Styles.ONE_HAND;
 						}
-						if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.IMPERATRICE_LUMINELLE) != null)
+						if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.IMPERATRICE_LUMIERE) != null)
 						{
-							return ImperatriceLuminelleStyles.SWORD;
+							return ImperatriceLumiereStyles.SWORD;
 						}
 						if (((PlayerPatch) playerpatch).getSkill(SkillRegistry.HERO) != null)
 						{
@@ -196,7 +195,7 @@ public class Presets
 					.hitSound(EpicFightSounds.BLADE_HIT)
 					.collider(ColliderPreset.LONGSWORD)
 					.canBePlacedOffhand(false)
-					.newStyleCombo(ImperatriceLuminelleStyles.SWORD, BattleAnimations.IMPERATRICE_SWORD_AUTO1, BattleAnimations.IMPERATRICE_SWORD_AUTO2, BattleAnimations.IMPERATRICE_SWORD_FLAME_DANCE, Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
+					.newStyleCombo(ImperatriceLumiereStyles.SWORD, BattleAnimations.IMPERATRICE_SWORD_AUTO1, BattleAnimations.IMPERATRICE_SWORD_AUTO2, BattleAnimations.IMPERATRICE_SWORD_FLAME_DANCE, Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
 					.newStyleCombo(HeroStyles.HERO_SWORD, BattleAnimations.HERO_SWORD_AUTO_1, BattleAnimations.HERO_SWORD_AUTO_2, BattleAnimations.HERO_SWORD_AUTO_3, Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
 					.newStyleCombo(HeroStyles.HERO_SWORD_SHIELD, BattleAnimations.HERO_SWORD_AUTO_1, BattleAnimations.HERO_SHIELD_AUTO_1, BattleAnimations.HERO_SWORD_AUTO_2, BattleAnimations.HERO_SHIELD_AUTO_2, BattleAnimations.HERO_SWORD_AUTO_3, Animations.LONGSWORD_DASH, Animations.LONGSWORD_AIR_SLASH)
 					.innateSkill(HeroStyles.HERO_SWORD, (itemStack -> SkillRegistry.SLAMMING_HERO))
@@ -233,9 +232,9 @@ public class Presets
 					.livingMotionModifier(HeroStyles.HERO_SWORD_SHIELD, LivingMotions.IDLE, BattleAnimations.HERO_SWORD_IDLE)
 					.livingMotionModifier(HeroStyles.HERO_SWORD_SHIELD, LivingMotions.BLOCK, BattleAnimations.HERO_SHIELD_BLOCK)
 					.livingMotionModifier(HeroStyles.HERO_SWORD_SHIELD, LivingMotions.BLOCK_SHIELD, BattleAnimations.HERO_SHIELD_BLOCK)
-					.livingMotionModifier(ImperatriceLuminelleStyles.SWORD, LivingMotions.IDLE, BattleAnimations.IMPERATRICE_SWORD_EN_GARDE)
-					.livingMotionModifier(ImperatriceLuminelleStyles.SWORD, LivingMotions.WALK, BattleAnimations.IMPERATRICE_SWORD_WALK)
-					.livingMotionModifier(ImperatriceLuminelleStyles.SWORD, LivingMotions.RUN, BattleAnimations.IMPERATRICE_SWORD_RUN)
+					.livingMotionModifier(ImperatriceLumiereStyles.SWORD, LivingMotions.IDLE, BattleAnimations.IMPERATRICE_SWORD_EN_GARDE)
+					.livingMotionModifier(ImperatriceLumiereStyles.SWORD, LivingMotions.WALK, BattleAnimations.IMPERATRICE_SWORD_WALK)
+					.livingMotionModifier(ImperatriceLumiereStyles.SWORD, LivingMotions.RUN, BattleAnimations.IMPERATRICE_SWORD_RUN)
 					.weaponCombinationPredicator((entitypatch) ->
 					{
 						//Safety Check
@@ -251,7 +250,7 @@ public class Presets
 							}
 						}
 						//Skills Check
-						if (((PlayerPatch<?>) entitypatch).getSkill(SkillRegistry.IMPERATRICE_LUMINELLE) != null)
+						if (((PlayerPatch<?>) entitypatch).getSkill(SkillRegistry.IMPERATRICE_LUMIERE) != null)
 						{
 							return false;
 						}

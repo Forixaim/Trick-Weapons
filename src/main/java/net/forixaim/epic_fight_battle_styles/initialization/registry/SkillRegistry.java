@@ -3,7 +3,7 @@ package net.forixaim.epic_fight_battle_styles.initialization.registry;
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.Hero;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLuminelle;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,14 +24,14 @@ public class SkillRegistry
 	public static Skill SLAMMING_HERO;
 	//Battle Styles
 	public static Skill HERO;
-	public static Skill IMPERATRICE_LUMINELLE;
+	public static Skill IMPERATRICE_LUMIERE;
 	public static Skill DUELIST;
 
 	public static void RegisterSkills()
 	{
 		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
 		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
-		SkillManager.register(ImperatriceLuminelle::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+		SkillManager.register(ImperatriceLumiere::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
@@ -44,7 +44,7 @@ public class SkillRegistry
 	{
 		DUELIST = OnBuild.build(EpicFightBattleStyles.MOD_ID, "duelist");
 		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
-		IMPERATRICE_LUMINELLE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_luminelle");
+		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
 		WeaponInnateSkill PrecisionVertical = OnBuild.build(EpicFightBattleStyles.MOD_ID, "precision_vertical");
 		PrecisionVertical
 				.newProperty()
