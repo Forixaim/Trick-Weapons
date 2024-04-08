@@ -22,7 +22,7 @@ public class Rapier
 	{
 		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
-			return ImperatriceLumiereStyles.SWORD;
+			return ImperatriceLumiereStyles.IMPERATRICE_SWORD;
 		}
 		else if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
 		{

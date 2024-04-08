@@ -3,7 +3,10 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills;
 import yesman.epicfight.skill.SkillCategory;
 public enum EpicFightBattleStyleSkillCategories implements SkillCategory
 {
-	BATTLE_STYLE(true, true, true);
+	BATTLE_STYLE(true, true, true),
+	ACTIVE_SKILL(true, true, true),
+	BURST_SKILL(true, true, true),
+	ULTIMATE_SKILL(true, true, true);
 
 	boolean Save;
 	boolean Sync;

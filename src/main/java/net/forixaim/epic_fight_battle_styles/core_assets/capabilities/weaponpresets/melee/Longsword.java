@@ -31,7 +31,7 @@ public class Longsword
 		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
 			LOGGER.debug("Imperatrice Sword Style");
-			return ImperatriceLumiereStyles.SWORD;
+			return ImperatriceLumiereStyles.IMPERATRICE_SWORD;
 		}
 		if (skillCheck(entityPatch, SkillRegistry.HERO))
 		{

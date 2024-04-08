@@ -33,7 +33,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation RAPIER_WALK;
 	public static StaticAnimation RAPIER_AUTO1;
 	public static StaticAnimation RAPIER_AUTO2;
-	//Imperatrice Luminere
+	//Imperatrice Lumiere
 	public static StaticAnimation IMPERATRICE_SWORD_EN_GARDE;
 	public static StaticAnimation IMPERATRICE_SWORD_WALK;
 	public static StaticAnimation IMPERATRICE_SWORD_RUN;
@@ -192,7 +192,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
 				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false);
 
-		HOUSE_LUX_GS_EXCALIBUR_IDLE = new StaticAnimation(0.1f, true, "battle_style/house_lux/house_lux_arms_master_greatsword_excalibur_idle", biped);
+		HOUSE_LUX_GS_EXCALIBUR_IDLE = new StaticAnimation(0.1f, true, "battle_style/legendary/house_lux/arms_master/gs_excalibur/idle", biped);
 
 	}
 	public static class ReusableSources {
