@@ -84,7 +84,7 @@
 	"epicfight.skill_slot.guard": "Guard",
 	"epicfight.skill_slot.identity": "Identity",
 	"epicfight.skill_slot.mover": "Mobility",
-	"epicfight.skill_slot.battle_style": "Battle Style",
+
 
 	"gameMode.epicfight.mining": "Mining",
 	"gameMode.epicfight.battle": "Battle",
@@ -269,7 +269,7 @@
 	"skill.epicfight.guard.category": "Guard Skill",
 	"skill.epicfight.identity.category": "Identity Skill",
 	"skill.epicfight.mover.category": "Mobility Skill",
-	"skill.epicfight.battle_style.category": "Battle Style",
+
 
 	"beta_warning": "The current version of Epic Fight is a closed beta and contains some experimental functions that may not working properly or stop your game. If you don't want to use this mod, delete it from your mod list."
 }

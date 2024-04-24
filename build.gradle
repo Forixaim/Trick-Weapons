@@ -1,24 +1,24 @@
-//buildscript {
-//    repositories {
-//        maven { url = 'https://maven.minecraftforge.net' }
-//        maven { url = "https://repo.spongepowered.org/maven" }
-//        mavenCentral()
-//    }
-//    dependencies {
-//        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
-//        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-//    }
-//}
+buildscript {
+    repositories {
+       maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = "https://repo.spongepowered.org/maven" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
 
 plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-//    id 'org.spongepowered.mixin' version '0.7.+' apply false
+    id 'org.spongepowered.mixin' version '0.7.+' apply false
 }
 
-//apply plugin: 'net.minecraftforge.gradle'
-//apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
 
 
 
@@ -101,11 +101,17 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+            args '-mixin.config=epic_fight_battle_styles.mixins.json'
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+            args '-mixin.config=epic_fight_battle_styles.mixins.json'
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -134,15 +140,20 @@ repositories {
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
     maven {
         url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
         }
     }
+
+    flatDir {
+         dir 'libs'
+    }
+
+
+    maven { url 'https://maven.theillusivec4.top/' }
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 
 }
 
@@ -159,26 +170,30 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    compileOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
 
+    compileOnly fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.2.2')
+    compileOnly fg.deobf("curse.maven:ars-nouveau-401955:5190105")
+    compileOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:5240724")
+    // M&A and its API
+    compileOnly fg.deobf("curse.maven:mana-and-artifice-406360:5204009")
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-    implementation fg.deobf("curse.maven:epic-fight-mod-405076:5132285")
-    implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5136295")
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:5159623")
+    implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5195633")
+
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
-//mixin {
-//    // MixinGradle Settings
-//    add sourceSets.main, 'mixins.mymod.refmap.json'
-//    config 'mixins.mymod.json'
-//    debug.verbose = true
-//    debug.export = true
-//    quiet
-//}
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.epic_fight_battle_styles.refmap.json'
+}
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.

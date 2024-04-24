@@ -6,10 +6,10 @@ import yesman.epicfight.skill.SkillSlot;
 public enum EpicFightBattleStyleSkillSlots implements SkillSlot
 {
 	BATTLE_STYLE(EpicFightBattleStyleSkillCategories.BATTLE_STYLE),
-	ACTIVE_SKILL_1(EpicFightBattleStyleSkillCategories.ACTIVE_SKILL),
-	ACTIVE_SKILL_2(EpicFightBattleStyleSkillCategories.ACTIVE_SKILL),
-	BURST_SKILL(EpicFightBattleStyleSkillCategories.BURST_SKILL),
-	ULTIMATE_SKILL(EpicFightBattleStyleSkillCategories.ULTIMATE_SKILL);
+	COMBAT_ART_1(EpicFightBattleStyleSkillCategories.COMBAT_ART),
+	COMBAT_ART_2(EpicFightBattleStyleSkillCategories.COMBAT_ART),
+	BURST_ART(EpicFightBattleStyleSkillCategories.BURST_ART),
+	ULTIMATE_ART(EpicFightBattleStyleSkillCategories.ULTIMATE_ART);
 	SkillCategory category;
 	int id;
 

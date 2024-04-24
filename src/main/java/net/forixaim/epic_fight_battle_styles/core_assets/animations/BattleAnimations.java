@@ -70,6 +70,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation SINGLE_CHAKRAM_DASH_ATTACK;
 	//Innate Skills
 	public static StaticAnimation PRECISION_VERTICAL;
+	public static StaticAnimation PRECISION_VERTICAL_ART;
 
 	//House Lux Arms Master Greatsword/Excalibur
 	public static StaticAnimation HOUSE_LUX_GS_EXCALIBUR_IDLE;
@@ -83,10 +84,12 @@ public class BattleAnimations extends BattleStylesAnimation
 		RAPIER_WALK = new MovementAnimation(true, "rapier/walk", biped);
 		RAPIER_AUTO1 = new BasicAttackAnimation(0.0f, 0.0f, 0.3f, 0.7f, 1.0f, null, biped.toolR, "rapier/auto1", biped);
 		RAPIER_AUTO2 = new BasicAttackAnimation(0.0f, 0.0f, 0.3f, 0.7f, 1.0f, null, biped.toolR, "rapier/auto2", biped);
-		//Imperatrice Luminelle Style (All animations aren't affected by attack speed)
-		IMPERATRICE_SWORD_EN_GARDE = new StaticAnimation(true, "sword/imperatrice_luminelle_idle", biped);
-		IMPERATRICE_SWORD_WALK = new MovementAnimation(true, "sword/imperatrice_luminelle_walk", biped);
-		IMPERATRICE_SWORD_RUN = new MovementAnimation(true, "sword/imperatrice_luminelle_run", biped);
+		//Imperatrice Lumiere Style (All animations aren't affected by attack speed)
+		IMPERATRICE_SWORD_EN_GARDE = new StaticAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/idle", biped);
+		IMPERATRICE_SWORD_WALK = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/walk", biped)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
+		IMPERATRICE_SWORD_RUN = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/run", biped)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
 		IMPERATRICE_SWORD_AUTO1 = new BasicAttackAnimation(0.1f, 0.0f, 0.7f, 0.9f, 1.3f, null, biped.toolR, "sword/imperatrice_luminelle_auto1", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.9f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
@@ -193,6 +196,15 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false);
 
 		HOUSE_LUX_GS_EXCALIBUR_IDLE = new StaticAnimation(0.1f, true, "battle_style/legendary/house_lux/arms_master/gs_excalibur/idle", biped);
+
+		//Test Combat Arts using existing animations
+		PRECISION_VERTICAL_ART = new AttackAnimation(0.1f, "chakram/precision_vertical", biped,
+				new AttackAnimation.Phase(0.0f, 0.1f, 2.7f, 3.4f, 3.5f, 3.5f, biped.rootJoint, ChakramColliders.PRECISION_VERTICAL),
+				new AttackAnimation.Phase(3.5f, 0.1f, 3.5f, 3.9f, 3.9f, 3.9f, biped.rootJoint, ChakramColliders.PRECISION_VERTICAL))
+				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(14f));
 
 	}
 	public static class ReusableSources {

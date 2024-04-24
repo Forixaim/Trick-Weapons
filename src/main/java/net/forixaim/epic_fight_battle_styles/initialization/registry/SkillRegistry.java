@@ -1,6 +1,8 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ActiveSkill;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_arts.SimpleCombatArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
@@ -15,6 +17,7 @@ import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.data.reloader.SkillManager;
 import yesman.epicfight.api.forgeevent.SkillBuildEvent;
 import yesman.epicfight.api.utils.math.ValueModifier;
+import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
@@ -33,6 +36,7 @@ public class SkillRegistry
 	public static Skill DEMON;
 	public static Skill ATLANTEAN;
 	public static Skill HOUSE_LUX_ARMS_MASTER;
+	public static Skill TEST_COMBAT_ART;
 
 	public static void RegisterSkills()
 	{
@@ -50,6 +54,9 @@ public class SkillRegistry
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
 		SkillManager.register(SimpleWeaponInnateSkill::new,  SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero")), EpicFightBattleStyles.MOD_ID, "slamming_hero");
+		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createCombatArt().setAnimations(
+				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero"))
+		, EpicFightBattleStyles.MOD_ID, "slamming_hero_art");
 	}
 
 	@SubscribeEvent
@@ -59,6 +66,8 @@ public class SkillRegistry
 		DUELIST = OnBuild.build(EpicFightBattleStyles.MOD_ID, "duelist");
 		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
 		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
+
+		TEST_COMBAT_ART = OnBuild.<ActiveSkill, Skill.Builder<ActiveSkill>>build(EpicFightBattleStyles.MOD_ID, "slamming_hero_art");
 
 		if (ModList.get().isLoaded("wom"))
 		{
