@@ -57,6 +57,8 @@ public class SkillRegistry
 		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createCombatArt().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero"))
 		, EpicFightBattleStyles.MOD_ID, "slamming_hero_art");
+		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createCombatArt().setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/sweeping_edge")), EpicFightBattleStyles.MOD_ID, "test_combat_art");
+
 	}
 
 	@SubscribeEvent
@@ -67,7 +69,7 @@ public class SkillRegistry
 		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
 		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
 
-		TEST_COMBAT_ART = OnBuild.<ActiveSkill, Skill.Builder<ActiveSkill>>build(EpicFightBattleStyles.MOD_ID, "slamming_hero_art");
+		TEST_COMBAT_ART = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art");
 
 		if (ModList.get().isLoaded("wom"))
 		{

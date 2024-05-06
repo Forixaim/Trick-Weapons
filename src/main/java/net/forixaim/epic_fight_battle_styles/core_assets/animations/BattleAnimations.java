@@ -68,16 +68,18 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation SINGLE_CHAKRAM_AUTO_2;
 	public static StaticAnimation SINGLE_CHAKRAM_AIR_SLASH;
 	public static StaticAnimation SINGLE_CHAKRAM_DASH_ATTACK;
-	//Innate Skills
+	//Innate Skills (Now Renamed to Charge Attacks)
 	public static StaticAnimation PRECISION_VERTICAL;
-	public static StaticAnimation PRECISION_VERTICAL_ART;
 
 	//House Lux Arms Master Greatsword/Excalibur
 	public static StaticAnimation HOUSE_LUX_GS_EXCALIBUR_IDLE;
+
+	//Combat Arts
+
+	public static StaticAnimation SWEEPING_EDGE_ART;
 	@Override
 	protected void Build()
 	{
-
 		HumanoidArmature biped = Armatures.BIPED;
 		//Rapier Animations
 		RAPIER_IDLE = new StaticAnimation(true, "rapier/idle", biped);
@@ -90,7 +92,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
 		IMPERATRICE_SWORD_RUN = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/run", biped)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
-		IMPERATRICE_SWORD_AUTO1 = new BasicAttackAnimation(0.1f, 0.0f, 0.7f, 0.9f, 1.3f, null, biped.toolR, "sword/imperatrice_luminelle_auto1", biped)
+		IMPERATRICE_SWORD_AUTO1 = new BasicAttackAnimation(0.1f, 0.0f, 0.7f, 0.9f, 1.3f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab1", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.9f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
@@ -198,13 +200,6 @@ public class BattleAnimations extends BattleStylesAnimation
 		HOUSE_LUX_GS_EXCALIBUR_IDLE = new StaticAnimation(0.1f, true, "battle_style/legendary/house_lux/arms_master/gs_excalibur/idle", biped);
 
 		//Test Combat Arts using existing animations
-		PRECISION_VERTICAL_ART = new AttackAnimation(0.1f, "chakram/precision_vertical", biped,
-				new AttackAnimation.Phase(0.0f, 0.1f, 2.7f, 3.4f, 3.5f, 3.5f, biped.rootJoint, ChakramColliders.PRECISION_VERTICAL),
-				new AttackAnimation.Phase(3.5f, 0.1f, 3.5f, 3.9f, 3.9f, 3.9f, biped.rootJoint, ChakramColliders.PRECISION_VERTICAL))
-				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 1f)
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 1)
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(14f));
 
 	}
 	public static class ReusableSources {

@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import yesman.epicfight.client.events.engine.ControllEngine;
+import yesman.epicfight.client.input.EpicFightKeyMappings;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.SkillSlot;
@@ -51,12 +52,15 @@ public abstract class MixinControlEngine
 	@Unique
 	private boolean epic_fight_battle_styles$combatArt1Invoke(KeyMapping key, int action) {
 		if (action == 1 && this.playerpatch.isBattleMode() && this.currentChargingKey != key) {
-
-			SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_1);
-			if (skill.sendExecuteRequest(this.playerpatch, (ControllEngine) (Object) this).shouldReserverKey()) {
-				this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+			if (!EpicFightKeyMappings.ATTACK.getKey().equals(EpicFightKeyMappings.WEAPON_INNATE_SKILL.getKey())) {
+				if (this.playerpatch.getSkill(SkillSlots.WEAPON_INNATE).sendExecuteRequest(this.playerpatch, (ControllEngine) (Object) this).shouldReserverKey()) {
+					if (!this.player.isSpectator()) {
+						this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+					}
+				} else {
+					this.lockHotkeys();
+				}
 			}
-
 		}
 
 		return false;
