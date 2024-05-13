@@ -49,6 +49,7 @@ public abstract class MixinControlEngine
 	public void ConHead(CallbackInfo ci)
 	{
 		this.keyFunctions.put(KeyBinds.USE_ART_1, this::epic_fight_battle_styles$combatArt1Invoke);
+		this.keyFunctions.put(KeyBinds.USE_ART_2, this::epic_fight_battle_styles$combatArt2Invoke);
 		epic_fight_battle_styles$controlEngine = (ControllEngine) (Object)this;
 	}
 
@@ -62,6 +63,22 @@ public abstract class MixinControlEngine
 				if (skill.sendExecuteRequest(this.playerpatch, epic_fight_battle_styles$controlEngine).shouldReserverKey())
 				{
 					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+				}
+			}
+		}
+		return false;
+	}
+
+	@Unique
+	private Boolean epic_fight_battle_styles$combatArt2Invoke(KeyMapping key, Integer action)
+	{
+		if (action == 1 && this.playerpatch.isBattleMode() && this.currentChargingKey != key) {
+			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_ART_2.getKey()))
+			{
+				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_2);
+				if (skill.sendExecuteRequest(this.playerpatch, epic_fight_battle_styles$controlEngine).shouldReserverKey())
+				{
+					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_2, key);
 				}
 			}
 		}

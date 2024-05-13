@@ -38,6 +38,7 @@ public class SkillRegistry
 	public static Skill ATLANTEAN;
 	public static Skill HOUSE_LUX_ARMS_MASTER;
 	public static Skill TEST_COMBAT_ART;
+	public static Skill TEST_COMBAT_ART_2;
 
 	public static void RegisterSkills()
 	{
@@ -55,15 +56,22 @@ public class SkillRegistry
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
 		SkillManager.register(SimpleWeaponInnateSkill::new,  SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero")), EpicFightBattleStyles.MOD_ID, "slamming_hero");
-		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero"))
-		, EpicFightBattleStyles.MOD_ID, "slamming_hero_art");
+
+		//Combat Arts
+
 		SkillManager.register(SimpleCombatArt::new,
 				SimpleCombatArt.createSimpleCombatArt()
 						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/sweeping_edge"))
 						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
 						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
 				, EpicFightBattleStyles.MOD_ID, "test_combat_art");
+
+		SkillManager.register(SimpleCombatArt::new,
+				SimpleCombatArt.createSimpleCombatArt()
+						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/the_guillotine"))
+						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
+						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
+				, EpicFightBattleStyles.MOD_ID, "test_combat_art_2");
 
 	}
 
@@ -76,6 +84,7 @@ public class SkillRegistry
 		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
 
 		TEST_COMBAT_ART = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art");
+		TEST_COMBAT_ART_2 = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art_2");
 
 		if (ModList.get().isLoaded("wom"))
 		{

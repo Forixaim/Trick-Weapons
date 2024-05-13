@@ -167,6 +167,7 @@ public class Sword
 				Animations.LONGSWORD_DASH,
 				Animations.LONGSWORD_AIR_SLASH
 		);
+		builder.innateSkill(style, (itemstack) -> EpicFightSkills.SHARP_STAB);
 		return builder;
 	};
 }

@@ -65,7 +65,6 @@ public class SimpleCombatArt extends ActiveSkill
 	@Override
 	public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args)
 	{
-		LogUtils.getLogger().debug("Execution Success");
 		executer.playAnimationSynchronized(this.attackAnimation.get(), 0);
 		super.executeOnServer(executer, args);
 	}
