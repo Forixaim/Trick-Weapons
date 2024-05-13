@@ -34,6 +34,7 @@ import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.client.gui.BattleModeGui;
 import yesman.epicfight.skill.Skill;
+import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
@@ -52,7 +53,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ActiveSkill extends Skill
 {
-	WeaponCategory usableWeapon;
+	protected List<WeaponCategory> allowedWeapons = Lists.newArrayList();
+	public static Skill.Builder<ActiveSkill> createWeaponInnateBuilder() {
+		return (new Skill.Builder<ActiveSkill>()).setCategory(EpicFightBattleStyleSkillCategories.COMBAT_ART).setResource(Resource.COOLDOWN);
+	}
 
 	protected List<Map<AnimationProperty.AttackPhaseProperty<?>, Object>> properties;
 
@@ -62,17 +66,35 @@ public class ActiveSkill extends Skill
 		this.properties = Lists.newArrayList();
 	}
 
+	private boolean weaponCategoryMatch(WeaponCategory category)
+	{
+		for (WeaponCategory category1 : allowedWeapons)
+		{
+			if (category1 == category)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public boolean canExecute(PlayerPatch<?> executer) {
-		if (executer.isLogicalClient()) {
-			return super.canExecute(executer);
+		ItemStack weapon = executer.getOriginal().getMainHandItem();
+		WeaponCategory weaponCategory = EpicFightCapabilities.getItemStackCapability(weapon).getWeaponCategory();
+		if (executer.isLogicalClient())
+		{
+			return super.canExecute(executer) && weaponCategoryMatch(weaponCategory)
+					&& executer.getOriginal().getVehicle() == null && (!executer.getSkill(this).isActivated() || this.activateType == ActivateType.TOGGLE);
+
 		} else {
 			ItemStack itemstack = executer.getOriginal().getMainHandItem();
 
-			return super.canExecute(executer) && EpicFightCapabilities.getItemStackCapability(itemstack).getInnateSkill(executer, itemstack) == this
+			return super.canExecute(executer) && weaponCategoryMatch(weaponCategory)
 					&& executer.getOriginal().getVehicle() == null && (!executer.getSkill(this).isActivated() || this.activateType == ActivateType.TOGGLE);
 		}
 	}
+
 
 	@SuppressWarnings("unchecked")
 	protected <V> Optional<V> getProperty(AnimationProperty.AttackPhaseProperty<V> propertyKey, Map<AnimationProperty.AttackPhaseProperty<?>, Object> map) {
@@ -89,19 +111,5 @@ public class ActiveSkill extends Skill
 		this.properties.get(properties.size() - 1).put(propertyKey, object);
 
 		return this;
-	}
-
-
-
-	@OnlyIn(Dist.CLIENT)
-	@Override
-	public void drawOnGui(BattleModeGui gui, SkillContainer container, GuiGraphics guiGraphics, float x, float y) {
-		PoseStack poseStack = guiGraphics.pose();
-		poseStack.pushPose();
-		poseStack.translate(0, (float)gui.getSlidingProgression(), 0);
-		guiGraphics.blit(this.getSkillTexture(), (int)x, (int)y, 24, 24, 0, 0, 1, 1, 1, 1);
-		String remainTime = String.format("%.0f", container.getMaxResource() - container.getResource());
-		guiGraphics.drawString(gui.font, remainTime, x + 12 - 4 * remainTime.length(), (y+6), 16777215, true);
-		poseStack.popPose();
 	}
 }

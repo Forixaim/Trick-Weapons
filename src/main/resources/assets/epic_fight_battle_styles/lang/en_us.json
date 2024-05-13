@@ -19,9 +19,11 @@
 	"skill.epic_fight_battle_styles.atlantean": "Atlantean",
 	"skill.epic_fight_battle_styles.atlantean.tooltip": "The hero of the deep sea imparts knowledge of the attacks that is exclusive to the obsidian blade Herrscher and the nautilus shield Gesetz",
 	"key.category.epic_fight_battle_styles.efbs_skills": "Epic Fight Battle Styles",
-	"skill.epic_fight_battle_styles.slamming_hero_art": "Slamming Hero",
+	"skill.epic_fight_battle_styles.test_combat_art": "Test Combat Art",
+	"skill.epic_fight_battle_styles.test_combat_art.tooltip": "This art is meant to be tested and not actually used in game.",
 	"key.epic_fight_battle_styles.combat_art_1_use": "Use Combat Art 1",
 	"key.epic_fight_battle_styles.combat_art_2_use": "Use Combat Art 2",
+
 
 	"skill.epicfight.battle_style.category": "Battle Style",
 	"epicfight.skill_slot.battle_style": "Battle Style",

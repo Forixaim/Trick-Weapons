@@ -21,6 +21,7 @@ import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
+import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.damagesource.StunType;
 
 @Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -54,10 +55,15 @@ public class SkillRegistry
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
 		SkillManager.register(SimpleWeaponInnateSkill::new,  SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero")), EpicFightBattleStyles.MOD_ID, "slamming_hero");
-		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createCombatArt().setAnimations(
+		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero"))
 		, EpicFightBattleStyles.MOD_ID, "slamming_hero_art");
-		SkillManager.register(SimpleCombatArt::new, SimpleCombatArt.createCombatArt().setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/sweeping_edge")), EpicFightBattleStyles.MOD_ID, "test_combat_art");
+		SkillManager.register(SimpleCombatArt::new,
+				SimpleCombatArt.createSimpleCombatArt()
+						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/sweeping_edge"))
+						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
+						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
+				, EpicFightBattleStyles.MOD_ID, "test_combat_art");
 
 	}
 

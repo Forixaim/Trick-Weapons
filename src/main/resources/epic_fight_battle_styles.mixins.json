@@ -4,10 +4,9 @@
 	"compatibilityLevel": "JAVA_17",
 	"package": "net.forixaim.epic_fight_battle_styles.mixins",
 	"mixins": [
-
 	],
-	"client":[
-		"MixinControlEngine"
+	"client": [
+		"client_engine_extenders.MixinControlEngine"
 	],
 	"refmap": "epic_fight_battle_styles.mixins.refmap.json"
 }
