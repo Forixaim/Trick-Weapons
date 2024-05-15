@@ -1,6 +1,5 @@
 package net.forixaim.epic_fight_battle_styles.mixins.client_engine_extenders;
 
-import com.mojang.logging.LogUtils;
 import net.forixaim.epic_fight_battle_styles.core_assets.client.KeyBinds;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.minecraft.client.KeyMapping;
@@ -13,13 +12,11 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import yesman.epicfight.client.ClientEngine;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.input.EpicFightKeyMappings;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.SkillSlot;
-import yesman.epicfight.skill.SkillSlots;
 
 import java.util.Map;
 import java.util.function.BiFunction;
@@ -50,17 +47,19 @@ public abstract class MixinControlEngine
 	{
 		this.keyFunctions.put(KeyBinds.USE_ART_1, this::epic_fight_battle_styles$combatArt1Invoke);
 		this.keyFunctions.put(KeyBinds.USE_ART_2, this::epic_fight_battle_styles$combatArt2Invoke);
+		this.keyFunctions.put(KeyBinds.USE_BURST_ART, this::epic_fight_battle_styles$burstArtInvoke);
+		this.keyFunctions.put(KeyBinds.USE_ULTIMATE_ART, this::epic_fight_battle_styles$ultimateArtInvoke);
 		epic_fight_battle_styles$controlEngine = (ControllEngine) (Object)this;
 	}
 
 	@Unique
 	private Boolean epic_fight_battle_styles$combatArt1Invoke(KeyMapping key, Integer action)
 	{
-		if (action == 1 && this.playerpatch.isBattleMode() && this.currentChargingKey != key) {
-			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_ART_1.getKey()))
+		if (epic_fight_battle_styles$actionCheck(key, action)) {
+			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_ART_2.getKey()))
 			{
 				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_1);
-				if (skill.sendExecuteRequest(this.playerpatch, epic_fight_battle_styles$controlEngine).shouldReserverKey())
+				if (epic_fight_battle_styles$executeRequest(skill))
 				{
 					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
 				}
@@ -70,18 +69,65 @@ public abstract class MixinControlEngine
 	}
 
 	@Unique
+	private Boolean epic_fight_battle_styles$burstArtInvoke(KeyMapping key, Integer action)
+	{
+		if (epic_fight_battle_styles$actionCheck(key, action)) {
+			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_BURST_ART.getKey()))
+			{
+				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_1);
+				if (epic_fight_battle_styles$executeRequest(skill))
+				{
+					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+				}
+			}
+		}
+		return false;
+	}
+
+	@Unique
+	private Boolean epic_fight_battle_styles$ultimateArtInvoke(KeyMapping key, Integer action)
+	{
+		if (epic_fight_battle_styles$actionCheck(key, action)) {
+			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_ULTIMATE_ART.getKey()))
+			{
+				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_1);
+				if (epic_fight_battle_styles$executeRequest(skill))
+				{
+					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+				}
+			}
+		}
+		return false;
+	}
+
+	@Unique
+	private boolean epic_fight_battle_styles$executeRequest(SkillContainer skill) {
+		return skill.sendExecuteRequest(this.playerpatch, epic_fight_battle_styles$controlEngine).shouldReserverKey();
+	}
+
+	@Unique
+	private boolean epic_fight_battle_styles$actionCheck(KeyMapping key, Integer action) {
+		return action == 1 && this.playerpatch.isBattleMode() && this.currentChargingKey != key;
+	}
+
+	@Unique
 	private Boolean epic_fight_battle_styles$combatArt2Invoke(KeyMapping key, Integer action)
 	{
-		if (action == 1 && this.playerpatch.isBattleMode() && this.currentChargingKey != key) {
+		if (epic_fight_battle_styles$actionCheck(key, action)) {
 			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_ART_2.getKey()))
 			{
 				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_2);
-				if (skill.sendExecuteRequest(this.playerpatch, epic_fight_battle_styles$controlEngine).shouldReserverKey())
+				if (epic_fight_battle_styles$executeRequest(skill))
 				{
 					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_2, key);
 				}
 			}
 		}
 		return false;
+	}
+
+	@Unique
+	private static boolean epic_fight_battle_styles$attackKeyCheck(KeyMapping key) {
+		return !EpicFightKeyMappings.ATTACK.getKey().equals(key.getKey());
 	}
 }

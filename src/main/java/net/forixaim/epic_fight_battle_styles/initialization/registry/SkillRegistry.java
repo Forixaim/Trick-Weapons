@@ -1,7 +1,6 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ActiveSkill;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_arts.SimpleCombatArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
@@ -39,6 +38,7 @@ public class SkillRegistry
 	public static Skill HOUSE_LUX_ARMS_MASTER;
 	public static Skill TEST_COMBAT_ART;
 	public static Skill TEST_COMBAT_ART_2;
+	public static Skill INFERNAL_WHEEL;
 
 	public static void RegisterSkills()
 	{
@@ -68,6 +68,14 @@ public class SkillRegistry
 
 		SkillManager.register(SimpleCombatArt::new,
 				SimpleCombatArt.createSimpleCombatArt()
+						.setAnimations(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/infernal_wheel"))
+						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
+						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
+				, EpicFightBattleStyles.MOD_ID, "infernal_wheel");
+
+
+		SkillManager.register(SimpleCombatArt::new,
+				SimpleCombatArt.createSimpleCombatArt()
 						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/the_guillotine"))
 						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
 						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
@@ -85,6 +93,7 @@ public class SkillRegistry
 
 		TEST_COMBAT_ART = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art");
 		TEST_COMBAT_ART_2 = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art_2");
+		INFERNAL_WHEEL = OnBuild.build(EpicFightBattleStyles.MOD_ID, "infernal_wheel");
 
 		if (ModList.get().isLoaded("wom"))
 		{

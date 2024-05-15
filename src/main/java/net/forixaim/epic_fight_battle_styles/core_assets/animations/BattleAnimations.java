@@ -6,6 +6,7 @@ import net.forixaim.epic_fight_battle_styles.balancing.ChakramBalancing;
 import net.forixaim.epic_fight_battle_styles.core_assets.colliders.ChakramColliders;
 import net.forixaim.epic_fight_battle_styles.core_assets.colliders.HeroSwordColliders;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.common.Mod;
 import yesman.epicfight.api.animation.TransformSheet;
@@ -17,6 +18,7 @@ import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.api.utils.math.Vec3f;
 import yesman.epicfight.gameasset.*;
 import yesman.epicfight.model.armature.HumanoidArmature;
+import yesman.epicfight.particle.EpicFightParticles;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.identity.MeteorSlamSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
@@ -75,6 +77,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation HOUSE_LUX_GS_EXCALIBUR_IDLE;
 
 	//Combat Arts
+	public static StaticAnimation BLAZE_WHEEL;
 
 	public static StaticAnimation SWEEPING_EDGE_ART;
 	@Override
@@ -200,6 +203,77 @@ public class BattleAnimations extends BattleStylesAnimation
 		HOUSE_LUX_GS_EXCALIBUR_IDLE = new StaticAnimation(0.1f, true, "battle_style/legendary/house_lux/arms_master/gs_excalibur/idle", biped);
 
 		//Test Combat Arts using existing animations
+
+		BLAZE_WHEEL = new BasicAttackAnimation(0.1f, "battle_style/legendary/imperatrice_lumiere/sword/infernal_wheel", biped,
+				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.rootJoint, null),
+				new AttackAnimation.Phase(0.4f, 0.0f, 0.5f, 0.8f, 1.3f, 1.6f, biped.toolR, null)
+		)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(0.5f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.4f)
+				.addEvents(
+						AnimationEvent.TimeStampedEvent.create(0.1F, (entitypatch, animation, params) ->
+						{
+								Entity entity = entitypatch.getOriginal();
+								entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.2F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.3F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.4F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.5F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.6F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.7F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.8F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(0.9F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(1.0F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(1.1F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT),
+						AnimationEvent.TimeStampedEvent.create(1.2F, (entitypatch, animation, params) ->
+						{
+							Entity entity = entitypatch.getOriginal();
+							entity.level().addParticle(EpicFightParticles.ENTITY_AFTER_IMAGE.get(), entity.getX(), entity.getY(), entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
+						}, AnimationEvent.Side.CLIENT)
+				);
 
 	}
 	public static class ReusableSources {

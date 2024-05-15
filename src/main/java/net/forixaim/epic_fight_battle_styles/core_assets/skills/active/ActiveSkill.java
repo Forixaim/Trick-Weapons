@@ -66,7 +66,7 @@ public class ActiveSkill extends Skill
 		this.properties = Lists.newArrayList();
 	}
 
-	private boolean weaponCategoryMatch(WeaponCategory category)
+	protected boolean weaponCategoryMatch(WeaponCategory category)
 	{
 		for (WeaponCategory category1 : allowedWeapons)
 		{
@@ -84,8 +84,7 @@ public class ActiveSkill extends Skill
 		WeaponCategory weaponCategory = EpicFightCapabilities.getItemStackCapability(weapon).getWeaponCategory();
 		if (executer.isLogicalClient())
 		{
-			return super.canExecute(executer) && weaponCategoryMatch(weaponCategory)
-					&& executer.getOriginal().getVehicle() == null && (!executer.getSkill(this).isActivated() || this.activateType == ActivateType.TOGGLE);
+			return super.canExecute(executer);
 
 		} else {
 			ItemStack itemstack = executer.getOriginal().getMainHandItem();
