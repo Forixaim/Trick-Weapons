@@ -1,5 +1,6 @@
 package net.forixaim.epic_fight_battle_styles.mixins.client_engine_extenders;
 
+import com.mojang.logging.LogUtils;
 import net.forixaim.epic_fight_battle_styles.core_assets.client.KeyBinds;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.minecraft.client.KeyMapping;
@@ -65,6 +66,7 @@ public abstract class MixinControlEngine
 				}
 			}
 		}
+		LogUtils.getLogger().debug("Combat Art 1 Invoked");
 		return false;
 	}
 

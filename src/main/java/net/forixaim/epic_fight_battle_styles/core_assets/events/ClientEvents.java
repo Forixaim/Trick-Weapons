@@ -17,6 +17,7 @@ public class ClientEvents
 	{
 		event.register(KeyBinds.USE_ART_1);
 		event.register(KeyBinds.USE_ART_2);
+		event.register(KeyBinds.USE_BURST_ART);
 		event.register(KeyBinds.USE_ULTIMATE_ART);
 
 	}

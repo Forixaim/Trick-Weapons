@@ -184,6 +184,7 @@ dependencies {
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:5159623")
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5195633")
+    implementation fg.deobf("curse.maven:epic-fight-impactful-945308:5151572")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
@@ -191,8 +192,9 @@ dependencies {
 }
 
 mixin {
-    // MixinGradle Settings
-    add sourceSets.main, 'mixins.epic_fight_battle_styles.refmap.json'
+    add sourceSets.main, "${mod_id}.refmap.json"
+
+    config "${mod_id}.mixins.json"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
