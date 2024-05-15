@@ -24,6 +24,8 @@
 	"skill.epic_fight_battle_styles.test_combat_art.tooltip": "This art is meant to be tested and not actually used in game.",
 	"key.epic_fight_battle_styles.combat_art_1_use": "Use Combat Art 1",
 	"key.epic_fight_battle_styles.combat_art_2_use": "Use Combat Art 2",
+	"key.epic_fight_battle_styles.burst_art_use": "Use Burst Art",
+	"key.epic_fight_battle_styles.ultimate_art_use": "Use Ultimate Art",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",

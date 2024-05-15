@@ -29,6 +29,7 @@ public class PresetRegistry
 		EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
 			.redirectedProvider(Rapier.styleProvider)
+				.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
 			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
 			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Rapier.defaultOneHandAttack)
 			.redirectedCollider(ColliderPreset.LONGSWORD);
