@@ -66,7 +66,6 @@ public abstract class MixinControlEngine
 				}
 			}
 		}
-		LogUtils.getLogger().debug("Combat Art 1 Invoked");
 		return false;
 	}
 
@@ -76,10 +75,10 @@ public abstract class MixinControlEngine
 		if (epic_fight_battle_styles$actionCheck(key, action)) {
 			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_BURST_ART.getKey()))
 			{
-				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_1);
+				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.BURST_ART);
 				if (epic_fight_battle_styles$executeRequest(skill))
 				{
-					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+					this.reserveKey(EpicFightBattleStyleSkillSlots.BURST_ART, key);
 				}
 			}
 		}
@@ -92,10 +91,10 @@ public abstract class MixinControlEngine
 		if (epic_fight_battle_styles$actionCheck(key, action)) {
 			if (!EpicFightKeyMappings.ATTACK.getKey().equals(KeyBinds.USE_ULTIMATE_ART.getKey()))
 			{
-				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.COMBAT_ART_1);
+				SkillContainer skill = this.playerpatch.getSkill(EpicFightBattleStyleSkillSlots.ULTIMATE_ART);
 				if (epic_fight_battle_styles$executeRequest(skill))
 				{
-					this.reserveKey(EpicFightBattleStyleSkillSlots.COMBAT_ART_1, key);
+					this.reserveKey(EpicFightBattleStyleSkillSlots.ULTIMATE_ART, key);
 				}
 			}
 		}

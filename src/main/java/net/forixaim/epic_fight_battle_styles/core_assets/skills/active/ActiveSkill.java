@@ -54,9 +54,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ActiveSkill extends Skill
 {
 	protected List<WeaponCategory> allowedWeapons = Lists.newArrayList();
-	public static Skill.Builder<ActiveSkill> createWeaponInnateBuilder() {
-		return (new Skill.Builder<ActiveSkill>()).setCategory(EpicFightBattleStyleSkillCategories.COMBAT_ART).setResource(Resource.COOLDOWN);
-	}
 
 	protected List<Map<AnimationProperty.AttackPhaseProperty<?>, Object>> properties;
 
