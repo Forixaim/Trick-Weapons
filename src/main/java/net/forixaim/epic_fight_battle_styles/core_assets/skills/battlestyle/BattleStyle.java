@@ -14,10 +14,13 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
+import yesman.epicfight.api.animation.LivingMotion;
+import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.api.utils.ParseUtil;
 import yesman.epicfight.client.gui.BattleModeGui;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
+import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 
 import java.util.Map;
 import java.util.Set;
@@ -33,11 +36,23 @@ public class BattleStyle extends Skill
 
 	}
 	private final Map<Attribute, AttributeModifier> BattleStyleStatModifier;
+	protected Map<LivingMotion, StaticAnimation> livingMotionModifiers;
 
 	public BattleStyle(Builder<? extends Skill> builder)
 	{
 		super (builder);
 		this.BattleStyleStatModifier = Maps.newHashMap();
+		this.livingMotionModifiers = Maps.newHashMap();
+	}
+
+	public Map<LivingMotion, StaticAnimation> getLivingMotionModifiers(LivingEntityPatch<?> entityPatch)
+	{
+		if (this.livingMotionModifiers == null)
+		{
+			return Maps.newHashMap();
+		}
+
+		return this.livingMotionModifiers;
 	}
 
 	@Override
