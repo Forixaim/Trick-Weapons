@@ -4,6 +4,7 @@ package net.forixaim.epic_fight_battle_styles.mixins.patches;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -36,6 +37,12 @@ public abstract class MixinServerPlayerPatch
     public void ConstructorHead(CallbackInfo ci)
     {
 
+    }
+
+    @Inject(method = "updateHeldItem", at = @At("TAIL"))
+    public void epic_fight_battle_styles$updateBattleStyle(CapabilityItem fromCap, CapabilityItem toCap, ItemStack from, ItemStack _to, InteractionHand hand, CallbackInfo ci)
+    {
+        this.epic_fight_battle_styles$modifyLivingMotionByBattleStyle();
     }
 
     @Unique
