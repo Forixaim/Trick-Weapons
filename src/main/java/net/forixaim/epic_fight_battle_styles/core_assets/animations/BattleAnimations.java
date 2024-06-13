@@ -103,11 +103,11 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1f);
-		IMPERATRICE_SWORD_JAB4 = new BasicAttackAnimation(0.0f, 0.0f, 0.2f, 0.4f, 0.5f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab4", biped)
+		IMPERATRICE_SWORD_JAB4 = new BasicAttackAnimation(0.0f, 0.0f, 0.2f, 0.3f, 0.4f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab4", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
-		IMPERATRICE_SWORD_JAB5 = new BasicAttackAnimation(0.0f, 0.0f, 0.1f, 0.3f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab5", biped)
+		IMPERATRICE_SWORD_JAB5 = new BasicAttackAnimation(0.2f, 0.0f, 0.1f, 0.3f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab5", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
