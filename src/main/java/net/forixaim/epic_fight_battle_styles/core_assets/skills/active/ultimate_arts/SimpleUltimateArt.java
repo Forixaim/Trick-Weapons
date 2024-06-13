@@ -16,7 +16,7 @@ import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 import java.util.List;
 
-public class SimpleUltimateArt extends ActiveSkill
+public class SimpleUltimateArt extends UltimateArt
 {
     public static class Builder extends Skill.Builder<SimpleUltimateArt> {
         protected ResourceLocation attackAnimation;

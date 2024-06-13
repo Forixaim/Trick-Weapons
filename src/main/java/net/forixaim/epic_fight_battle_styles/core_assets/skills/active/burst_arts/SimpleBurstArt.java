@@ -16,7 +16,7 @@ import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 import java.util.List;
 
-public class SimpleBurstArt extends ActiveSkill
+public class SimpleBurstArt extends BurstArt
 {
     public static class Builder extends Skill.Builder<SimpleBurstArt> {
         protected ResourceLocation attackAnimation;
@@ -69,7 +69,7 @@ public class SimpleBurstArt extends ActiveSkill
     }
 
     @Override
-    public ActiveSkill registerPropertiesToAnimation() {
+    public BurstArt registerPropertiesToAnimation() {
         AttackAnimation anim = this.attackAnimation.get();
 
         for (AttackAnimation.Phase phase : anim.phases) {
