@@ -4,7 +4,7 @@
 	"compatibilityLevel": "JAVA_17",
 	"package": "net.forixaim.epic_fight_battle_styles.mixins",
 	"mixins": [
-		"patches.MixinServerPlayerPatch"
+
 	],
 	"client": [
 		"client_engine_extenders.MixinControlEngine"
