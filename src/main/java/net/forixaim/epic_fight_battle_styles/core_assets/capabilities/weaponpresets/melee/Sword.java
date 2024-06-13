@@ -7,6 +7,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeapon
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
+import net.minecraft.world.entity.ambient.Bat;
 import org.slf4j.Logger;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
@@ -160,9 +161,11 @@ public class Sword
 		builder.livingMotionModifier(style, LivingMotions.WALK, BattleAnimations.IMPERATRICE_SWORD_WALK);
 		builder.livingMotionModifier(style, LivingMotions.RUN, BattleAnimations.IMPERATRICE_SWORD_RUN);
 		builder.newStyleCombo(style,
-				BattleAnimations.IMPERATRICE_SWORD_AUTO1,
-				BattleAnimations.IMPERATRICE_SWORD_AUTO2,
-				BattleAnimations.IMPERATRICE_SWORD_FLAME_DANCE,
+				BattleAnimations.IMPERATRICE_SWORD_JAB1,
+				BattleAnimations.IMPERATRICE_SWORD_JAB2,
+				BattleAnimations.IMPERATRICE_SWORD_JAB3,
+				BattleAnimations.IMPERATRICE_SWORD_JAB4,
+				BattleAnimations.IMPERATRICE_SWORD_JAB5,
 				Animations.LONGSWORD_DASH,
 				Animations.LONGSWORD_AIR_SLASH
 		);
