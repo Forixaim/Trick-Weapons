@@ -2,6 +2,7 @@ package net.forixaim.epic_fight_battle_styles;
 
 
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.WoMPresets;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.AnimationRegistry;
@@ -46,10 +47,10 @@ public class EpicFightBattleStyles {
         WeaponCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleStyleCategories.class);
         AnimationRegistry.RegisterAnimations();
         SkillRegistry.RegisterSkills();
-//        if (MOD_LIST.isLoaded("wom"))
-//        {
-//            modEventBus.addListener(WoMPresets::register);
-//        }
+        if (MOD_LIST.isLoaded("wom"))
+        {
+            modEventBus.addListener(WoMPresets::register);
+        }
         SoundRegistry.SOUNDS.register(modEventBus);
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);

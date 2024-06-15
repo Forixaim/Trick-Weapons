@@ -55,6 +55,7 @@ public class SkillRegistry
 		}
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setResource(Skill.Resource.STAMINA)
 				.setAnimations(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/chargeattack")), EpicFightBattleStyles.MOD_ID, "blaze_stinger");
+
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
