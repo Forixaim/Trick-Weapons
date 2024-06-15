@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.EpicFightSkills;
+import yesman.epicfight.skill.Skill;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -169,7 +170,7 @@ public class Sword
 				Animations.LONGSWORD_DASH,
 				Animations.LONGSWORD_AIR_SLASH
 		);
-		builder.innateSkill(style, (itemstack) -> EpicFightSkills.SHARP_STAB);
+		builder.innateSkill(style, (itemstack) -> SkillRegistry.BLAZE_STINGER);
 		return builder;
 	};
 }

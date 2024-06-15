@@ -5,6 +5,7 @@ import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.balancing.ChakramBalancing;
 import net.forixaim.epic_fight_battle_styles.core_assets.colliders.ChakramColliders;
 import net.forixaim.epic_fight_battle_styles.core_assets.colliders.HeroSwordColliders;
+import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.fml.common.Mod;
 import yesman.epicfight.api.animation.property.AnimationEvent;
@@ -38,6 +39,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation IMPERATRICE_SWORD_JAB3;
 	public static StaticAnimation IMPERATRICE_SWORD_JAB4;
 	public static StaticAnimation IMPERATRICE_SWORD_JAB5;
+	public static StaticAnimation IMPERATRICE_SWORD_BLAZE_STING;
 	//Dash Attack
 	public static StaticAnimation IMPERATRICE_SWORD_INFERNAL_WHEEL;
 	// Hero Sword and Shield
@@ -91,25 +93,39 @@ public class BattleAnimations extends BattleStylesAnimation
 		IMPERATRICE_SWORD_RUN = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/run", biped)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
 
-		IMPERATRICE_SWORD_JAB1 = new BasicAttackAnimation(0.0f, 0.0f, 0.3f, 0.5f, 0.6f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab1", biped)
+		IMPERATRICE_SWORD_JAB1 = new BasicAttackAnimation(0.1f, 0.25f, 0.3f, 0.5f, 0.6f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab1", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING.get())
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1f);
-		IMPERATRICE_SWORD_JAB2 = new BasicAttackAnimation(0.0f, 0.0f, 0.1f, 0.3f, 0.4f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab2", biped)
+		IMPERATRICE_SWORD_JAB2 = new BasicAttackAnimation(0.1f, 0.25f, 0.1f, 0.3f, 0.4f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab2", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING.get())
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
-		IMPERATRICE_SWORD_JAB3 = new BasicAttackAnimation(0.1f, 0.0f, 0.1f, 0.4f, 0.5f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab3", biped)
+		IMPERATRICE_SWORD_JAB3 = new BasicAttackAnimation(0.2f, 0.25f, 0.1f, 0.4f, 0.5f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab3", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING.get())
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1f);
-		IMPERATRICE_SWORD_JAB4 = new BasicAttackAnimation(0.0f, 0.0f, 0.2f, 0.3f, 0.4f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab4", biped)
+		IMPERATRICE_SWORD_JAB4 = new BasicAttackAnimation(0.2f, 0.3f, 0.2f, 0.3f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab4", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING.get())
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
-		IMPERATRICE_SWORD_JAB5 = new BasicAttackAnimation(0.2f, 0.0f, 0.1f, 0.3f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab5", biped)
+		IMPERATRICE_SWORD_JAB5 = new BasicAttackAnimation(0.2f, 0.25f, 0.1f, 0.3f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab5", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING.get())
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
+		IMPERATRICE_SWORD_BLAZE_STING = new BasicAttackAnimation(0.3f, 0.25f, 0.2f, 0.6f, 2.6f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/chargeattack", biped)
+				.addProperty(AnimationProperty.ActionAnimationProperty.RESET_PLAYER_COMBO_COUNTER, true)
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
 		IMPERATRICE_SWORD_INFERNAL_WHEEL = new BasicAttackAnimation(0.1f, "sword/imperatrice_luminelle_dash_attack", biped,
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.rootJoint, null),

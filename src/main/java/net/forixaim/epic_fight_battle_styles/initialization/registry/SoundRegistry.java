@@ -14,13 +14,10 @@ public class SoundRegistry
 {
 	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, EpicFightBattleStyles.MOD_ID);
 
+	public static final RegistryObject<SoundEvent> IMPERATRICE_SWING = registerSound("entity.weapon.imperatrice_swing1");
+
 	private static RegistryObject<SoundEvent> registerSound(String name) {
 		ResourceLocation res = new ResourceLocation(EpicFightBattleStyles.MOD_ID, name);
 		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(res));
-	}
-	public static void registerSounds()
-	{
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		SOUNDS.register(eventBus);
 	}
 }

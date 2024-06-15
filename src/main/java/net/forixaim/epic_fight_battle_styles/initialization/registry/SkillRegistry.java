@@ -39,6 +39,8 @@ public class SkillRegistry
 	public static Skill TEST_COMBAT_ART;
 	public static Skill TEST_COMBAT_ART_2;
 	public static Skill INFERNAL_WHEEL;
+	public static Skill BLAZE_STINGER;
+
 
 	public static void RegisterSkills()
 	{
@@ -51,6 +53,8 @@ public class SkillRegistry
 			SkillManager.register(Demon::new, Demon.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "demon");
 			SkillManager.register(Atlantean::new, Atlantean.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "atlantean");
 		}
+		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setResource(Skill.Resource.STAMINA)
+				.setAnimations(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/chargeattack")), EpicFightBattleStyles.MOD_ID, "blaze_stinger");
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
 		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
@@ -73,7 +77,6 @@ public class SkillRegistry
 						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
 				, EpicFightBattleStyles.MOD_ID, "infernal_wheel");
 
-
 		SkillManager.register(SimpleCombatArt::new,
 				SimpleCombatArt.createSimpleCombatArt()
 						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/the_guillotine"))
@@ -94,7 +97,6 @@ public class SkillRegistry
 		TEST_COMBAT_ART = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art");
 		TEST_COMBAT_ART_2 = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art_2");
 		INFERNAL_WHEEL = OnBuild.build(EpicFightBattleStyles.MOD_ID, "infernal_wheel");
-
 		if (ModList.get().isLoaded("wom"))
 		{
 			DEMON = OnBuild.build(EpicFightBattleStyles.MOD_ID, "demon");
@@ -121,5 +123,12 @@ public class SkillRegistry
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.KNOCKDOWN);
 		SLAMMING_HERO = SlammingHero;
+		WeaponInnateSkill BlazeStinger = OnBuild.build(EpicFightBattleStyles.MOD_ID, "blaze_stinger");
+		BlazeStinger.newProperty()
+				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG);
+		BLAZE_STINGER = BlazeStinger;
 	}
 }

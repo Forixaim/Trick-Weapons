@@ -1,9 +1,7 @@
 {
-  "entity.combat.critical_hit": {
-    "category": "entity",
-    "subtitle": "sounds.epic_fight_battle_styles.entity.combat.critical_hit",
-    "sounds": [
-        "epic_fight_battle_styles:entity/combat/critical_hit"
-    ]
+  "entity.weapon.imperatrice_swing": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_swing",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_swing1", "stream":true}, {"name":"epic_fight_battle_styles:entity/weapon/imperatrice_swing2", "stream":true}]
   }
 }

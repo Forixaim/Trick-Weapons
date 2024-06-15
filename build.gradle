@@ -148,7 +148,7 @@ repositories {
     }
 
     flatDir {
-         dir 'libs'
+         dir './libs'
     }
 
 
@@ -182,9 +182,11 @@ dependencies {
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+    //Epic Fight and its addons
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:5159623")
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5195633")
     implementation fg.deobf("curse.maven:epic-fight-impactful-945308:5151572")
+    implementation fg.deobf("libs:sword_soaring-forge1.20.1:1.11.7")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

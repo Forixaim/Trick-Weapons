@@ -1,7 +1,5 @@
 {
 	"consumption": 24.0,
 	"stamina_consumption": 1.0,
-	"mana_consumption": 20.0,
-	"brimstone_consumption": 150.0,
-	"soul_consumption": 100.0
+	"mana_consumption": 20.0
 }
