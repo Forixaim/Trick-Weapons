@@ -14,7 +14,12 @@ public class SoundRegistry
 {
 	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, EpicFightBattleStyles.MOD_ID);
 
-	public static final RegistryObject<SoundEvent> IMPERATRICE_SWING = registerSound("entity.weapon.imperatrice_swing1");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_SWING1 = registerSound("entity.weapon.imperatrice_swing1");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_SWING2 = registerSound("entity.weapon.imperatrice_swing2");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_SWING3 = registerSound("entity.weapon.imperatrice_swing3");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_HIT_S = registerSound("entity.weapon.imperatrice_hit_s");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_HIT_M = registerSound("entity.weapon.imperatrice_hit_m");
+
 
 	private static RegistryObject<SoundEvent> registerSound(String name) {
 		ResourceLocation res = new ResourceLocation(EpicFightBattleStyles.MOD_ID, name);

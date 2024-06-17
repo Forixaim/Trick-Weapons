@@ -167,8 +167,8 @@ public class Sword
 				BattleAnimations.IMPERATRICE_SWORD_JAB3,
 				BattleAnimations.IMPERATRICE_SWORD_JAB4,
 				BattleAnimations.IMPERATRICE_SWORD_JAB5,
-				Animations.LONGSWORD_DASH,
-				Animations.LONGSWORD_AIR_SLASH
+				BattleAnimations.IMPERATRICE_SWORD_DASH_ATTACK,
+				BattleAnimations.IMPERATRICE_SWORD_AERIAL
 		);
 		builder.innateSkill(style, (itemstack) -> SkillRegistry.BLAZE_STINGER);
 		return builder;

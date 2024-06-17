@@ -8,6 +8,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.lege
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.LuxArmsMaster;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Atlantean;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Demon;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.dodge.Trailblaze;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -18,6 +19,7 @@ import yesman.epicfight.api.forgeevent.SkillBuildEvent;
 import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
+import yesman.epicfight.skill.dodge.DodgeSkill;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -26,9 +28,12 @@ import yesman.epicfight.world.damagesource.StunType;
 @Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class SkillRegistry
 {
-	//Weapon Innate Skills
+	//Dodge Skills
+	public static Skill TRAILBLAZE;
+	//Heavy Attacks
 	public static Skill PRECISION_VERTICAL;
 	public static Skill SLAMMING_HERO;
+	public static Skill BLAZE_STINGER;
 	//Battle Styles
 	public static Skill HERO;
 	public static Skill IMPERATRICE_LUMIERE;
@@ -36,14 +41,24 @@ public class SkillRegistry
 	public static Skill DEMON;
 	public static Skill ATLANTEAN;
 	public static Skill HOUSE_LUX_ARMS_MASTER;
+	//Combat Arts
 	public static Skill TEST_COMBAT_ART;
 	public static Skill TEST_COMBAT_ART_2;
 	public static Skill INFERNAL_WHEEL;
-	public static Skill BLAZE_STINGER;
+
 
 
 	public static void RegisterSkills()
 	{
+		//Dodge Skills
+		SkillManager.register(Trailblaze::new, DodgeSkill.createDodgeBuilder().setResource(Skill.Resource.STAMINA).setAnimations(
+				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_fwd"),
+				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_back"),
+				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_left"),
+				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_right")
+
+		), EpicFightBattleStyles.MOD_ID, "trailblaze");
+		//Battle Styles
 		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
 		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
 		SkillManager.register(ImperatriceLumiere::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
@@ -53,6 +68,8 @@ public class SkillRegistry
 			SkillManager.register(Demon::new, Demon.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "demon");
 			SkillManager.register(Atlantean::new, Atlantean.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "atlantean");
 		}
+
+		//Heavy Attacks
 		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setResource(Skill.Resource.STAMINA)
 				.setAnimations(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/chargeattack")), EpicFightBattleStyles.MOD_ID, "blaze_stinger");
 
@@ -63,7 +80,6 @@ public class SkillRegistry
 				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero")), EpicFightBattleStyles.MOD_ID, "slamming_hero");
 
 		//Combat Arts
-
 		SkillManager.register(SimpleCombatArt::new,
 				SimpleCombatArt.createSimpleCombatArt()
 						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/sweeping_edge"))
@@ -131,5 +147,7 @@ public class SkillRegistry
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG);
 		BLAZE_STINGER = BlazeStinger;
+
+		TRAILBLAZE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "trailblaze");
 	}
 }

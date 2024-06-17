@@ -29,6 +29,9 @@
 	"key.epic_fight_battle_styles.combat_art_2_use": "Use Combat Art 2",
 	"key.epic_fight_battle_styles.burst_art_use": "Use Burst Art",
 	"key.epic_fight_battle_styles.ultimate_art_use": "Use Ultimate Art",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_swing": "Light Blade Swing",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_s": "Light Blade Hit",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_m": "Medium Blade Hit",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",

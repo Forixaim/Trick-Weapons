@@ -2,15 +2,6 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills.active;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.hollingsworth.arsnouveau.ArsNouveau;
-import com.hollingsworth.arsnouveau.api.mana.IManaCap;
-import com.hollingsworth.arsnouveau.common.capability.ManaCap;
-import com.hollingsworth.arsnouveau.setup.registry.CapabilityRegistry;
-import com.mna.api.faction.FactionIDs;
-import com.mna.capabilities.playerdata.magic.PlayerMagicProvider;
-import com.mna.capabilities.playerdata.progression.PlayerProgression;
-import com.mna.capabilities.playerdata.progression.PlayerProgressionProvider;
-import com.mna.loot.conditions.PlayerFactionCheck;
 import com.mojang.logging.LogUtils;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
