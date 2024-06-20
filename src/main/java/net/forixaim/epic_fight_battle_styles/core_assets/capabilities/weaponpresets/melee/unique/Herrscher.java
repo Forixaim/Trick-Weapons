@@ -30,7 +30,7 @@ public class Herrscher
 			{
 				return WoMUniqueStyles.ATLANTEAN;
 			}
-			if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getSkill() == SkillRegistry.IMPERATRICE_LUMIERE)
+			if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE))
 			{
 				return ImperatriceLumiereStyles.IMPERATRICE_SWORD;
 			}

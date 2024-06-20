@@ -26,19 +26,19 @@ public class PresetRegistry
 		EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
 			.redirectedProvider(Rapier.styleProvider)
-				.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
 			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
 			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Rapier.defaultOneHandAttack)
 			.redirectedCollider(ColliderPreset.LONGSWORD);
 
 	public static final Function<Item, CapabilityItem.Builder> GREATSWORD = (item) ->
-			EFBSWeaponCapability.builder()
-					.redirectedCategory(CapabilityItem.WeaponCategories.GREATSWORD)
-					.redirectedCollider(ColliderPreset.GREATSWORD)
-					.redirectedSwingSound(EpicFightSounds.WHOOSH_BIG.get())
-					.redirectedProvider(Greatsword.styleProvider)
-					.createStyleCategory(HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR, Greatsword.houseLuxAM)
-					.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Greatsword.defaultGS);
+		EFBSWeaponCapability.builder()
+			.redirectedCategory(CapabilityItem.WeaponCategories.GREATSWORD)
+			.redirectedCollider(ColliderPreset.GREATSWORD)
+			.redirectedSwingSound(EpicFightSounds.WHOOSH_BIG.get())
+			.redirectedProvider(Greatsword.styleProvider)
+			.createStyleCategory(HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR, Greatsword.houseLuxAM)
+			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Greatsword.defaultGS);
 
 	public static final Function<Item, CapabilityItem.Builder> CHAKRAM = (item) ->
 		EFBSWeaponCapability.builder()
@@ -50,21 +50,7 @@ public class PresetRegistry
 			.weaponCombinationPredicator(Chakram.comboPredicator);
 
 	public static final Function<Item, CapabilityItem.Builder> SWORD = (item) ->
-		EFBSWeaponCapability.builder()
-			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
-			.redirectedProvider(Sword.styleProvider)
-			.redirectedCollider(ColliderPreset.SWORD)
-			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
-			.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
-			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Sword.defaultOneHandAttackCycle)
-			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Sword.defaultTwoHandAttackCycle)
-			.createStyleCategory(HeroStyles.HERO_SWORD, Sword.heroSwordAttackCycle)
-			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Sword.heroSwordShieldAttackCycle)
-			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
-			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
-			.weaponCombinationPredicator(Sword.comboPredicator);
-
-
+			Sword.getBuilder();
 
 	public static final Function<Item, CapabilityItem.Builder> LONGSWORD = (item) ->
 		EFBSWeaponCapability.builder()
@@ -80,19 +66,19 @@ public class PresetRegistry
 			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Longsword.heroSwordShieldAttackCycle)
 			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
 			.canBePlacedOffhand(false)
-				.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
+			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
 			.weaponCombinationPredicator(Longsword.comboPredicator);
 	public static final Function<Item, CapabilityItem.Builder> TACHI = (item) ->
-			EFBSWeaponCapability.builder()
-					.redirectedCategory(CapabilityItem.WeaponCategories.TACHI)
-					.redirectedCollider(ColliderPreset.TACHI)
-					.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
-					.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
-					.redirectedProvider(Tachi.styleProvider)
-					.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Tachi.defaultTachiAttack)
-					.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
-					.canBePlacedOffhand(false)
-					.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK);
+		EFBSWeaponCapability.builder()
+			.redirectedCategory(CapabilityItem.WeaponCategories.TACHI)
+			.redirectedCollider(ColliderPreset.TACHI)
+			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+			.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
+			.redirectedProvider(Tachi.styleProvider)
+			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Tachi.defaultTachiAttack)
+			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
+			.canBePlacedOffhand(false)
+			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK);
 
 
 	@SubscribeEvent

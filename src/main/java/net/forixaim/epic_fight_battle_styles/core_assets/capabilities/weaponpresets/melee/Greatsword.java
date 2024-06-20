@@ -3,22 +3,17 @@ package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpre
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HouseLuxAMStyles;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.EpicFightSkills;
-import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
-import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
 
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.offHandItem;
 import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.skillCheck;
 
 public class Greatsword
@@ -56,7 +51,6 @@ public class Greatsword
                 .livingMotionModifier(style, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD)
                 .newStyleCombo(style, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
                 .innateSkill(style, (itemstack) -> EpicFightSkills.STEEL_WHIRLWIND);
-        ;
         return builder;
     };
 }

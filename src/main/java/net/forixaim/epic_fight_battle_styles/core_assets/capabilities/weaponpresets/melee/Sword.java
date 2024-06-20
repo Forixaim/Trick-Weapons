@@ -1,18 +1,20 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee;
 
 import com.mojang.datafixers.util.Pair;
-import com.mojang.logging.LogUtils;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ComboProvider;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.StyleProvider;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditional;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditionalType;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
-import net.minecraft.world.entity.ambient.Bat;
-import org.slf4j.Logger;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
+import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSkills;
-import yesman.epicfight.skill.Skill;
+import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -20,53 +22,17 @@ import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
 
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.offHandItem;
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.skillCheck;
-
 public class Sword
 {
-	private static final Logger LOGGER = LogUtils.getLogger();
-	/**
-	 * A logic function that determines what style the weapon is.
-	 */
-	public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
-	{
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
-		{
-			return ImperatriceLumiereStyles.IMPERATRICE_SWORD;
-		}
-		if (skillCheck(entityPatch, SkillRegistry.HERO))
-		{
-			if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SHIELD))
-			{
-				return HeroStyles.HERO_SWORD_SHIELD;
-			}
-			return HeroStyles.HERO_SWORD;
-		}
-		else if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
-		{
-			return CapabilityItem.Styles.TWO_HAND;
-		}
-		else
-		{
-			return CapabilityItem.Styles.ONE_HAND;
-		}
-	};
+	public static StyleProvider styleProvider = new StyleProvider()
+			.addConditional(new ProviderConditional(ProviderConditionalType.SKILL, ImperatriceLumiereStyles.IMPERATRICE_SWORD, SkillRegistry.IMPERATRICE_LUMIERE, null, null, null, null))
+			.addConditional(new ProviderConditional(ProviderConditionalType.COMPOSITE, HeroStyles.HERO_SWORD_SHIELD,
+					new ProviderConditional(ProviderConditionalType.SKILL, null, SkillRegistry.HERO, null, null, null, null),
+					new ProviderConditional(ProviderConditionalType.WEAPON_CATEGORY, null, null, CapabilityItem.WeaponCategories.SHIELD, null, null, null)))
+			.addConditional(new ProviderConditional(ProviderConditionalType.SKILL, HeroStyles.HERO_SWORD, SkillRegistry.HERO, null, null, null, null));
 
-	public static Function<LivingEntityPatch<?>, Boolean> comboPredicator = (entityPatch) ->
-	{
-		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
-			return false;
-		//Default Check
-		if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
-		{
-			return true;
-		}
-		else
-		{
-			return EpicFightCapabilities.getItemStackCapability(entityPatch.getOriginal().getOffhandItem()).getWeaponCategory() == CapabilityItem.WeaponCategories.SHIELD;
-		}
-	};
+	public static ComboProvider comboProvider = new ComboProvider()
+			.addConditional(new ProviderConditional(ProviderConditionalType.SKILL, null, SkillRegistry.IMPERATRICE_LUMIERE, null, null, null, null, false));
 
 	/**
 	 * A typical attack cycle lambda function should have the following in an order deemed readable.
@@ -168,4 +134,48 @@ public class Sword
 		builder.innateSkill(style, (itemstack) -> SkillRegistry.BLAZE_STINGER);
 		return builder;
 	};
+
+	public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> mountedAttack = (main) ->
+	{
+		EFBSWeaponCapability.Builder builder = main.getSecond();
+		Style style = main.getFirst();
+		builder.newStyleCombo(style,
+				Animations.SWORD_MOUNT_ATTACK
+		);
+		return builder;
+	};
+
+	private static final EFBSWeaponCapability.Builder swordBuilder = EFBSWeaponCapability.builder()
+			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
+			.redirectedProvider(styleProvider
+					.addConditional(new ProviderConditional(ProviderConditionalType.WEAPON_CATEGORY, CapabilityItem.Styles.TWO_HAND, null, CapabilityItem.WeaponCategories.SWORD, null, null, null))
+					.addConditional(new ProviderConditional(ProviderConditionalType.DEFAULT, CapabilityItem.Styles.ONE_HAND))
+					.export()
+			)
+			.redirectedCollider(ColliderPreset.SWORD)
+			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+			.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
+			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Sword.defaultOneHandAttackCycle)
+			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Sword.defaultTwoHandAttackCycle)
+			.createStyleCategory(HeroStyles.HERO_SWORD, Sword.heroSwordAttackCycle)
+			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Sword.heroSwordShieldAttackCycle)
+			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
+			.createStyleCategory(CapabilityItem.Styles.MOUNT, Sword.mountedAttack)
+			.redirectedPredicator(comboProvider
+					.addConditional(new ProviderConditional(ProviderConditionalType.WEAPON_CATEGORY, null, null, CapabilityItem.WeaponCategories.SWORD, null, null, null, true))
+					.addConditional(new ProviderConditional(ProviderConditionalType.WEAPON_CATEGORY, null, null, CapabilityItem.WeaponCategories.SHIELD, null, null, null, true))
+					.export()
+			);
+
+	public static CapabilityItem.Builder getBuilder()
+	{
+		return swordBuilder;
+	}
+
+	public static EFBSWeaponCapability.Builder modifyBuilder()
+	{
+		return swordBuilder;
+	}
+
+
 }

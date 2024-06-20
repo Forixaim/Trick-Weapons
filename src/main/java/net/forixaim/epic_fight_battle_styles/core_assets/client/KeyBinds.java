@@ -5,7 +5,6 @@ import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import org.lwjgl.glfw.GLFW;
-import yesman.epicfight.client.events.engine.ControllEngine;
 
 public class KeyBinds
 {
