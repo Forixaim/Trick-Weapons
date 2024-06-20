@@ -20,6 +20,8 @@
 	"skill.epic_fight_battle_styles.atlantean.tooltip": "The hero of the deep sea imparts knowledge of the attacks that is exclusive to the obsidian blade Herrscher and the nautilus shield Gesetz",
 	"skill.epic_fight_battle_styles.blaze_stinger": "Blaze Stinger",
 	"skill.epic_fight_battle_styles.blaze_stinger.tooltip": "Thrust the sword at a speed so incredible not only it breaks any foolish opponent's guard but knocks them a fair distance back.",
+	"skill.epic_fight_battle_styles.trailblaze": "Trailblaze",
+	"skill.epic_fight_battle_styles.trailblaze.tooltip": "Dash a fair distance in any direction, primarily used to follow up on the mostly stationary comboes of Impératrice Lumiére",
 
 
 	"key.category.epic_fight_battle_styles.efbs_skills": "Epic Fight Battle Styles",
@@ -32,6 +34,8 @@
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_swing": "Light Blade Swing",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_s": "Light Blade Hit",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_m": "Medium Blade Hit",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_l": "Heavy Blade Hit",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_thrust_l": "Blade Impale",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",

@@ -2,6 +2,7 @@ package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpre
 
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.world.InteractionHand;
 import yesman.epicfight.api.animation.LivingMotions;
@@ -27,7 +28,7 @@ public class HelperFunctions
 	{
 		if (entityPatch instanceof PlayerPatch)
 		{
-			return ((PlayerPatch<?>) entityPatch).getSkill(skill) != null;
+			return ((PlayerPatch<?>) entityPatch).getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(skill);
 		}
 		return false;
 	}

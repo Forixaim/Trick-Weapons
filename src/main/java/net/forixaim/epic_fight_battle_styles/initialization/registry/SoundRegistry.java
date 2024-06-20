@@ -19,6 +19,9 @@ public class SoundRegistry
 	public static final RegistryObject<SoundEvent> IMPERATRICE_SWING3 = registerSound("entity.weapon.imperatrice_swing3");
 	public static final RegistryObject<SoundEvent> IMPERATRICE_HIT_S = registerSound("entity.weapon.imperatrice_hit_s");
 	public static final RegistryObject<SoundEvent> IMPERATRICE_HIT_M = registerSound("entity.weapon.imperatrice_hit_m");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_HIT_L = registerSound("entity.weapon.imperatrice_hit_l");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_THRUST_L = registerSound("entity.weapon.imperatrice_thrust_l");
+
 
 
 	private static RegistryObject<SoundEvent> registerSound(String name) {

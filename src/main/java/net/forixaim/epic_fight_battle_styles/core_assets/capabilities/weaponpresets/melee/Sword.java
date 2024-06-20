@@ -33,27 +33,22 @@ public class Sword
 	{
 		if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
 		{
-			LOGGER.debug("Imperatrice Sword Style");
 			return ImperatriceLumiereStyles.IMPERATRICE_SWORD;
 		}
 		if (skillCheck(entityPatch, SkillRegistry.HERO))
 		{
 			if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SHIELD))
 			{
-				LOGGER.debug("Hero Sword Shield Style");
 				return HeroStyles.HERO_SWORD_SHIELD;
 			}
-			LOGGER.debug("Hero Sword Style");
 			return HeroStyles.HERO_SWORD;
 		}
 		else if (offHandItem(entityPatch, CapabilityItem.WeaponCategories.SWORD))
 		{
-			LOGGER.debug("Default One Hand Style");
 			return CapabilityItem.Styles.TWO_HAND;
 		}
 		else
 		{
-			LOGGER.debug("Default Two Hand Style");
 			return CapabilityItem.Styles.ONE_HAND;
 		}
 	};

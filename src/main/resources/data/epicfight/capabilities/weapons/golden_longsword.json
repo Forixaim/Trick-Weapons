@@ -1,0 +1,11 @@
+{
+	"attributes":
+	{
+		"common":
+		{
+			"impact":1.0,
+			"max_strikes":2
+		}
+	},
+	"type": "epic_fight_battle_styles:longsword"
+}

@@ -5,10 +5,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.Her
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HouseLuxAMStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.hybrid.Chakram;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Greatsword;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Longsword;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Rapier;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Sword;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -51,6 +48,7 @@ public class PresetRegistry
 			.redirectedSwingSound(EpicFightSounds.WHOOSH_SMALL.get())
 			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Chakram.defaultOneHandAttackCycle)
 			.weaponCombinationPredicator(Chakram.comboPredicator);
+
 	public static final Function<Item, CapabilityItem.Builder> SWORD = (item) ->
 		EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
@@ -82,7 +80,19 @@ public class PresetRegistry
 			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Longsword.heroSwordShieldAttackCycle)
 			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
 			.canBePlacedOffhand(false)
+				.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
 			.weaponCombinationPredicator(Longsword.comboPredicator);
+	public static final Function<Item, CapabilityItem.Builder> TACHI = (item) ->
+			EFBSWeaponCapability.builder()
+					.redirectedCategory(CapabilityItem.WeaponCategories.TACHI)
+					.redirectedCollider(ColliderPreset.TACHI)
+					.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+					.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
+					.redirectedProvider(Tachi.styleProvider)
+					.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Tachi.defaultTachiAttack)
+					.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
+					.canBePlacedOffhand(false)
+					.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK);
 
 
 	@SubscribeEvent
@@ -93,5 +103,6 @@ public class PresetRegistry
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "longsword"), LONGSWORD);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "rapier"), RAPIER);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "greatsword"), GREATSWORD);
+		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "tachi"), TACHI);
 	}
 }

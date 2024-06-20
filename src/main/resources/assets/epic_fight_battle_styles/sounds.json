@@ -23,5 +23,15 @@
     "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_m",
     "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_hit_m", "stream":true}]
+  },
+  "entity.weapon.imperatrice_hit_l": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_l",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_hit_l", "stream":true}]
+  },
+  "entity.weapon.imperatrice_thrust_l": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_thrust_l",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_thrust_l", "stream":true}]
   }
 }

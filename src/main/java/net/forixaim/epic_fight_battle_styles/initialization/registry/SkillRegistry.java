@@ -23,7 +23,10 @@ import yesman.epicfight.skill.dodge.DodgeSkill;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
+import yesman.epicfight.world.damagesource.EpicFightDamageType;
 import yesman.epicfight.world.damagesource.StunType;
+
+import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class SkillRegistry
@@ -145,7 +148,8 @@ public class SkillRegistry
 				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG);
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.WEAPON_INNATE, EpicFightDamageType.GUARD_PUNCTURE));
 		BLAZE_STINGER = BlazeStinger;
 
 		TRAILBLAZE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "trailblaze");
