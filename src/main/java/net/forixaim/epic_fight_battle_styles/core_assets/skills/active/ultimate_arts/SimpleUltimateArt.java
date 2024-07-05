@@ -7,6 +7,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_art
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import yesman.epicfight.api.animation.AnimationProvider;
+import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
@@ -19,7 +20,7 @@ import java.util.List;
 public class SimpleUltimateArt extends UltimateArt
 {
     public static class Builder extends Skill.Builder<SimpleUltimateArt> {
-        protected ResourceLocation attackAnimation;
+        protected AttackAnimationProvider attackAnimation;
         protected List<WeaponCategory> allowedWeapons = Lists.newArrayList();
 
         public SimpleUltimateArt.Builder addWeaponCategory(WeaponCategory category)
@@ -43,8 +44,8 @@ public class SimpleUltimateArt extends UltimateArt
             return this;
         }
 
-        public SimpleUltimateArt.Builder setAnimations(ResourceLocation attackAnimation) {
-            this.attackAnimation = attackAnimation;
+        public SimpleUltimateArt.Builder setAnimations(AttackAnimationProvider provider) {
+            this.attackAnimation = provider;
             return this;
         }
     }
@@ -53,12 +54,12 @@ public class SimpleUltimateArt extends UltimateArt
         return (new SimpleBurstArt.Builder()).setCategory(EpicFightBattleStyleSkillCategories.ULTIMATE_ART).setResource(Skill.Resource.COOLDOWN);
     }
 
-    protected AnimationProvider.AttackAnimationProvider attackAnimation;
+    protected AttackAnimationProvider attackAnimation;
 
     public SimpleUltimateArt(SimpleUltimateArt.Builder builder) {
         super(builder);
         this.allowedWeapons = builder.allowedWeapons;
-        this.attackAnimation = () -> (AttackAnimation) EpicFightMod.getInstance().animationManager.findAnimationByPath(builder.attackAnimation.toString());
+        this.attackAnimation = builder.attackAnimation;
     }
 
     @Override

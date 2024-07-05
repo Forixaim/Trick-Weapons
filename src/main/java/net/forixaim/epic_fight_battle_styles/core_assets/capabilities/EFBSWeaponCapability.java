@@ -36,10 +36,12 @@ public class EFBSWeaponCapability extends WeaponCapability
 	public static class Builder extends WeaponCapability.Builder
 	{
 		Function<LivingEntityPatch<?>, Skill> passiveSkillProvider;
+
 		protected Builder()
 		{
 			super();
 		}
+
 		public EFBSWeaponCapability.Builder initialSetup(WeaponCategory category, Skill passiveSkill, SoundEvent swingSound, SoundEvent hitSound, @NotNull Collider collider)
 		{
 			this.category(category);
@@ -49,6 +51,7 @@ public class EFBSWeaponCapability extends WeaponCapability
 			this.collider(collider);
 			return this;
 		}
+
 		public EFBSWeaponCapability.Builder initialSetup(WeaponCategory category, SoundEvent swingSound, SoundEvent hitSound)
 		{
 			this.category(category);
@@ -56,42 +59,57 @@ public class EFBSWeaponCapability extends WeaponCapability
 			this.hitSound(hitSound);
 			return this;
 		}
-		public EFBSWeaponCapability.Builder redirectedProvider(Function<LivingEntityPatch<?>, Style> styleProvider) {
+
+		public EFBSWeaponCapability.Builder redirectedProvider(Function<LivingEntityPatch<?>, Style> styleProvider)
+		{
 			this.styleProvider(styleProvider);
 			return this;
 		}
+
 		public EFBSWeaponCapability.Builder redirectedCategory(WeaponCategory category)
 		{
 			this.category(category);
 			return this;
 		}
+
 		public EFBSWeaponCapability.Builder redirectedPassiveSkill(Skill passiveSkill)
 		{
 			this.passiveSkill(passiveSkill);
 			return this;
 		}
+
 		public EFBSWeaponCapability.Builder redirectedSwingSound(SoundEvent swingSound)
 		{
 			this.swingSound(swingSound);
 			return this;
 		}
+
 		public EFBSWeaponCapability.Builder redirectedHitSound(SoundEvent hitSound)
 		{
 			this.hitSound(hitSound);
 			return this;
 		}
+
 		public EFBSWeaponCapability.Builder redirectedCollider(@NotNull Collider collider)
 		{
 			this.collider(collider);
 			return this;
 		}
+
 		public Builder createStyleCategory(Style style, Function<Pair<Style, Builder>, Builder> weaponCombo)
 		{
 			return weaponCombo.apply(new Pair<>(style, this));
 
 		}
 
-		public Builder redirectedPredicator(Function<LivingEntityPatch<?>, Boolean> predicator) {
+		public Builder offHandUse(Boolean use)
+		{
+			this.canBePlacedOffhand(use);
+			return this;
+		}
+
+		public Builder redirectedPredicator(Function<LivingEntityPatch<?>, Boolean> predicator)
+		{
 			this.weaponCombinationPredicator(predicator);
 			return this;
 		}

@@ -2,7 +2,13 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills.dodge;
 
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.Input;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
@@ -44,17 +50,19 @@ public class Trailblaze extends DodgeSkill
     }
 
     @OnlyIn(Dist.CLIENT)
-    @Override
     public Object getExecutionPacket(LocalPlayerPatch executer, FriendlyByteBuf args) {
-        int forward = args.readInt();
-        int backward = args.readInt();
-        int left = args.readInt();
-        int right = args.readInt();
+        Input input = ((LocalPlayer)executer.getOriginal()).input;
+        float pulse = Mth.clamp(0.3F + EnchantmentHelper.getSneakingSpeedBonus((LivingEntity)executer.getOriginal()), 0.0F, 1.0F);
+        input.tick(false, pulse);
+        int forward = input.up ? 1 : 0;
+        int backward = input.down ? -1 : 0;
+        int left = input.left ? 1 : 0;
+        int right = input.right ? -1 : 0;
         int vertic = forward + backward;
         int horizon = left + right;
-        int degree = vertic == 0 ? 0 : -(90 * horizon * (1 - Math.abs(vertic)) + 45 * vertic * horizon);
+        float yRot = Minecraft.getInstance().gameRenderer.getMainCamera().getYRot();
+        float degree = (float)(-(horizon * (1 - Math.abs(vertic)) + 45 * vertic * horizon)) + yRot;
         int animation;
-
         if (vertic == 0) {
             if (horizon == 0) {
                 animation = 0;
@@ -68,7 +76,6 @@ public class Trailblaze extends DodgeSkill
         CPExecuteSkill packet = new CPExecuteSkill(executer.getSkill(this).getSlotId());
         packet.getBuffer().writeInt(animation);
         packet.getBuffer().writeFloat(degree);
-
         return packet;
     }
 }

@@ -1,7 +1,6 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.api.providers;
 
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
-import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +21,17 @@ public class ComboProvider
         return this;
     }
 
+    public ComboProvider addDefaultConditional(ProviderConditional conditional)
+    {
+        this.conditionals.add(0, conditional);
+        return this;
+    }
+
     /**
      * @throws NullPointerException if none of the provided Conditionals return a Style;
      * @return The Function that is used for the StyleProvider
      */
-    public Function<LivingEntityPatch<?>, Boolean> export()
+    public Function<LivingEntityPatch<?>, Boolean> exportCombination()
     {
         Function<LivingEntityPatch<?>, Boolean> providerFunction = (entityPatch) ->
         {

@@ -31,6 +31,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation RAPIER_AUTO1;
 	public static StaticAnimation RAPIER_AUTO2;
 	//Imperatrice Lumiere Sword
+	public static StaticAnimation IMPERATRICE_JOYEUSE_DRAW;
 	public static StaticAnimation IMPERATRICE_SWORD_EN_GARDE;
 	public static StaticAnimation IMPERATRICE_SWORD_WALK;
 	public static StaticAnimation IMPERATRICE_SWORD_RUN;
@@ -50,6 +51,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation IMPERATRICE_TRAILBLAZE_RIGHT;
 	public static StaticAnimation IMPERATRICE_TRAILBLAZE_BACK;
 	//Combat Arts
+	public static StaticAnimation IMPERATRICE_BLAZE_BLASTER;
 	public static StaticAnimation IMPERATRICE_PROMINENCE_BLAZE;
 	// Hero Sword and Shield
 	public static StaticAnimation HERO_SWORD_IDLE;
@@ -67,10 +69,6 @@ public class BattleAnimations extends BattleStylesAnimation
 	//Default Chakram
 	public static StaticAnimation SINGLE_CHAKRAM_IDLE;
 	public static StaticAnimation SINGLE_CHAKRAM_WALK;
-	public static StaticAnimation SINGLE_CHAKRAM_RUN;
-	public static StaticAnimation DUAL_CHAKRAM_IDLE;
-	public static StaticAnimation DUAL_CHAKRAM_WALK;
-	public static StaticAnimation DUAL_CHAKRAM_RUN;
 	//Combat Motions
 	public static StaticAnimation SINGLE_CHAKRAM_AUTO_1;
 	public static StaticAnimation SINGLE_CHAKRAM_AUTO_2;
@@ -85,7 +83,6 @@ public class BattleAnimations extends BattleStylesAnimation
 	//Combat Arts
 	public static StaticAnimation BLAZE_WHEEL;
 
-	public static StaticAnimation SWEEPING_EDGE_ART;
 	@Override
 	protected void Build()
 	{
@@ -96,48 +93,60 @@ public class BattleAnimations extends BattleStylesAnimation
 		RAPIER_AUTO1 = new BasicAttackAnimation(0.0f, 0.0f, 0.3f, 0.7f, 1.0f, null, biped.toolR, "rapier/auto1", biped);
 		RAPIER_AUTO2 = new BasicAttackAnimation(0.0f, 0.0f, 0.3f, 0.7f, 1.0f, null, biped.toolR, "rapier/auto2", biped);
 		//Imperatrice Lumiere Style (All animations aren't affected by attack speed)
+		IMPERATRICE_JOYEUSE_DRAW = new AttackAnimation(0.0f, 0.00f, 0.00f, 0.0f, 1.2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/joyeuse_draw", biped)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
 		IMPERATRICE_SWORD_EN_GARDE = new StaticAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/idle", biped);
 		IMPERATRICE_SWORD_WALK = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/walk", biped)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1.5f);
 		IMPERATRICE_SWORD_RUN = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/run", biped)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.5f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1.5f);
 
 		IMPERATRICE_SWORD_JAB1 = new BasicAttackAnimation(0.05f, 0.05f, 0.05f, 0.15f, 0.2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab1", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(0.1f))
 				.addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1f)
+				.addState(EntityState.TURNING_LOCKED, true)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true);
 		IMPERATRICE_SWORD_JAB2 = new BasicAttackAnimation(0.05f, 0.05f, 0.05f, 0.15f, 0.2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab2", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING2.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(0.1f))
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addState(EntityState.TURNING_LOCKED, true);
 		IMPERATRICE_SWORD_JAB3 = new BasicAttackAnimation(0.05f, 0.05f, 0.07f, 0.17f, 0.2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab3", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1f);
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(0.1f))
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addState(EntityState.TURNING_LOCKED, true);
 		IMPERATRICE_SWORD_JAB4 = new BasicAttackAnimation(0.05f, 0.05f, 0.07f, 0.17f, 0.2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab4", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING2.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(0.1f))
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addState(EntityState.TURNING_LOCKED, true);
 		IMPERATRICE_SWORD_JAB5 = new BasicAttackAnimation(0.2f, 0.05f, 0.05f, 0.2f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab5", biped)
 			.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1f))
 			.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
 			.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING3.get())
 			.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_M.get())
 			.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
-			.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
+			.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addState(EntityState.TURNING_LOCKED, true);
 		IMPERATRICE_SWORD_DASH_ATTACK = new BasicAttackAnimation(0.2f, "battle_style/legendary/imperatrice_lumiere/sword/dash_attack", biped,
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.2f, 0.4f, 0.8f, 0.8f, biped.toolR, null),
 				new AttackAnimation.Phase(0.8f, 0.0f, 1.0f, 1.2f, 1.6f, 1.6f, biped.toolR, null))
@@ -145,7 +154,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_THRUST_L.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_M.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(5f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1f), 1)
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 1)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING3.get(), 1)
@@ -156,7 +165,8 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
 				.addState(EntityState.TURNING_LOCKED, true)
 				.addState(EntityState.LOCKON_ROTATE, true)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d) -> 1.5f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e) -> 1.5f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true);
 		IMPERATRICE_SWORD_AERIAL = new BasicAttackAnimation(0.2f, 0.05f, 0.2f, 0.4f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/aerial", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.4f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
@@ -167,16 +177,19 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.8f))
 				.addState(EntityState.TURNING_LOCKED, true)
 				.addState(EntityState.LOCKON_ROTATE, true)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d) -> 1.5f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e) -> 1.5f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true);;
 		IMPERATRICE_SWORD_BLAZE_STINGER = new BasicAttackAnimation(0.05f, 0.0f, 0.3f, 0.4f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/chargeattack", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_THRUST_L.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_L.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(30f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
 				.addState(EntityState.TURNING_LOCKED, true)
 				.addState(EntityState.LOCKON_ROTATE, true)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE);
+		IMPERATRICE_BLAZE_BLASTER = new AttackAnimation(0.2f, 0.0f, 0.3f, 0.4f, 0.9f, null, biped.handL, "battle_style/legendary/imperatrice_lumiere/sword/combat_arts/blaze_blaster", biped);
+
 		IMPERATRICE_PROMINENCE_BLAZE = new AttackAnimation(0.2f, 0.0f, 0.3f, 0.4f, 0.9f, null, biped.handL, "battle_style/legendary/imperatrice_lumiere/sword/combat_arts/prominence_blaze", biped);
 		IMPERATRICE_SWORD_INFERNAL_WHEEL = new BasicAttackAnimation(0.1f, "sword/imperatrice_luminelle_dash_attack", biped,
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.0f, 0.2f, 0.4f, 0.4f, biped.rootJoint, null),
@@ -185,26 +198,26 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.4f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1.4f);
 		//Trailblaze
-		IMPERATRICE_TRAILBLAZE_FWD = new DodgeAnimation(0.1F, 0.35F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_fwd", 0.6F, 1.65F, biped)
+		IMPERATRICE_TRAILBLAZE_FWD = new DodgeAnimation(0.1F, 1F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_fwd", 0.6F, 1.65F, biped)
 				.addState(EntityState.LOCKON_ROTATE, true)
-				.newTimePair(0.0F, 0.2F)
+				.newTimePair(0.0F, 1F)
 				.addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
 				.addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false);
-		IMPERATRICE_TRAILBLAZE_BACK = new DodgeAnimation(0.1F, 0.35F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_back", 0.6F, 1.65F, biped)
+		IMPERATRICE_TRAILBLAZE_BACK = new DodgeAnimation(0.1F, 1F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_back", 0.6F, 1.65F, biped)
 				.addState(EntityState.LOCKON_ROTATE, true)
-				.newTimePair(0.0F, 0.2F)
+				.newTimePair(0.0F, 1F)
 				.addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
 				.addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false);
-		IMPERATRICE_TRAILBLAZE_LEFT = new DodgeAnimation(0.1F, 0.35F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_left", 0.6F, 1.65F, biped)
+		IMPERATRICE_TRAILBLAZE_LEFT = new DodgeAnimation(0.1F, 1F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_left", 0.6F, 1.65F, biped)
 				.addState(EntityState.LOCKON_ROTATE, true)
-				.newTimePair(0.0F, 0.2F)
+				.newTimePair(0.0F, 1F)
 				.addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
 				.addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false);
-		IMPERATRICE_TRAILBLAZE_RIGHT = new DodgeAnimation(0.1F, 0.35F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_right", 0.6F, 1.65F, biped)
+		IMPERATRICE_TRAILBLAZE_RIGHT = new DodgeAnimation(0.1F, 1F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_right", 0.6F, 1.65F, biped)
 				.addState(EntityState.LOCKON_ROTATE, true)
-				.newTimePair(0.0F, 0.2F)
+				.newTimePair(0.0F, 1F)
 				.addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
 				.addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false);
 		//Combat Arts
@@ -216,10 +229,10 @@ public class BattleAnimations extends BattleStylesAnimation
 		HERO_SWORD_AUTO_3 = new BasicAttackAnimation(0.1f, 0.0f, 0.8f, 1.2f, 2.2f, null, biped.toolR, "sword/hero_sword_auto3", biped);
 		HERO_SHIELD_AUTO_1 = new BasicAttackAnimation(0.1f, 0.0f, 0.45f, 0.9f, 0.9f, HeroSwordColliders.HERO_SHIELD, biped.toolL, "sword/hero_shield_auto1", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH_BIG.get())
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d )-> 1.3f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e)-> 1.3f);
 		HERO_SHIELD_AUTO_2 = new BasicAttackAnimation(0.1f, 0.0f, 0.0f, 0.3f, 0.9f, HeroSwordColliders.HERO_SHIELD, biped.toolL, "sword/hero_shield_auto2", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH_BIG.get())
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d )-> 1.3f);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e)-> 1.3f);
 		HERO_SWORD_GUARD = new StaticAnimation(0.4f, true, "sword/hero_sword_block", biped);
 		HERO_SWORD_GUARD_HIT = new GuardAnimation(0.1f, "sword/hero_sword_block_hit", biped);
 		SLAMMING_HERO = new BasicAttackAnimation(0.1f, 0.0f, 1.2f, 1.6f, 4.2f, HeroSwordColliders.SLAMMING_HERO, biped.rootJoint, "sword/slamming_hero", biped)
@@ -284,7 +297,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(0.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d) -> 1.4f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d, e) -> 1.4f)
 				.addEvents(
 						AnimationEvent.TimeStampedEvent.create(0.1F, (entitypatch, animation, params) ->
 						{
@@ -348,22 +361,5 @@ public class BattleAnimations extends BattleStylesAnimation
 						}, AnimationEvent.Side.CLIENT)
 				);
 
-	}
-	public static class ReusableSources {
-		/**
-		 * Adds a camera shake for the player
-		 * @param params[0] An integer on how long the shake is.
-		 * @param params[1] A float on the shake strength.
-		 * @param params[3] A float on the frequency of the shake.
-		 */
-		//TODO: Make a screenshake event.
-//		public static final AnimationEvent.AnimationEventConsumer SHAKE_CAMERA = (entitypatch, animation, params) ->
-//		{
-//			if (params.length > 3)
-//			{
-//				throw(new ArgumentCountException(1, 1, "You fucking moron why did you more than 3 arguments for a camera shake?"));
-//			}
-//			CameraEngine.getInstance().shakeCamera((Integer) params[0], (float) params[1], params[2]);
-//		};
 	}
 }

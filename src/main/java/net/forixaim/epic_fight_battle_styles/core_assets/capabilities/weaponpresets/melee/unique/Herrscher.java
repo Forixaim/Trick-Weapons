@@ -22,6 +22,7 @@ import java.util.function.Function;
 
 public class Herrscher
 {
+
 	public Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
 	{
 		if (entityPatch instanceof PlayerPatch<?> playerPatch)

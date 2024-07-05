@@ -1,4 +1,4 @@
-package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee;
+package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.legendary;
 
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
@@ -9,6 +9,8 @@ import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.StyleComb
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Longsword;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Sword;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.world.InteractionHand;
@@ -24,8 +26,9 @@ import yesman.epicfight.world.capabilities.item.Style;
 import java.util.function.Function;
 
 import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditionalType.*;
+import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditionalType.DEFAULT;
 
-public class Longsword
+public class Joyeuse
 {
 	public static StyleComboProvider styleComboProvider = new StyleComboProvider()
 			.addConditional(new ProviderConditional(SKILL_EXISTENCE, ImperatriceLumiereStyles.IMPERATRICE_SWORD, SkillRegistry.IMPERATRICE_LUMIERE, EpicFightBattleStyleSkillSlots.BATTLE_STYLE, null, null))
@@ -147,10 +150,11 @@ public class Longsword
 		return builder;
 	};
 
-	private static final EFBSWeaponCapability.Builder longswordBuilder = EFBSWeaponCapability.builder()
+	private static final EFBSWeaponCapability.Builder joyeuseBuilder = EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.LONGSWORD)
 			.redirectedCollider(ColliderPreset.LONGSWORD)
 			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+			.redirectedPassiveSkill(SkillRegistry.JOYEUSE_PASSIVE)
 			.redirectedProvider(Longsword.styleComboProvider
 					.addDefaultConditional(new ProviderConditional(WEAPON_CATEGORY, CapabilityItem.Styles.ONE_HAND, InteractionHand.OFF_HAND, CapabilityItem.WeaponCategories.SHIELD, null, null))
 					.addDefaultConditional(new ProviderConditional(SKILL_ACTIVATION, CapabilityItem.Styles.OCHS, EpicFightSkills.LIECHTENAUER, SkillSlots.WEAPON_INNATE, null, null))
@@ -166,18 +170,17 @@ public class Longsword
 			.createStyleCategory(CapabilityItem.Styles.MOUNT, Sword.mountedAttack)
 			.redirectedPredicator(Longsword.comboProvider
 					.addDefaultConditional(new ProviderConditional(WEAPON_CATEGORY, null, InteractionHand.OFF_HAND, CapabilityItem.WeaponCategories.SHIELD, null, true))
-					.addDefaultConditional(new ProviderConditional(DEFAULT, null, false))
-					.exportCombination())
+					.addDefaultConditional(new ProviderConditional(DEFAULT, null, false)).exportCombination())
 			.offHandUse(false);
 
 	public static CapabilityItem.Builder getBuilder()
 	{
-		return longswordBuilder;
+		return joyeuseBuilder;
 	}
 
 	public static EFBSWeaponCapability.Builder modifyBuilder()
 	{
-		return longswordBuilder;
+		return joyeuseBuilder;
 	}
 	public static StyleComboProvider getStyleProvider()
 	{

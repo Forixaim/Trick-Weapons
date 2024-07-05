@@ -102,9 +102,9 @@ public abstract class ActiveSkill extends Skill
 		}
 		else
 		{
-			executor.consumeStamina(Math.round(manaConsumption / 100));
+			executor.setStamina(executor.getStamina() - Math.round(manaConsumption / 100));
 		}
-		executor.consumeStamina(staminaConsumption);
+		executor.setStamina(executor.getStamina() - staminaConsumption);
 
 		super.executeOnServer(executor, args);
 	}

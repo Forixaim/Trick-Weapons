@@ -10,8 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TieredItem;
 import net.minecraftforge.fml.common.Mod;
-import reascer.wom.gameasset.WOMColliders;
-import reascer.wom.gameasset.WOMSkills;
+import reascer.wom.gameasset.WOMWeaponColliders;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
 import yesman.epicfight.gameasset.Animations;
@@ -24,7 +23,6 @@ import java.util.function.Function;
 /**
  * This class only loads when WoM is loaded
  */
-@Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WoMPresets
 {
 	private static Herrscher HERRSCHER_METHODS = null;
@@ -32,7 +30,7 @@ public class WoMPresets
 		CapabilityItem.Builder builder = EFBSWeaponCapability.builder()
 				.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
 				.redirectedProvider(HERRSCHER_METHODS.styleProvider)
-				.redirectedCollider(WOMColliders.HERSCHER)
+				.redirectedCollider(WOMWeaponColliders.HERSCHER)
 				.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
 				.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Sword.defaultTwoHandAttackCycle)
 				.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Sword.defaultOneHandAttackCycle)

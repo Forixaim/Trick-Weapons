@@ -7,10 +7,12 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ActiveSki
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import yesman.epicfight.api.animation.AnimationProvider;
+import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillCategory;
+import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
@@ -20,7 +22,7 @@ import java.util.List;
 public class SimpleCombatArt extends CombatArt
 {
 	public static class Builder extends Skill.Builder<SimpleCombatArt> {
-		protected ResourceLocation attackAnimation;
+		protected AttackAnimationProvider attackAnimation;
 		protected List<WeaponCategory> allowedWeapons = Lists.newArrayList();
 
 		public Builder addWeaponCategory(WeaponCategory category)
@@ -44,8 +46,8 @@ public class SimpleCombatArt extends CombatArt
 			return this;
 		}
 
-		public Builder setAnimations(ResourceLocation attackAnimation) {
-			this.attackAnimation = attackAnimation;
+		public Builder setAnimations(AttackAnimationProvider provider) {
+			this.attackAnimation = provider;
 			return this;
 		}
 	}
@@ -54,12 +56,12 @@ public class SimpleCombatArt extends CombatArt
 		return (new Builder()).setCategory(EpicFightBattleStyleSkillCategories.COMBAT_ART).setResource(Resource.COOLDOWN);
 	}
 
-	protected AnimationProvider.AttackAnimationProvider attackAnimation;
+	protected AttackAnimationProvider attackAnimation;
 
 	public SimpleCombatArt(Builder builder) {
 		super(builder);
 		this.allowedWeapons = builder.allowedWeapons;
-		this.attackAnimation = () -> (AttackAnimation)EpicFightMod.getInstance().animationManager.findAnimationByPath(builder.attackAnimation.toString());
+		this.attackAnimation = builder.attackAnimation;
 	}
 
 	@Override
@@ -72,9 +74,11 @@ public class SimpleCombatArt extends CombatArt
 	@Override
 	public CombatArt registerPropertiesToAnimation() {
 		AttackAnimation anim = this.attackAnimation.get();
-
-		for (AttackAnimation.Phase phase : anim.phases) {
-			phase.addProperties(this.properties.get(0).entrySet());
+		if (!this.properties.isEmpty())
+		{
+			for (AttackAnimation.Phase phase : anim.phases) {
+				phase.addProperties(this.properties.get(0).entrySet());
+			}
 		}
 
 		return this;

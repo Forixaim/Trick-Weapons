@@ -6,6 +6,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.Hou
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.hybrid.Chakram;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.*;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.legendary.Joyeuse;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,23 +23,9 @@ import java.util.function.Function;
 @Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PresetRegistry
 {
-	public static final Function<Item, CapabilityItem.Builder> RAPIER = (item) ->
-		EFBSWeaponCapability.builder()
-			.redirectedCategory(CapabilityItem.WeaponCategories.SWORD)
-			.redirectedProvider(Rapier.styleProvider)
-			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
-			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
-			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Rapier.defaultOneHandAttack)
-			.redirectedCollider(ColliderPreset.LONGSWORD);
-
 	public static final Function<Item, CapabilityItem.Builder> GREATSWORD = (item) ->
-		EFBSWeaponCapability.builder()
-			.redirectedCategory(CapabilityItem.WeaponCategories.GREATSWORD)
-			.redirectedCollider(ColliderPreset.GREATSWORD)
-			.redirectedSwingSound(EpicFightSounds.WHOOSH_BIG.get())
-			.redirectedProvider(Greatsword.styleProvider)
-			.createStyleCategory(HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR, Greatsword.houseLuxAM)
-			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Greatsword.defaultGS);
+			Greatsword.getBuilder();
+
 
 	public static final Function<Item, CapabilityItem.Builder> CHAKRAM = (item) ->
 		EFBSWeaponCapability.builder()
@@ -53,32 +40,13 @@ public class PresetRegistry
 			Sword.getBuilder();
 
 	public static final Function<Item, CapabilityItem.Builder> LONGSWORD = (item) ->
-		EFBSWeaponCapability.builder()
-			.redirectedCategory(CapabilityItem.WeaponCategories.LONGSWORD)
-			.redirectedCollider(ColliderPreset.LONGSWORD)
-			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
-			.redirectedProvider(Longsword.styleProvider)
-			.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
-			.createStyleCategory(CapabilityItem.Styles.ONE_HAND, Longsword.defaultOneHandAttackCycle)
-			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Longsword.defaultTwoHandAttackCycle)
-			.createStyleCategory(CapabilityItem.Styles.OCHS, Longsword.LiechtenauerAttackCycle)
-			.createStyleCategory(HeroStyles.HERO_SWORD, Longsword.heroSwordAttackCycle)
-			.createStyleCategory(HeroStyles.HERO_SWORD_SHIELD, Longsword.heroSwordShieldAttackCycle)
-			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
-			.canBePlacedOffhand(false)
-			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
-			.weaponCombinationPredicator(Longsword.comboPredicator);
+			Longsword.getBuilder();
+
+	public static final Function<Item, CapabilityItem.Builder> JOYEUSE = (item) ->
+			Joyeuse.getBuilder();
+
 	public static final Function<Item, CapabilityItem.Builder> TACHI = (item) ->
-		EFBSWeaponCapability.builder()
-			.redirectedCategory(CapabilityItem.WeaponCategories.TACHI)
-			.redirectedCollider(ColliderPreset.TACHI)
-			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
-			.redirectedSwingSound(EpicFightSounds.WHOOSH.get())
-			.redirectedProvider(Tachi.styleProvider)
-			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Tachi.defaultTachiAttack)
-			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
-			.canBePlacedOffhand(false)
-			.newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK);
+			Tachi.getBuilder();
 
 
 	@SubscribeEvent
@@ -87,8 +55,8 @@ public class PresetRegistry
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram"), CHAKRAM);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword"), SWORD);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "longsword"), LONGSWORD);
-		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "rapier"), RAPIER);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "greatsword"), GREATSWORD);
 		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "tachi"), TACHI);
+		Event.getTypeEntry().put(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "joyeuse"), JOYEUSE);
 	}
 }

@@ -2,28 +2,35 @@ package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpre
 
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ComboProvider;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditional;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditionalType;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.StyleComboProvider;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HouseLuxAMStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
+import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSkills;
-import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
+import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.Style;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
-
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.skillCheck;
 
 public class Greatsword
 {
-    public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
-    {
-        if (skillCheck(entityPatch, SkillRegistry.HOUSE_LUX_ARMS_MASTER))
-            return HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR;
-        return CapabilityItem.Styles.TWO_HAND;
-    };
+    public static List<ProviderConditional> styleProviderRegistry = new ArrayList<>();
+    public static List<ProviderConditional> comboProviderRegistry = new ArrayList<>();
+
+    private static final StyleComboProvider STYLE_COMBO_PROVIDER = new StyleComboProvider()
+            .addConditional(new ProviderConditional(ProviderConditionalType.SKILL_EXISTENCE, HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR, SkillRegistry.HOUSE_LUX_ARMS_MASTER, EpicFightBattleStyleSkillSlots.BATTLE_STYLE, null, null));
+
+    private static final ComboProvider comboProvider = new ComboProvider();
 
     public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> houseLuxAM = (main) ->
     {
@@ -53,4 +60,50 @@ public class Greatsword
                 .innateSkill(style, (itemstack) -> EpicFightSkills.STEEL_WHIRLWIND);
         return builder;
     };
+
+    private static final EFBSWeaponCapability.Builder greatswordBuilder = EFBSWeaponCapability.builder()
+            .redirectedCategory(CapabilityItem.WeaponCategories.GREATSWORD)
+            .redirectedCollider(ColliderPreset.GREATSWORD)
+            .redirectedSwingSound(EpicFightSounds.WHOOSH_BIG.get())
+            .redirectedProvider(Greatsword.STYLE_COMBO_PROVIDER
+                    .addDefaultConditional(new ProviderConditional(ProviderConditionalType.DEFAULT, CapabilityItem.Styles.TWO_HAND, false))
+                    .exportStyle()
+            )
+            .createStyleCategory(HouseLuxAMStyles.HLAM_GREATSWORD_EXCALIBUR, Greatsword.houseLuxAM)
+            .createStyleCategory(CapabilityItem.Styles.TWO_HAND, Greatsword.defaultGS)
+            .offHandUse(false)
+            .redirectedPredicator(comboProvider
+                    .addDefaultConditional(new ProviderConditional(ProviderConditionalType.DEFAULT, null, false))
+                    .exportCombination()
+            );
+
+    public static CapabilityItem.Builder getBuilder()
+    {
+        return greatswordBuilder;
+    }
+    public static EFBSWeaponCapability.Builder modifyBuilder()
+    {
+        return greatswordBuilder;
+    }
+
+    public static void RegisterMods()
+    {
+        for (ProviderConditional pr : styleProviderRegistry)
+        {
+            getStyleProvider().addConditional(pr);
+        }
+        for (ProviderConditional pr : comboProviderRegistry)
+        {
+            getStyleProvider().addConditional(pr);
+        }
+    }
+
+    public static StyleComboProvider getStyleProvider()
+    {
+        return STYLE_COMBO_PROVIDER;
+    }
+    public static ComboProvider getComboProvider()
+    {
+        return comboProvider;
+    }
 }

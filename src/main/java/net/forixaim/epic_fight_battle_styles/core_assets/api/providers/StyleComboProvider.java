@@ -10,16 +10,22 @@ import java.util.function.Function;
 /**
  * This class is meant to be as an extendbale
  */
-public class StyleProvider
+public class StyleComboProvider
 {
     private final List<ProviderConditional> conditionals;
 
-    public StyleProvider()
+    public StyleComboProvider()
     {
         conditionals = new ArrayList<ProviderConditional>();
     }
 
-    public StyleProvider addConditional(ProviderConditional conditional)
+    public StyleComboProvider addConditional(ProviderConditional conditional)
+    {
+        this.conditionals.add(0, conditional);
+        return this;
+    }
+
+    public StyleComboProvider addDefaultConditional(ProviderConditional conditional)
     {
         this.conditionals.add(conditional);
         return this;
@@ -29,7 +35,7 @@ public class StyleProvider
      * @throws NullPointerException if none of the provided Conditionals return a Style;
      * @return The Function that is used for the StyleProvider
      */
-    public Function<LivingEntityPatch<?>, Style> export()
+    public Function<LivingEntityPatch<?>, Style> exportStyle()
     {
         Function<LivingEntityPatch<?>, Style> providerFunction = (entityPatch) ->
         {

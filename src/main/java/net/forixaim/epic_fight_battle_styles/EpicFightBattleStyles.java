@@ -3,6 +3,11 @@ package net.forixaim.epic_fight_battle_styles;
 
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.WoMPresets;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HouseLuxAMStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Greatsword;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.AnimationRegistry;
@@ -22,6 +27,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import yesman.epicfight.skill.SkillCategory;
 import yesman.epicfight.skill.SkillSlot;
+import yesman.epicfight.world.capabilities.item.Style;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 
@@ -36,9 +42,9 @@ public class EpicFightBattleStyles {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "epic_fight_battle_styles";
     public static final ModList MOD_LIST = ModList.get();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "epic_fight_battle_styles" namespace
-    // Create a Deferred Register to hold Items which will all be registered under the "epic_fight_battle_styles" namespace
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
+    // Create a Deferred RegisterMods to hold Blocks which will all be registered under the "epic_fight_battle_styles" namespace
+    // Create a Deferred RegisterMods to hold Items which will all be registered under the "epic_fight_battle_styles" namespace
+    // Create a Deferred RegisterMods to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
 
     public EpicFightBattleStyles() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -46,7 +52,6 @@ public class EpicFightBattleStyles {
         SkillSlot.ENUM_MANAGER.registerEnumCls(MOD_ID, EpicFightBattleStyleSkillSlots.class);
         WeaponCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleStyleCategories.class);
         AnimationRegistry.RegisterAnimations();
-        SkillRegistry.RegisterSkills();
         if (MOD_LIST.isLoaded("wom"))
         {
             modEventBus.addListener(WoMPresets::register);
@@ -55,6 +60,7 @@ public class EpicFightBattleStyles {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
+        EFBSDataKeys.DATA_KEYS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

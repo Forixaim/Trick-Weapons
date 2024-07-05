@@ -16,8 +16,8 @@
 //
 //import java.util.function.Function;
 //
-//import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.offHandItem;
-//import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.skillCheck;
+//import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.HelperFunctions.offHandItem;
+//import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.HelperFunctions.skillCheck;
 //
 //public class Staff
 //{

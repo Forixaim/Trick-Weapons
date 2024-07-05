@@ -5,6 +5,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimat
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
+import net.minecraft.world.InteractionHand;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -12,13 +13,13 @@ import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
 
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.offHandItem;
+import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.HelperFunctions.itemCheck;
 
 public class Chakram
 {
 	public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
 	{
-		if (offHandItem(entityPatch, BattleStyleCategories.CHAKRAM))
+		if (itemCheck(entityPatch, BattleStyleCategories.CHAKRAM, InteractionHand.OFF_HAND))
 		{
 			return CapabilityItem.Styles.TWO_HAND;
 		}
@@ -29,7 +30,7 @@ public class Chakram
 	};
 
 	public static Function<LivingEntityPatch<?>, Boolean> comboPredicator = (entityPatch) ->
-			offHandItem(entityPatch, BattleStyleCategories.CHAKRAM);
+			itemCheck(entityPatch, BattleStyleCategories.CHAKRAM, InteractionHand.OFF_HAND);
 
 	public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> defaultOneHandAttackCycle = (main) ->
 	{

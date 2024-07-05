@@ -1,7 +1,9 @@
 package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_arts.SimpleCombatArt;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
@@ -9,17 +11,23 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.lege
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Atlantean;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.unique.wom.Demon;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.dodge.Trailblaze;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.weaponinnate.BlazeStingerSkill;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.weaponpassives.JoyeusePassive;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import yesman.epicfight.api.animation.property.AnimationProperty;
+import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.api.data.reloader.SkillManager;
 import yesman.epicfight.api.forgeevent.SkillBuildEvent;
 import yesman.epicfight.api.utils.math.ValueModifier;
+import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
+import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.skill.dodge.DodgeSkill;
+import yesman.epicfight.skill.dodge.StepSkill;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -28,7 +36,7 @@ import yesman.epicfight.world.damagesource.StunType;
 
 import java.util.Set;
 
-@Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = EpicFightBattleStyles.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SkillRegistry
 {
 	//Dodge Skills
@@ -44,114 +52,48 @@ public class SkillRegistry
 	public static Skill DEMON;
 	public static Skill ATLANTEAN;
 	public static Skill HOUSE_LUX_ARMS_MASTER;
+	//Weapon Passives
+	public static Skill JOYEUSE_PASSIVE;
 	//Combat Arts
 	public static Skill TEST_COMBAT_ART;
 	public static Skill TEST_COMBAT_ART_2;
 	public static Skill INFERNAL_WHEEL;
 
-
-
-	public static void RegisterSkills()
-	{
-		//Dodge Skills
-		SkillManager.register(Trailblaze::new, DodgeSkill.createDodgeBuilder().setResource(Skill.Resource.STAMINA).setAnimations(
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_fwd"),
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_back"),
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_left"),
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_right")
-
-		), EpicFightBattleStyles.MOD_ID, "trailblaze");
-		//Battle Styles
-		SkillManager.register(Hero::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "hero");
-		SkillManager.register(Duelist::new, Duelist.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "duelist");
-		SkillManager.register(ImperatriceLumiere::new, Hero.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
-		SkillManager.register(LuxArmsMaster::new, LuxArmsMaster.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "house_lux_arms_master");
-		if (ModList.get().isLoaded("wom"))
-		{
-			SkillManager.register(Demon::new, Demon.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "demon");
-			SkillManager.register(Atlantean::new, Atlantean.CreateBattleStyle(), EpicFightBattleStyles.MOD_ID, "atlantean");
-		}
-
-		//Heavy Attacks
-		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setResource(Skill.Resource.STAMINA)
-				.setAnimations(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/chargeattack")), EpicFightBattleStyles.MOD_ID, "blaze_stinger");
-
-		SkillManager.register(SimpleWeaponInnateSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "chakram/precision_vertical")
-		), EpicFightBattleStyles.MOD_ID, "precision_vertical");
-		SkillManager.register(SimpleWeaponInnateSkill::new,  SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(
-				new ResourceLocation(EpicFightBattleStyles.MOD_ID, "sword/slamming_hero")), EpicFightBattleStyles.MOD_ID, "slamming_hero");
-
-		//Combat Arts
-		SkillManager.register(SimpleCombatArt::new,
-				SimpleCombatArt.createSimpleCombatArt()
-						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/sweeping_edge"))
-						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
-						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
-				, EpicFightBattleStyles.MOD_ID, "test_combat_art");
-
-		SkillManager.register(SimpleCombatArt::new,
-				SimpleCombatArt.createSimpleCombatArt()
-						.setAnimations(new ResourceLocation(EpicFightBattleStyles.MOD_ID, "battle_style/legendary/imperatrice_lumiere/sword/infernal_wheel"))
-						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
-						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
-				, EpicFightBattleStyles.MOD_ID, "infernal_wheel");
-
-		SkillManager.register(SimpleCombatArt::new,
-				SimpleCombatArt.createSimpleCombatArt()
-						.setAnimations(new ResourceLocation(EpicFightMod.MODID, "biped/skill/the_guillotine"))
-						.addWeaponCategory(CapabilityItem.WeaponCategories.SWORD)
-						.addWeaponCategory(CapabilityItem.WeaponCategories.LONGSWORD)
-				, EpicFightBattleStyles.MOD_ID, "test_combat_art_2");
-
-	}
-
 	@SubscribeEvent
 	public static void BuildSkillEvent(SkillBuildEvent OnBuild)
 	{
-		HOUSE_LUX_ARMS_MASTER = OnBuild.build(EpicFightBattleStyles.MOD_ID, "house_lux_arms_master");
-		DUELIST = OnBuild.build(EpicFightBattleStyles.MOD_ID, "duelist");
-		HERO = OnBuild.build(EpicFightBattleStyles.MOD_ID, "hero");
-		IMPERATRICE_LUMIERE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "imperatrice_lumiere");
+		SkillBuildEvent.ModRegistryWorker registryWorker = OnBuild.createRegistryWorker(EpicFightBattleStyles.MOD_ID);
 
-		TEST_COMBAT_ART = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art");
-		TEST_COMBAT_ART_2 = OnBuild.build(EpicFightBattleStyles.MOD_ID, "test_combat_art_2");
-		INFERNAL_WHEEL = OnBuild.build(EpicFightBattleStyles.MOD_ID, "infernal_wheel");
-		if (ModList.get().isLoaded("wom"))
-		{
-			DEMON = OnBuild.build(EpicFightBattleStyles.MOD_ID, "demon");
-			ATLANTEAN = OnBuild.build(EpicFightBattleStyles.MOD_ID, "atlantean");
-		}
+		HOUSE_LUX_ARMS_MASTER = registryWorker.build("house_lux_arms_master", LuxArmsMaster::new, BattleStyle.CreateBattleStyle());
+		IMPERATRICE_LUMIERE = registryWorker.build("imperatrice_lumiere", ImperatriceLumiere::new, BattleStyle.CreateBattleStyle());
 
-		WeaponInnateSkill PrecisionVertical = OnBuild.build(EpicFightBattleStyles.MOD_ID, "precision_vertical");
-		PrecisionVertical
-				.newProperty()
-				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
-				.newProperty()
-				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.25f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.KNOCKDOWN)
-				.registerPropertiesToAnimation();
-		PRECISION_VERTICAL = PrecisionVertical;
-		WeaponInnateSkill SlammingHero = OnBuild.build(EpicFightBattleStyles.MOD_ID, "slamming_hero");
-		SlammingHero
-				.newProperty()
-				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.KNOCKDOWN);
-		SLAMMING_HERO = SlammingHero;
-		WeaponInnateSkill BlazeStinger = OnBuild.build(EpicFightBattleStyles.MOD_ID, "blaze_stinger");
+		TEST_COMBAT_ART = registryWorker.build("test_combat_art", SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(() -> (AttackAnimation) Animations.SWEEPING_EDGE));
+		TEST_COMBAT_ART_2 = registryWorker.build("test_combat_art_2", SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(() -> (AttackAnimation) Animations.THE_GUILLOTINE));
+
+		WeaponInnateSkill BlazeStinger = registryWorker.build(
+				"blaze_stinger",
+				BlazeStingerSkill::new,
+				WeaponInnateSkill.createWeaponInnateBuilder()
+		);
 		BlazeStinger.newProperty()
 				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.05f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(1.5f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.WEAPON_INNATE, EpicFightDamageType.GUARD_PUNCTURE));
 		BLAZE_STINGER = BlazeStinger;
 
-		TRAILBLAZE = OnBuild.build(EpicFightBattleStyles.MOD_ID, "trailblaze");
+		TRAILBLAZE = registryWorker.build(
+				"trailblaze",
+				Trailblaze::new,
+				DodgeSkill.createDodgeBuilder().setAnimations(
+						() -> BattleAnimations.IMPERATRICE_TRAILBLAZE_FWD,
+						() -> BattleAnimations.IMPERATRICE_TRAILBLAZE_BACK,
+						() -> BattleAnimations.IMPERATRICE_TRAILBLAZE_LEFT,
+						() -> BattleAnimations.IMPERATRICE_TRAILBLAZE_RIGHT
+				)
+		);
+
+		JOYEUSE_PASSIVE = registryWorker.build("joyeuse_passive", JoyeusePassive::new, Skill.createBuilder().setActivateType(Skill.ActivateType.ONE_SHOT).setCategory(SkillCategories.WEAPON_PASSIVE).setResource(Skill.Resource.NONE));
 	}
 }

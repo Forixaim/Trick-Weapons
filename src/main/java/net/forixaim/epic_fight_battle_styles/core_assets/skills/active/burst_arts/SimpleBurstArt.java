@@ -7,6 +7,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_ar
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import yesman.epicfight.api.animation.AnimationProvider;
+import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.Skill;
@@ -19,7 +20,7 @@ import java.util.List;
 public class SimpleBurstArt extends BurstArt
 {
     public static class Builder extends Skill.Builder<SimpleBurstArt> {
-        protected ResourceLocation attackAnimation;
+        protected AttackAnimationProvider attackAnimation;
         protected List<WeaponCategory> allowedWeapons = Lists.newArrayList();
 
         public SimpleBurstArt.Builder addWeaponCategory(WeaponCategory category)
@@ -43,8 +44,8 @@ public class SimpleBurstArt extends BurstArt
             return this;
         }
 
-        public SimpleBurstArt.Builder setAnimations(ResourceLocation attackAnimation) {
-            this.attackAnimation = attackAnimation;
+        public SimpleBurstArt.Builder setAnimations(AttackAnimationProvider provider) {
+            this.attackAnimation = provider;
             return this;
         }
     }
@@ -53,12 +54,12 @@ public class SimpleBurstArt extends BurstArt
         return (new SimpleBurstArt.Builder()).setCategory(EpicFightBattleStyleSkillCategories.BURST_ART).setResource(Skill.Resource.COOLDOWN);
     }
 
-    protected AnimationProvider.AttackAnimationProvider attackAnimation;
+    protected AttackAnimationProvider attackAnimation;
 
     public SimpleBurstArt(SimpleBurstArt.Builder builder) {
         super(builder);
         this.allowedWeapons = builder.allowedWeapons;
-        this.attackAnimation = () -> (AttackAnimation) EpicFightMod.getInstance().animationManager.findAnimationByPath(builder.attackAnimation.toString());
+        this.attackAnimation = builder.attackAnimation;
     }
 
     @Override

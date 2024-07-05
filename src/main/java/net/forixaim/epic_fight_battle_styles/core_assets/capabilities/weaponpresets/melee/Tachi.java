@@ -1,36 +1,35 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee;
 
 import com.mojang.datafixers.util.Pair;
-import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ComboProvider;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditional;
+import net.forixaim.epic_fight_battle_styles.core_assets.api.providers.StyleComboProvider;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.EFBSWeaponCapability;
-import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.HeroStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
+import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSkills;
-import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
+import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
 
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.offHandItem;
-import static net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.HelperFunctions.skillCheck;
+import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditionalType.DEFAULT;
+import static net.forixaim.epic_fight_battle_styles.core_assets.api.providers.ProviderConditionalType.SKILL_EXISTENCE;
 
 public class Tachi
 {
-    public static Function<LivingEntityPatch<?>, Style> styleProvider = (entityPatch) ->
-    {
-        if (skillCheck(entityPatch, SkillRegistry.IMPERATRICE_LUMIERE))
-        {
-            return ImperatriceLumiereStyles.IMPERATRICE_SWORD;
-        }
-        else
-        {
-            return CapabilityItem.Styles.TWO_HAND;
-        }
-    };
+
+    public static StyleComboProvider styleComboProvider = new StyleComboProvider()
+            .addConditional(new ProviderConditional(SKILL_EXISTENCE, ImperatriceLumiereStyles.IMPERATRICE_SWORD, SkillRegistry.IMPERATRICE_LUMIERE, EpicFightBattleStyleSkillSlots.BATTLE_STYLE, null, null));
+
+    public static ComboProvider comboProvider = new ComboProvider()
+            .addConditional(new ProviderConditional(SKILL_EXISTENCE, null, SkillRegistry.IMPERATRICE_LUMIERE, EpicFightBattleStyleSkillSlots.BATTLE_STYLE, null, false));
+
 
     public static Function<Pair<Style, EFBSWeaponCapability.Builder>, EFBSWeaponCapability.Builder> defaultTachiAttack = (main) ->
     {
@@ -52,4 +51,35 @@ public class Tachi
 
         return builder;
     };
+
+    private static final EFBSWeaponCapability.Builder tachiBuilder = EFBSWeaponCapability.builder()
+            .redirectedCategory(CapabilityItem.WeaponCategories.TACHI)
+			.redirectedCollider(ColliderPreset.TACHI)
+			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
+            .redirectedSwingSound(EpicFightSounds.WHOOSH.get())
+            .redirectedProvider(Tachi.styleComboProvider.addDefaultConditional(
+                    new ProviderConditional(DEFAULT, CapabilityItem.Styles.TWO_HAND, null)
+            ).exportStyle())
+			.createStyleCategory(CapabilityItem.Styles.TWO_HAND, Tachi.defaultTachiAttack)
+			.createStyleCategory(ImperatriceLumiereStyles.IMPERATRICE_SWORD, Sword.imperatriceLumiere)
+            .createStyleCategory(CapabilityItem.Styles.MOUNT, Sword.mountedAttack)
+            .offHandUse(false);
+
+    public static CapabilityItem.Builder getBuilder()
+    {
+        return tachiBuilder;
+    }
+
+    public static EFBSWeaponCapability.Builder modifyBuilder()
+    {
+        return tachiBuilder;
+    }
+    public static StyleComboProvider getStyleProvider()
+    {
+        return styleComboProvider;
+    }
+    public static ComboProvider getComboProvider()
+    {
+        return comboProvider;
+    }
 }
