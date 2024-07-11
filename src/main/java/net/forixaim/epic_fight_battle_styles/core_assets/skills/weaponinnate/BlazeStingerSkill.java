@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraftforge.common.Tags;
 import yesman.epicfight.api.animation.AnimationProvider;
+import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.api.utils.math.ValueModifier;
@@ -24,6 +25,10 @@ public class BlazeStingerSkill extends WeaponInnateSkill
 
 	private static final UUID EVENT_UUID = UUID.fromString("9ed5a11f-c7b2-4679-99db-0a4c8de2f5a3");
 	private AnimationProvider<AttackAnimation> sting;
+	private final AttackAnimationProvider[] heavyAttacks = {
+			() -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_BLAZE_STINGER //Standing
+
+	};
 
 	public BlazeStingerSkill(Builder<? extends Skill> builder)
 	{
@@ -49,7 +54,12 @@ public class BlazeStingerSkill extends WeaponInnateSkill
 	}
 
 	@Override
-	public void executeOnServer(ServerPlayerPatch executor, FriendlyByteBuf args) {
+	public void executeOnServer(ServerPlayerPatch executor, FriendlyByteBuf args)
+	{
+		if (executor.getOriginal().isShiftKeyDown())
+		{
+
+		}
 		executor.playAnimationSynchronized(sting.get(), 0.0F);
 		super.executeOnServer(executor, args);
 	}

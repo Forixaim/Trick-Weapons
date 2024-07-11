@@ -124,6 +124,7 @@ public class Sword
 		builder.livingMotionModifier(style, LivingMotions.IDLE, BattleAnimations.IMPERATRICE_SWORD_EN_GARDE);
 		builder.livingMotionModifier(style, LivingMotions.WALK, BattleAnimations.IMPERATRICE_SWORD_WALK);
 		builder.livingMotionModifier(style, LivingMotions.RUN, BattleAnimations.IMPERATRICE_SWORD_RUN);
+		builder.livingMotionModifier(style, LivingMotions.KNEEL, BattleAnimations.IMPERATRICE_SWORD_CROUCH);
 		builder.newStyleCombo(style,
 				BattleAnimations.IMPERATRICE_SWORD_JAB1,
 				BattleAnimations.IMPERATRICE_SWORD_JAB2,

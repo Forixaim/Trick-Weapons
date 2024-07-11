@@ -3,6 +3,7 @@ import yesman.epicfight.world.capabilities.item.Style;
 public enum ImperatriceLumiereStyles implements Style
 {
 	IMPERATRICE_SWORD(false),
+	BLAZE_KICK_ART(false),
 	FLARE_FALCON(false),
 	EMPRESS_COMBINATION(false);
 

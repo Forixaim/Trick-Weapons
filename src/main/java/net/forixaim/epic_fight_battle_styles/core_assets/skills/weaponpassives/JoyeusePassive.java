@@ -10,6 +10,7 @@ import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
+import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
@@ -27,7 +28,8 @@ public class JoyeusePassive extends Skill
 	}
 
 	@Override
-	public void onInitiate(SkillContainer container) {;
+	public void onInitiate(SkillContainer container) {
+
 		if (container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(ItemRegistry.ORIGIN_JOYEUSE.get()) && HelperFunctions.skillCheck(container.getExecuter(), SkillRegistry.IMPERATRICE_LUMIERE, EpicFightBattleStyleSkillSlots.BATTLE_STYLE))
 		{
 			container.getExecuter().playAnimationSynchronized(swordDraw.get(), 0.0f);

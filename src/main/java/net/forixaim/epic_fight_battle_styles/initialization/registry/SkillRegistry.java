@@ -3,6 +3,7 @@ package net.forixaim.epic_fight_battle_styles.initialization.registry;
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_arts.SimpleCombatArt;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.basic_attack.ImperatriceAttacks;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.elite.Hero;
@@ -24,6 +25,7 @@ import yesman.epicfight.api.forgeevent.SkillBuildEvent;
 import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.main.EpicFightMod;
+import yesman.epicfight.skill.BasicAttack;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.skill.dodge.DodgeSkill;
@@ -48,6 +50,7 @@ public class SkillRegistry
 	//Battle Styles
 	public static Skill HERO;
 	public static Skill IMPERATRICE_LUMIERE;
+	public static Skill IMPERATRICE_ATTACK;
 	public static Skill DUELIST;
 	public static Skill DEMON;
 	public static Skill ATLANTEAN;
@@ -65,7 +68,9 @@ public class SkillRegistry
 		SkillBuildEvent.ModRegistryWorker registryWorker = OnBuild.createRegistryWorker(EpicFightBattleStyles.MOD_ID);
 
 		HOUSE_LUX_ARMS_MASTER = registryWorker.build("house_lux_arms_master", LuxArmsMaster::new, BattleStyle.CreateBattleStyle());
+
 		IMPERATRICE_LUMIERE = registryWorker.build("imperatrice_lumiere", ImperatriceLumiere::new, BattleStyle.CreateBattleStyle());
+		IMPERATRICE_ATTACK = registryWorker.build("imperatrice_attack", ImperatriceAttacks::new, ImperatriceAttacks.createImperatriceAttackSet());
 
 		TEST_COMBAT_ART = registryWorker.build("test_combat_art", SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(() -> (AttackAnimation) Animations.SWEEPING_EDGE));
 		TEST_COMBAT_ART_2 = registryWorker.build("test_combat_art_2", SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(() -> (AttackAnimation) Animations.THE_GUILLOTINE));
