@@ -24,6 +24,7 @@ public class EFBSDataKeys
     public static final RegistryObject<SkillDataKey<Boolean>> UP;
     public static final RegistryObject<SkillDataKey<Boolean>> DOWN;
     public static final RegistryObject<SkillDataKey<Boolean>> IN_AIR;
+    public static final RegistryObject<SkillDataKey<Boolean>> FLARE_BURST;
 
     static
     {
@@ -31,6 +32,11 @@ public class EFBSDataKeys
                 ImperatriceLumiere.class,
 		        BlazeStingerSkill.class,
 		        FlareBurst.class
+        ));
+
+        FLARE_BURST = DATA_KEYS.register("flare_burst", () -> SkillDataKey.createBooleanKey(false, true,
+                ImperatriceLumiere.class,
+                FlareBurst.class
         ));
 
         FORWARD = DATA_KEYS.register("forward", () -> SkillDataKey.createBooleanKey(false, true,

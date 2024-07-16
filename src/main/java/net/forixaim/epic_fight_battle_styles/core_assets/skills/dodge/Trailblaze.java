@@ -1,6 +1,10 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills.dodge;
 
+import io.netty.buffer.Unpooled;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.FlareBurst;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.Input;
@@ -11,6 +15,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.network.client.CPExecuteSkill;
 import yesman.epicfight.skill.Skill;
@@ -35,6 +40,16 @@ public class Trailblaze extends DodgeSkill
         container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.COMBO_COUNTER_HANDLE_EVENT, EVENT_UUID, (event) -> {
             if (event.getCausal() == ComboCounterHandleEvent.Causal.ACTION_ANIMATION_RESET && event.getAnimation().in(this.animations)) {
                 event.setNextValue(event.getPrevValue());
+            }
+        });
+        container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.DODGE_SUCCESS_EVENT, EVENT_UUID, event ->
+        {
+            if (container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()))
+            {
+                if (container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getSkill() instanceof ImperatriceLumiere imperatriceLumiere)
+                {
+                    imperatriceLumiere.triggerIgnitionRiposte(container.getExecuter(), container.getSlot(), event.getDamageSource());
+                }
             }
         });
     }

@@ -11,6 +11,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.Her
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Longsword;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.weaponpresets.melee.Sword;
+import net.forixaim.epic_fight_battle_styles.core_assets.colliders.LumiereColliders;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.minecraft.world.InteractionHand;
@@ -152,7 +153,7 @@ public class Joyeuse
 
 	private static final EFBSWeaponCapability.Builder joyeuseBuilder = EFBSWeaponCapability.builder()
 			.redirectedCategory(CapabilityItem.WeaponCategories.LONGSWORD)
-			.redirectedCollider(ColliderPreset.LONGSWORD)
+			.redirectedCollider(LumiereColliders.JOYEUSE)
 			.redirectedHitSound(EpicFightSounds.BLADE_HIT.get())
 			.redirectedPassiveSkill(SkillRegistry.JOYEUSE_PASSIVE)
 			.redirectedProvider(Longsword.styleComboProvider

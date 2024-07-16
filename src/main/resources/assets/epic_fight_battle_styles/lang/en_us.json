@@ -38,6 +38,9 @@
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_m": "Medium Blade Hit",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_l": "Heavy Blade Hit",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_thrust_l": "Blade Impale",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_kick_impact_m": "Medium Kick Impact",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_punch_impact_m": "Medium Punch Impact",
+	"sounds.epic_fight_battle_styles.entity.combat.critical_hit": "Critical Hit",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",
