@@ -48,5 +48,23 @@
     "categoru": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.combat.critical_hit",
     "sounds":[{"name":"epic_fight_battle_styles:entity/combat/critical_hit", "stream":true}]
+  },
+  "entity.weapon.imperatrice_anti_cheese": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_anti_cheese",
+    "sounds": [
+      {
+        "name":  "epic_fight_battle_styles:entity/weapon/imperatrice_anti_mekasuit_draconic_armor_critical",
+        "stream": true
+      },
+      {
+        "name":  "epic_fight_battle_styles:entity/weapon/imperatrice_anti_mekasuit_draconic_armor_critical2",
+        "stream": true
+      },{
+        "name":  "epic_fight_battle_styles:entity/weapon/imperatrice_anti_mekasuit_draconic_armor_critical3",
+        "stream": true
+      }
+
+    ]
   }
 }

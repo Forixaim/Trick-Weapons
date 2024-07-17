@@ -1,6 +1,8 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.items;
 
 import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -10,6 +12,7 @@ import java.util.function.Supplier;
 public enum EpicFightBattleStylesTiers implements Tier
 {
 	ORIGIN_JOYEUSE(4, 0, 9.0f, 9.0f, 0, () -> Ingredient.EMPTY),
+	BAGUETTE(4, 0, 9.0f, -3.0f, 0, () -> Ingredient.of(Items.WHEAT)),
 	ORIGIN_EXCALIBUR(4, 0, 9.0f, 10f, 0, () -> Ingredient.EMPTY);
 	private final int harvestLevel;
 	private final int maxUses;

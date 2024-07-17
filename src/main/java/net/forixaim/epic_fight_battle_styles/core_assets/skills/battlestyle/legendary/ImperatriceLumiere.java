@@ -1,19 +1,37 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary;
 
+import com.brandon3055.draconicevolution.DraconicEvolution;
+import com.brandon3055.draconicevolution.init.TechProperties;
+import com.brandon3055.draconicevolution.items.equipment.ModularChestpiece;
 import com.mojang.logging.LogUtils;
+import io.redspace.ironsspellbooks.damage.DamageSources;
+import mekanism.common.Mekanism;
+import mekanism.common.item.gear.ItemMekaSuitArmor;
+import mekanism.common.registries.MekanismDamageTypes;
+import moze_intel.projecte.api.ProjectEAPI;
+import moze_intel.projecte.gameObjs.items.armor.DMArmor;
+import moze_intel.projecte.gameObjs.items.armor.GemArmorBase;
+import moze_intel.projecte.gameObjs.items.armor.RMArmor;
+import net.forixaim.epic_fight_battle_styles.Config;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.ItemRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.ForgeEntityTypeTagsProvider;
+import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import yesman.epicfight.api.animation.AnimationProvider;
@@ -92,6 +110,72 @@ public class ImperatriceLumiere extends BattleStyle
 				}
 			}
 		});
+
+		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_ATTACK, EVENT_UUID, event ->
+		{
+			if (Config.triggerAntiCheese)
+			{
+				if (event.getTarget() instanceof Player player && !player.isCreative())
+				{
+					for (ItemStack item : event.getTarget().getArmorSlots())
+					{
+						if (ModList.get().isLoaded(Mekanism.MODID) && item.getItem() instanceof ItemMekaSuitArmor)
+						{
+							//Trigger Anti-Invincibility Cheese
+							player.kill();
+							EpicFightCapabilities.getEntityPatch(player, PlayerPatch.class).playSound(SoundRegistry.IMPERATRICE_HIT_L.get(), 0.5f, 0, 0);
+							EpicFightCapabilities.getEntityPatch(player, PlayerPatch.class).playSound(SoundRegistry.IMPERATRICE_ANTI_CHEESE.get(), 0, 0);
+							break;
+						}
+						if (ModList.get().isLoaded(DraconicEvolution.MODID) && item.getItem() instanceof ModularChestpiece)
+						{
+							player.kill();
+							EpicFightCapabilities.getEntityPatch(player, PlayerPatch.class).playSound(SoundRegistry.IMPERATRICE_HIT_L.get(), 0.5f, 0, 0);
+							EpicFightCapabilities.getEntityPatch(player, PlayerPatch.class).playSound(SoundRegistry.IMPERATRICE_ANTI_CHEESE.get(), 0, 0);
+							break;
+						}
+						if (ModList.get().isLoaded(ProjectEAPI.PROJECTE_MODID) && (item.getItem() instanceof DMArmor || item.getItem() instanceof RMArmor || item.getItem() instanceof GemArmorBase))
+						{
+							player.kill();
+							EpicFightCapabilities.getEntityPatch(player, PlayerPatch.class).playSound(SoundRegistry.IMPERATRICE_HIT_L.get(), 0.5f, 0, 0);
+							EpicFightCapabilities.getEntityPatch(player, PlayerPatch.class).playSound(SoundRegistry.IMPERATRICE_ANTI_CHEESE.get(), 0, 0);
+							break;
+						}
+					}
+				}
+				else if (!(event.getTarget() instanceof Player))
+				{
+					for (ItemStack item : event.getTarget().getArmorSlots())
+					{
+						if (ModList.get().isLoaded(Mekanism.MODID) && item.getItem() instanceof ItemMekaSuitArmor)
+						{
+							//Trigger Anti-Invincibility Cheese
+							event.getTarget().kill();
+							EpicFightCapabilities.getEntityPatch(event.getTarget(), LivingEntityPatch.class).playSound(SoundRegistry.IMPERATRICE_HIT_L.get(), 0.5f, 0, 0);
+							EpicFightCapabilities.getEntityPatch(event.getTarget(), LivingEntityPatch.class).playSound(SoundRegistry.IMPERATRICE_ANTI_CHEESE.get(), 0, 0);
+							break;
+						}
+						if (ModList.get().isLoaded(DraconicEvolution.MODID) && item.getItem() instanceof ModularChestpiece)
+						{
+							event.getTarget().kill();
+							EpicFightCapabilities.getEntityPatch(event.getTarget(), LivingEntityPatch.class).playSound(SoundRegistry.IMPERATRICE_HIT_L.get(), 0.5f, 0, 0);
+							EpicFightCapabilities.getEntityPatch(event.getTarget(), LivingEntityPatch.class).playSound(SoundRegistry.IMPERATRICE_ANTI_CHEESE.get(), 0, 0);
+							break;
+						}
+						if (ModList.get().isLoaded(ProjectEAPI.PROJECTE_MODID) && (item.getItem() instanceof DMArmor || item.getItem() instanceof RMArmor || item.getItem() instanceof GemArmorBase))
+						{
+							event.getTarget().kill();
+							EpicFightCapabilities.getEntityPatch(event.getTarget(), LivingEntityPatch.class).playSound(SoundRegistry.IMPERATRICE_HIT_L.get(), 0.5f, 0, 0);
+							EpicFightCapabilities.getEntityPatch(event.getTarget(), LivingEntityPatch.class).playSound(SoundRegistry.IMPERATRICE_ANTI_CHEESE.get(), 0, 0);
+							break;
+						}
+					}
+				}
+			}
+
+
+		});
+
 		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_HURT, EVENT_UUID,
 				event ->
 				{
@@ -113,6 +197,7 @@ public class ImperatriceLumiere extends BattleStyle
 		container.getExecuter().getSkillCapability().skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.BASIC_ATTACK);
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.ACTION_EVENT_SERVER, EVENT_UUID);
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.BASIC_ATTACK_EVENT, EVENT_UUID);
+		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_ATTACK, EVENT_UUID);
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_HURT, EVENT_UUID);
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.ACTION_EVENT_SERVER, EVENT_UUID);
 	}

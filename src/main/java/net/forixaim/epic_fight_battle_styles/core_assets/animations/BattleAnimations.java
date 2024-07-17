@@ -203,7 +203,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addState(EntityState.TURNING_LOCKED, true);
 
 		IMPERATRICE_SWORD_LTILT = new AttackAnimation(0.02f, "battle_style/legendary/imperatrice_lumiere/sword/left_tilt", biped,
-				new AttackAnimation.Phase(0f, 0f, 0.3f, 0.4f, 3.75f, 3.75f, biped.handL, ColliderPreset.FIST))
+				new AttackAnimation.Phase(0f, 0f, 0.05f, 0.12f, 3.75f, 3.75f, biped.handL, ColliderPreset.FIST))
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(4))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH.get())

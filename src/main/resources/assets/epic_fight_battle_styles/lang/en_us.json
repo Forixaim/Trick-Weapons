@@ -6,6 +6,7 @@
 	"item.epic_fight_battle_styles.origin_arondight": "Origin Arondight",
 	"item.epic_fight_battle_styles.origin_joyeuse": "Origin Joyeuse",
 	"item.epic_fight_battle_styles.origin_joyeuse.tooltip": "Flames that should not be handled but only by a true wielder.\nAll human variants of Joyeuse are derived from this one, be it holy or demonic.\nAll said is nothing compared to the almighty Flare Blade.\n\nTemperatures can reach 10 to the power of 32 degrees Kelvin.",
+	"item.epic_fight_battle_styles.baguette": "La Baguette",
 
 	"skill.epic_fight_battle_styles.hero": "Hero",
 	"skill.epic_fight_battle_styles.hero.tooltip": "The one with the sword and shield, increased attack speed with swords and axes. Reduced attack speed with everything else.",
@@ -41,6 +42,7 @@
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_kick_impact_m": "Medium Kick Impact",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_punch_impact_m": "Medium Punch Impact",
 	"sounds.epic_fight_battle_styles.entity.combat.critical_hit": "Critical Hit",
+	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_anti_cheese": "Invincibility Puncture",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",
