@@ -11,9 +11,9 @@ import yesman.epicfight.skill.Skill;
 public abstract class BurstArt extends ActiveSkill
 {
 
-	public static Builder createBurstArt()
+	public static Builder<BurstArt> createBurstArt()
 	{
-		return (new Builder().setCategory(EpicFightBattleStyleSkillCategories.BURST_ART).setResource(Resource.COOLDOWN));
+		return (new Builder<BurstArt>().setCategory(EpicFightBattleStyleSkillCategories.BURST_ART).setResource(Resource.COOLDOWN));
 	}
 
 	public BurstArt(Builder<? extends Skill> builder) {

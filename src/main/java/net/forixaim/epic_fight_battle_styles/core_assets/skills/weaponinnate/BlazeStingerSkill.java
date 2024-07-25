@@ -72,11 +72,11 @@ public class BlazeStingerSkill extends WeaponInnateSkill
 								event.getTarget().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, potency));
 							}
 						}
-
 						event.getTarget().removeEffect(MobEffects.FIRE_RESISTANCE);
 						event.getPlayerPatch().playSound(SoundRegistry.CRITICAL_HIT.get(), 0, 0);
 					}
 				}
+
 			}
 		});
 	}

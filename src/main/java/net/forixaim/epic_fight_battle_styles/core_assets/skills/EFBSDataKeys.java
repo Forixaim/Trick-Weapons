@@ -25,11 +25,21 @@ public class EFBSDataKeys
     public static final RegistryObject<SkillDataKey<Boolean>> DOWN;
     public static final RegistryObject<SkillDataKey<Boolean>> IN_AIR;
     public static final RegistryObject<SkillDataKey<Boolean>> FLARE_BURST;
+    public static final RegistryObject<SkillDataKey<Boolean>> JAB;
+    public static final RegistryObject<SkillDataKey<Integer>> CERCLE_DE_FEU;
+    public static final RegistryObject<SkillDataKey<Boolean>> FTILT;
+    public static final RegistryObject<SkillDataKey<Integer>> HEAT_COOL_TICK;
 
     static
     {
+        FTILT = DATA_KEYS.register("ftilt", () -> SkillDataKey.createBooleanKey(false, true, ImperatriceAttacks.class));
+
+        HEAT_COOL_TICK = DATA_KEYS.register("imperatrice_cool_tick", () -> SkillDataKey.createIntKey(0, true, ImperatriceLumiere.class));
+
+        JAB = DATA_KEYS.register("jab", () -> SkillDataKey.createBooleanKey(false, true, ImperatriceAttacks.class));
         HEAT = DATA_KEYS.register("heat", () -> SkillDataKey.createIntKey(0, true,
                 ImperatriceLumiere.class,
+                ImperatriceAttacks.class,
 		        BlazeStingerSkill.class,
 		        FlareBurst.class
         ));
@@ -69,6 +79,6 @@ public class EFBSDataKeys
         }));
 
         BLAZE_COMBO = DATA_KEYS.register("blaze_combo", () -> SkillDataKey.createIntKey(0, false, ImperatriceAttacks.class));
-
+        CERCLE_DE_FEU = DATA_KEYS.register("cercle_de_feu", () -> SkillDataKey.createIntKey(0, false, ImperatriceAttacks.class));
     }
 }

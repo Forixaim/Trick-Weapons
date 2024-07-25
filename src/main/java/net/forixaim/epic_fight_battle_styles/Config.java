@@ -20,8 +20,8 @@ public class Config
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
     public static final ForgeConfigSpec.BooleanValue TRIGGER_ANTI_CHEESE = BUILDER
-            .comment("Whether to have Legendary Battle Styles instantly kill anyone who wears unfair armor (MekaSuit, Draconic Armor, ProjectE Armors, Infinity Armor, etc.)")
-            .define("no_cheese", true);
+            .comment("Whether to have Legendary Battle Styles instantly break the unfair armor anyone who wears it. (MekaSuit, Draconic Armor, ProjectE Armors, Infinity Armor, etc.)")
+            .define("legendary_battle_style_can_puncture_invincibility", true);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 

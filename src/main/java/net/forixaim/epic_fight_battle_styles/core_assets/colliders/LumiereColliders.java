@@ -15,7 +15,7 @@ public class LumiereColliders
 		return new ResourceLocation(EpicFightBattleStyles.MOD_ID, name);
 	}
 	public static final Collider JOYEUSE = registerCollider(reg("joyeuse"), new MultiOBBCollider(15,
-			0.1D, 0.1D, 1.2D, 0.0D, 0D, -1D
+			0.3D, 0.3D, 1.2D, 0.0D, 0D, -1D
 	));
 
 	public static final Collider RTILT_THIGH = registerCollider(reg("rtilt_t"), new MultiOBBCollider(7,

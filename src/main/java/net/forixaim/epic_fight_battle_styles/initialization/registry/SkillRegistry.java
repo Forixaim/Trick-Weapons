@@ -2,6 +2,8 @@ package net.forixaim.epic_fight_battle_styles.initialization.registry;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.BurstArt;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.FlareBurst;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_arts.SimpleCombatArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.basic_attack.ImperatriceAttacks;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
@@ -61,6 +63,8 @@ public class SkillRegistry
 	public static Skill TEST_COMBAT_ART;
 	public static Skill TEST_COMBAT_ART_2;
 	public static Skill INFERNAL_WHEEL;
+	//Burst Arts
+	public static Skill FLARE_BURST;
 
 	@SubscribeEvent
 	public static void BuildSkillEvent(SkillBuildEvent OnBuild)
@@ -72,8 +76,7 @@ public class SkillRegistry
 		IMPERATRICE_LUMIERE = registryWorker.build("imperatrice_lumiere", ImperatriceLumiere::new, BattleStyle.CreateBattleStyle());
 		IMPERATRICE_ATTACK = registryWorker.build("imperatrice_attack", ImperatriceAttacks::new, ImperatriceAttacks.createImperatriceAttackSet());
 
-		TEST_COMBAT_ART = registryWorker.build("test_combat_art", SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(() -> (AttackAnimation) Animations.SWEEPING_EDGE));
-		TEST_COMBAT_ART_2 = registryWorker.build("test_combat_art_2", SimpleCombatArt::new, SimpleCombatArt.createSimpleCombatArt().setAnimations(() -> (AttackAnimation) Animations.THE_GUILLOTINE));
+		FLARE_BURST = registryWorker.build("flare_burst", FlareBurst::new, BurstArt.createBurstArt().setResource(Skill.Resource.COOLDOWN));
 
 		WeaponInnateSkill BlazeStinger = registryWorker.build(
 				"blaze_stinger",

@@ -28,7 +28,7 @@ import java.util.Set;
 /**
  * This class extends the skill class and is mainly there as a framework for the Battle Styles which can modify certain things.
  */
-public class BattleStyle extends Skill
+public abstract class BattleStyle extends Skill
 {
 	public static Skill.Builder<BattleStyle> CreateBattleStyle()
 	{
@@ -37,12 +37,18 @@ public class BattleStyle extends Skill
 	}
 	private final Map<Attribute, AttributeModifier> BattleStyleStatModifier;
 	protected Map<LivingMotion, StaticAnimation> livingMotionModifiers;
+	protected Skill associatedBasicAttack;
 
 	public BattleStyle(Builder<? extends Skill> builder)
 	{
 		super (builder);
 		this.BattleStyleStatModifier = Maps.newHashMap();
 		this.livingMotionModifiers = Maps.newHashMap();
+	}
+
+	public Skill getAssociatedBasicAttack()
+	{
+		return associatedBasicAttack;
 	}
 
 	public Map<LivingMotion, StaticAnimation> getLivingMotionModifiers(LivingEntityPatch<?> entityPatch)

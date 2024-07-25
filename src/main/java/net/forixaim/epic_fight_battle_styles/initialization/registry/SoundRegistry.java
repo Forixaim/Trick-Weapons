@@ -24,6 +24,9 @@ public class SoundRegistry
 	public static final RegistryObject<SoundEvent> IMPERATRICE_KICK_IMPACT_M = registerSound("entity.weapon.imperatrice_kick_impact_m");
 	public static final RegistryObject<SoundEvent> IMPERATRICE_PUNCH_IMPACT_M = registerSound("entity.weapon.imperatrice_punch_impact_m");
 	public static final RegistryObject<SoundEvent> IMPERATRICE_ANTI_CHEESE = registerSound("entity.weapon.imperatrice_anti_cheese");
+	public static final RegistryObject<SoundEvent> CHEESE = registerSound("entity.combat.nocheese");
+	public static final RegistryObject<SoundEvent> CRITICAL_HIT_2 = registerSound("entity.weapon.crit2");
+	public static final RegistryObject<SoundEvent> FLARE_BURST_AURA = registerSound("battle_style.imperatrice_lumiere.flare_burst_aura");
 
 	public static final RegistryObject<SoundEvent> CRITICAL_HIT = registerSound("entity.combat.critical_hit");
 

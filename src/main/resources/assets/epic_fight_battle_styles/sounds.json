@@ -49,6 +49,16 @@
     "subtitle": "sounds.epic_fight_battle_styles.entity.combat.critical_hit",
     "sounds":[{"name":"epic_fight_battle_styles:entity/combat/critical_hit", "stream":true}]
   },
+  "entity.combat.nocheese": {
+    "categoru": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.combat.nocheese",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/combat/nocheese", "stream":true}]
+  },
+  "entity.weapon.crit2": {
+    "categoru": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.crit_2",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/crit_2", "stream":true}]
+  },
   "entity.weapon.imperatrice_anti_cheese": {
     "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_anti_cheese",
@@ -65,6 +75,17 @@
         "stream": true
       }
 
+    ]
+  },
+  "battle_style.imperatrice_lumiere.flare_burst_aura":
+  {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.battle_style.imperatrice_lumiere.flare_burst_aura",
+    "sounds": [
+      {
+        "name":  "epic_fight_battle_styles:battle_style/imperatrice_lumiere/flare_burst_aura",
+        "stream": true
+      }
     ]
   }
 }

@@ -6,6 +6,7 @@ import io.netty.buffer.Unpooled;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.Input;
 import net.minecraft.network.FriendlyByteBuf;
@@ -33,12 +34,14 @@ import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
 import yesman.epicfight.world.entity.eventlistener.SkillConsumeEvent;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * This class replaces the basic attack motions when created.
  */
 public class ImperatriceAttacks extends BasicAttack
 {
+	private static final UUID EVENT_UUID = UUID.fromString("bb4af80f-603a-4b52-a92d-1d4a444749af");
 	private static final List<AnimationProvider<?>> IMPERATRICE_SWORD_JAB_SET = Lists.newArrayList(
 			() -> BattleAnimations.IMPERATRICE_SWORD_JAB1,
 			() -> BattleAnimations.IMPERATRICE_SWORD_JAB2,
@@ -49,11 +52,13 @@ public class ImperatriceAttacks extends BasicAttack
 
 	public static Skill.Builder<ImperatriceAttacks> createImperatriceAttackSet()
 	{
+
 		return (new Builder<ImperatriceAttacks>()).setCategory(SkillCategories.BASIC_ATTACK).setActivateType(ActivateType.ONE_SHOT).setResource(Resource.NONE);
 	}
 	private static final AttackAnimationProvider DASH_ATTACK = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_DASH_ATTACK;
 	private static final AttackAnimationProvider CROUCH_LIGHT = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_CROUCH_LIGHT;
 	private static final AttackAnimationProvider FTILT = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_FTILT;
+	private static final AttackAnimationProvider CERCLE_DE_FEU = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_CERCLE_DE_FEU;
 	private static final AttackAnimationProvider RTILT = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_RTILT;
 	private static final AttackAnimationProvider LTILT = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_LTILT;
 	private static final AttackAnimationProvider BTILT = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_BTILT;
@@ -64,10 +69,18 @@ public class ImperatriceAttacks extends BasicAttack
 
 	public static void setComboCounterWithEvent(ComboCounterHandleEvent.Causal reason, ServerPlayerPatch playerpatch, SkillContainer container, StaticAnimation causalAnimation, int value)
 	{
-		int prevValue = container.getDataManager().getDataValue(SkillDataKeys.COMBO_COUNTER.get());
+		int prevValue = container.getDataManager().getDataValue(EFBSDataKeys.BLAZE_COMBO.get());
 		ComboCounterHandleEvent comboResetEvent = new ComboCounterHandleEvent(reason, playerpatch, causalAnimation, prevValue, value);
 		container.getExecuter().getEventListener().triggerEvents(PlayerEventListener.EventType.COMBO_COUNTER_HANDLE_EVENT, comboResetEvent);
 		container.getDataManager().setData(EFBSDataKeys.BLAZE_COMBO.get(), comboResetEvent.getNextValue());
+	}
+
+	public static void setFtiltCombo(ComboCounterHandleEvent.Causal reason, ServerPlayerPatch playerpatch, SkillContainer container, StaticAnimation causalAnimation, int value)
+	{
+		int prevValue = container.getDataManager().getDataValue(EFBSDataKeys.CERCLE_DE_FEU.get());
+		ComboCounterHandleEvent comboResetEvent = new ComboCounterHandleEvent(reason, playerpatch, causalAnimation, prevValue, value);
+		container.getExecuter().getEventListener().triggerEvents(PlayerEventListener.EventType.COMBO_COUNTER_HANDLE_EVENT, comboResetEvent);
+		container.getDataManager().setData(EFBSDataKeys.CERCLE_DE_FEU.get(), comboResetEvent.getNextValue());
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -134,6 +147,7 @@ public class ImperatriceAttacks extends BasicAttack
 			SkillContainer skillContainer = executer.getSkill(this);
 			SkillDataManager dataManager = skillContainer.getDataManager();
 			int comboCounter = dataManager.getDataValue(EFBSDataKeys.BLAZE_COMBO.get());
+			int cercleDeFeu = dataManager.getDataValue(EFBSDataKeys.CERCLE_DE_FEU.get());
 
 			if (player.isPassenger())
 			{
@@ -158,6 +172,8 @@ public class ImperatriceAttacks extends BasicAttack
 					LogUtils.getLogger().debug("Dash Attack");
 					attackMotion = DASH_ATTACK.get();
 					comboCounter = 0;
+					cercleDeFeu = 0;
+
 				}
 				else if (sw == -1)
 				{
@@ -165,6 +181,7 @@ public class ImperatriceAttacks extends BasicAttack
 					LogUtils.getLogger().debug("Right Tilt");
 					comboCounter = 0;
 					attackMotion = RTILT.get();
+					cercleDeFeu = 0;
 				}
 				else if (sw == 1)
 				{
@@ -179,12 +196,23 @@ public class ImperatriceAttacks extends BasicAttack
 					LogUtils.getLogger().debug("Back Tilt");
 					attackMotion = BTILT.get();
 					comboCounter = 0;
+					cercleDeFeu = 0;
 				}
 				else if (fw == 1)
 				{
 					//Forward Tilt
+					executer.getSkill(this).getDataManager().setData(EFBSDataKeys.FTILT.get(), true);
 					LogUtils.getLogger().debug("Forward Tilt");
-					attackMotion = FTILT.get();
+					if (cercleDeFeu == 0)
+					{
+						attackMotion = FTILT.get();
+						cercleDeFeu = 1;
+					}
+					else if (cercleDeFeu == 1)
+					{
+						attackMotion = CERCLE_DE_FEU.get();
+						cercleDeFeu = 0;
+					}
 					comboCounter = 0;
 				}
 				else if (player.isShiftKeyDown())
@@ -193,24 +221,38 @@ public class ImperatriceAttacks extends BasicAttack
 					LogUtils.getLogger().debug("Down Tilt");
 					attackMotion = CROUCH_LIGHT.get();
 					comboCounter = 0;
+					cercleDeFeu = 0;
 				}
 				else
 				{
 					// Normal Attack
+					executer.getSkill(this).getDataManager().setData(EFBSDataKeys.JAB.get(), true);
 					comboSize = IMPERATRICE_SWORD_JAB_SET.size();
 					comboCounter %= comboSize;
 					LogUtils.getLogger().debug("Jab");
 					LogUtils.getLogger().debug("Combo Counter: {}", comboCounter);
 					attackMotion = IMPERATRICE_SWORD_JAB_SET.get(comboCounter).get();
 					comboCounter++;
+					cercleDeFeu = 0;
 				}
 			}
 
+			setFtiltCombo(ComboCounterHandleEvent.Causal.ACTION_ANIMATION_RESET, executer, skillContainer, attackMotion, cercleDeFeu);
 			setComboCounterWithEvent(ComboCounterHandleEvent.Causal.ACTION_ANIMATION_RESET, executer, skillContainer, attackMotion, comboCounter);
 
 			if (attackMotion != null)
 			{
 				executer.playAnimationSynchronized(attackMotion, 0);
+
+				if (executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.HEAT.get()) && executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) < 50)
+				{
+					executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) + 5, executer.getOriginal());
+					if (executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) >= 50)
+					{
+						executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), 50, executer.getOriginal());
+					}
+				}
+				LogUtils.getLogger().debug("Heat Level: {}", executer.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.HEAT.get()));
 			}
 
 			executer.updateEntityState();

@@ -21,7 +21,7 @@ import yesman.epicfight.skill.SkillSlot;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-@Mixin(value = ControllEngine.class)
+@Mixin(value = ControllEngine.class, remap = false)
 public abstract class MixinControlEngine
 {
 	@Unique

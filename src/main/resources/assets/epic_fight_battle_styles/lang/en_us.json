@@ -43,6 +43,7 @@
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_punch_impact_m": "Medium Punch Impact",
 	"sounds.epic_fight_battle_styles.entity.combat.critical_hit": "Critical Hit",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_anti_cheese": "Invincibility Puncture",
+	"sounds.epic_fight_battle_styles.entity.combat.nocheese": "No Cheese",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",
