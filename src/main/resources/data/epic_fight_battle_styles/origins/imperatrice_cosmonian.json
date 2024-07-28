@@ -1,0 +1,11 @@
+{
+  "powers": [
+    "origins:fire_immunity",
+    "origins:flame_particles"
+  ],
+  "icon": {
+    "item": "minecraft:player_head"
+  },
+  "order": 0,
+  "impact": 3
+}

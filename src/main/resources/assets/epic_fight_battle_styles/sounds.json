@@ -14,6 +14,11 @@
     "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_swing",
     "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_swing3", "stream":true}]
   },
+  "entity.weapon.imperatrice_heavy_swing": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_heavy_swing",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/heavy_blade_swing", "stream":true}]
+  },
   "entity.weapon.imperatrice_hit_s": {
     "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_s",
@@ -28,6 +33,16 @@
     "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_l",
     "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_hit_l", "stream":true}]
+  },
+  "entity.weapon.imperatrice_hit_finisher": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_l",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_hit_l_mix", "stream":true}]
+  },
+  "entity.weapon.fatal_ultimate": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.fatal_ultimate",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/fatalultimate", "stream":true}]
   },
   "entity.weapon.imperatrice_thrust_l": {
     "category": "master",
@@ -77,13 +92,42 @@
 
     ]
   },
-  "battle_style.imperatrice_lumiere.flare_burst_aura":
-  {
+  "entity.weapon.flare_burst_aura": {
     "category": "master",
-    "subtitle": "sounds.epic_fight_battle_styles.battle_style.imperatrice_lumiere.flare_burst_aura",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.flare_burst_aura",
     "sounds": [
       {
-        "name":  "epic_fight_battle_styles:battle_style/imperatrice_lumiere/flare_burst_aura",
+        "name":  "epic_fight_battle_styles:entity/weapon/flare_burst_aura",
+        "stream": true
+      }
+    ]
+  },
+  "battle_style.burst_art_ready": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.battle_style.burst_art_ready",
+    "sounds": [
+      {
+        "name":  "epic_fight_battle_styles:battle_style/burst_art_ready",
+        "stream": true
+      }
+    ]
+  },
+  "battle_style.ultimate_art_execute": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.battle_style.ultimate_art_execute",
+    "sounds": [
+      {
+        "name":  "epic_fight_battle_styles:battle_style/ultimate_art_execute",
+        "stream": true
+      }
+    ]
+  },
+  "battle_style.imperatrice_lumiere.flash": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.battle_style.imperatrice_lumiere.flash",
+    "sounds": [
+      {
+        "name":  "epic_fight_battle_styles:battle_style/imperatrice_lumiere/flash",
         "stream": true
       }
     ]

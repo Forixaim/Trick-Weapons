@@ -88,7 +88,7 @@ public abstract class ActiveSkill extends Skill
 		} else {
 			ItemStack itemstack = executer.getOriginal().getMainHandItem();
 
-			return super.canExecute(executer) && weaponCategoryMatch(weaponCategory) && manaCheck(executer)
+			return super.canExecute(executer) && weaponCategoryMatch(weaponCategory)
 					&& executer.getOriginal().getVehicle() == null && (!executer.getSkill(this).isActivated() || this.activateType == ActivateType.TOGGLE);
 		}
 	}

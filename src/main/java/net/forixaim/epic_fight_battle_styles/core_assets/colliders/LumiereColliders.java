@@ -18,6 +18,12 @@ public class LumiereColliders
 			0.3D, 0.3D, 1.2D, 0.0D, 0D, -1D
 	));
 
+	public static final Collider IMPERATRICE_DOWN_SMASH = registerCollider(reg("imperatrice_down_smash"), new OBBCollider(3, 0.7, 3, 0, 0, 0));
+	public static final Collider IMPERATRICE_FLARE_BURST = registerCollider(reg("imperatrice_flare_burst"), new OBBCollider(4, 4, 4, 0, 0, 0));
+
+	public static final Collider IMPERATRICE_ULTIMATE_TRY = registerCollider(reg("imperatrice_ultimate_try"), new OBBCollider(4, 2, 4, 0, 0, -4));
+	public static final Collider IMPERATRICE_FLARE_BLADE_CLEAVE = registerCollider(reg("imperatrice_flare_blade_cleave"), new OBBCollider(5, 10, 20, 0, 0, -20));
+
 	public static final Collider RTILT_THIGH = registerCollider(reg("rtilt_t"), new MultiOBBCollider(7,
 			0.35D, 0.35D, 0.35D, 0.0D, 0D, -0D
 	));

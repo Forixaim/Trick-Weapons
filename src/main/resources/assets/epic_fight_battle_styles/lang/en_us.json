@@ -1,5 +1,4 @@
 {
-	"skill.epicfight.combat_art.category": "Combat Art",
 	"item.epic_fight_battle_styles.placeholder_chakram": "Placeholder Chakram",
 	"item.epic_fight_battle_styles.origin_excalibur": "Origin Excalibur",
 	"item.epic_fight_battle_styles.origin_excalibur.tooltip": "This relic was once wielded by one of the 10 legendary heroes. It is said that all Excaliburs are based off this original template.",
@@ -22,10 +21,18 @@
 	"skill.epic_fight_battle_styles.demon.tooltip": "A wielder of the demonic blade Satsujin. Increases attack speed but reduces health and defense.",
 	"skill.epic_fight_battle_styles.atlantean": "Atlantean",
 	"skill.epic_fight_battle_styles.atlantean.tooltip": "The hero of the deep sea imparts knowledge of the attacks that is exclusive to the obsidian blade Herrscher and the nautilus shield Gesetz",
-	"skill.epic_fight_battle_styles.blaze_stinger": "Blaze Stinger",
-	"skill.epic_fight_battle_styles.blaze_stinger.tooltip": "Thrust the sword at a speed so incredible not only it breaks any foolish opponent's guard but knocks them a fair distance back.",
+	"skill.epic_fight_battle_styles.blaze_stinger": "Conducteur d'incendie",
+	"skill.epic_fight_battle_styles.blaze_stinger.tooltip": "Smash attacks can be directionally inputted for different animations or results.",
 	"skill.epic_fight_battle_styles.trailblaze": "Trailblaze",
 	"skill.epic_fight_battle_styles.trailblaze.tooltip": "Required Battle Style: Impératrice Lumiére\n\nDash a fair distance in any direction, primarily used to follow up on the mostly stationary comboes of Impératrice Lumiére",
+	"skill.epic_fight_battle_styles.flare_burst": "Enfer Château d'If",
+	"skill.epic_fight_battle_styles.flare_burst.tooltip": "Required Battle Style: Impératrice Lumiére\n\nGo into overdrive, gaining increased attack damage and stun immunity. Slowly damages your common weapons that you wield. Allows the use of the Impératrice Lumiére's Ultimate Art Set",
+	"skill.epic_fight_battle_styles.imperatrice_ultimate": "Finale de l'ignition",
+	"skill.epic_fight_battle_styles.imperatrice_ultimate.tooltip": "Required Battle Style: Impératrice Lumiére\n\nSpecified Weapon: Origin Joyeuse or Derived Joyeuse\n\nCasts three different ultimate arts based if you have the correct weapons or not.",
+
+
+	"origin.epic_fight_battle_styles.imperatrice_cosmonian.name": "Impératrice Lumiére",
+	"origin.origins.blazeborn.description": "The Flarian/Cosmonian hybrid that is the fabled Impératrice Lumiére. Immune to Fire.",
 
 	"key.category.epic_fight_battle_styles.efbs_skills": "Epic Fight Battle Styles",
 	"skill.epic_fight_battle_styles.test_combat_art": "Test Combat Art",
@@ -34,6 +41,7 @@
 	"key.epic_fight_battle_styles.combat_art_2_use": "Use Combat Art 2",
 	"key.epic_fight_battle_styles.burst_art_use": "Use Burst Art",
 	"key.epic_fight_battle_styles.ultimate_art_use": "Use Ultimate Art",
+
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_swing": "Light Blade Swing",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_s": "Light Blade Hit",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_hit_m": "Medium Blade Hit",
@@ -44,11 +52,16 @@
 	"sounds.epic_fight_battle_styles.entity.combat.critical_hit": "Critical Hit",
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_anti_cheese": "Invincibility Puncture",
 	"sounds.epic_fight_battle_styles.entity.combat.nocheese": "No Cheese",
+	"sounds.epic_fight_battle_styles.entity.weapon.flare_burst_aura": "Infernal Ambience",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",
+	"skill.epicfight.combat_art.category": "Combat Art",
+	"skill.epicfight.burst_art.category": "Burst Art",
+	"skill.epicfight.ultimate_art.category": "Ultimate Art",
 	"epicfight.skill_slot.battle_style": "Battle Style",
 	"epicfight.skill_slot.combat_art_1": "Combat Art 1",
 	"epicfight.skill_slot.combat_art_2": "Combat Art 2",
+	"epicfight.skill_slot.burst_art": "Burst Art",
 	"epicfight.skill_slot.ultimate_art": "Ultimate Art"
 }

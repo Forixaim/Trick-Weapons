@@ -130,8 +130,8 @@ public class Sword
 				BattleAnimations.IMPERATRICE_SWORD_JAB1,
 				BattleAnimations.IMPERATRICE_SWORD_JAB2,
 				BattleAnimations.IMPERATRICE_SWORD_JAB3,
-				BattleAnimations.IMPERATRICE_SWORD_JAB4,
-				BattleAnimations.IMPERATRICE_SWORD_JAB5,
+				BattleAnimations.IMPERATRICE_SWORD_DOWN_SMASH,
+				BattleAnimations.IMPERATRICE_SWORD_FLARE_BURST,
 				BattleAnimations.IMPERATRICE_SWORD_DASH_ATTACK,
 				BattleAnimations.IMPERATRICE_SWORD_AERIAL
 		);

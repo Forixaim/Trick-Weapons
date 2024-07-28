@@ -5,6 +5,8 @@ import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimat
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.BurstArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.FlareBurst;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.combat_arts.SimpleCombatArt;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ultimate_arts.ImperatriceUltimateArt;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ultimate_arts.UltimateArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.basic_attack.ImperatriceAttacks;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Duelist;
@@ -65,6 +67,8 @@ public class SkillRegistry
 	public static Skill INFERNAL_WHEEL;
 	//Burst Arts
 	public static Skill FLARE_BURST;
+	//Ultimate Arts
+	public static Skill IMPERATRICE_ULTIMATE;
 
 	@SubscribeEvent
 	public static void BuildSkillEvent(SkillBuildEvent OnBuild)
@@ -77,11 +81,12 @@ public class SkillRegistry
 		IMPERATRICE_ATTACK = registryWorker.build("imperatrice_attack", ImperatriceAttacks::new, ImperatriceAttacks.createImperatriceAttackSet());
 
 		FLARE_BURST = registryWorker.build("flare_burst", FlareBurst::new, BurstArt.createBurstArt().setResource(Skill.Resource.COOLDOWN));
+		IMPERATRICE_ULTIMATE = registryWorker.build("imperatrice_ultimate", ImperatriceUltimateArt::new, UltimateArt.createUltimateArt().setResource(Skill.Resource.COOLDOWN));
 
-		WeaponInnateSkill BlazeStinger = registryWorker.build(
+		WeaponInnateSkill BlazeStinger = (WeaponInnateSkill) registryWorker.build(
 				"blaze_stinger",
 				BlazeStingerSkill::new,
-				WeaponInnateSkill.createWeaponInnateBuilder()
+				Skill.createBuilder().setCategory(SkillCategories.WEAPON_INNATE).setResource(Skill.Resource.STAMINA)
 		);
 		BlazeStinger.newProperty()
 				.addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.multiplier(2))

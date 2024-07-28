@@ -11,9 +11,9 @@ import yesman.epicfight.skill.Skill;
 public abstract class UltimateArt extends ActiveSkill
 {
 
-	public static Builder createCombatArt()
+	public static Builder<UltimateArt> createUltimateArt()
 	{
-		return (new Builder().setCategory(EpicFightBattleStyleSkillCategories.ULTIMATE_ART).setResource(Resource.COOLDOWN));
+		return (new Builder<UltimateArt>().setCategory(EpicFightBattleStyleSkillCategories.ULTIMATE_ART).setResource(Resource.COOLDOWN));
 	}
 
 	public UltimateArt(Builder<? extends Skill> builder) {

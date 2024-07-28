@@ -45,9 +45,7 @@ public class ImperatriceAttacks extends BasicAttack
 	private static final List<AnimationProvider<?>> IMPERATRICE_SWORD_JAB_SET = Lists.newArrayList(
 			() -> BattleAnimations.IMPERATRICE_SWORD_JAB1,
 			() -> BattleAnimations.IMPERATRICE_SWORD_JAB2,
-			() -> BattleAnimations.IMPERATRICE_SWORD_JAB3,
-			() -> BattleAnimations.IMPERATRICE_SWORD_JAB4,
-			() -> BattleAnimations.IMPERATRICE_SWORD_JAB5
+			() -> BattleAnimations.IMPERATRICE_SWORD_JAB3
 	);
 
 	public static Skill.Builder<ImperatriceAttacks> createImperatriceAttackSet()

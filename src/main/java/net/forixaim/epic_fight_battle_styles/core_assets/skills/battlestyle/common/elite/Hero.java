@@ -28,7 +28,6 @@ public class Hero extends BattleStyle
 			CapabilityItem.WeaponCategories.AXE,
 			BattleStyleCategories.BATTLE_AXE,
 			BattleStyleCategories.HAND_AXE,
-			BattleStyleCategories.HERRSCHER
 	};
 
 

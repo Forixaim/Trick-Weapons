@@ -6,6 +6,7 @@ import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.legendary
 import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.legendary.house_lux.OriginExcalibur;
 import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.legendary.imperatrice_lumiere.OriginJoyeuse;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +23,6 @@ public class ItemRegistry
 	public static final RegistryObject<Item> ORIGIN_EXCALIBUR = ITEMS.register("origin_excalibur", OriginExcalibur::new);
 	public static final RegistryObject<Item> ORIGIN_ARONDIGHT = ITEMS.register("origin_arondight", OriginArondight::new);
 	public static final RegistryObject<Item> ORIGIN_JOYEUSE = ITEMS.register("origin_joyeuse", OriginJoyeuse::new);
-	public static final RegistryObject<Item> BAGUETTE = ITEMS.register("baguette", () -> new LongswordItem(new Item.Properties().durability(0).defaultDurability(0), EpicFightBattleStylesTiers.BAGUETTE));
+	public static final RegistryObject<Item> BAGUETTE = ITEMS.register("baguette", () -> new LongswordItem(new Item.Properties().durability(0).defaultDurability(0).food(Foods.COOKED_BEEF), EpicFightBattleStylesTiers.BAGUETTE));
 
 }

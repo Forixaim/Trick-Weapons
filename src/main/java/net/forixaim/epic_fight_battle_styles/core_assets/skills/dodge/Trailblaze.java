@@ -56,7 +56,8 @@ public class Trailblaze extends DodgeSkill
 
     @Override
     public boolean canExecute(PlayerPatch<?> executor) {
-        return executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE);
+        return executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE) &&
+                !executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get());
     }
 
     @Override

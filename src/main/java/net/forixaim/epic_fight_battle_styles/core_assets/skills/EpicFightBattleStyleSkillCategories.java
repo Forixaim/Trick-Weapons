@@ -4,6 +4,7 @@ import yesman.epicfight.skill.SkillCategory;
 public enum EpicFightBattleStyleSkillCategories implements SkillCategory
 {
 	BATTLE_STYLE(true, true, true),
+	TAUNT(true, true, false),
 	COMBAT_ART(true, true, true),
 	BURST_ART(true, true, true),
 	ULTIMATE_ART(true, true, true);

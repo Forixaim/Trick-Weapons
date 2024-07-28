@@ -2,6 +2,7 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.FlareBurst;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ultimate_arts.ImperatriceUltimateArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.basic_attack.ImperatriceAttacks;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.weaponinnate.BlazeStingerSkill;
@@ -29,12 +30,22 @@ public class EFBSDataKeys
     public static final RegistryObject<SkillDataKey<Integer>> CERCLE_DE_FEU;
     public static final RegistryObject<SkillDataKey<Boolean>> FTILT;
     public static final RegistryObject<SkillDataKey<Integer>> HEAT_COOL_TICK;
+    public static final RegistryObject<SkillDataKey<Boolean>> ULTIMATE_ART_ACTIVE;
+    public static final RegistryObject<SkillDataKey<Boolean>> ULTIMATE_ART_TRY_CONNECTED;
+    public static final RegistryObject<SkillDataKey<Boolean>> ULTIMATE_ART_READY;
 
     static
     {
         FTILT = DATA_KEYS.register("ftilt", () -> SkillDataKey.createBooleanKey(false, true, ImperatriceAttacks.class));
 
         HEAT_COOL_TICK = DATA_KEYS.register("imperatrice_cool_tick", () -> SkillDataKey.createIntKey(0, true, ImperatriceLumiere.class));
+
+        ULTIMATE_ART_ACTIVE = DATA_KEYS.register("ultimate_art_active", () -> SkillDataKey.createBooleanKey(false, true,
+                ImperatriceLumiere.class));
+        ULTIMATE_ART_TRY_CONNECTED = DATA_KEYS.register("ultimate_art_try_connect", () -> SkillDataKey.createBooleanKey(false, true,
+                ImperatriceLumiere.class));
+        ULTIMATE_ART_READY = DATA_KEYS.register("ultimate_art_ready", () -> SkillDataKey.createBooleanKey(false, true,
+                ImperatriceLumiere.class));
 
         JAB = DATA_KEYS.register("jab", () -> SkillDataKey.createBooleanKey(false, true, ImperatriceAttacks.class));
         HEAT = DATA_KEYS.register("heat", () -> SkillDataKey.createIntKey(0, true,
