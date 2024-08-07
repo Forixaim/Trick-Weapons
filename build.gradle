@@ -70,7 +70,7 @@ minecraft {
     // However, it must be at "META-INF/accesstransformer.cfg" in the final mod jar to be loaded by Forge.
     // This default location is a best practice to automatically put the file in the right place in the final jar.
     // See https://docs.minecraftforge.net/en/latest/advanced/accesstransformers/ for more information.
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -152,7 +152,6 @@ repositories {
         name = "Iron's Maven - Release"
         url = "https://code.redspace.io/releases"
     }
-    maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
 
     flatDir {
          dir './libs'
@@ -183,9 +182,13 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:geckolib-388172:5188427")
 
     // M&A and its API
+
+
     //Epic Fight and its addons
-    implementation fg.deobf("libs:EpicFight:20.8.1.3")
-    implementation fg.deobf("libs:WeaponsOfMiracles:20.1.8.1")
+    implementation fg.deobf("libs:EpicFight:20.8.3")
+    implementation fg.deobf("libs:WeaponsOfMiracles:20.1.8.5")
+    implementation fg.deobf("libs:EpicFightCE:20.8.1")
+    implementation fg.deobf("libs:EpicFightExCap:20.8.1")
 
     //
     implementation fg.deobf("curse.maven:explosive-enhancement-reforged-1036246:5423875")
@@ -198,6 +201,10 @@ dependencies {
     compileOnly fg.deobf("curse.maven:draconic-evolution-223565:5524457")
     compileOnly fg.deobf("curse.maven:projecte-226410:4901949")
     //implementation fg.deobf("libs:sword_soaring-forge1.20.1:1.11.7")
+
+    //Runtime Dummy
+    runtimeOnly fg.deobf("curse.maven:selene-499980:5546852")
+    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:5319203")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

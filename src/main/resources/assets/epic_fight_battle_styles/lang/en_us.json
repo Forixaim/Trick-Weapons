@@ -6,6 +6,11 @@
 	"item.epic_fight_battle_styles.origin_joyeuse": "Origin Joyeuse",
 	"item.epic_fight_battle_styles.origin_joyeuse.tooltip": "Flames that should not be handled but only by a true wielder.\nAll human variants of Joyeuse are derived from this one, be it holy or demonic.\nAll said is nothing compared to the almighty Flare Blade.\n\nTemperatures can reach 10 to the power of 32 degrees Kelvin.",
 	"item.epic_fight_battle_styles.baguette": "La Baguette",
+	"item.epic_fight_battle_styles.iron_sabre": "Iron Sabre",
+	"item.epic_fight_battle_styles.golden_sabre": "Golden Sabre",
+	"item.epic_fight_battle_styles.diamond_sabre": "Diamond Sabre",
+	"item.epic_fight_battle_styles.netherite_sabre": "Netherite Sabre",
+
 
 	"skill.epic_fight_battle_styles.hero": "Hero",
 	"skill.epic_fight_battle_styles.hero.tooltip": "The one with the sword and shield, increased attack speed with swords and axes. Reduced attack speed with everything else.",
@@ -53,6 +58,7 @@
 	"sounds.epic_fight_battle_styles.entity.weapon.imperatrice_anti_cheese": "Invincibility Puncture",
 	"sounds.epic_fight_battle_styles.entity.combat.nocheese": "No Cheese",
 	"sounds.epic_fight_battle_styles.entity.weapon.flare_burst_aura": "Infernal Ambience",
+	"itemGroup.epic_fight_battle_styles.items": "Battle Arts: Items",
 
 
 	"skill.epicfight.battle_style.category": "Battle Style",
@@ -63,5 +69,8 @@
 	"epicfight.skill_slot.combat_art_1": "Combat Art 1",
 	"epicfight.skill_slot.combat_art_2": "Combat Art 2",
 	"epicfight.skill_slot.burst_art": "Burst Art",
-	"epicfight.skill_slot.ultimate_art": "Ultimate Art"
+	"epicfight.skill_slot.ultimate_art": "Ultimate Art",
+	"text.epic_fight_battle_styles.item_melt": "Your item melted due to overwhelming heat.",
+	"text.epic_fight_battle_styles.item_burn": "Your wooden item burned away from overwhelming heat.",
+	"text.epic_fight_battle_styles.item_melting_netherite": "Your netherite item is melting due to overwhelming heat despite being fire resistant."
 }

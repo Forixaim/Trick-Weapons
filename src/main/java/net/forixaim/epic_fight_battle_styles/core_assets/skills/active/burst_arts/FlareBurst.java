@@ -3,6 +3,7 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_ar
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
@@ -71,8 +72,9 @@ public class FlareBurst extends BurstArt
 
 	@OnlyIn(Dist.CLIENT)
 	@Override
-	public boolean shouldDraw(SkillContainer container) {
-		return container.getResource() > 0 && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && !container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get());
+	public boolean shouldDraw(SkillContainer container)
+	{
+		return container.getExecuter().getHoldingItemCapability(InteractionHand.MAIN_HAND).getStyle(container.getExecuter()) == ImperatriceLumiereStyles.IMPERATRICE_SWORD && container.getResource() > 0 && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && !container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get());
 	}
 
 
@@ -84,7 +86,7 @@ public class FlareBurst extends BurstArt
 		poseStack.translate(0, (float)gui.getSlidingProgression(), 0);
 		guiGraphics.blit(this.getSkillTexture(), (int)x, (int)y, 24, 24, 0, 0, 1, 1, 1, 1);
 		float CD = container.getResource();
-		String Cooldown_Time = (container.getMaxResource() - CD) >= 100 ? String.format("%.0f", container.getMaxResource() - CD) : String.format("%.1f", container.getMaxResource() - CD);
+		String Cooldown_Time = (container.getMaxResource() - CD) > 100 ? String.format("%.0f", container.getMaxResource() - CD) : String.format("%.1f", container.getMaxResource() - CD);
 		guiGraphics.drawString(gui.font, Cooldown_Time, x + 4, y + 6, 16777215, true);
 		poseStack.popPose();
 	}
@@ -100,13 +102,9 @@ public class FlareBurst extends BurstArt
 		}
 		if (container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.HEAT.get()) && !(container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) >= 200) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()))
 		{
-			if (container.getExecuter() instanceof ServerPlayerPatch serverPlayerPatch)
+			if (!container.getExecuter().isLogicalClient())
 			{
-				container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.FLARE_BURST.get(), false, serverPlayerPatch.getOriginal());
-			}
-			else if (container.getExecuter() instanceof LocalPlayerPatch localPlayerPatch)
-			{
-				container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.FLARE_BURST.get(), false, localPlayerPatch.getOriginal());
+				container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.FLARE_BURST.get(), false, (ServerPlayer) container.getExecuter().getOriginal());
 			}
 
 		}

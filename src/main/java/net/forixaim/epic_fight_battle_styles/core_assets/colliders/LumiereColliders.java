@@ -18,6 +18,9 @@ public class LumiereColliders
 			0.3D, 0.3D, 1.2D, 0.0D, 0D, -1D
 	));
 
+	public static final Collider IMPERATRICE_FLAMING_ATMOSPHERE = registerCollider(reg("imperatrice_flaming_atmosphere"), new OBBCollider(3, 3, 3, 0, 0, 0));
+
+
 	public static final Collider IMPERATRICE_DOWN_SMASH = registerCollider(reg("imperatrice_down_smash"), new OBBCollider(3, 0.7, 3, 0, 0, 0));
 	public static final Collider IMPERATRICE_FLARE_BURST = registerCollider(reg("imperatrice_flare_burst"), new OBBCollider(4, 4, 4, 0, 0, 0));
 

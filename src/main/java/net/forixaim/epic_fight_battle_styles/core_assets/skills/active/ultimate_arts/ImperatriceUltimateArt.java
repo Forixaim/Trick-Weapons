@@ -1,17 +1,6 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ultimate_arts;
 
 import com.google.common.collect.Lists;
-import io.github.apace100.origins.Origins;
-import io.github.apace100.origins.OriginsClient;
-import io.github.apace100.origins.component.PlayerOriginComponent;
-import io.github.edwinmindcraft.origins.api.OriginsAPI;
-import io.github.edwinmindcraft.origins.api.origin.Origin;
-import io.github.edwinmindcraft.origins.api.registry.OriginsBuiltinRegistries;
-import io.github.edwinmindcraft.origins.client.OriginsClientUtils;
-import io.github.edwinmindcraft.origins.common.OriginsConfigs;
-import io.github.edwinmindcraft.origins.common.capabilities.OriginContainer;
-import io.github.edwinmindcraft.origins.common.condition.OriginCondition;
-import io.github.edwinmindcraft.origins.data.OriginsData;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
@@ -19,11 +8,8 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleS
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraftforge.fml.ModList;
-import reascer.wom.world.capabilities.item.WOMWeaponCategories;
 import yesman.epicfight.api.animation.AnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.skill.Skill;

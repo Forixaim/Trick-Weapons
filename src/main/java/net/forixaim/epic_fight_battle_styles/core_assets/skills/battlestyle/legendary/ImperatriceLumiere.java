@@ -3,7 +3,6 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.leg
 import com.brandon3055.draconicevolution.DraconicEvolution;
 import com.brandon3055.draconicevolution.items.equipment.ModularChestpiece;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.datafixers.util.Pair;
 import com.mojang.logging.LogUtils;
 import mekanism.common.Mekanism;
 import mekanism.common.item.gear.ItemMekaSuitArmor;
@@ -14,11 +13,11 @@ import moze_intel.projecte.gameObjs.items.armor.RMArmor;
 import net.forixaim.epic_fight_battle_styles.Config;
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
+import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.ItemRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.particles.ParticleTypes;
@@ -30,28 +29,23 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.fml.ModList;
-import org.jetbrains.annotations.NotNull;
-import yesman.epicfight.api.animation.AnimationProvider;
+import reascer.wom.skill.WOMSkillDataKeys;
 import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.client.gui.BattleModeGui;
-import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.network.EpicFightNetworkManager;
-import yesman.epicfight.network.client.CPChangeSkill;
 import yesman.epicfight.network.server.SPChangeSkill;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
-import yesman.epicfight.skill.SkillSlot;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
@@ -63,7 +57,6 @@ import yesman.epicfight.world.entity.eventlistener.DealtDamageEvent;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
 
-import java.util.Objects;
 import java.util.UUID;
 
 public class ImperatriceLumiere extends BattleStyle
@@ -80,38 +73,20 @@ public class ImperatriceLumiere extends BattleStyle
 			CapabilityItem.WeaponCategories.LONGSWORD
 	};
 
-	private static final Pair<AnimationProvider<AttackAnimation>, AnimationProvider<AttackAnimation>> RIPOSTES = new Pair<>(
-			() -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_DASH_RIPOSTE,
-			() -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_DASH_ATTACK
-	);
 
 	private static final AttackAnimationProvider JOYEUSE_DRAW = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_JOYEUSE_DRAW;
 
-	public void triggerIgnitionRiposte(PlayerPatch<?> playerPatch, SkillSlot originSlot, @NotNull DamageSource source)
-	{
-		if (originSlot == SkillSlots.DODGE)
-		{
-			playerPatch.getOriginal().teleportTo(Objects.requireNonNull(source.getEntity()).getX(), source.getEntity().getY(), source.getEntity().getZ());
-			playerPatch.playAnimationSynchronized(RIPOSTES.getFirst().get(), 0);
-			playerPatch.updateEntityState();
-		}
-	}
 
 	@Override
 	public void onInitiate(SkillContainer container)
 	{
-		associatedBasicAttack = SkillRegistry.IMPERATRICE_ATTACK;
+
 		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.ACTION_EVENT_SERVER, EVENT_UUID, event ->
 		{
-			if (!container.getExecuter().getSkill(SkillSlots.BASIC_ATTACK).hasSkill(SkillRegistry.IMPERATRICE_ATTACK))
+			if (!event.getPlayerPatch().getSkill(SkillSlots.BASIC_ATTACK).hasSkill(SkillRegistry.IMPERATRICE_ATTACK))
 			{
-				container.requestExecute((ServerPlayerPatch) container.getExecuter(), null);
+				container.requestExecute(event.getPlayerPatch(), null);
 			}
-		});
-
-		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.MOVEMENT_INPUT_EVENT, EVENT_UUID, event ->
-		{
-
 		});
 
 		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.ATTACK_ANIMATION_END_EVENT, EVENT_UUID, event ->
@@ -199,12 +174,18 @@ public class ImperatriceLumiere extends BattleStyle
 			executor.getSkillCapability().skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(SkillRegistry.IMPERATRICE_ATTACK);
 			EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.BASIC_ATTACK, SkillRegistry.IMPERATRICE_ATTACK.toString(), SPChangeSkill.State.ENABLE), executor.getOriginal());
 		}
+		if (!executor.getSkill(SkillSlots.AIR_ATTACK).hasSkill(SkillRegistry.IMPERATRICE_AERIALS))
+		{
+			executor.getSkillCapability().skillContainers[SkillSlots.AIR_ATTACK.universalOrdinal()].setSkill(SkillRegistry.IMPERATRICE_AERIALS);
+			EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.AIR_ATTACK, SkillRegistry.IMPERATRICE_AERIALS.toString(), SPChangeSkill.State.ENABLE), executor.getOriginal());
+		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	@Override
-	public boolean shouldDraw(SkillContainer container) {
-		return true;
+	public boolean shouldDraw(SkillContainer container)
+	{
+		return container.getExecuter().getHoldingItemCapability(InteractionHand.MAIN_HAND).getStyle(container.getExecuter()) == ImperatriceLumiereStyles.IMPERATRICE_SWORD;
 	}
 
 	private ResourceLocation UIFlareBurst(SkillContainer container)
@@ -235,28 +216,92 @@ public class ImperatriceLumiere extends BattleStyle
 	@Override
 	public void updateContainer(SkillContainer container)
 	{
-		super.updateContainer(container);
-		tick++;
+		tick += 1;
 
+		if (tick % 4 == 0)
+		{
+			if (!container.getExecuter().isLogicalClient() && container.getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) > 0)
+			{
+				container.getDataManager().setDataSync(EFBSDataKeys.HEAT.get(),
+						container.getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) - 1
+						, (ServerPlayer) container.getExecuter().getOriginal());
+			}
+		}
+
+		if (tick == 40)
+		{
+			if (!container.getExecuter().isLogicalClient() && container.getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()) && !container.getExecuter().getOriginal().isCreative())
+			{
+				if (container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).isDamageableItem())
+				{
+					if (container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof TieredItem tieredItem)
+					{
+						if (tieredItem.getTier() == Tiers.NETHERITE)
+						{
+							RandomSource rand = container.getExecuter().getOriginal().getRandom();
+							if (rand.nextInt(0, 5) == 0)
+							{
+								container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).setDamageValue(container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getDamageValue() + 1);
+								container.getExecuter().getOriginal().displayClientMessage(Component.translatable("text.epic_fight_battle_styles.item_melting_netherite"), true);
+							}
+						}
+						if (tieredItem.getTier() == Tiers.GOLD)
+						{
+							RandomSource rand = container.getExecuter().getOriginal().getRandom();
+							if (rand.nextInt(0, 10) == 0)
+							{
+								container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).setDamageValue(container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getDamageValue() + 1);
+							}
+						}
+						else
+						{
+							container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).setDamageValue(container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getDamageValue() + 1);
+						}
+					}
+					else
+					{
+						container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).setDamageValue(container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getDamageValue() + 1);
+					}
+
+					if (container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getDamageValue() >= container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getMaxDamage())
+					{
+
+						if (container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof TieredItem tieredItem)
+						{
+							if (tieredItem.getTier() == Tiers.WOOD)
+							{
+								container.getExecuter().playSound(SoundEvents.FIRE_EXTINGUISH, 0, 0);
+								container.getExecuter().getOriginal().displayClientMessage(Component.translatable("text.epic_fight_battle_styles.item_burn"), true);
+							}
+							else
+							{
+								container.getExecuter().playSound(SoundEvents.ITEM_BREAK, 0, 0);
+								container.getExecuter().getOriginal().displayClientMessage(Component.translatable("text.epic_fight_battle_styles.item_melt"), true);
+							}
+						}
+						else
+						{
+							container.getExecuter().playSound(SoundEvents.FIRE_EXTINGUISH, 0, 0);
+							container.getExecuter().getOriginal().displayClientMessage(Component.translatable("text.epic_fight_battle_styles.item_melt"), true);
+						}
+						container.getExecuter().getOriginal().getItemInHand(InteractionHand.MAIN_HAND).copyAndClear();
+					}
+				}
+			}
+			tick = 0;
+		}
 		if (container.getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()))
 			auraTick++;
 
-		if (tick == 4)
+		if (!container.getExecuter().isLogicalClient())
 		{
-			if (container.getDataManager().hasData(EFBSDataKeys.HEAT.get()) && container.getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) > 0)
+			if (ModList.get().isLoaded("wom"))
 			{
-				if (container.getExecuter() instanceof LocalPlayerPatch localPlayerPatch)
+				if (container.getExecuter().getSkill(SkillSlots.WEAPON_PASSIVE).getDataManager().hasData(WOMSkillDataKeys.HEAT_LEVEL.get()) && container.getExecuter().getSkill(SkillSlots.WEAPON_PASSIVE).getDataManager().getDataValue(WOMSkillDataKeys.HEAT_LEVEL.get()) != null && container.getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()))
 				{
-					container.getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), container.getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) - 1, localPlayerPatch.getOriginal());
+					container.getExecuter().getSkill(SkillSlots.WEAPON_PASSIVE).getDataManager().setDataSync(WOMSkillDataKeys.HEAT_LEVEL.get(), 100f, (ServerPlayer) container.getExecuter().getOriginal());
 				}
-				else if (container.getExecuter() instanceof ServerPlayerPatch serverPlayerPatch)
-				{
-					container.getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), container.getDataManager().getDataValue(EFBSDataKeys.HEAT.get()) - 1, serverPlayerPatch.getOriginal());
-
-				}
-
 			}
-			tick = 0;
 		}
 
 		if (auraTick >= 80)
@@ -280,8 +325,6 @@ public class ImperatriceLumiere extends BattleStyle
 				double z = container.getExecuter().getOriginal().getZ() + (random.nextDouble() - random.nextDouble());
 				container.getExecuter().getOriginal().level().addParticle(Minecraft.getInstance().getUser().getUuid().equals("42479ed5a8f04967bfb17500577896a6") ? ParticleTypes.FLAME : ParticleTypes.SOUL_FIRE_FLAME, x, y, z, (random.nextDouble() - random.nextDouble()) * 0.05, 0.15, (random.nextDouble() - random.nextDouble()) * 0.05);
 			}
-
-
 		}
 	}
 
@@ -316,14 +359,16 @@ public class ImperatriceLumiere extends BattleStyle
 	{
 		super.onRemoved(container);
 		container.getExecuter().getSkillCapability().skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.BASIC_ATTACK);
-		if (container.getExecuter() instanceof LocalPlayerPatch)
-		{
-			EpicFightNetworkManager.sendToServer(new CPChangeSkill(SkillSlots.BASIC_ATTACK.universalOrdinal(), -1, EpicFightSkills.BASIC_ATTACK.toString(), false));
-		}
-		else if (container.getExecuter() instanceof ServerPlayerPatch)
+		container.getExecuter().getSkillCapability().skillContainers[SkillSlots.AIR_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.AIR_ATTACK);
+
+		 if (!container.getExecuter().isLogicalClient())
 		{
 			EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.BASIC_ATTACK, EpicFightSkills.BASIC_ATTACK.toString(), SPChangeSkill.State.ENABLE), (ServerPlayer) container.getExecuter().getOriginal());
+			EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.AIR_ATTACK, EpicFightSkills.AIR_ATTACK.toString(), SPChangeSkill.State.ENABLE), (ServerPlayer) container.getExecuter().getOriginal());
+
 		}
+
+
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.ACTION_EVENT_SERVER, EVENT_UUID);
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.BASIC_ATTACK_EVENT, EVENT_UUID);
 		container.getExecuter().getEventListener().removeListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_ATTACK, EVENT_UUID);

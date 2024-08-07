@@ -3,7 +3,6 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.com
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.BattleStyle;
 import net.minecraft.nbt.CompoundTag;
-import reascer.wom.world.capabilities.item.WOMWeaponCategories;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;

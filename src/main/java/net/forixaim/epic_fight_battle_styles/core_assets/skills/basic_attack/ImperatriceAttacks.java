@@ -3,6 +3,7 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills.basic_attack;
 import com.google.common.collect.Lists;
 import com.mojang.logging.LogUtils;
 import io.netty.buffer.Unpooled;
+import net.forixaim.epic_fight_battle_styles.core_assets.animations.AnimationHelpers;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.capabilities.styles.ImperatriceLumiereStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
@@ -15,17 +16,20 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.PlayerRideableJumping;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import yesman.epicfight.api.animation.AnimationProvider;
 import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
+import yesman.epicfight.api.animation.types.EntityState;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.network.client.CPExecuteSkill;
 import yesman.epicfight.skill.*;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.entity.eventlistener.BasicAttackEvent;
@@ -81,6 +85,26 @@ public class ImperatriceAttacks extends BasicAttack
 		container.getDataManager().setData(EFBSDataKeys.CERCLE_DE_FEU.get(), comboResetEvent.getNextValue());
 	}
 
+	@Override
+	public boolean isExecutableState(PlayerPatch<?> executer)
+	{
+		EntityState playerState = executer.getEntityState();
+		Player player = (Player)executer.getOriginal();
+		if (executer.getAdvancedHoldingItemCapability(InteractionHand.MAIN_HAND).getStyle(executer) == ImperatriceLumiereStyles.IMPERATRICE_SWORD)
+		{
+			return !player.isSpectator() && !executer.isAirborneState() && !AnimationHelpers.isInAir(executer) && playerState.canBasicAttack();
+		}
+		return !(player.isSpectator() || executer.isInAir()|| !playerState.canBasicAttack());
+	}
+
+	@Override
+	public boolean canExecute(PlayerPatch<?> executor)
+	{
+		if (executor.getAdvancedHoldingItemCapability(InteractionHand.MAIN_HAND).getStyle(executor) == ImperatriceLumiereStyles.IMPERATRICE_SWORD)
+			return executor.getOriginal().onGround() && executor.getSkill(SkillSlots.WEAPON_INNATE).getDataManager().hasData(EFBSDataKeys.CHARGE_EXECUTING.get()) && !executor.getSkill(SkillSlots.WEAPON_INNATE).getDataManager().getDataValue(EFBSDataKeys.CHARGE_EXECUTING.get());
+		return super.canExecute(executor);
+	}
+
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public FriendlyByteBuf gatherArguments(LocalPlayerPatch executer, ControllEngine controllEngine)
@@ -126,6 +150,8 @@ public class ImperatriceAttacks extends BasicAttack
 	{
 		if (executer.getHoldingItemCapability(InteractionHand.MAIN_HAND).getStyle(executer).equals(ImperatriceLumiereStyles.IMPERATRICE_SWORD))
 		{
+			if (!executer.getOriginal().onGround())
+				return;
 			SkillConsumeEvent event = new SkillConsumeEvent(executer, this, this.resource);
 			executer.getEventListener().triggerEvents(PlayerEventListener.EventType.SKILL_CONSUME_EVENT, event);
 

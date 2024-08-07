@@ -22,14 +22,19 @@ public class Config
     public static final ForgeConfigSpec.BooleanValue TRIGGER_ANTI_CHEESE = BUILDER
             .comment("Whether to have Legendary Battle Styles instantly break the unfair armor anyone who wears it. (MekaSuit, Draconic Armor, ProjectE Armors, Infinity Armor, etc.)")
             .define("legendary_battle_style_can_puncture_invincibility", true);
+    public static final ForgeConfigSpec.BooleanValue UNCONDITIONAL_RIPOSTE = BUILDER
+            .comment("Whether to have Imperatrice Lumiere unconditionally riposte when executing a spot-dodge (Debug purposes only)")
+            .define("unconditional_riposte", true);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
+    public static boolean unconditionalRiposte;
     public static boolean triggerAntiCheese;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
         triggerAntiCheese = TRIGGER_ANTI_CHEESE.get();
+        unconditionalRiposte = UNCONDITIONAL_RIPOSTE.get();
     }
 }

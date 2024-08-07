@@ -2,14 +2,14 @@ package net.forixaim.epic_fight_battle_styles.core_assets.skills;
 
 import net.forixaim.epic_fight_battle_styles.EpicFightBattleStyles;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.FlareBurst;
-import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.ultimate_arts.ImperatriceUltimateArt;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.basic_attack.ImperatriceAttacks;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.common.advanced.Ronin;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
+import net.forixaim.epic_fight_battle_styles.core_assets.skills.dodge.Trailblaze;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.weaponinnate.BlazeStingerSkill;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillDataKey;
 
 public class EFBSDataKeys
@@ -26,6 +26,7 @@ public class EFBSDataKeys
     public static final RegistryObject<SkillDataKey<Boolean>> DOWN;
     public static final RegistryObject<SkillDataKey<Boolean>> IN_AIR;
     public static final RegistryObject<SkillDataKey<Boolean>> FLARE_BURST;
+    public static final RegistryObject<SkillDataKey<Boolean>> SPOT_DODGE;
     public static final RegistryObject<SkillDataKey<Boolean>> JAB;
     public static final RegistryObject<SkillDataKey<Integer>> CERCLE_DE_FEU;
     public static final RegistryObject<SkillDataKey<Boolean>> FTILT;
@@ -33,15 +34,25 @@ public class EFBSDataKeys
     public static final RegistryObject<SkillDataKey<Boolean>> ULTIMATE_ART_ACTIVE;
     public static final RegistryObject<SkillDataKey<Boolean>> ULTIMATE_ART_TRY_CONNECTED;
     public static final RegistryObject<SkillDataKey<Boolean>> ULTIMATE_ART_READY;
+    public static final RegistryObject<SkillDataKey<Boolean>> CHARGE_EXECUTING;
+    public static final RegistryObject<SkillDataKey<Boolean>> CHARGE_AERIAL;
+
+    public static final RegistryObject<SkillDataKey<Boolean>> BATTO_SHEATH;
 
     static
     {
         FTILT = DATA_KEYS.register("ftilt", () -> SkillDataKey.createBooleanKey(false, true, ImperatriceAttacks.class));
 
         HEAT_COOL_TICK = DATA_KEYS.register("imperatrice_cool_tick", () -> SkillDataKey.createIntKey(0, true, ImperatriceLumiere.class));
-
+        SPOT_DODGE = DATA_KEYS.register("spot_dodge", () -> SkillDataKey.createBooleanKey(false, true, Trailblaze.class));
         ULTIMATE_ART_ACTIVE = DATA_KEYS.register("ultimate_art_active", () -> SkillDataKey.createBooleanKey(false, true,
                 ImperatriceLumiere.class));
+
+        BATTO_SHEATH = DATA_KEYS.register("batto_sheath", () -> SkillDataKey.createBooleanKey(false, true, Ronin.class));
+
+        CHARGE_EXECUTING = DATA_KEYS.register("charge_executing", () -> SkillDataKey.createBooleanKey(false, true, BlazeStingerSkill.class));
+        CHARGE_AERIAL = DATA_KEYS.register("charge_aerial_used", () -> SkillDataKey.createBooleanKey(false, true, BlazeStingerSkill.class));
+
         ULTIMATE_ART_TRY_CONNECTED = DATA_KEYS.register("ultimate_art_try_connect", () -> SkillDataKey.createBooleanKey(false, true,
                 ImperatriceLumiere.class));
         ULTIMATE_ART_READY = DATA_KEYS.register("ultimate_art_ready", () -> SkillDataKey.createBooleanKey(false, true,

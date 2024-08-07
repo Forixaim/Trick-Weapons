@@ -5,9 +5,11 @@ import net.forixaim.epic_fight_battle_styles.core_assets.items.EpicFightBattleSt
 import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.legendary.house_lux.OriginArondight;
 import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.legendary.house_lux.OriginExcalibur;
 import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.legendary.imperatrice_lumiere.OriginJoyeuse;
+import net.forixaim.epic_fight_battle_styles.core_assets.items.weapons.normal.SabreItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,5 +26,12 @@ public class ItemRegistry
 	public static final RegistryObject<Item> ORIGIN_ARONDIGHT = ITEMS.register("origin_arondight", OriginArondight::new);
 	public static final RegistryObject<Item> ORIGIN_JOYEUSE = ITEMS.register("origin_joyeuse", OriginJoyeuse::new);
 	public static final RegistryObject<Item> BAGUETTE = ITEMS.register("baguette", () -> new LongswordItem(new Item.Properties().durability(0).defaultDurability(0).food(Foods.COOKED_BEEF), EpicFightBattleStylesTiers.BAGUETTE));
+
+	//Sabres
+	public static final RegistryObject<Item> IRON_SABRE = ITEMS.register("iron_sabre", () -> new SabreItem(Tiers.IRON, new Item.Properties()));
+	public static final RegistryObject<Item> GOLDEN_SABRE = ITEMS.register("golden_sabre", () -> new SabreItem(Tiers.GOLD, new Item.Properties()));
+	public static final RegistryObject<Item> DIAMOND_SABRE = ITEMS.register("diamond_sabre", () -> new SabreItem(Tiers.DIAMOND, new Item.Properties()));
+	public static final RegistryObject<Item> NETHERITE_SABRE = ITEMS.register("netherite_sabre", () -> new SabreItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
+
 
 }

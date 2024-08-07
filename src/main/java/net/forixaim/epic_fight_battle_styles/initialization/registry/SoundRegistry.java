@@ -35,6 +35,7 @@ public class SoundRegistry
 	public static final RegistryObject<SoundEvent> BURST_ART_READY = registerSound("battle_style.burst_art_ready");
 	public static final RegistryObject<SoundEvent> ULTIMATE_ART_EXECUTE = registerSound("battle_style.ultimate_art_execute");
 	public static final RegistryObject<SoundEvent> IMPERATRICE_FLASH = registerSound("battle_style.imperatrice_lumiere.flash");
+	public static final RegistryObject<SoundEvent> IMPERATRICE_SPOT_DODGE = registerSound("entity.weapon.imperatrice_spot_dodge");
 
 
 

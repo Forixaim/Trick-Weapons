@@ -60,19 +60,24 @@
     "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_punch_impact_m", "stream":true}]
   },
   "entity.combat.critical_hit": {
-    "categoru": "master",
+    "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.combat.critical_hit",
     "sounds":[{"name":"epic_fight_battle_styles:entity/combat/critical_hit", "stream":true}]
   },
   "entity.combat.nocheese": {
-    "categoru": "master",
+    "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.combat.nocheese",
     "sounds":[{"name":"epic_fight_battle_styles:entity/combat/nocheese", "stream":true}]
   },
   "entity.weapon.crit2": {
-    "categoru": "master",
+    "category": "master",
     "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.crit_2",
     "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/crit_2", "stream":true}]
+  },
+  "entity.weapon.imperatrice_spot_dodge": {
+    "category": "master",
+    "subtitle": "sounds.epic_fight_battle_styles.entity.weapon.imperatrice_spot_dodge",
+    "sounds":[{"name":"epic_fight_battle_styles:entity/weapon/imperatrice_spot_dodge", "stream":true}]
   },
   "entity.weapon.imperatrice_anti_cheese": {
     "category": "master",

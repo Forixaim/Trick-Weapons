@@ -1,6 +1,7 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills.weaponinnate;
 
 import io.netty.buffer.Unpooled;
+import net.forixaim.epic_fight_battle_styles.core_assets.animations.AnimationHelpers;
 import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
@@ -10,11 +11,13 @@ import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegist
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.Input;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -47,6 +50,8 @@ public class BlazeStingerSkill extends WeaponInnateSkill
 	private static final UUID EVENT_UUID = UUID.fromString("9ed5a11f-c7b2-4679-99db-0a4c8de2f5a3");
 	private static final AnimationProvider<AttackAnimation> NEUTRAL_SMASH = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_BLAZE_STINGER;
 	private static final AnimationProvider<AttackAnimation> DOWN_SMASH =  () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_DOWN_SMASH;
+	private static final AnimationProvider<AttackAnimation> NEUTRAL_AERIAL_SMASH = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_NEUTRAL_HEAVY_AERIAL;
+
 	private final AttackAnimationProvider[] heavyAttacks = {
 			() -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_BLAZE_STINGER //Standing
 
@@ -106,6 +111,20 @@ public class BlazeStingerSkill extends WeaponInnateSkill
 	public void onInitiate(SkillContainer container) {
 		super.onInitiate(container);
 
+		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.ATTACK_ANIMATION_END_EVENT, EVENT_UUID, event ->
+		{
+			if (event.getAnimation() == BattleAnimations.IMPERATRICE_SWORD_NEUTRAL_HEAVY_AERIAL || event.getAnimation() == BattleAnimations.IMPERATRICE_SWORD_BLAZE_STINGER || event.getAnimation() == BattleAnimations.IMPERATRICE_SWORD_DOWN_SMASH)
+				container.getDataManager().setDataSync(EFBSDataKeys.CHARGE_EXECUTING.get(), false, event.getPlayerPatch().getOriginal());
+		});
+
+		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.HURT_EVENT_PRE, EVENT_UUID, event ->
+		{
+			if (container.getDataManager().getDataValue(EFBSDataKeys.CHARGE_EXECUTING.get()))
+			{
+				container.getDataManager().setDataSync(EFBSDataKeys.CHARGE_EXECUTING.get(), false, event.getPlayerPatch().getOriginal());
+			}
+		});
+
 		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_HURT, EVENT_UUID, (event) -> {
 			if (event.getDamageSource().getAnimation() == BattleAnimations.IMPERATRICE_SWORD_DOWN_SMASH)
 			{
@@ -151,26 +170,67 @@ public class BlazeStingerSkill extends WeaponInnateSkill
 	@Override
 	public boolean canExecute(PlayerPatch<?> executor)
 	{
+		if (AnimationHelpers.isInAir(executor))
+		{
+			return executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get()) &&
+					!executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get()) &&
+					!executor.getSkill(this).getDataManager().getDataValue(EFBSDataKeys.CHARGE_EXECUTING.get()) && !executor.getSkill(this).getDataManager().getDataValue(EFBSDataKeys.CHARGE_AERIAL.get());
+		}
 		return executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get()) &&
-				!executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get());
+				!executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get()) &&
+				!executor.getSkill(this).getDataManager().getDataValue(EFBSDataKeys.CHARGE_EXECUTING.get());
 	}
 
 	@Override
 	public void executeOnServer(ServerPlayerPatch executor, FriendlyByteBuf args)
 	{
+		int fw = args.readInt();
+		int sw = args.readInt();
+
+		executor.getSkill(this).getDataManager().setDataSync(EFBSDataKeys.CHARGE_EXECUTING.get(), true, executor.getOriginal());
 
 		if (executor.getSkill(SkillSlots.BASIC_ATTACK).hasSkill(SkillRegistry.IMPERATRICE_ATTACK) && executor.getSkill(SkillSlots.BASIC_ATTACK).getDataManager().hasData(EFBSDataKeys.BLAZE_COMBO.get()))
 		{
 			executor.getSkill(SkillSlots.BASIC_ATTACK).getDataManager().setData(EFBSDataKeys.BLAZE_COMBO.get(), 0);
 		}
-		if (executor.getOriginal().isShiftKeyDown())
+		if (AnimationHelpers.isInAir(executor))
 		{
-			executor.playAnimationSynchronized(DOWN_SMASH.get(), 0);
+			executor.getSkill(this).getDataManager().setDataSync(EFBSDataKeys.CHARGE_AERIAL.get(), true, executor.getOriginal());
+			executor.playAnimationSynchronized(NEUTRAL_AERIAL_SMASH.get(), 0);
 		}
 		else
 		{
-			executor.playAnimationSynchronized(NEUTRAL_SMASH.get(), 0.0F);
+			if (executor.getOriginal().isShiftKeyDown())
+			{
+				executor.playAnimationSynchronized(DOWN_SMASH.get(), 0);
+			}
+			else
+			{
+				executor.playAnimationSynchronized(NEUTRAL_SMASH.get(), 0.0F);
+			}
 		}
+
 		super.executeOnServer(executor, args);
+	}
+
+	@Override
+	public void onRemoved(SkillContainer container)
+	{
+		PlayerEventListener eventListener = container.getExecuter().getEventListener();
+		eventListener.removeListener(PlayerEventListener.EventType.ATTACK_ANIMATION_END_EVENT, EVENT_UUID);
+		eventListener.removeListener(PlayerEventListener.EventType.HURT_EVENT_PRE, EVENT_UUID);
+		eventListener.removeListener(PlayerEventListener.EventType.DEALT_DAMAGE_EVENT_HURT, EVENT_UUID);
+	}
+
+	@Override
+	public void updateContainer(SkillContainer container)
+	{
+		if (!AnimationHelpers.isInAir(container.getExecuter()) && container.getDataManager().getDataValue(EFBSDataKeys.CHARGE_AERIAL.get()))
+		{
+			if (!container.getExecuter().isLogicalClient())
+			{
+				container.getDataManager().setDataSync(EFBSDataKeys.CHARGE_AERIAL.get(), false, (ServerPlayer) container.getExecuter().getOriginal());
+			}
+		}
 	}
 }

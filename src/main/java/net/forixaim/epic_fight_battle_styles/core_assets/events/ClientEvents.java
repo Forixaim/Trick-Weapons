@@ -16,7 +16,7 @@ public class ClientEvents
 	public static void onKeyRegister(RegisterKeyMappingsEvent event)
 	{
 		event.register(KeyBinds.USE_ART_1);
-		event.register(KeyBinds.USE_ART_2);
+		event.register(KeyBinds.USE_TAUNT);
 		event.register(KeyBinds.USE_BURST_ART);
 		event.register(KeyBinds.USE_ULTIMATE_ART);
 

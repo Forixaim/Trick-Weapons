@@ -86,4 +86,14 @@ versionRange="[20.1.8,)" #mandatory
 # AFTER - This mod is loaded AFTER the dependency
 ordering="AFTER"
 # Side this dependency is applied on - BOTH, CLIENT, or SERVER
-side="BOTH"# Here's another dependency
+side="BOTH"
+
+
+[[dependencies.${mod_id}]]
+modId="efm_ex" #mandatory
+mandatory=true #mandatory
+versionRange="[20.8.1,)" #mandatory
+ordering="AFTER"
+side="BOTH"
+
+

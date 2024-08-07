@@ -1,11 +1,15 @@
 package net.forixaim.epic_fight_battle_styles.core_assets.skills.dodge;
 
+import com.google.common.collect.Lists;
 import io.netty.buffer.Unpooled;
+import net.forixaim.epic_fight_battle_styles.Config;
+import net.forixaim.epic_fight_battle_styles.core_assets.animations.BattleAnimations;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.active.burst_arts.FlareBurst;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.battlestyle.legendary.ImperatriceLumiere;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SkillRegistry;
+import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.Input;
 import net.minecraft.client.player.LocalPlayer;
@@ -15,21 +19,34 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import yesman.epicfight.api.animation.AnimationProvider;
+import yesman.epicfight.api.animation.types.AttackAnimation;
+import yesman.epicfight.api.animation.types.DodgeAnimation;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
+import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.network.client.CPExecuteSkill;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
+import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.skill.dodge.DodgeSkill;
+import yesman.epicfight.world.capabilities.EpicFightCapabilities;
+import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
+import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
+import yesman.epicfight.world.damagesource.StunType;
 import yesman.epicfight.world.entity.eventlistener.ComboCounterHandleEvent;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Trailblaze extends DodgeSkill
 {
     private static final UUID EVENT_UUID = UUID.fromString("c1b3d7b3-f934-48b5-a03e-9a94ba1962a6");
+
+    private static final AnimationProvider<DodgeAnimation> SPOT_DODGE = () -> (DodgeAnimation) BattleAnimations.IMPERATRICE_TRAILBLAZE_SPOT;
+    private static final AnimationProvider<AttackAnimation> SPOT_DODGE_RIPOSTE = () -> (AttackAnimation) BattleAnimations.IMPERATRICE_SWORD_JAB3;
 
     public Trailblaze(DodgeSkill.Builder builder) {
         super(builder);
@@ -44,20 +61,36 @@ public class Trailblaze extends DodgeSkill
         });
         container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.DODGE_SUCCESS_EVENT, EVENT_UUID, event ->
         {
-            if (container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()))
+            if ((container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get())) || Config.unconditionalRiposte)
             {
-                if (container.getExecuter().getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getSkill() instanceof ImperatriceLumiere imperatriceLumiere)
+                if (event.getPlayerPatch().getOriginal().isInvisible())
                 {
-                    imperatriceLumiere.triggerIgnitionRiposte(container.getExecuter(), container.getSlot(), event.getDamageSource());
+                    event.getPlayerPatch().getOriginal().setInvisible(false);
+                }
+                if (container.getExecuter().getSkill(this).getDataManager().getDataValue(EFBSDataKeys.SPOT_DODGE.get()))
+                {
+                    if (event.getDamageSource().getEntity() instanceof LivingEntity attacker)
+                    {
+                        if (EpicFightCapabilities.getEntityPatch(attacker, LivingEntityPatch.class) != null)
+                        {
+                            event.getPlayerPatch().playSound(EpicFightSounds.NEUTRALIZE_MOBS.get(), 0, 0);
+                            EpicFightCapabilities.getEntityPatch(attacker, LivingEntityPatch.class).applyStun(StunType.HOLD, 1);
+                            event.getPlayerPatch().playAnimationSynchronized(SPOT_DODGE_RIPOSTE.get(), 0.2f);
+                        }
+                    }
+
                 }
             }
         });
     }
 
+
+
     @Override
     public boolean canExecute(PlayerPatch<?> executor) {
         return executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).hasSkill(SkillRegistry.IMPERATRICE_LUMIERE) &&
-                !executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get());
+                !executor.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.ULTIMATE_ART_ACTIVE.get()) &&
+                executor.getSkill(SkillSlots.WEAPON_INNATE).getDataManager().hasData(EFBSDataKeys.CHARGE_EXECUTING.get()) && !executor.getSkill(SkillSlots.WEAPON_INNATE).getDataManager().getDataValue(EFBSDataKeys.CHARGE_EXECUTING.get());
     }
 
     @Override
@@ -93,5 +126,20 @@ public class Trailblaze extends DodgeSkill
         packet.getBuffer().writeInt(animation);
         packet.getBuffer().writeFloat(degree);
         return packet;
+    }
+
+    @Override
+    public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args)
+    {
+        if (executer.getOriginal().isShiftKeyDown())
+        {
+            executer.getSkill(this).getDataManager().setDataSync(EFBSDataKeys.SPOT_DODGE.get(), true, executer.getOriginal());
+            executer.playAnimationSynchronized(SPOT_DODGE.get(), 0);
+        }
+        else
+        {
+            executer.getSkill(this).getDataManager().setDataSync(EFBSDataKeys.SPOT_DODGE.get(), false, executer.getOriginal());
+            super.executeOnServer(executer, args);
+        }
     }
 }

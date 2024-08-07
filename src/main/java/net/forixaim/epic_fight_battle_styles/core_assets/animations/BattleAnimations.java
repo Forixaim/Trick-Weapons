@@ -11,12 +11,19 @@ import net.forixaim.epic_fight_battle_styles.core_assets.skills.EFBSDataKeys;
 import net.forixaim.epic_fight_battle_styles.core_assets.skills.EpicFightBattleStyleSkillSlots;
 import net.forixaim.epic_fight_battle_styles.initialization.registry.SoundRegistry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import reascer.wom.gameasset.WOMSkills;
+import reascer.wom.skill.WOMSkillDataKeys;
+import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.animation.property.AnimationEvent;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.*;
@@ -27,6 +34,7 @@ import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerP
 import yesman.epicfight.gameasset.*;
 import yesman.epicfight.model.armature.HumanoidArmature;
 import yesman.epicfight.particle.EpicFightParticles;
+import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.damagesource.*;
@@ -47,10 +55,13 @@ public class BattleAnimations extends BattleStylesAnimation
 	//Imperatrice Lumiere Sword
 	public static StaticAnimation IMPERATRICE_JOYEUSE_DRAW;
 	public static StaticAnimation IMPERATRICE_SWORD_EN_GARDE;
+	public static StaticAnimation IMPERATRICE_SWORD_IDLE_FLAIR;
 	public static StaticAnimation IMPERATRICE_SWORD_CROUCH;
 	public static StaticAnimation IMPERATRICE_SWORD_CROUCH_WALK;
 	public static StaticAnimation IMPERATRICE_SWORD_WALK;
 	public static StaticAnimation IMPERATRICE_SWORD_RUN;
+	public static StaticAnimation IMPERATRICE_SWORD_JUMP;
+	//Imperatrice Attacks
 	public static StaticAnimation IMPERATRICE_SWORD_JAB1;
 	public static StaticAnimation IMPERATRICE_SWORD_JAB2;
 	public static StaticAnimation IMPERATRICE_SWORD_JAB3;
@@ -61,11 +72,12 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation IMPERATRICE_SWORD_RTILT;
 	public static StaticAnimation IMPERATRICE_SWORD_BTILT;
 	public static StaticAnimation IMPERATRICE_SWORD_LTILT;
-	public static StaticAnimation IMPERATRICE_SWORD_AERIAL;
+	public static StaticAnimation IMPERATRICE_SWORD_FORWARD_AERIAL;
 	public static StaticAnimation IMPERATRICE_SWORD_DASH_ATTACK;
 	public static StaticAnimation IMPERATRICE_SWORD_BLAZE_STINGER;
 	public static StaticAnimation IMPERATRICE_SWORD_CROUCH_LIGHT;
-	public static StaticAnimation IMPERATRICE_SWORD_DASH_RIPOSTE;
+	public static StaticAnimation IMPERATRICE_SWORD_NEUTRAL_AERIAL;
+	public static StaticAnimation IMPERATRICE_SWORD_NEUTRAL_HEAVY_AERIAL;
 	//Dash Attack
 	public static StaticAnimation IMPERATRICE_SWORD_INFERNAL_WHEEL;
 	//Trailblaze
@@ -73,6 +85,7 @@ public class BattleAnimations extends BattleStylesAnimation
 	public static StaticAnimation IMPERATRICE_TRAILBLAZE_LEFT;
 	public static StaticAnimation IMPERATRICE_TRAILBLAZE_RIGHT;
 	public static StaticAnimation IMPERATRICE_TRAILBLAZE_BACK;
+	public static StaticAnimation IMPERATRICE_TRAILBLAZE_SPOT;
 	//Combat Arts
 	public static StaticAnimation IMPERATRICE_BLAZE_BLASTER;
 	public static StaticAnimation IMPERATRICE_PROMINENCE_BLAZE;
@@ -122,18 +135,8 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE)
 				.addEvents(AnimationEvent.TimeStampedEvent.create(0.85f, Animations.ReusableSources.PLAY_SOUND, AnimationEvent.Side.SERVER).params(SoundEvents.BLAZE_SHOOT));
 		IMPERATRICE_SWORD_EN_GARDE = new StaticAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/idle", biped)
-				.addEvents(AnimationEvent.TimeStampedEvent.create(0.1f, ((livingEntityPatch, staticAnimation, objects) ->
-				{
-					Entity entity = livingEntityPatch.getOriginal();
-					if (livingEntityPatch instanceof PlayerPatch<?> playerPatch)
-					{
-						if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get()))
-						{
-							entity.level().addParticle(ParticleTypes.FLAME, entity.getX(), entity.getY() + 1, entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
-
-						}
-					}
-				}), AnimationEvent.Side.SERVER));
+				.addState(EntityState.CAN_BASIC_ATTACK, true);
+		IMPERATRICE_SWORD_JUMP = new StaticAnimation(false, "battle_style/legendary/imperatrice_lumiere/sword/movement/neutral_jump", biped);
 
 		IMPERATRICE_SWORD_CROUCH = new StaticAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/crouch", biped)
 				.addStateRemoveOld(EntityState.MOVEMENT_LOCKED, true);
@@ -142,7 +145,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1.5f);
 		IMPERATRICE_SWORD_RUN = new MovementAnimation(true, "battle_style/legendary/imperatrice_lumiere/sword/run", biped)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a,b,c,d,e) -> 1.5f);
-
+		IMPERATRICE_SWORD_IDLE_FLAIR = new StaticAnimation(false, "battle_style/legendary/imperatrice_lumiere/sword/idle_flair_1", biped);
 		IMPERATRICE_SWORD_JAB1 = new BasicAttackAnimation(0.05f, 0.25f, 0.4f, 0.5f, 1f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab1", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.25f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
@@ -151,7 +154,19 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(0.1f))
 				.addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
 				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) -> 2.2f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) ->
+				{
+					float baseSpd = 2.2f;
+					if (livingEntityPatch instanceof PlayerPatch<?> playerPatch)
+					{
+						if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get())))
+						{
+							return baseSpd * 1.1f;
+						}
+
+					}
+					return baseSpd;
+				})
 				.addState(EntityState.TURNING_LOCKED, true)
 				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true);
 		IMPERATRICE_SWORD_JAB2 = new BasicAttackAnimation(0.05f, 0.25f, 0.5f, 0.6f, 1f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab2", biped)
@@ -161,8 +176,19 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(0.1f))
 				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) -> 2.2f)
-				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) ->
+				{
+					float baseSpd = 2.2f;
+					if (livingEntityPatch instanceof PlayerPatch<?> playerPatch)
+					{
+						if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get())))
+						{
+							return baseSpd * 1.1f;
+						}
+
+					}
+					return baseSpd;
+				})				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
 				.addState(EntityState.TURNING_LOCKED, true);
 		IMPERATRICE_SWORD_JAB3 = new BasicAttackAnimation(0.05f, 0.05f, 0.5f, 0.75f, 2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab3", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.35f))
@@ -171,19 +197,19 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_M.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(4f))
 				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) -> 2.2f)
-				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
-				.addState(EntityState.TURNING_LOCKED, true);
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) ->
+				{
+					float baseSpd = 2.2f;
+					if (livingEntityPatch instanceof PlayerPatch<?> playerPatch)
+					{
+						if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get())))
+						{
+							return baseSpd * 1.1f;
+						}
 
-		IMPERATRICE_SWORD_DASH_RIPOSTE = new BasicAttackAnimation(0.05f, 0.05f, 0.5f, 0.75f, 2f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/jab3", biped)
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.35f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.NEUTRALIZE)
-				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING3.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_M.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(4f))
-				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) -> 2.2f)
-				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+					}
+					return baseSpd;
+				})				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
 				.addState(EntityState.TURNING_LOCKED, true);
 
 		IMPERATRICE_ULTIMATE_TRY = new AttackAnimation(0.05f, 0.0f, 0.85f, 1f, 5f, LumiereColliders.IMPERATRICE_ULTIMATE_TRY, biped.rootJoint, "battle_style/legendary/imperatrice_lumiere/sword/ultimate_arts/try", biped)
@@ -202,10 +228,31 @@ public class BattleAnimations extends BattleStylesAnimation
 				}, AnimationEvent.Side.CLIENT),
 						AnimationEvent.TimeStampedEvent.create(0.85f, AnimationHelpers.EXPLODE_DIRECTION, AnimationEvent.Side.CLIENT).params(5f, 4f));
 
+		IMPERATRICE_SWORD_NEUTRAL_HEAVY_AERIAL = new AttackAnimation(0.0f, "battle_style/legendary/imperatrice_lumiere/sword/neutral_heavy_aerial", biped,
+				new AttackAnimation.Phase(0.0f, 0.0f, 0.85f, 0.9f, 2f, 2f, biped.rootJoint, LumiereColliders.IMPERATRICE_FLAMING_ATMOSPHERE))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING3.get())
+				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_FINISHER.get())
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
+				.addProperty(AnimationProperty.AttackAnimationProperty.EXTRA_COLLIDERS, 2)
+				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true)
+				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_ON_LINK, false)
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
+				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 2f))
+				.addState(EntityState.TURNING_LOCKED, true)
+				.addState(EntityState.LOCKON_ROTATE, true)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e) -> 1.5f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addEvents(AnimationEvent.TimeStampedEvent.create(0.0f, ((livingEntityPatch, staticAnimation, objects) ->
+				{
+					livingEntityPatch.getOriginal().addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 2, 0, false, false, false));
+				}), AnimationEvent.Side.CLIENT));
+
 		IMPERATRICE_FLARE_BLADE_CLEAVE = new AttackAnimation(0f, 0f, 2.85f, 3f, 10f, LumiereColliders.IMPERATRICE_FLARE_BLADE_CLEAVE, biped.rootJoint, "battle_style/legendary/imperatrice_lumiere/sword/ultimate_arts/flare_blade_cleave", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.setter(500))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.NEUTRALIZE)
-				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(DamageTypeTags.IS_EXPLOSION))
+				.addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.BYPASS_DODGE, EpicFightDamageType.GUARD_PUNCTURE))
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_HEAVY_SWING.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_FINISHER.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(500f))
@@ -213,8 +260,7 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE)
 				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
 				.addState(EntityState.TURNING_LOCKED, true)
-				.addEvents(AnimationEvent.TimeStampedEvent.create(3.5f, AnimationHelpers.EXPLODE_DIRECTION, AnimationEvent.Side.CLIENT).params(20f, 10f));;
-
+				.addEvents(AnimationEvent.TimeStampedEvent.create(3.5f, AnimationHelpers.EXPLODE_DIRECTION, AnimationEvent.Side.CLIENT).params(20f, 10f));
 		IMPERATRICE_SWORD_DOWN_SMASH = new AttackAnimation(0.05f, 0.4f, 0.4f, 0.5f, 1.25f, LumiereColliders.IMPERATRICE_DOWN_SMASH, biped.rootJoint, "battle_style/legendary/imperatrice_lumiere/sword/down_smash", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.1f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
@@ -262,30 +308,42 @@ public class BattleAnimations extends BattleStylesAnimation
 								entity.level().addParticle(ParticleTypes.EXPLOSION_EMITTER, entity.getX(), entity.getY() + 1, entity.getZ(), Double.longBitsToDouble(entity.getId()), 0, 0);
 							if (entitypatch instanceof PlayerPatch<?> playerPatch && playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.HEAT.get()))
 							{
-								if (playerPatch instanceof LocalPlayerPatch localPlayerPatch)
+								if (!playerPatch.isLogicalClient())
 								{
-									localPlayerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), 1000, localPlayerPatch.getOriginal());
-									localPlayerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.FLARE_BURST.get(), true, localPlayerPatch.getOriginal());
-
-								}
-								else if (playerPatch instanceof ServerPlayerPatch serverPlayerPatch)
-								{
-									serverPlayerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), 1000, serverPlayerPatch.getOriginal());
-									serverPlayerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.FLARE_BURST.get(), true, serverPlayerPatch.getOriginal());
+									playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.HEAT.get(), 1000, (ServerPlayer) playerPatch.getOriginal());
+									playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().setDataSync(EFBSDataKeys.FLARE_BURST.get(), true, (ServerPlayer) playerPatch.getOriginal());
+									if (ModList.get().isLoaded("wom"))
+									{
+										if (playerPatch.getSkill(SkillSlots.WEAPON_PASSIVE).hasSkill(WOMSkills.SOLAR_PASSIVE))
+										{
+											playerPatch.getSkill(SkillSlots.WEAPON_PASSIVE).getDataManager().setDataSync(WOMSkillDataKeys.HEAT_LEVEL.get(), 100f, (ServerPlayer) playerPatch.getOriginal());
+										}
+									}
 								}
 							}
-						}, AnimationEvent.Side.CLIENT),
+						}, AnimationEvent.Side.SERVER),
 						AnimationEvent.TimeStampedEvent.create(1.05f, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.0F, -2.0F), Armatures.BIPED.legL, 4D, 3F));
 
-		IMPERATRICE_SWORD_CROUCH_LIGHT = new AttackAnimation(0.02f, 0.0f, 0.02f, 0.06f, 1.75f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/crouch_light", biped)
+		IMPERATRICE_SWORD_CROUCH_LIGHT = new AttackAnimation(0.02f, 0.0f, 0.7f, 0.8f, 1.75f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/crouch_light", biped)
 				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.3f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(1f))
 				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
-				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, Animations.ReusableSources.CONSTANT_ONE)
-				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) ->
+				{
+					float baseSpd = 4f;
+					if (livingEntityPatch instanceof PlayerPatch<?> playerPatch)
+					{
+						if (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().hasData(EFBSDataKeys.FLARE_BURST.get()) && (playerPatch.getSkill(EpicFightBattleStyleSkillSlots.BATTLE_STYLE).getDataManager().getDataValue(EFBSDataKeys.FLARE_BURST.get())))
+						{
+							return baseSpd * 1.1f;
+						}
+
+					}
+					return baseSpd;
+				})				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
 				.addState(EntityState.TURNING_LOCKED, true);
 
 		IMPERATRICE_SWORD_FTILT = new BasicAttackAnimation(0.1f, 0.0f, 0.01f, 0.03f, 0.27f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/forward_tilt", biped)
@@ -352,7 +410,7 @@ public class BattleAnimations extends BattleStylesAnimation
 
 		IMPERATRICE_SWORD_DASH_ATTACK = new AttackAnimation(0.2f, "battle_style/legendary/imperatrice_lumiere/sword/dash_attack", biped,
 				new AttackAnimation.Phase(0.0f, 0.0f, 0.2f, 0.4f, 0.8f, 0.8f, biped.rootJoint, LumiereColliders.DASH_LIGHT))
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.7f))
 				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
 				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING3.get())
 				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_M.get())
@@ -367,14 +425,62 @@ public class BattleAnimations extends BattleStylesAnimation
 				.addState(EntityState.LOCKON_ROTATE, true)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e) -> 1.5f)
 				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true);
-		IMPERATRICE_SWORD_AERIAL = new AttackAnimation(0.2f, 0.05f, 0.2f, 0.4f, 0.9f, null, biped.toolR, "battle_style/legendary/imperatrice_lumiere/sword/aerial", biped)
-				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.4f))
-				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
-				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING3.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_L.get())
-				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(5f))
+
+		IMPERATRICE_SWORD_NEUTRAL_AERIAL = new AttackAnimation(0.0f, "battle_style/legendary/imperatrice_lumiere/sword/neutral_aerial", biped,
+				new AttackAnimation.Phase(0.0f, 0.0f, 0.1f, 0.15f, 0.4f, 0.5f, biped.toolR, null),
+				new AttackAnimation.Phase(0.5f, 0.0f, 0.7f, 0.75f, 1.5f, 1.5f, biped.toolR, null))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.3f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get())
+				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.4f), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT, 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING2.get(), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get(), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(2f), 1)
+				.addProperty(AnimationProperty.AttackAnimationProperty.EXTRA_COLLIDERS, 2)
+				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
+				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_ON_LINK, false)
+				.addProperty(AnimationProperty.ActionAnimationProperty.CANCELABLE_MOVE, false)
+				.addState(EntityState.TURNING_LOCKED, true)
+				.addState(EntityState.LOCKON_ROTATE, true)
+				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e) -> 1.5f)
+				.addProperty(AnimationProperty.StaticAnimationProperty.FIXED_HEAD_ROTATION, true)
+				.addEvents(AnimationEvent.TimeStampedEvent.create(0.0f, ((livingEntityPatch, staticAnimation, objects) ->
+				{
+					livingEntityPatch.getOriginal().addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 2, 0, false, false, false));
+				}), AnimationEvent.Side.CLIENT))
+				.addEvents(AnimationProperty.StaticAnimationProperty.EVENTS, AnimationEvent.create((livingEntityPatch, staticAnimation, objects) ->
+				{
+					if (!AnimationHelpers.isInAir(livingEntityPatch))
+					{
+						livingEntityPatch.playAnimationSynchronized(livingEntityPatch.getHoldingItemCapability(InteractionHand.MAIN_HAND).getLivingMotionModifier(livingEntityPatch, InteractionHand.MAIN_HAND).get(LivingMotions.IDLE).get(), 0);
+					}
+				}, AnimationEvent.Side.CLIENT));
+
+		IMPERATRICE_SWORD_FORWARD_AERIAL = new AttackAnimation(0.2f, "battle_style/legendary/imperatrice_lumiere/sword/forward_aerial", biped,
+				new AttackAnimation.Phase(0.0f, 0.0f, 0.2f, 0.25f, 0.35f, 0.35f, biped.toolR, null),
+				new AttackAnimation.Phase(0.35f, 0.0f, 0.4f, 0.45f, 0.55f, 0.55f, biped.toolR, null),
+				new AttackAnimation.Phase(0.55f, 0.0f, 0.6f, 0.65f, 1.5f, 1.5f, biped.toolR, null))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.3f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get())
+				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get())
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(1f))
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.4f), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.HOLD, 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get(), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get(), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(1f), 1)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.5f), 2)
+				.addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG, 2)
+				.addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, SoundRegistry.IMPERATRICE_SWING1.get(), 2)
+				.addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, SoundRegistry.IMPERATRICE_HIT_S.get(), 2)
+				.addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.setter(1f), 2)
 				.addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
-				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.8f))
+				.addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
+				.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.0f, 0.55f))
 				.addState(EntityState.TURNING_LOCKED, true)
 				.addState(EntityState.LOCKON_ROTATE, true)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (a, b, c, d, e) -> 1.5f)
@@ -393,9 +499,14 @@ public class BattleAnimations extends BattleStylesAnimation
 
 		IMPERATRICE_PROMINENCE_BLAZE = new AttackAnimation(0.2f, 0.0f, 0.3f, 0.4f, 0.9f, null, biped.handL, "battle_style/legendary/imperatrice_lumiere/sword/combat_arts/prominence_blaze", biped);
 		//Trailblaze
-		IMPERATRICE_TRAILBLAZE_FWD = new DodgeAnimation(0.1F, 1F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_fwd", 0.6F, 1.65F, biped)
+		IMPERATRICE_TRAILBLAZE_FWD = new DodgeAnimation(0.1F, 0.8F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_fwd", 0.6F, 1.65F, biped)
 				.addState(EntityState.LOCKON_ROTATE, true)
 				.newTimePair(0.0F, 1F)
+				.addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
+				.addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false);
+		IMPERATRICE_TRAILBLAZE_SPOT = new DodgeAnimation(0.1F, 0.5F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_spot", 0.6F, 1.65F, biped)
+				.addState(EntityState.LOCKON_ROTATE, true)
+				.newTimePair(0.0F, 0.7F)
 				.addStateRemoveOld(EntityState.CAN_BASIC_ATTACK, false)
 				.addStateRemoveOld(EntityState.CAN_SKILL_EXECUTION, false);
 		IMPERATRICE_TRAILBLAZE_BACK = new DodgeAnimation(0.1F, 1F, "battle_style/legendary/imperatrice_lumiere/sword/skills/trailblaze_back", 0.6F, 1.65F, biped)
