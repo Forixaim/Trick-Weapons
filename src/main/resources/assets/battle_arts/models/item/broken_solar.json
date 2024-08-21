@@ -1,0 +1,53 @@
+{
+  "loader": "forge:separate_transforms",
+  "base":
+  {
+    "loader": "forge:obj",
+    "model": "battle_arts:models/item/obj/broken_solar.obj",
+    "flip-v": true,
+    "materialLibraryOverride": "solar.mtl",
+    "display":
+    {
+      "thirdperson_righthand":
+      {
+        "translation": [7.5, -9.5, 8.8],
+        "rotation": [90, 0, 0],
+        "scale": [1, 1, 1]
+      },
+      "firstperson_righthand":
+      {
+        "translation": [24,-20,-5],
+        "rotation": [85,0,0],
+        "scale": [1.0, 1.0, 1.0]
+      }
+    }
+  },
+  "perspectives":
+  {
+    "ground":
+    {
+      "parent": "item/generated",
+      "textures":
+      {
+        "layer0": "battle_arts:item/broken_solar"
+      }
+    },
+    "gui":
+    {
+      "parent": "item/generated",
+      "textures":
+      {
+        "layer0": "battle_arts:item/broken_solar"
+      },
+      "gui_light": "front"
+    },
+    "fixed":
+    {
+      "parent": "item/generated",
+      "textures":
+      {
+        "layer0": "battle_arts:item/broken_solar"
+      }
+    }
+  }
+}

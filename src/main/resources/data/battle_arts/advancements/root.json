@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "battle_arts:iron_sabre"
+    },
+    "title": {
+      "translate": "advancement.battle_arts.root"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.battle_arts.root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "minecraft:textures/block/anvil.png"
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

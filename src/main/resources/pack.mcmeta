@@ -1,7 +1,6 @@
 {
 	"pack": {
-		"description": "trick_weapons resources",
-		"pack_format": 15,
-		"forge:server_data_pack_format": 12
+		"description": "battle_arts resources",
+		"pack_format": 15
 	}
 }

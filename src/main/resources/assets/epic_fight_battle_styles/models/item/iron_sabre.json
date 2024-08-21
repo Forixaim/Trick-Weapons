@@ -1,7 +1,0 @@
-{
-  "parent": "epic_fight_battle_styles:item/sabre",
-  "textures": {
-    "layer0": "epic_fight_battle_styles:item/iron_sabre"
-  }
-
-}

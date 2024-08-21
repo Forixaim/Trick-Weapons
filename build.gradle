@@ -104,7 +104,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', mod_id
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '-mixin.config=mixins.epic_fight_battle_styles.json'
+            args '-mixin.config=mixins.battle_arts.json'
         }
 
         server {
@@ -112,7 +112,7 @@ minecraft {
             args '--nogui'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '-mixin.config=mixins.epic_fight_battle_styles.json'
+            args '-mixin.config=mixins.battle_arts.json'
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -175,7 +175,7 @@ dependencies {
     //Iron's Spells and Spellbooks and It's Dependencies
     runtimeOnly fg.deobf("curse.maven:caelus-308989:4581481")
     runtimeOnly fg.deobf("curse.maven:playeranimator-658587:4587214")
-    compileOnly fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_spells_version}")
+    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_spells_version}")
     runtimeOnly fg.deobf("curse.maven:curios-309927:5266541")
 
     // GeckoLib
@@ -188,7 +188,7 @@ dependencies {
     implementation fg.deobf("libs:EpicFight:20.8.3")
     implementation fg.deobf("libs:WeaponsOfMiracles:20.1.8.5")
     implementation fg.deobf("libs:EpicFightCE:20.8.1")
-    implementation fg.deobf("libs:EpicFightExCap:20.8.1")
+    implementation fg.deobf("libs:EpicFightExCap:20.8.4")
 
     //
     implementation fg.deobf("curse.maven:explosive-enhancement-reforged-1036246:5423875")
@@ -212,8 +212,8 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, "mixins.epic_fight_battle_styles.refmap.json"
-    config "mixins.epic_fight_battle_styles.json"
+    add sourceSets.main, "mixins.${mod_id}.refmap.json"
+    config "mixins.${mod_id}.json"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

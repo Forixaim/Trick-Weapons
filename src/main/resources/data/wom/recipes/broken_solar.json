@@ -1,0 +1,15 @@
+{
+"type": "minecraft:smithing_transform",
+	"base": {
+        "item": "battle_arts:broken_solar"
+    },
+    "addition": {
+        "item" : "minecraft:netherite_ingot"
+    },
+    "result": {
+        "item": "wom:solar"
+    },
+	"template": {
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
+}

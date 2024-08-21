@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "package": "net.forixaim.battle_arts.mixins",
+  "refmap": "mixins.battle_arts.refmap.json",
+  "mixins": [
+    "InvulnerabilityMixin"
+  ],
+  "client": [
+    "client_engine_extenders.MixinControlEngine",
+    "skills.MixinSkillManager"
+  ]
+}

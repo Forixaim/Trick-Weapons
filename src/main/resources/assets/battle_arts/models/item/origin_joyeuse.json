@@ -1,0 +1,65 @@
+{
+	"loader": "forge:separate_transforms",
+	"base":
+	{
+		"loader": "forge:obj",
+		"model": "battle_arts:models/item/obj/origin_joyeuse.obj",
+		"flip-v": true,
+		"display":
+		{
+			"thirdperson_righthand":
+			{
+				"translation": [4, -1, 4.5],
+				"rotation": [-0, 0, 0],
+				"scale": [0.475, 0.475, 0.475]
+			},
+			"firstperson_righthand":
+			{
+				"translation": [13,-6,-2],
+				"rotation": [-0,0,0],
+				"scale": [0.5, 0.5, 0.5]
+			},
+			"thirdperson_lefthand":
+			{
+				"translation": [-6.5, 6.0, 7.5],
+				"rotation": [-10, 0, 0],
+				"scale": [0.6, 0.6, 0.6]
+			},
+			"firstperson_lefthand":
+			{
+				"translation": [0,-6,-0],
+				"rotation": [75,0,0],
+				"scale": [0.6, 0.6, 0.6]
+			}
+		}
+	},
+	"perspectives":
+	{
+		"ground":
+		{
+			"parent": "item/generated",
+			"textures":
+			{
+				"layer0": "battle_arts:item/joyeuse"
+			}
+		},
+		"gui":
+		{
+			"parent": "item/generated",
+			"textures":
+			{
+				"layer0": "battle_arts:item/joyeuse"
+			},
+			"gui_light": "front"
+		},
+		"fixed":
+		{
+			"parent": "item/generated",
+			"textures":
+			{
+				"layer0": "battle_arts:item/origin_excalibur"
+			},
+			"gui_light": "front"
+		}
+	}
+}

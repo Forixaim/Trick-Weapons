@@ -1,0 +1,7 @@
+{
+  "parent": "battle_arts:item/sabre",
+  "textures": {
+    "layer0": "battle_arts:item/iron_sabre"
+  }
+
+}

@@ -1,0 +1,39 @@
+{
+  "parent": "battle_arts:root",
+  "criteria": {
+    "has_joyeuse": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "battle_arts:origin_joyeuse"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.battle_arts.joyeuse.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "items": "battle_arts:origin_joyeuse",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.battle_arts.joyeuse.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_joyeuse"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
