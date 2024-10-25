@@ -1,6 +1,6 @@
 package net.forixaim.battle_arts.core_assets.skills.battlestyle.common.advanced;
 
-import net.forixaim.battle_arts.core_assets.skills.battlestyle.BattleStyle;
+import net.forixaim.bs_api.battle_arts_skills.battle_style.BattleStyle;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -31,7 +31,7 @@ public class Duelist extends BattleStyle
 
 	}
 
-	public Duelist(Skill.Builder<? extends Skill> builder) {
+	public Duelist(Builder<? extends Skill> builder) {
 		super(builder);
 	}
 }

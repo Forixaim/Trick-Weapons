@@ -21,7 +21,7 @@ public class UchigatanaType extends CoreCapability
 	private void init()
 	{
 		this.provider
-				.addDefaultConditional(COMBO_PROVIDER_REGISTRY.add("default", CapabilityItem.Styles.TWO_HAND, false));
+				.addDefaultConditional(COMBO_PROVIDER_REGISTRY.add("default", CapabilityItem.Styles.TWO_HAND, false, null));
 		builder.initialSetup(
 						CapabilityItem.WeaponCategories.UCHIGATANA,
 						EpicFightSounds.WHOOSH.get(),

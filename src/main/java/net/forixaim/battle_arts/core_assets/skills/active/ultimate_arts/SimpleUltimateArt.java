@@ -1,9 +1,10 @@
 package net.forixaim.battle_arts.core_assets.skills.active.ultimate_arts;
 
 import com.google.common.collect.Lists;
-import net.forixaim.battle_arts.core_assets.skills.BattleArtsSkillCategories;
-import net.forixaim.battle_arts.core_assets.skills.active.ActiveSkill;
 import net.forixaim.battle_arts.core_assets.skills.active.burst_arts.SimpleBurstArt;
+import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillCategories;
+import net.forixaim.bs_api.battle_arts_skills.active.ActiveSkill;
+import net.forixaim.bs_api.battle_arts_skills.active.ultimate_arts.UltimateArt;
 import net.minecraft.network.FriendlyByteBuf;
 import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;
@@ -67,7 +68,7 @@ public class SimpleUltimateArt extends UltimateArt
     }
 
     @Override
-    public ActiveSkill registerPropertiesToAnimation() {
+    public UltimateArt registerPropertiesToAnimation() {
         AttackAnimation anim = this.attackAnimation.get();
 
         for (AttackAnimation.Phase phase : anim.phases) {

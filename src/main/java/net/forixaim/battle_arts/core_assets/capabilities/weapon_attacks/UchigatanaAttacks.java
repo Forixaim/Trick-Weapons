@@ -2,7 +2,7 @@ package net.forixaim.battle_arts.core_assets.capabilities.weapon_attacks;
 
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
-import net.forixaim.battle_arts.core_assets.skills.BattleArtsSkillSlots;
+import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillSlots;
 import net.forixaim.efm_ex.api.providers.ProviderConditionalType;
 import net.forixaim.efm_ex.capabilities.CoreCapability;
 import net.forixaim.efm_ex.capabilities.weapon_presets.attacks.MountedAttacks;
@@ -29,15 +29,18 @@ public class UchigatanaAttacks
 						BattleArtsSkillSlots.BATTLE_STYLE,
 						SkillRegistry.SAMURAI,
 						SamuraiStyles.SAMURAI_UCHIGATANA,
-						false
+						false,
+						null
 				));
-		UchigatanaType.getInstance().getStyleComboProviderRegistry().add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(
-			"samurai_battojutsu_sheath",
-			BattleArtsSkillSlots.BATTLE_STYLE,
-			BattleArtsDataKeys.BATTO_SHEATH.get(),
-			SamuraiStyles.SAMURAI_UCHIGATANA_SHEATHED,
-			false
-		));
+		UchigatanaType.getInstance().getStyleComboProviderRegistry()
+				.add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(
+						"samurai_battojutsu_sheath",
+						BattleArtsSkillSlots.BATTLE_STYLE,
+						BattleArtsDataKeys.BATTO_SHEATH.get(),
+						SamuraiStyles.SAMURAI_UCHIGATANA_SHEATHED,
+						false,
+						null
+			));
 
 		UchigatanaType.getInstance().getAttackCombinationRegistry().add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(CapabilityItem.Styles.TWO_HAND, default2H));
 		UchigatanaType.getInstance().getAttackCombinationRegistry().add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(SamuraiStyles.SAMURAI_UCHIGATANA, samuraiBattojutsu));

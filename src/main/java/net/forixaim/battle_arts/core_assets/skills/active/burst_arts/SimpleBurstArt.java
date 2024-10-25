@@ -1,7 +1,8 @@
 package net.forixaim.battle_arts.core_assets.skills.active.burst_arts;
 
 import com.google.common.collect.Lists;
-import net.forixaim.battle_arts.core_assets.skills.BattleArtsSkillCategories;
+import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillCategories;
+import net.forixaim.bs_api.battle_arts_skills.active.burst_arts.BurstArt;
 import net.minecraft.network.FriendlyByteBuf;
 import yesman.epicfight.api.animation.AttackAnimationProvider;
 import yesman.epicfight.api.animation.types.AttackAnimation;

@@ -1,7 +1,7 @@
 package net.forixaim.battle_arts.core_assets.skills.battlestyle.common.elite;
 
 import net.forixaim.battle_arts.core_assets.capabilities.BattleStyleCategories;
-import net.forixaim.battle_arts.core_assets.skills.battlestyle.BattleStyle;
+import net.forixaim.bs_api.battle_arts_skills.battle_style.BattleStyle;
 import net.minecraft.nbt.CompoundTag;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;

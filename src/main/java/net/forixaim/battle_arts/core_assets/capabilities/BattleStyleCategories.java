@@ -6,12 +6,7 @@ public enum BattleStyleCategories implements WeaponCategory
 {
 	CHAKRAM,
 	HAND_AXE,
-	BATTLE_AXE,
-	//Legendary Weapon Categories
-	ORIGIN_EXCALIBUR,
-	DERIVED_EXCALIBUR,
-	ORIGIN_JOYEUSE,
-	DERIVED_JOYEUSE;
+	BATTLE_AXE;
 	final int id;
 	BattleStyleCategories() {
 		this.id = WeaponCategory.ENUM_MANAGER.assign(this);

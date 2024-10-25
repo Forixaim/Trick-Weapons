@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.forixaim.battle_arts.EpicFightBattleArts;
 import net.forixaim.battle_arts.core_assets.capabilities.styles.SamuraiStyles;
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
-import net.forixaim.battle_arts.core_assets.skills.battlestyle.BattleStyle;
+import net.forixaim.bs_api.battle_arts_skills.battle_style.BattleStyle;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -88,9 +88,9 @@ public class Ronin extends BattleStyle
 
 		if (!executer.isLogicalClient())
 		{
-			if (container.getDataManager().getDataValue(SkillDataKeys.SHEATH.get())) {
+			if (container.getDataManager().getDataValue(BattleArtsDataKeys.BATTO_SHEATH.get())) {
 				ServerPlayerPatch playerpatch = (ServerPlayerPatch)executer;
-				container.getDataManager().setDataSync(SkillDataKeys.SHEATH.get(), false, playerpatch.getOriginal());
+				container.getDataManager().setDataSync(BattleArtsDataKeys.BATTO_SHEATH.get(), false, playerpatch.getOriginal());
 				playerpatch.modifyLivingMotionByCurrentItem();
 				container.getSkill().setConsumptionSynchronize(playerpatch, 0);
 			}

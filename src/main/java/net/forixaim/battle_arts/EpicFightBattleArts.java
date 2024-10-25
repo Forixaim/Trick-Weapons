@@ -4,8 +4,6 @@ package net.forixaim.battle_arts;
 import net.forixaim.battle_arts.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.battle_arts.core_assets.capabilities.WeaponTypeInjection;
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
-import net.forixaim.battle_arts.core_assets.skills.BattleArtsSkillSlots;
-import net.forixaim.battle_arts.core_assets.skills.BattleArtsSkillCategories;
 import net.forixaim.battle_arts.initialization.registry.AnimationRegistry;
 
 import net.forixaim.battle_arts.initialization.registry.EntityRegistry;
@@ -21,8 +19,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import yesman.epicfight.skill.SkillCategory;
-import yesman.epicfight.skill.SkillSlot;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 
@@ -40,8 +36,6 @@ public class EpicFightBattleArts
 	public EpicFightBattleArts()
 	{
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		SkillCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleArtsSkillCategories.class);
-		SkillSlot.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleArtsSkillSlots.class);
 		WeaponCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleStyleCategories.class);
 		modEventBus.addListener(this::commonSetup);
 		AnimationRegistry.RegisterAnimations();

@@ -79,6 +79,16 @@
     "subtitle": "sounds.battle_arts.entity.weapon.imperatrice_spot_dodge",
     "sounds":[{"name":"battle_arts:entity/weapon/imperatrice_spot_dodge", "stream":true}]
   },
+  "util.silence": {
+    "category": "master",
+    "subtitle": "sounds.battle_arts.util.silence",
+    "sounds":[{"name":"battle_arts:util/silence", "stream":true}]
+  },
+  "entity.combat.spike": {
+    "category": "master",
+    "subtitle": "sounds.battle_arts.entity.combat.spike",
+    "sounds":[{"name":"battle_arts:entity/combat/spike", "stream":true}]
+  },
   "entity.weapon.imperatrice_anti_cheese": {
     "category": "master",
     "subtitle": "sounds.battle_arts.entity.weapon.imperatrice_anti_cheese",

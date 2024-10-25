@@ -39,7 +39,7 @@
 	"origin.battle_arts.imperatrice_cosmonian.name": "Impératrice Lumiére",
 	"origin.origins.blazeborn.description": "The Flarian/Cosmonian hybrid that is the fabled Impératrice Lumiére. Immune to Fire.",
 
-	"key.category.battle_arts.efbs_skills": "Epic Fight Battle Styles",
+	"key.category.battle_arts.efbs_skills": "Battle Arts",
 	"skill.battle_arts.test_combat_art": "Test Combat Art",
 	"skill.battle_arts.test_combat_art.tooltip": "This art is meant to be tested and not actually used in game.",
 	"key.battle_arts.combat_art_1_use": "Use Combat Art 1",
@@ -71,6 +71,8 @@
 	"epicfight.skill_slot.burst_art": "Burst Art",
 	"epicfight.skill_slot.ultimate_art": "Ultimate Art",
 	"epicfight.style.imperatrice_sword": "House Flaron's Impératrice Lumiére Art",
+	"epicfight.style.forixaim_sword": "Charlemagne's Impératrice Lumiére Art",
+
 	"text.battle_arts.item_melt": "Your item melted due to overwhelming heat.",
 	"text.battle_arts.item_burn": "Your wooden item burned away from overwhelming heat.",
 	"text.battle_arts.item_melting_netherite": "Your netherite item is melting due to overwhelming heat despite being fire resistant.",

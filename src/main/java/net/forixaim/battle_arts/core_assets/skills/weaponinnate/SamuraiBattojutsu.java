@@ -1,7 +1,7 @@
 package net.forixaim.battle_arts.core_assets.skills.weaponinnate;
 
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
-import net.forixaim.battle_arts.core_assets.skills.BattleArtsSkillSlots;
+import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillSlots;
 import yesman.epicfight.skill.weaponinnate.ConditionalWeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 

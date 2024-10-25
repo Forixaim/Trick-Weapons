@@ -25,26 +25,8 @@ public class CreativeTabRegistry
 			.withTabsBefore(EpicFightCreativeTabs.ITEMS.getId()).hideTitle()
 			.withBackgroundLocation(new ResourceLocation(EpicFightBattleArts.MOD_ID, "textures/gui/battle_arts.png"))
 			.displayItems((params, output) -> {
-				ItemRegistry.ITEMS.getEntries().forEach(item -> {
-					if (item == ItemRegistry.ORIGIN_ARONDIGHT || item == ItemRegistry.ORIGIN_EXCALIBUR || item == ItemRegistry.PLACEHOLDER_CHAKRAM || item == ItemRegistry.ORIGIN_JOYEUSE)
-						return;
-					output.accept(item.get());
-				});
+				ItemRegistry.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
 			})
 			.build());
 
-	public static final RegistryObject<CreativeModeTab> VISITORS_OF_OMNERIA = CREATIVE_MODE_TABS.register("visitors_of_omneria", () -> CreativeModeTab.builder()
-			.title(Component.translatable("itemGroup.battle_arts.visitors_of_omneria").withStyle(ChatFormatting.DARK_PURPLE))
-			.icon(() -> new ItemStack(ItemRegistry.ORIGIN_JOYEUSE.get()))
-			.withTabsBefore(EpicFightCreativeTabs.ITEMS.getId()).hideTitle()
-			.withBackgroundLocation(new ResourceLocation(EpicFightBattleArts.MOD_ID, "textures/gui/visitors_of_omneria.png"))
-			.displayItems((params, output) -> {
-				ItemRegistry.ITEMS.getEntries().forEach(item -> {
-					if (item == ItemRegistry.ORIGIN_JOYEUSE)
-						output.accept(item.get());
-					if (item == ItemRegistry.ORIGIN_EXCALIBUR)
-						output.accept(item.get());
-				});
-			})
-			.build());
 }
