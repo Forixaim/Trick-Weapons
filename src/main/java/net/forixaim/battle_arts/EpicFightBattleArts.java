@@ -6,7 +6,6 @@ import net.forixaim.battle_arts.core_assets.capabilities.WeaponTypeInjection;
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
 import net.forixaim.battle_arts.initialization.registry.AnimationRegistry;
 
-import net.forixaim.battle_arts.initialization.registry.EntityRegistry;
 import net.forixaim.battle_arts.initialization.registry.SoundRegistry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,7 +40,6 @@ public class EpicFightBattleArts
 		AnimationRegistry.RegisterAnimations();
 		SoundRegistry.SOUNDS.register(modEventBus);
 		BLOCKS.register(modEventBus);
-        EntityRegistry.ENTITIES.register(modEventBus);
 		ITEMS.register(modEventBus);
 		CREATIVE_MODE_TABS.register(modEventBus);
 		BattleArtsDataKeys.DATA_KEYS.register(modEventBus);
