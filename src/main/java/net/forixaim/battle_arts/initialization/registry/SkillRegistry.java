@@ -3,6 +3,7 @@ package net.forixaim.battle_arts.initialization.registry;
 import net.forixaim.battle_arts.EpicFightBattleArts;
 
 import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.advanced.Ronin;
+import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.novice.NoviceBattleStyles;
 import net.forixaim.battle_arts.core_assets.skills.weaponinnate.SamuraiBattojutsu;
 import net.forixaim.bs_api.battle_arts_skills.battle_style.BattleStyle;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,12 +29,14 @@ public class SkillRegistry
 	public static Skill SAMURAI_BATTOJUTSU;
 	//Battle Styles
 	public static Skill SAMURAI;
-	public static Skill HOUSE_LUX_ARMS_MASTER;
+
 
 	@SubscribeEvent
 	public static void BuildSkillEvent(SkillBuildEvent OnBuild)
 	{
 		SkillBuildEvent.ModRegistryWorker registryWorker = OnBuild.createRegistryWorker(EpicFightBattleArts.MOD_ID);
+
+		NoviceBattleStyles.register(registryWorker);
 
 		SAMURAI = registryWorker.build("ronin", Ronin::new, BattleStyle.CreateBattleStyle().setResource(Skill.Resource.COOLDOWN).setCreativeTab(CreativeTabRegistry.MAIN_ITEMS.get()));
 

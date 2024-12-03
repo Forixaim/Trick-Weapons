@@ -7,7 +7,6 @@ import net.forixaim.battle_arts.EpicFightBattleArts;
 public class CameraAnimations
 {
 	private static final CameraRegistry REGISTRY = CameraRegistry.createRegistry(EpicFightBattleArts.MOD_ID);
-	public static CameraAnimation IMPERATRICE_ULTIMATE_ART;
 
 	public static void loadAnims()
 	{

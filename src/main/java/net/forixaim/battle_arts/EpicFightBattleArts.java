@@ -4,7 +4,6 @@ package net.forixaim.battle_arts;
 import net.forixaim.battle_arts.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.battle_arts.core_assets.capabilities.WeaponTypeInjection;
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
-import net.forixaim.battle_arts.initialization.registry.AnimationRegistry;
 
 import net.forixaim.battle_arts.initialization.registry.SoundRegistry;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,7 +36,6 @@ public class EpicFightBattleArts
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		WeaponCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleStyleCategories.class);
 		modEventBus.addListener(this::commonSetup);
-		AnimationRegistry.RegisterAnimations();
 		SoundRegistry.SOUNDS.register(modEventBus);
 		BLOCKS.register(modEventBus);
 		ITEMS.register(modEventBus);
