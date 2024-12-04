@@ -1,10 +1,7 @@
 package net.forixaim.battle_arts.core_assets.animations.battle_style.novice.squire;
 
 import yesman.epicfight.api.animation.property.AnimationProperty;
-import yesman.epicfight.api.animation.types.BasicAttackAnimation;
-import yesman.epicfight.api.animation.types.EntityState;
-import yesman.epicfight.api.animation.types.MovementAnimation;
-import yesman.epicfight.api.animation.types.StaticAnimation;
+import yesman.epicfight.api.animation.types.*;
 import yesman.epicfight.gameasset.Armatures;
 import yesman.epicfight.model.armature.HumanoidArmature;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -40,6 +37,7 @@ public class SquireSwordAnimations
 		SQUIRE_SWORD_AUTO_1 = new BasicAttackAnimation(0f, 0f, 0.35f, 0.5f, 0.7f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto1"), biped);
 		SQUIRE_SWORD_AUTO_2 = new BasicAttackAnimation(0f, 0f, 0.45f, 0.55f, 0.8f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto2"), biped);
 		SQUIRE_SWORD_AUTO_3 = new BasicAttackAnimation(0f, 0f, 0.45f, 0.55f, 1.0f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto3"), biped);
+		SQUIRE_SWORD_DASH_ATTACK = new DashAttackAnimation(0f, 0f, 0.1f, 0.4f, 1.0f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "dash_attack"), biped);
+		SQUIRE_SWORD_HOP_ATTACK = new AirSlashAnimation(0f, 0f, 0.25f, 0.4f, 1.0f, false, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "hop_attack"), biped);
 	}
-
 }

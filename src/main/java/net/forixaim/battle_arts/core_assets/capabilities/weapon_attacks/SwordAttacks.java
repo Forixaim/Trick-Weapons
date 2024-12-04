@@ -5,6 +5,7 @@ import net.forixaim.battle_arts.core_assets.animations.battle_style.novice.squir
 import net.forixaim.battle_arts.core_assets.capabilities.styles.battle_style.novice.SquireWieldStyles;
 import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.novice.NoviceBattleStyles;
 import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillSlots;
+import net.forixaim.efm_ex.api.providers.ProviderConditional;
 import net.forixaim.efm_ex.api.providers.ProviderConditionalType;
 import net.forixaim.efm_ex.capabilities.CoreCapability;
 import net.forixaim.efm_ex.capabilities.weapon_presets.types.SwordType;
@@ -17,17 +18,19 @@ import java.util.function.Function;
 
 public class SwordAttacks
 {
+	public static final ProviderConditional SQUIRE_SWORD_STYLE_CHECK = CoreCapability.COMBO_PROVIDER_REGISTRY.add(
+			"squire_sword_combo",
+			ProviderConditionalType.SKILL_EXISTENCE,
+			BattleArtsSkillSlots.BATTLE_STYLE,
+			NoviceBattleStyles.SQUIRE,
+			SquireWieldStyles.SQUIRE_SWORD,
+			false,
+			null
+	);
+
 	public static void loadAttacks()
 	{
-		SwordType.getInstance().getStyleComboProviderRegistry().add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(
-				"squire_sword_combo",
-				ProviderConditionalType.SKILL_EXISTENCE,
-				BattleArtsSkillSlots.BATTLE_STYLE,
-				NoviceBattleStyles.SQUIRE,
-				SquireWieldStyles.SQUIRE_SWORD,
-				false,
-				null
-		));
+		SwordType.getInstance().getStyleComboProviderRegistry().add(SQUIRE_SWORD_STYLE_CHECK);
 
 		SwordType.getInstance().getAttackCombinationRegistry().add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(
 				SquireWieldStyles.SQUIRE_SWORD, squireSwordCombo
@@ -45,8 +48,8 @@ public class SwordAttacks
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_1,
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_2,
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_3,
-				Animations.SWORD_DASH,
-				Animations.SWORD_AIR_SLASH
+				SquireSwordAnimations.SQUIRE_SWORD_DASH_ATTACK,
+				SquireSwordAnimations.SQUIRE_SWORD_HOP_ATTACK
 		);
 		return pair.getSecond();
 	};
