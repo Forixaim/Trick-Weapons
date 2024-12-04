@@ -185,11 +185,10 @@ dependencies {
 
 
     //Epic Fight and its addons
-    implementation fg.deobf("curse.maven:epic-fight-mod-405076:5655318")
-    implementation fg.deobf("libs:BattleArtsAPI:20.9.2.5")
-    implementation fg.deobf("libs:WeaponsOfMiracles:20.1.8.5")
-    implementation fg.deobf("libs:EpicFightCE:20.8.1")
-    implementation fg.deobf("libs:ExCap:20.9.1")
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:5856683")
+    implementation fg.deobf("curse.maven:battle-arts-api-1091499:5843316")
+    implementation fg.deobf("curse.maven:epic-fight-ex-capabilites-1074178:5843332")
+    runtimeOnly fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5872088")
 
     //
     implementation fg.deobf("curse.maven:explosive-enhancement-reforged-1036246:5423875")
@@ -198,10 +197,10 @@ dependencies {
     implementation fg.deobf("curse.maven:origins-forge-474438:5314209")
 
     //Anti Cheese
-    implementation fg.deobf("curse.maven:mekanism-268560:5395221")
+    compileOnly fg.deobf("curse.maven:mekanism-268560:5395221")
     compileOnly fg.deobf("curse.maven:draconic-evolution-223565:5524457")
-    compileOnly fg.deobf("curse.maven:brandons-core-231382:5422013")
     compileOnly fg.deobf("curse.maven:projecte-226410:4901949")
+    //implementation fg.deobf("libs:sword_soaring-forge1.20.1:1.11.7")
 
     //Runtime Dummy
     runtimeOnly fg.deobf("curse.maven:selene-499980:5546852")

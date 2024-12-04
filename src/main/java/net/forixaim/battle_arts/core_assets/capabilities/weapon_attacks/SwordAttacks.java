@@ -10,6 +10,7 @@ import net.forixaim.efm_ex.capabilities.CoreCapability;
 import net.forixaim.efm_ex.capabilities.weapon_presets.types.SwordType;
 import net.forixaim.efm_ex.capabilities.weaponcaps.EXWeaponCapability;
 import yesman.epicfight.api.animation.LivingMotions;
+import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
@@ -40,6 +41,13 @@ public class SwordAttacks
 		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.RUN, SquireSwordAnimations.SQUIRE_SWORD_RUN);
 		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.KNEEL, SquireSwordAnimations.SQUIRE_SWORD_CROUCH);
 		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.SNEAK, SquireSwordAnimations.SQUIRE_SWORD_CROUCH_WALK);
+		pair.getSecond().newStyleCombo(pair.getFirst(),
+				SquireSwordAnimations.SQUIRE_SWORD_AUTO_1,
+				SquireSwordAnimations.SQUIRE_SWORD_AUTO_2,
+				SquireSwordAnimations.SQUIRE_SWORD_AUTO_3,
+				Animations.SWORD_DASH,
+				Animations.SWORD_AIR_SLASH
+		);
 		return pair.getSecond();
 	};
 

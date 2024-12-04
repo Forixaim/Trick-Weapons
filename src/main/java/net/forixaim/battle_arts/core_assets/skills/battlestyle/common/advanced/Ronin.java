@@ -13,6 +13,7 @@ import yesman.epicfight.client.gui.BattleModeGui;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.network.EpicFightNetworkManager;
 import yesman.epicfight.network.server.SPPlayAnimation;
+import yesman.epicfight.skill.BattojutsuPassive;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.SkillDataKeys;
@@ -27,7 +28,6 @@ public class Ronin extends BattleStyle
 {
 	private static final UUID EVENT_UUID = UUID.fromString("55220562-9883-4a57-bd92-a6257127cb66");
 	private boolean weaponChecked = false;
-
 	public Ronin(Builder<? extends Skill> builder)
 	{
 		super(builder);
@@ -39,7 +39,7 @@ public class Ronin extends BattleStyle
 
 		container.getExecuter().getEventListener().addEventListener(PlayerEventListener.EventType.ACTION_EVENT_SERVER, EVENT_UUID, (event) -> {
 			container.getDataManager().setDataSync(BattleArtsDataKeys.BATTO_SHEATH.get(), false, event.getPlayerPatch().getOriginal());
-			event.getPlayerPatch().modifyLivingMotionByCurrentItem();
+			event.getPlayerPatch().modifyLivingMotionByCurrentItem(false);
 			container.getSkill().setConsumptionSynchronize(event.getPlayerPatch(), 0.0F);
 			container.getSkill().setStackSynchronize(event.getPlayerPatch(), 0);
 		});
@@ -91,7 +91,7 @@ public class Ronin extends BattleStyle
 			if (container.getDataManager().getDataValue(BattleArtsDataKeys.BATTO_SHEATH.get())) {
 				ServerPlayerPatch playerpatch = (ServerPlayerPatch)executer;
 				container.getDataManager().setDataSync(BattleArtsDataKeys.BATTO_SHEATH.get(), false, playerpatch.getOriginal());
-				playerpatch.modifyLivingMotionByCurrentItem();
+				playerpatch.modifyLivingMotionByCurrentItem(false);
 				container.getSkill().setConsumptionSynchronize(playerpatch, 0);
 			}
 		}
@@ -112,7 +112,7 @@ public class Ronin extends BattleStyle
 			{
 				ServerPlayer serverPlayer = (ServerPlayer) executer.getOriginal();
 				container.getDataManager().setDataSync(BattleArtsDataKeys.BATTO_SHEATH.get(), true, serverPlayer);
-				((ServerPlayerPatch)container.getExecuter()).modifyLivingMotionByCurrentItem();
+				((ServerPlayerPatch)container.getExecuter()).modifyLivingMotionByCurrentItem(false);
 				SPPlayAnimation msg3 = new SPPlayAnimation(Animations.BIPED_UCHIGATANA_SCRAP, serverPlayer.getId(), 0.0F);
 				EpicFightNetworkManager.sendToAllPlayerTrackingThisEntityWithSelf(msg3, serverPlayer);
 			}

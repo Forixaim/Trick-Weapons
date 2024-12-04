@@ -1,6 +1,7 @@
 package net.forixaim.battle_arts.core_assets.animations.battle_style.novice.squire;
 
 import yesman.epicfight.api.animation.property.AnimationProperty;
+import yesman.epicfight.api.animation.types.BasicAttackAnimation;
 import yesman.epicfight.api.animation.types.EntityState;
 import yesman.epicfight.api.animation.types.MovementAnimation;
 import yesman.epicfight.api.animation.types.StaticAnimation;
@@ -36,6 +37,9 @@ public class SquireSwordAnimations
 				.addState(EntityState.MOVEMENT_LOCKED, true);
 		SQUIRE_SWORD_CROUCH_WALK = new MovementAnimation(0.2f, true, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "crouch_walk"), biped)
 				.addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (dynamicAnimation, livingEntityPatch, v, v1, v2) -> 1f);
+		SQUIRE_SWORD_AUTO_1 = new BasicAttackAnimation(0f, 0f, 0.35f, 0.5f, 0.7f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto1"), biped);
+		SQUIRE_SWORD_AUTO_2 = new BasicAttackAnimation(0f, 0f, 0.45f, 0.55f, 0.8f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto2"), biped);
+		SQUIRE_SWORD_AUTO_3 = new BasicAttackAnimation(0f, 0f, 0.45f, 0.55f, 1.0f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto3"), biped);
 	}
 
 }

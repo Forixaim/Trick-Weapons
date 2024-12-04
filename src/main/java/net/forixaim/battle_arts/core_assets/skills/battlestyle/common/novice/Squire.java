@@ -13,8 +13,4 @@ public class Squire extends BattleStyle
 		proficiencySpecialization.add(Proficiencies.DAGGERS);
 		proficiencySpecialization.add(Proficiencies.RIDING);
 	}
-
-
-
-
 }
