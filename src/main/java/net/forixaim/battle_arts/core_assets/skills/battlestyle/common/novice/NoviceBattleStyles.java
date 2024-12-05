@@ -10,5 +10,6 @@ public class NoviceBattleStyles
 	public static void register(SkillBuildEvent.ModRegistryWorker worker)
 	{
 		SQUIRE = worker.build("squire", Squire::new, Squire.CreateBattleStyle());
+		Squire.RegisterInnates(worker);
 	}
 }

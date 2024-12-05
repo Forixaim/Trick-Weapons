@@ -2,7 +2,9 @@ package net.forixaim.battle_arts.core_assets.animations.battle_style.novice.squi
 
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.*;
+import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.gameasset.Armatures;
+import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.model.armature.HumanoidArmature;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 
@@ -22,6 +24,8 @@ public class SquireSwordAnimations
 	public static StaticAnimation SQUIRE_SWORD_DASH_ATTACK;
 	public static StaticAnimation SQUIRE_SWORD_HOP_ATTACK;
 
+	public static StaticAnimation SQUIRE_SWORD_HEAVY_BLOW;
+
 	public static void Build()
 	{
 		HumanoidArmature biped = Armatures.BIPED;
@@ -39,5 +43,8 @@ public class SquireSwordAnimations
 		SQUIRE_SWORD_AUTO_3 = new BasicAttackAnimation(0f, 0f, 0.45f, 0.55f, 1.0f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "auto3"), biped);
 		SQUIRE_SWORD_DASH_ATTACK = new DashAttackAnimation(0f, 0f, 0.1f, 0.4f, 1.0f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "dash_attack"), biped);
 		SQUIRE_SWORD_HOP_ATTACK = new AirSlashAnimation(0f, 0f, 0.25f, 0.4f, 1.0f, false, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "hop_attack"), biped);
+		SQUIRE_SWORD_HEAVY_BLOW = new AttackAnimation(0f, 0f, 2f, 2.2f, 3f, null, biped.toolR, SquireAnimations.squireAnimationPath(CapabilityItem.WeaponCategories.SWORD, "heavy_blow"), biped)
+				.addProperty(AnimationProperty.AttackAnimationProperty.ATTACK_SPEED_FACTOR, 0.2f)
+				.addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(1.5f));
 	}
 }

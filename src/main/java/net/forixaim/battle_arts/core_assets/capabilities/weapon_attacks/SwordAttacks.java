@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import net.forixaim.battle_arts.core_assets.animations.battle_style.novice.squire.SquireSwordAnimations;
 import net.forixaim.battle_arts.core_assets.capabilities.styles.battle_style.novice.SquireWieldStyles;
 import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.novice.NoviceBattleStyles;
+import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.novice.Squire;
 import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillSlots;
 import net.forixaim.efm_ex.api.providers.ProviderConditional;
 import net.forixaim.efm_ex.api.providers.ProviderConditionalType;
@@ -50,7 +51,7 @@ public class SwordAttacks
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_3,
 				SquireSwordAnimations.SQUIRE_SWORD_DASH_ATTACK,
 				SquireSwordAnimations.SQUIRE_SWORD_HOP_ATTACK
-		);
+		).innateSkill(pair.getFirst(), itemStack -> Squire.HEAVY_BLOW);
 		return pair.getSecond();
 	};
 
