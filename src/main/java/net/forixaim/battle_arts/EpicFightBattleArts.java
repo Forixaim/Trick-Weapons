@@ -5,6 +5,7 @@ import net.forixaim.battle_arts.core_assets.capabilities.BattleStyleCategories;
 import net.forixaim.battle_arts.core_assets.capabilities.WeaponTypeInjection;
 import net.forixaim.battle_arts.core_assets.skills.BattleArtsDataKeys;
 
+import net.forixaim.battle_arts.initialization.registry.CreativeTabRegistry;
 import net.forixaim.battle_arts.initialization.registry.SoundRegistry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import yesman.epicfight.main.EpicFightExtensions;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 
@@ -43,6 +45,8 @@ public class EpicFightBattleArts
 		BattleArtsDataKeys.DATA_KEYS.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+		ModLoadingContext.get().registerExtensionPoint(EpicFightExtensions.class, () ->
+				new EpicFightExtensions(CreativeTabRegistry.MAIN_ITEMS.get()));
 	}
 
 	private void commonSetup(final FMLCommonSetupEvent event)
