@@ -13,6 +13,8 @@ import net.forixaim.efm_ex.capabilities.weapon_presets.types.SwordType;
 import net.forixaim.efm_ex.capabilities.weaponcaps.EXWeaponCapability;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
+import yesman.epicfight.gameasset.EpicFightSkills;
+import yesman.epicfight.skill.guard.GuardSkill;
 import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
@@ -45,6 +47,16 @@ public class SwordAttacks
 		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.RUN, SquireSwordAnimations.SQUIRE_SWORD_RUN);
 		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.KNEEL, SquireSwordAnimations.SQUIRE_SWORD_CROUCH);
 		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.SNEAK, SquireSwordAnimations.SQUIRE_SWORD_CROUCH_WALK);
+		pair.getSecond().livingMotionModifier(pair.getFirst(), LivingMotions.BLOCK, SquireSwordAnimations.SQUIRE_SWORD_GUARD);
+		pair.getSecond().addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.GUARD, GuardSkill.BlockType.GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_HIT)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.GUARD, GuardSkill.BlockType.GUARD_BREAK, Animations.BIPED_COMMON_NEUTRALIZED)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.GUARD, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_1)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.GUARD, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_2)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_HIT)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.GUARD_BREAK, Animations.BIPED_COMMON_NEUTRALIZED)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_1)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_2);
+
 		pair.getSecond().newStyleCombo(pair.getFirst(),
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_1,
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_2,
