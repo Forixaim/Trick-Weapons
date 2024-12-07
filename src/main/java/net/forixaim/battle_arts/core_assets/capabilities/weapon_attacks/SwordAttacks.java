@@ -54,8 +54,8 @@ public class SwordAttacks
 				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.GUARD, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_2)
 				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_HIT)
 				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.GUARD_BREAK, Animations.BIPED_COMMON_NEUTRALIZED)
-				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_1)
-				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.ADVANCED_GUARD, SquireSwordAnimations.SQUIRE_SWORD_GUARD_PARRY_2);
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.ADVANCED_GUARD, Animations.LONGSWORD_GUARD_ACTIVE_HIT1)
+				.addGuardMotion(pair.getFirst(), (GuardSkill) EpicFightSkills.PARRYING, GuardSkill.BlockType.ADVANCED_GUARD, Animations.LONGSWORD_GUARD_ACTIVE_HIT2);
 
 		pair.getSecond().newStyleCombo(pair.getFirst(),
 				SquireSwordAnimations.SQUIRE_SWORD_AUTO_1,
