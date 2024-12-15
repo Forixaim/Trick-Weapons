@@ -14,5 +14,6 @@ public class NoviceBattleStyles
 		Squire.RegisterInnates(worker);
 
 		RECRUIT = worker.build("recruit", Recruit::new, Recruit.CreateBattleStyle());
+		Recruit.RegisterInnates(worker);
 	}
 }

@@ -3,7 +3,6 @@
 	"item.battle_arts.golden_sabre": "Golden Sabre",
 	"item.battle_arts.diamond_sabre": "Diamond Sabre",
 	"item.battle_arts.netherite_sabre": "Netherite Sabre",
-	"item.battle_arts.broken_solar": "Broken Solar",
 
 	"skill.battle_arts.hero": "Hero",
 	"skill.battle_arts.hero.tooltip": "The one with the sword and shield, increased attack speed with swords and axes. Reduced attack speed with everything else.",
@@ -12,8 +11,23 @@
 	"skill.battle_arts.duelist": "Duelist",
 	"skill.battle_arts.duelist.tooltip": "Not Yet Implemented",
 
+	"skill.battle_arts.squire": "Squire",
+	"skill.battle_arts.squire.tooltip": "A trainee of the swords, bows, daggers, and horseback riding. Quite a versatile class.",
+
+	"skill.battle_arts.recruit": "Recruit",
+	"skill.battle_arts.recruit.tooltip": "A upstart in spears, shields, armor, and crossbows. Focuses on withstanding damage and zoning enemies.",
+
+	"skill.battle_arts.iron_fortress": "Iron Fortress",
+	"skill.battle_arts.iron_fortress.tooltip": "A defensive art that activates automatically, negating the next 3 hits.",
+
 	"key.category.battle_arts.efbs_skills": "Battle Arts",
 	"skill.battle_arts.test_combat_art": "Test Combat Art",
 	"skill.battle_arts.test_combat_art.tooltip": "This art is meant to be tested and not actually used in game.",
-	"itemGroup.battle_arts.items": "Battle Arts: Items"
+	"itemGroup.battle_arts.items": "Battle Arts: Items",
+
+	"epicfight.style.squire_sword": "Squire's Sword Art",
+	"epicfight.style.squire_bow": "Squire's Bow Art",
+	"epicfight.style.squire_dagger": "Squire's Dagger Art",
+
+	"epicfight.style.recruit_spear": "Recruit's Spear Art"
 }

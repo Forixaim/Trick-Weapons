@@ -4,7 +4,7 @@ import yesman.epicfight.world.capabilities.item.Style;
 
 public enum RecruitWieldStyles implements Style
 {
-	SPEAR(false);
+	RECRUIT_SPEAR(false);
 
 	final boolean OffHandUse;
 	final int id;
