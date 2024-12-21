@@ -45,7 +45,7 @@ public class SpearAttacks
 				.livingMotionModifier(pair.getFirst(), LivingMotions.WALK, RecruitSpearAnimations.RECRUIT_SPEAR_WALK)
 				.livingMotionModifier(pair.getFirst(), LivingMotions.RUN, RecruitSpearAnimations.RECRUIT_SPEAR_RUN)
 				.livingMotionModifier(pair.getFirst(), LivingMotions.KNEEL, RecruitSpearAnimations.RECRUIT_SPEAR_CROUCH)
-				.newStyleCombo(pair.getFirst(), RecruitSpearAnimations.RECRUIT_SPEAR_STANDING_ATTACK, RecruitSpearAnimations.RECRUIT_SPEAR_STANDING_ATTACK_2, RecruitSpearAnimations.RECRUIT_SPEAR_DASH_ATTACK, Animations.SPEAR_TWOHAND_AIR_SLASH)
+				.newStyleCombo(pair.getFirst(), RecruitSpearAnimations.RECRUIT_SPEAR_STANDING_ATTACK, RecruitSpearAnimations.RECRUIT_SPEAR_STANDING_ATTACK_2, RecruitSpearAnimations.RECRUIT_SPEAR_DASH_ATTACK, RecruitSpearAnimations.RECRUIT_SPEAR_AERIAL_POKE)
 				.innateSkill(pair.getFirst(), (itemStack) -> Recruit.IRON_FORTRESS);
 		return pair.getSecond();
 	};

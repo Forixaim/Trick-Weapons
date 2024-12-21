@@ -4,15 +4,11 @@
 	"item.battle_arts.diamond_sabre": "Diamond Sabre",
 	"item.battle_arts.netherite_sabre": "Netherite Sabre",
 
-	"skill.battle_arts.hero": "Hero",
-	"skill.battle_arts.hero.tooltip": "The one with the sword and shield, increased attack speed with swords and axes. Reduced attack speed with everything else.",
-	"skill.battle_arts.precision_vertical": "Precision Vertical",
-	"skill.battle_arts.precision_vertical.tooltip": "Throw your chakram forward with devastating range in a precise area in front of you.",
-	"skill.battle_arts.duelist": "Duelist",
-	"skill.battle_arts.duelist.tooltip": "Not Yet Implemented",
-
 	"skill.battle_arts.squire": "Squire",
 	"skill.battle_arts.squire.tooltip": "A trainee of the swords, bows, daggers, and horseback riding. Quite a versatile class.",
+	"skill.battle_arts.squire_heavy_blow": "Leaping Whirlwind",
+	"skill.battle_arts.squire_heavy_blow.tooltip": "After a small wind up, leap forward with incredible speed, cleaving through anyone who gets caught.",
+
 
 	"skill.battle_arts.recruit": "Recruit",
 	"skill.battle_arts.recruit.tooltip": "A upstart in spears, shields, armor, and crossbows. Focuses on withstanding damage and zoning enemies.",
@@ -28,6 +24,5 @@
 	"epicfight.style.squire_sword": "Squire's Sword Art",
 	"epicfight.style.squire_bow": "Squire's Bow Art",
 	"epicfight.style.squire_dagger": "Squire's Dagger Art",
-
 	"epicfight.style.recruit_spear": "Recruit's Spear Art"
 }

@@ -1,27 +1,27 @@
 {
   "xp_requirement": 40,
+  "jump_boost_power": 0.2,
   "attribute_modifiers": [
     {
       "attribute": "epicfight:staminar",
-      "name": "demon",
+      "name": "recruit",
       "uuid": "3421b224-d2a4-482b-ad36-8a19b4aa0d25",
       "operation": "addition",
-      "amount": 3.0
+      "amount": 1.0
     },
     {
       "attribute": "minecraft:generic.attack_speed",
-      "name": "demon",
+      "name": "recruit",
       "uuid": "3421b224-d2a4-482b-ad36-8a19b4aa0d25",
-      "operation": "multiply_base",
+      "operation": "multiply_total",
       "amount": 0.1
     },
     {
       "attribute": "minecraft:generic.max_health",
-      "name": "demon",
+      "name": "recruit",
       "uuid": "3421b224-d2a4-482b-ad36-8a19b4aa0d25",
-      "operation": "multiply_base",
-      "amount": -0.2
+      "operation": "multiply_total",
+      "amount": 1
     }
-  ],
-  "consumption": 5.0
+  ]
 }

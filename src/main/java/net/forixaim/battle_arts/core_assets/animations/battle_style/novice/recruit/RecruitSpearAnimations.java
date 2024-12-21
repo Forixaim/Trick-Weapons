@@ -13,7 +13,8 @@ public class RecruitSpearAnimations
 	public static StaticAnimation RECRUIT_SPEAR_CROUCH;
 	public static StaticAnimation RECRUIT_SPEAR_STANDING_ATTACK;
 	public static StaticAnimation RECRUIT_SPEAR_STANDING_ATTACK_2;
-	public static AttackAnimation RECRUIT_SPEAR_DASH_ATTACK;
+	public static StaticAnimation RECRUIT_SPEAR_DASH_ATTACK;
+	public static StaticAnimation RECRUIT_SPEAR_AERIAL_POKE;
 
 
 	public static void Build()
@@ -26,5 +27,7 @@ public class RecruitSpearAnimations
 		RECRUIT_SPEAR_STANDING_ATTACK = new BasicAttackAnimation(0.2f, 0.0f, 0.35f, 0.5f, 0.75f, null, biped.toolR, RecruitAnimations.recruitAnimationPath(CapabilityItem.WeaponCategories.SPEAR, "standing_attack"), biped);
 		RECRUIT_SPEAR_STANDING_ATTACK_2 = new BasicAttackAnimation(0.0f, 0.0f, 0.55f, 0.8f, 1.5f, null, biped.toolR, RecruitAnimations.recruitAnimationPath(CapabilityItem.WeaponCategories.SPEAR, "standing_attack2"), biped);
 		RECRUIT_SPEAR_DASH_ATTACK = new DashAttackAnimation(0.0f, 0.0f, 0.7f, 0.8f, 1.7f, null, biped.toolR, RecruitAnimations.recruitAnimationPath(CapabilityItem.WeaponCategories.SPEAR, "dash_attack"), biped);
+		RECRUIT_SPEAR_AERIAL_POKE = new AirSlashAnimation(0.0f, 0.0f, 0.7f, 0.8f, 1.7f, false,null, biped.toolR, RecruitAnimations.recruitAnimationPath(CapabilityItem.WeaponCategories.SPEAR, "aerial_poke"), biped);
+
 	}
 }

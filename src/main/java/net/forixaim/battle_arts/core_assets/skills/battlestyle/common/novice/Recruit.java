@@ -23,13 +23,15 @@ public class Recruit extends BattleStyle
 	public Recruit(Builder<?> builder)
 	{
 		super(builder);
+		innateInactiveColor = new float[]{0.271f, 0.212f, 0.133f};
+		innateSkillColor = new float[]{1f, 0.561f, 0f};
 		proficiencySpecialization.add(Proficiencies.POLEARMS);
 	}
 
 
 	public static void RegisterInnates(SkillBuildEvent.ModRegistryWorker worker)
 	{
-		IRON_FORTRESS = worker.build("iron_fortress", IronFortress::new, IronFortress.createWeaponInnateBuilder()).newProperty();
+		IRON_FORTRESS = worker.build("iron_fortress", IronFortress::new, IronFortress.createWeaponInnateBuilder().setActivateType(ActivateType.DURATION)).newProperty();
 	}
 
 	@Override

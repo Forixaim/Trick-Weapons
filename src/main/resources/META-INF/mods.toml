@@ -53,7 +53,7 @@ side="BOTH"
 [[dependencies."${mod_id}"]]
 modId="battlearts_api"
 mandatory=true
-versionRange="[20.9,)"
+versionRange="[20.9.5,)"
 ordering="AFTER"
 side="BOTH"
 

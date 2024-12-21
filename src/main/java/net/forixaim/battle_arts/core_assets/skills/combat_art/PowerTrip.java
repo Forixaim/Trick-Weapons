@@ -4,7 +4,6 @@ import net.forixaim.bs_api.battle_arts_skills.active.combat_arts.CombatArt;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.InteractionHand;
 import yesman.epicfight.api.animation.AnimationProvider;
-import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
