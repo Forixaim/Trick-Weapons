@@ -156,6 +156,7 @@ dependencies {
 
     //
     implementation fg.deobf("curse.maven:explosive-enhancement-reforged-1036246:5423875")
+    implementation fg.deobf("curse.maven:aaa-particles-979809:6015887")
 
     //Origins compatibility
     implementation fg.deobf("curse.maven:origins-forge-474438:5314209")

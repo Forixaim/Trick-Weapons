@@ -3,14 +3,14 @@
 	{
 		"one_hand":
 		{
-			"armor_negation":12.0,
-			"impact":2.3,
+			"armor_negation":25.0,
+			"impact":2.9,
 			"max_strikes":1
 		},
 		"two_hand":
 		{
-			"armor_negation":0.0,
-			"impact":1.6,
+			"armor_negation":10.0,
+			"impact":2.4,
 			"max_strikes":3
 		}
 	},

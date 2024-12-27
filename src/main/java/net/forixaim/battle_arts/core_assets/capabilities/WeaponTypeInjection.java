@@ -11,7 +11,6 @@ public class WeaponTypeInjection
 		SwordAttacks.loadAttacks();
 		SpearAttacks.loadAttacks();
 		LongswordAttacks.loadAttacks();
-		GreatswordAttacks.loadAttacks();
 	}
 
 }
