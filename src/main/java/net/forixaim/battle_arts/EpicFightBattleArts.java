@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import yesman.epicfight.main.EpicFightExtensions;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
@@ -47,9 +48,9 @@ public class EpicFightBattleArts
 				new EpicFightExtensions(CreativeTabRegistry.MAIN_ITEMS.get()));
 	}
 
-	private void commonSetup(final FMLCommonSetupEvent event)
+	private void commonSetup(final FMLLoadCompleteEvent event)
 	{
-		WeaponTypeInjection.inject();
+		event.enqueueWork(WeaponTypeInjection::inject);
 	}
 
 	@SubscribeEvent

@@ -3,6 +3,7 @@ package net.forixaim.battle_arts.core_assets.capabilities.weapon_attacks;
 import com.mojang.datafixers.util.Pair;
 import net.forixaim.battle_arts.core_assets.animations.battle_style.novice.recruit.RecruitSpearAnimations;
 import net.forixaim.battle_arts.core_assets.capabilities.styles.battle_style.novice.RecruitWieldStyles;
+import net.forixaim.battle_arts.core_assets.capabilities.weapon_attacks.movesets.novice.recruit.RecruitMoveSets;
 import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.novice.NoviceBattleStyles;
 import net.forixaim.battle_arts.core_assets.skills.battlestyle.common.novice.Recruit;
 import net.forixaim.bs_api.battle_arts_skills.BattleArtsSkillSlots;
@@ -17,24 +18,16 @@ import yesman.epicfight.world.capabilities.item.Style;
 
 import java.util.function.Function;
 
+import static net.forixaim.battle_arts.core_assets.capabilities.weapon_attacks.providers.novice.RecruitProviders.RECRUIT_SPEAR_CHECK;
+
 public class SpearAttacks
 {
-	public static final ProviderConditional RECRUIT_SPEAR_CHECK = CoreCapability.COMBO_PROVIDER_REGISTRY.add(
-			"recruit_spear_combo",
-			ProviderConditionalType.SKILL_EXISTENCE,
-			BattleArtsSkillSlots.BATTLE_STYLE,
-			NoviceBattleStyles.RECRUIT,
-			RecruitWieldStyles.RECRUIT_SPEAR,
-			false,
-			null
-	);
+
 
 	public static void loadAttacks()
 	{
 		SpearType.getInstance().getStyleComboProviderRegistry().add(RECRUIT_SPEAR_CHECK);
-		SpearType.getInstance().getAttackCombinationRegistry().add(CoreCapability.COMBO_PROVIDER_REGISTRY.add(
-				RecruitWieldStyles.RECRUIT_SPEAR, recruitSpearCombo
-		));
+		SpearType.getInstance().getAttackSets().put(RecruitWieldStyles.RECRUIT_SPEAR, RecruitMoveSets.RECRUIT_MOVESET);
 	}
 
 	public static final Function<Pair<Style, EXWeaponCapability.Builder>, EXWeaponCapability.Builder> recruitSpearCombo = (pair) ->

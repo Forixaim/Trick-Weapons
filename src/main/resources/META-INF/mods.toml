@@ -46,7 +46,7 @@ side="BOTH"
 [[dependencies."${mod_id}"]]
 modId="efm_ex"
 mandatory=true
-versionRange="[20.9.4.5,)"
+versionRange="[20.9.6,)"
 ordering="AFTER"
 side="BOTH"
 

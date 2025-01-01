@@ -7,7 +7,6 @@ public class WeaponTypeInjection
 
 	public static void inject()
 	{
-		UchigatanaAttacks.inject();
 		SwordAttacks.loadAttacks();
 		SpearAttacks.loadAttacks();
 		LongswordAttacks.loadAttacks();
