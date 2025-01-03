@@ -37,7 +37,6 @@ public class EpicFightBattleArts
 	{
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		WeaponCategory.ENUM_MANAGER.registerEnumCls(MOD_ID, BattleStyleCategories.class);
-		modEventBus.addListener(this::commonSetup);
 		BLOCKS.register(modEventBus);
 		ITEMS.register(modEventBus);
 		CREATIVE_MODE_TABS.register(modEventBus);
@@ -46,11 +45,6 @@ public class EpicFightBattleArts
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 		ModLoadingContext.get().registerExtensionPoint(EpicFightExtensions.class, () ->
 				new EpicFightExtensions(CreativeTabRegistry.MAIN_ITEMS.get()));
-	}
-
-	private void commonSetup(final FMLLoadCompleteEvent event)
-	{
-		event.enqueueWork(WeaponTypeInjection::inject);
 	}
 
 	@SubscribeEvent
