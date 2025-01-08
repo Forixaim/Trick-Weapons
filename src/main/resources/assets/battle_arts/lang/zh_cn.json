@@ -1,0 +1,27 @@
+{
+  "item.battle_arts.iron_sabre": "铁弯刀",
+  "item.battle_arts.golden_sabre": "金弯刀",
+  "item.battle_arts.diamond_sabre": "钻石弯刀",
+  "item.battle_arts.netherite_sabre": "下界合金弯刀",
+
+  "skill.battle_arts.squire": "侍从",
+  "skill.battle_arts.squire.tooltip": "同时精通剑、弓、匕首和骑术，一个相当多才多艺的职业。",
+  "skill.battle_arts.squire_heavy_blow": "跳跃旋风",
+  "skill.battle_arts.squire_heavy_blow.tooltip": "经过短暂的蓄力后，以惊人的速度向前跳跃，斩击任何被卷入其中的人。",
+
+  "skill.battle_arts.recruit": "新兵",
+  "skill.battle_arts.recruit.tooltip": "一个精通矛、盾、盔甲和弩方面，专注于承受伤害和限制敌人的职业。",
+
+  "skill.battle_arts.iron_fortress": "钢铁壁垒",
+  "skill.battle_arts.iron_fortress.tooltip": "一种自动激活的防御技能，抵消接下来的3次攻击。",
+
+  "key.category.battle_arts.efbs_skills": "战斗艺术",
+  "skill.battle_arts.test_combat_art": "测试战斗艺术",
+  "skill.battle_arts.test_combat_art.tooltip": "这种艺术是为了测试而设计的，不应在实际游戏中使用。",
+  "itemGroup.battle_arts.items": "战斗艺术：物品",
+
+  "epicfight.style.squire_sword": "侍从的剑术",
+  "epicfight.style.squire_bow": "侍从的弓术",
+  "epicfight.style.squire_dagger": "侍从的匕首术",
+  "epicfight.style.recruit_spear": "新兵的矛术"
+}
